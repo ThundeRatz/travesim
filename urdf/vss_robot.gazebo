@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<robot>
+
+    <!-- Corpo -->
+    <gazebo reference="Corpo">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+    <!-- Roda Direita -->
+    <gazebo reference="RodaDir">
+        <material>Gazebo/Orange</material>
+    </gazebo>
+
+    <!-- Roda Esquerda -->
+    <gazebo reference="RodaEsq">
+        <material>Gazebo/Orange</material>
+    </gazebo>
+
+</robot>
