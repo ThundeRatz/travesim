@@ -1,0 +1,30 @@
+<launch>
+
+  <!-- Load robot model -->
+  <arg name="model" default="$(find vss_robot)/urdf/vss_robot.xacro"/>
+
+  <!-- Load gazebo simulation -->
+  <include file="$(find vss_robot)/launch/gazebo.launch">
+    <arg name="model" value="$(arg model)" />
+  </include>
+
+  <!-- Load configs to publish the state of all joints -->
+  <rosparam command="load"
+            file="$(find vss_robot)/config/joints.yaml"
+            ns="vss_robot_joint_state_controller" />
+
+  <!-- Load configs to control robot motors -->
+  <rosparam command="load"
+          file="$(find vss_robot)/config/diffdrive.yaml"
+          ns="vss_robot_diff_drive_controller" />
+
+  <node name="vss_robot_controller_spawner" pkg="controller_manager" type="spawner"
+    args="vss_robot_joint_state_controller
+          vss_robot_diff_drive_controller "/>
+
+  <!-- Display controllers to user -->
+  <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
+    <param name="default_topic" value="/vss_robot_diff_drive_controller/cmd_vel"/>
+  </node>
+
+</launch>

@@ -10,7 +10,7 @@ https://github.com/ros/urdf_sim_tutorial -->
   <arg name="headless" default="false"/>
 
   <arg name="model" default="$(find vss_robot)/urdf/vss_robot.xacro"/>
-  <arg name="height" default="1.0"/>
+  <arg name="height" default="0.080"/>
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch" >
     <arg name="debug" value="$(arg debug)" />
@@ -20,6 +20,7 @@ https://github.com/ros/urdf_sim_tutorial -->
     <arg name="headless" value="$(arg headless)"/>
   </include>
 
+  <!-- Load tf basic node for reference frame control -->
   <node
     name="tf_footprint_base"
     pkg="tf"
@@ -30,7 +31,7 @@ https://github.com/ros/urdf_sim_tutorial -->
 
   <!-- push robot_description to factory and spawn robot in gazebo -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
-        args="-z $(arg height) -unpause -urdf -model robot -param robot_description"
+        args="-z $(arg height) -urdf -model robot -param robot_description"
         respawn="false" output="screen" />
 
   <!-- <node
@@ -40,9 +41,14 @@ https://github.com/ros/urdf_sim_tutorial -->
     args="-file $(find vss_robot)/urdf/vss_robot.urdf -urdf -model vss_robot"
     output="screen" /> -->
 
-  <node
+  <!-- <node
     name="fake_joint_calibration"
     pkg="rostopic"
     type="rostopic"
-    args="pub /calibrated std_msgs/Bool true" />
+    args="pub /calibrated std_msgs/Bool true" /> -->
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher"  name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="30.0" />
+  </node>
+
 </launch>
