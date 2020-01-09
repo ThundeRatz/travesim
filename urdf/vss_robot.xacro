@@ -11,9 +11,17 @@
   <!-- Code exported from SolidWorks -->
   <xacro:include filename="$(find vss_robot)/urdf/vss_robot.urdf" />
 
+  <!-- Definition of motor -->
+  <xacro:include filename="$(find vss_robot)/urdf/motor.xacro"/>
+
+  <xacro:motor side="esq" gear_rate="1"/>
+  <xacro:motor side="dir" gear_rate="1"/>
+
+  <!-- Load gazebo plugin to control the robot -->
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
       <robotNamespace>/</robotNamespace>
     </plugin>
   </gazebo>
+
 </robot>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Here we have the definition of a simple continuous motor
+      with a mechanical reduction -->
+
+<!-- Ref: Item 7.
+  https://wiki.ros.org/urdf/Tutorials/Using%20a%20URDF%20in%20Gazebo -->
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="motor" params="side gear_rate">
+    <transmission name="trans_${side}_trans">
+
+      <type>transmission_interface/SimpleTransmission</type>
+
+      <actuator name="motor_${side}_actuator">
+        <mechanicalReduction>${gear_rate}</mechanicalReduction>
+      </actuator>
+
+      <joint name="roda_${side}_joint">
+        <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      </joint>
+
+    </transmission>
+  </xacro:macro>
+
+</robot>

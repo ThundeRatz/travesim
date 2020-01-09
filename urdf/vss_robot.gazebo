@@ -1,20 +1,31 @@
 <?xml version="1.0"?>
 
-<robot>
+<!-- Ref:
+    http://gazebosim.org/tutorials/?tut=ros_urdf -->
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
     <!-- Corpo -->
     <gazebo reference="Corpo">
+        <mu1 value="200.0"/>
+        <mu2 value="200.0"/>
+        <kp value="100000.0" />
+        <kd value="1.0" />
         <material>Gazebo/Black</material>
     </gazebo>
 
-    <!-- Roda Direita -->
-    <gazebo reference="roda_dir_link">
-        <material>Gazebo/Orange</material>
-    </gazebo>
+    <!-- Rodas -->
+    <xacro:macro name="roda" params="side">
+        <gazebo reference="roda_${side}_link">
+            <mu1 value="200.0"/>
+            <mu2 value="200.0"/>
+            <kp value="100000.0" />
+            <kd value="1.0" />
+            <material>Gazebo/Green</material>
+        </gazebo>
+    </xacro:macro>
 
-    <!-- Roda Esquerda -->
-    <gazebo reference="roda_esq_link">
-        <material>Gazebo/Orange</material>
-    </gazebo>
+    <xacro:roda side="esq"/>
+    <xacro:roda side="dir"/>
 
 </robot>

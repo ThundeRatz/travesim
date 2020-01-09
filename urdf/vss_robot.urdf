@@ -73,6 +73,7 @@
       <geometry>
         <mesh
           filename="package://vss_robot/meshes/RodaEsq.STL" />
+        <!-- <cylinder radius="0.030" length="0.010"/> -->
       </geometry>
       <material
         name="plastic">
@@ -88,6 +89,7 @@
       <geometry>
         <mesh
           filename="package://vss_robot/meshes/RodaEsq.STL" />
+        <!-- <cylinder radius="0.030" length="0.010"/> -->
       </geometry>
     </collision>
   </link>
@@ -105,9 +107,6 @@
       link="roda_esq_link" />
     <axis
       xyz="0 0 1" />
-    <limit
-      effort="0"
-      velocity="1000" />
   </joint>
 
 
@@ -135,6 +134,7 @@
       <geometry>
         <mesh
           filename="package://vss_robot/meshes/RodaDir.STL" />
+        <!-- <cylinder radius="0.030" length="0.010"/> -->
       </geometry>
       <material
         name="plastic">
@@ -150,6 +150,7 @@
       <geometry>
         <mesh
           filename="package://vss_robot/meshes/RodaDir.STL" />
+        <!-- <cylinder radius="0.030" length="0.010"/> -->
       </geometry>
     </collision>
   </link>
@@ -167,8 +168,5 @@
       link="roda_dir_link" />
     <axis
       xyz="0 0 -1" />
-    <limit
-      effort="0"
-      velocity="1000" />
   </joint>
 </robot>
