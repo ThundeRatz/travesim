@@ -7,19 +7,22 @@
 
     <!-- Corpo -->
     <gazebo reference="Corpo">
-        <mu1 value="200.0"/>
-        <mu2 value="200.0"/>
-        <kp value="100000.0" />
-        <kd value="1.0" />
+        <mu1 value="0.01"/>
+        <mu2 value="0.01"/>
+        <maxVel value="0.0"/>
+        <kp value="100.0" />
+        <kd value="1000.0" />
+        <minDepth value="0.001" />
         <material>Gazebo/Black</material>
     </gazebo>
 
     <!-- Rodas -->
     <xacro:macro name="roda" params="side">
         <gazebo reference="roda_${side}_link">
-            <mu1 value="200.0"/>
-            <mu2 value="200.0"/>
-            <kp value="100000.0" />
+            <mu1 value="20.0"/>
+            <mu2 value="20.0"/>
+            <maxVel value="0.0"/>
+            <kp value="100.0" />
             <kd value="1.0" />
             <material>Gazebo/Green</material>
         </gazebo>
