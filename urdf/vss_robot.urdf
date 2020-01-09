@@ -5,21 +5,6 @@
 <robot
   name="vss_robot">
 
-  <!-- Corpo -->
-  <gazebo reference="Corpo">
-    <material>Gazebo/White</material>
-  </gazebo>
-
-  <!-- Roda Direita -->
-  <gazebo reference="RodaDir">
-    <material>Gazebo/Green</material>
-  </gazebo>
-
-  <!-- Roda Esquerda -->
-  <gazebo reference="RodaEsq">
-    <material>Gazebo/Green</material>
-  </gazebo>
-
   <link
     name="Corpo">
     <inertial>

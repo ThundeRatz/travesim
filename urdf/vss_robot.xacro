@@ -1,177 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
-     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
-     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+
 <robot name="vss_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <!-- Import all Gazebo-customization elements, including Gazebo colors -->
   <xacro:include filename="$(find vss_robot)/urdf/vss_robot.gazebo" />
+
   <!-- Import Rviz colors -->
   <xacro:include filename="$(find vss_robot)/urdf/materials.xacro" />
-  <!-- <xacro:include filename="package://vss_robot/urdf/materials.xacro" /> -->
 
-  <link
-    name="Corpo">
-    <inertial>
-      <origin
-        xyz="0.00077374 1.5272E-09 -0.038284"
-        rpy="0 0 0" />
-      <mass
-        value="0.12206" />
-      <inertia
-        ixx="5.6918E-05"
-        ixy="-5.9966E-09"
-        ixz="-4.914E-06"
-        iyy="6.5745E-05"
-        iyz="4.347E-13"
-        izz="9.8955E-05" />
-    </inertial>
+  <!-- Code exported from SolidWorks -->
+  <xacro:include filename="$(find vss_robot)/urdf/vss_robot.urdf" />
 
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://vss_robot/meshes/Corpo.STL" />
-      </geometry>
-      <material
-        name="abs">
-        <color
-          rgba="1 1 1 1" />
-      </material>
-    </visual>
-
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://vss_robot/meshes/Corpo.STL" />
-      </geometry>
-    </collision>
-  </link>
-
-
-  <link
-    name="RodaEsq">
-    <inertial>
-      <origin
-        xyz="2.9834E-06 -1.8789E-06 -0.0037178"
-        rpy="0 0 0" />
-      <mass
-        value="0.017155" />
-      <inertia
-        ixx="4.3502E-06"
-        ixy="-1.1633E-10"
-        ixz="1.2876E-17"
-        iyy="4.3501E-06"
-        iyz="-1.0322E-16"
-        izz="8.5226E-06" />
-    </inertial>
-
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://vss_robot/meshes/RodaEsq.STL" />
-      </geometry>
-      <material
-        name="plastic">
-        <color
-          rgba="0.69804 0.69804 0.69804 1" />
-      </material>
-    </visual>
-
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://vss_robot/meshes/RodaEsq.STL" />
-      </geometry>
-    </collision>
-  </link>
-
-
-  <joint
-    name="RodaEsq"
-    type="continuous">
-    <origin
-      xyz="-0.0052523 0.0362 -0.038501"
-      rpy="1.5708 1.0338 3.1416" />
-    <parent
-      link="Corpo" />
-    <child
-      link="RodaEsq" />
-    <axis
-      xyz="0 0 1" />
-    <limit
-      effort="0"
-      velocity="1000" />
-  </joint>
-
-
-  <link
-    name="RodaDir">
-    <inertial>
-      <origin
-        xyz="-4.51996190059534E-08 -3.52311700728414E-06 -0.00371783525923547"
-        rpy="0 0 0" />
-      <mass
-        value="0.0171546672764287" />
-      <inertia
-        ixx="4.35000652569962E-06"
-        ixy="1.60203597654766E-15"
-        ixz="-8.29550066436761E-17"
-        iyy="4.35027517811247E-06"
-        iyz="6.27650064229579E-17"
-        izz="8.52255775209774E-06" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://vss_robot/meshes/RodaDir.STL" />
-      </geometry>
-      <material
-        name="plastic">
-        <color
-          rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://vss_robot/meshes/RodaDir.STL" />
-      </geometry>
-    </collision>
-  </link>
-
-
-  <joint
-    name="RodaDir"
-    type="continuous">
-    <origin
-      xyz="-0.0052489 -0.0362 -0.038501"
-      rpy="1.5708 -0.2572 0" />
-    <parent
-      link="Corpo" />
-    <child
-      link="RodaDir" />
-    <axis
-      xyz="0 0 -1" />
-    <limit
-      effort="0"
-      velocity="1000" />
-  </joint>
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+  </gazebo>
 </robot>
