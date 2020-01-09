@@ -8,12 +8,12 @@
     </gazebo>
 
     <!-- Roda Direita -->
-    <gazebo reference="RodaDir">
+    <gazebo reference="roda_dir_link">
         <material>Gazebo/Orange</material>
     </gazebo>
 
     <!-- Roda Esquerda -->
-    <gazebo reference="RodaEsq">
+    <gazebo reference="roda_esq_link">
         <material>Gazebo/Orange</material>
     </gazebo>
 

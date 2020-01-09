@@ -50,7 +50,7 @@
 
 
   <link
-    name="RodaEsq">
+    name="roda_esq_link">
     <inertial>
       <origin
         xyz="2.9834E-06 -1.8789E-06 -0.0037178"
@@ -94,7 +94,7 @@
 
 
   <joint
-    name="RodaEsq"
+    name="roda_esq_joint"
     type="continuous">
     <origin
       xyz="-0.0052523 0.0362 -0.038501"
@@ -102,7 +102,7 @@
     <parent
       link="Corpo" />
     <child
-      link="RodaEsq" />
+      link="roda_esq_link" />
     <axis
       xyz="0 0 1" />
     <limit
@@ -112,7 +112,7 @@
 
 
   <link
-    name="RodaDir">
+    name="roda_dir_link">
     <inertial>
       <origin
         xyz="-4.51996190059534E-08 -3.52311700728414E-06 -0.00371783525923547"
@@ -156,7 +156,7 @@
 
 
   <joint
-    name="RodaDir"
+    name="roda_dir_joint"
     type="continuous">
     <origin
       xyz="-0.0052489 -0.0362 -0.038501"
@@ -164,7 +164,7 @@
     <parent
       link="Corpo" />
     <child
-      link="RodaDir" />
+      link="roda_dir_link" />
     <axis
       xyz="0 0 -1" />
     <limit
