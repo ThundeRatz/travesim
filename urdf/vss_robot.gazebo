@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
 
 <!-- Ref:
-    http://gazebosim.org/tutorials/?tut=ros_urdf -->
+    http://gazebosim.org/tutorials/?tut=ros_urdf
+    http://answers.gazebosim.org/question/13506/preventing-bouncing-of-object/
+    -->
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
