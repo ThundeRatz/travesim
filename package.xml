@@ -2,12 +2,12 @@
   <name>vss_simulation</name>
   <version>1.0.0</version>
   <description>
-    <p>URDF Description package for vss_robot</p>
+    <p>Gazebo simulation package for VSS robots</p>
     <p>This package contains configuration data, 3D models and launch files
 for vss_robot robot</p>
   </description>
-  <author>TODO</author>
-  <maintainer email="TODO@email.com" />
+  <author>Felipe Gomes de Melo</author>
+  <maintainer email="felipe.gomes@thunderatz.org" />
   <license>BSD</license>
   <buildtool_depend>catkin</buildtool_depend>
   <depend>roslaunch</depend>
