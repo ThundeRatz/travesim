@@ -1,5 +1,5 @@
 <package format="2">
-  <name>vss_robot</name>
+  <name>vss_simulation</name>
   <version>1.0.0</version>
   <description>
     <p>URDF Description package for vss_robot</p>

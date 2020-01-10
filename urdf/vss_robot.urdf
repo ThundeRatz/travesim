@@ -6,20 +6,21 @@
   name="vss_robot">
 
   <link
-    name="Corpo">
+    name="corpo">
+
     <inertial>
       <origin
-        xyz="0.00077374 1.5272E-09 -0.038284"
+        xyz="0.040614 0.02701 0.019376"
         rpy="0 0 0" />
       <mass
-        value="0.12206" />
+        value="0.11426" />
       <inertia
-        ixx="5.6918E-05"
+        ixx="5.051E-05"
         ixy="-5.9966E-09"
         ixz="-4.914E-06"
-        iyy="6.5745E-05"
+        iyy="5.6433E-05"
         iyz="4.347E-13"
-        izz="9.8955E-05" />
+        izz="8.1071E-05" />
     </inertial>
 
     <visual>
@@ -28,10 +29,10 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://vss_robot/meshes/Corpo.STL" />
+          filename="package://vss_simulation/meshes/corpo.STL" />
       </geometry>
       <material
-        name="abs">
+        name="">
         <color
           rgba="1 1 1 1" />
       </material>
@@ -43,26 +44,28 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://vss_robot/meshes/Corpo.STL" />
+          filename="package://vss_simulation/meshes/corpo.STL" />
       </geometry>
     </collision>
+
   </link>
 
 
   <link
     name="roda_esq_link">
+
     <inertial>
       <origin
-        xyz="2.9834E-06 -1.8789E-06 -0.0037178"
+        xyz="-1.3546E-07 -3.5231E-06 -0.0037178"
         rpy="0 0 0" />
       <mass
         value="0.017155" />
       <inertia
-        ixx="4.3502E-06"
-        ixy="-1.1633E-10"
-        ixz="1.2876E-17"
-        iyy="4.3501E-06"
-        iyz="-1.0322E-16"
+        ixx="4.35E-06"
+        ixy="-1.602E-15"
+        ixz="-8.2955E-17"
+        iyy="4.3503E-06"
+        iyz="-6.2762E-17"
         izz="8.5226E-06" />
     </inertial>
 
@@ -72,11 +75,10 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://vss_robot/meshes/RodaEsq.STL" />
-        <!-- <cylinder radius="0.030" length="0.010"/> -->
+          filename="package://vss_simulation/meshes/roda_esq_link.STL" />
       </geometry>
       <material
-        name="plastic">
+        name="">
         <color
           rgba="0.69804 0.69804 0.69804 1" />
       </material>
@@ -88,10 +90,10 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://vss_robot/meshes/RodaEsq.STL" />
-        <!-- <cylinder radius="0.030" length="0.010"/> -->
+          filename="package://vss_simulation/meshes/roda_esq_link.STL" />
       </geometry>
     </collision>
+
   </link>
 
 
@@ -99,10 +101,10 @@
     name="roda_esq_joint"
     type="continuous">
     <origin
-      xyz="-0.0052523 0.0362 -0.038501"
-      rpy="1.5708 1.0338 3.1416" />
+      xyz="0.032248 0.0632 0.026799"
+      rpy="1.5708 -0.013398 3.1416" />
     <parent
-      link="Corpo" />
+      link="corpo" />
     <child
       link="roda_esq_link" />
     <axis
@@ -112,19 +114,20 @@
 
   <link
     name="roda_dir_link">
+
     <inertial>
       <origin
-        xyz="-4.51996190059534E-08 -3.52311700728414E-06 -0.00371783525923547"
+        xyz="-4.52E-08 -3.5231E-06 -0.0037178"
         rpy="0 0 0" />
       <mass
-        value="0.0171546672764287" />
+        value="0.017155" />
       <inertia
-        ixx="4.35000652569962E-06"
-        ixy="1.60203597654766E-15"
-        ixz="-8.29550066436761E-17"
-        iyy="4.35027517811247E-06"
-        iyz="6.27650064229579E-17"
-        izz="8.52255775209774E-06" />
+        ixx="4.35E-06"
+        ixy="1.602E-15"
+        ixz="-8.2955E-17"
+        iyy="4.3503E-06"
+        iyz="6.2765E-17"
+        izz="8.5226E-06" />
     </inertial>
 
     <visual>
@@ -133,13 +136,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://vss_robot/meshes/RodaDir.STL" />
-        <!-- <cylinder radius="0.030" length="0.010"/> -->
+          filename="package://vss_simulation/meshes/roda_dir_link.STL" />
       </geometry>
       <material
-        name="plastic">
+        name="">
         <color
-          rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+          rgba="0.69804 0.69804 0.69804 1" />
       </material>
     </visual>
 
@@ -149,10 +151,10 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://vss_robot/meshes/RodaDir.STL" />
-        <!-- <cylinder radius="0.030" length="0.010"/> -->
+          filename="package://vss_simulation/meshes/roda_dir_link.STL" />
       </geometry>
     </collision>
+
   </link>
 
 
@@ -160,13 +162,76 @@
     name="roda_dir_joint"
     type="continuous">
     <origin
-      xyz="-0.0052489 -0.0362 -0.038501"
+      xyz="0.032251 -0.0092 0.026799"
       rpy="1.5708 -0.2572 0" />
     <parent
-      link="Corpo" />
+      link="corpo" />
     <child
       link="roda_dir_link" />
     <axis
       xyz="0 0 -1" />
   </joint>
+
+
+  <link
+    name="chapeu_link">
+
+    <inertial>
+      <origin
+        xyz="0.037495 0.0375 -0.0019927"
+        rpy="0 0 0" />
+      <mass
+        value="0.022727" />
+      <inertia
+        ixx="1.0615E-05"
+        ixy="1.0566E-21"
+        ixz="-4.2285E-11"
+        iyy="1.0548E-05"
+        iyz="-9.7435E-22"
+        izz="2.1103E-05" />
+    </inertial>
+
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vss_simulation/meshes/chapeu_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.1098 0.1098 0.1098 1" />
+      </material>
+    </visual>
+
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vss_simulation/meshes/chapeu_link.STL" />
+      </geometry>
+    </collision>
+
+  </link>
+
+
+  <joint
+    name="chapeu_joint"
+    type="fixed">
+    <origin
+      xyz="0 -0.0105 0.0653"
+      rpy="0 0 0" />
+    <parent
+      link="corpo" />
+    <child
+      link="chapeu_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+
 </robot>
