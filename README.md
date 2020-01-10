@@ -12,3 +12,11 @@ Para rodar a simulação, digite:
 ```bash
 roslaunch vss_simulation simulation.launch
 ```
+
+## TODO
+
+No momento, a simulação possui somente 1 robô. Falta incluir os outros dois robôs, o campo e a bola.
+
+## Screenshot
+
+![screenshot](./docs/screenshot.png)
