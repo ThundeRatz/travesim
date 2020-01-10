@@ -6,7 +6,7 @@
 
   <joint name="base_joint" type="fixed">
     <parent link="base_link"/>
-    <child link="Corpo"/>
+    <child link="corpo"/>
   </joint>
 
   <!-- Import all Gazebo-customization elements, including Gazebo colors -->
