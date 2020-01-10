@@ -8,7 +8,18 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
     <!-- Corpo -->
-    <gazebo reference="Corpo">
+    <gazebo reference="corpo">
+        <mu1 value="0.01"/>
+        <mu2 value="0.01"/>
+        <maxVel value="0.0"/>
+        <kp value="100.0" />
+        <kd value="1000.0" />
+        <minDepth value="0.001" />
+        <material>Gazebo/White</material>
+    </gazebo>
+
+    <!-- Chapeu -->
+    <gazebo reference="chapeu_link">
         <mu1 value="0.01"/>
         <mu2 value="0.01"/>
         <maxVel value="0.0"/>

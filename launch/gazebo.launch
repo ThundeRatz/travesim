@@ -9,7 +9,7 @@ https://github.com/ros/urdf_sim_tutorial -->
   <arg name="use_sim_time" default="true"/>
   <arg name="headless" default="false"/>
 
-  <arg name="model" default="$(find vss_robot)/urdf/vss_robot.xacro"/>
+  <arg name="model" default="$(find vss_simulation)/urdf/vss_simulation.xacro"/>
   <arg name="height" default="0.080"/>
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch" >
@@ -38,7 +38,7 @@ https://github.com/ros/urdf_sim_tutorial -->
     name="spawn_model"
     pkg="gazebo_ros"
     type="spawn_model"
-    args="-file $(find vss_robot)/urdf/vss_robot.urdf -urdf -model vss_robot"
+    args="-file $(find vss_simulation)/urdf/vss_simulation.urdf -urdf -model vss_simulation"
     output="screen" /> -->
 
   <!-- <node

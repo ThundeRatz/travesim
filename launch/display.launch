@@ -6,7 +6,7 @@
     default="False" />
   <param
     name="robot_description"
-    textfile="$(find vss_robot)/urdf/vss_robot.urdf" />
+    textfile="$(find vss_simulation)/urdf/vss_simulation.urdf" />
   <param
     name="use_gui"
     value="$(arg gui)" />
@@ -22,5 +22,5 @@
     name="rviz"
     pkg="rviz"
     type="rviz"
-    args="-d $(find vss_robot)/urdf.rviz" />
+    args="-d $(find vss_simulation)/urdf.rviz" />
 </launch>

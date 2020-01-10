@@ -10,16 +10,16 @@
   </joint>
 
   <!-- Import all Gazebo-customization elements, including Gazebo colors -->
-  <xacro:include filename="$(find vss_robot)/urdf/vss_robot.gazebo" />
+  <xacro:include filename="$(find vss_simulation)/urdf/vss_robot.gazebo" />
 
   <!-- Import Rviz colors -->
-  <xacro:include filename="$(find vss_robot)/urdf/materials.xacro" />
+  <xacro:include filename="$(find vss_simulation)/urdf/materials.xacro" />
 
   <!-- Code exported from SolidWorks -->
-  <xacro:include filename="$(find vss_robot)/urdf/vss_robot.urdf" />
+  <xacro:include filename="$(find vss_simulation)/urdf/vss_robot.urdf" />
 
   <!-- Definition of motor -->
-  <xacro:include filename="$(find vss_robot)/urdf/motor.xacro"/>
+  <xacro:include filename="$(find vss_simulation)/urdf/motor.xacro"/>
 
   <xacro:motor side="esq" gear_rate="1"/>
   <xacro:motor side="dir" gear_rate="1"/>
