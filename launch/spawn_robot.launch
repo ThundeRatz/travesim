@@ -13,7 +13,7 @@ https://answers.ros.org/question/41433/multiple-robots-simulation-and-navigation
 
   <!-- push robot_description to factory and spawn robot in gazebo -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
-        args="$(arg pose) -urdf -model $(arg robot_name) -param /robot_description"
+        args="$(arg pose) -urdf -model $(arg robot_name) -param robot_description"
         respawn="false" output="screen" />
 
   <!-- Start state publishing node -->
@@ -21,7 +21,7 @@ https://answers.ros.org/question/41433/multiple-robots-simulation-and-navigation
     <param name="publish_frequency" type="double" value="30.0" />
   </node>
 
-    <!-- Load configs to publish the state of all joints -->
+  <!-- Load configs to publish the state of all joints -->
   <rosparam command="load"
             file="$(find vss_simulation)/config/joints.yaml"
             ns="vss_robot_joint_state_controller" />
