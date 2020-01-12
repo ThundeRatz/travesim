@@ -52,7 +52,7 @@ https://github.com/ros/urdf_sim_tutorial -->
   <group ns="robot_2">
     <param name="tf_prefix" value="robot2_tf" />
     <include file="$(find vss_simulation)/launch/spawn_robot.launch" >
-      <arg name="robot_number"  value="0" />
+      <arg name="robot_number"  value="2" />
       <arg name="pose" value="-x 0 -y 0 -z 0" />
       <arg name="model" value="$(arg model)" />
     </include>
