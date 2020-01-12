@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:arg name="robot_number" default="0" />
+    <xacro:property name="robot_number" value="$(arg robot_number)" />
+
+    <gazebo reference="chapeu_link">
+
+        <xacro:if value="${robot_number == 0}">
+            <material>Gazebo/Black</material>
+        </xacro:if>
+
+        <xacro:if value="${robot_number == 1}">
+            <material>Gazebo/Yellow</material>
+        </xacro:if>
+
+        <xacro:if value="${robot_number == 2}">
+            <material>Gazebo/Orange</material>
+        </xacro:if>
+
+    </gazebo>
+</robot>

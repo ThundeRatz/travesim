@@ -2,6 +2,7 @@
 
 <robot name="vss_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+  <xacro:arg name="robot_number" default="0" />
   <link name="base_link"/>
 
   <joint name="base_joint" type="fixed">
@@ -27,7 +28,7 @@
   <!-- Load gazebo plugin to control the robot -->
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotNamespace>/</robotNamespace>
+      <robotNamespace>/robot_$(arg robot_number)</robotNamespace>
     </plugin>
   </gazebo>
 

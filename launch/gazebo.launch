@@ -27,12 +27,28 @@ https://github.com/ros/urdf_sim_tutorial -->
     type="static_transform_publisher"
     args="0 0 0 0 0 0 base_link base_footprint 40" />
 
-  <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
+  <group ns="robot_0">
+    <param name="tf_prefix" value="robot0_tf" />
+    <include file="$(find vss_simulation)/launch/spawn_robot.launch" >
+      <arg name="pose" value="-x 1 -y 1 -z 0" />
+      <arg name="robot_number"  value="0" />
+    </include>
+  </group>
+
+  <group ns="robot_1">
+    <param name="tf_prefix" value="robot1_tf" />
+    <include file="$(find vss_simulation)/launch/spawn_robot.launch" >
+      <arg name="pose" value="-x 0 -y 1 -z 0" />
+      <arg name="robot_number"  value="1" />
+    </include>
+  </group>
+  <!-- <param name="robot_description"
+    command="$(find xacro)/xacro.py $(arg model) robot_number:=1" /> -->
 
   <!-- push robot_description to factory and spawn robot in gazebo -->
-  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
+  <!-- <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
         args="-z $(arg height) -urdf -model robot -param robot_description"
-        respawn="false" output="screen" />
+        respawn="false" output="screen" /> -->
 
   <!-- <node
     name="spawn_model"
@@ -47,8 +63,8 @@ https://github.com/ros/urdf_sim_tutorial -->
     type="rostopic"
     args="pub /calibrated std_msgs/Bool true" /> -->
 
-  <node pkg="robot_state_publisher" type="robot_state_publisher"  name="robot_state_publisher">
+  <!-- <node pkg="robot_state_publisher" type="robot_state_publisher"  name="robot_state_publisher">
     <param name="publish_frequency" type="double" value="30.0" />
-  </node>
+  </node> -->
 
 </launch>

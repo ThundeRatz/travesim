@@ -26,7 +26,6 @@
         <kp value="100.0" />
         <kd value="1000.0" />
         <minDepth value="0.001" />
-        <material>Gazebo/Black</material>
     </gazebo>
 
     <!-- Rodas -->
@@ -43,5 +42,7 @@
 
     <xacro:roda side="esq"/>
     <xacro:roda side="dir"/>
+
+    <xacro:include filename="$(find vss_simulation)/urdf/vss_team.xacro" />
 
 </robot>

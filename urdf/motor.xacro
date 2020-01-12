@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!-- Here we have the definition of a simple continuous motor
-      with a mechanical reduction -->
+  with a mechanical reduction -->
 
 <!-- Ref: Item 7.
   https://wiki.ros.org/urdf/Tutorials/Using%20a%20URDF%20in%20Gazebo -->
