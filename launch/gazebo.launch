@@ -8,7 +8,7 @@ https://github.com/ros/urdf_sim_tutorial -->
   <arg name="paused" default="true"/>
   <arg name="use_sim_time" default="true"/>
   <arg name="headless" default="false"/>
-  <arg name="single" default="false">
+  <arg name="single" default="false"/>
 
   <arg name="model" default="$(find vss_simulation)/urdf/vss_simulation.xacro"/>
   <arg name="height" default="0.080"/>
