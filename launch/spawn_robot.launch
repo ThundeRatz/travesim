@@ -1,12 +1,14 @@
 <!-- Reference:
-https://answers.ros.org/question/41433/multiple-robots-simulation-and-navigation/ -->
+https://answers.ros.org/question/41433/multiple-robots-simulation-and-navigation/
+http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
 
 <launch>
 
   <arg name="robot_number" default="0" />
   <arg name="robot_name" default="robot_$(arg robot_number)" />
-  <arg name="pose" default="-x 0 -y 0 -z 0"/>
+  <arg name="pose" default="-x 0 -y 0 -z 0 -R 0 -P -Y 0"/>
   <arg name="model" default="$(find vss_simulation)/urdf/vss_robot.xacro"/>
+  <arg name="direct_drive" default="true" />
 
   <param name="robot_description"
     command="$(find xacro)/xacro.py $(arg model) robot_number:=$(arg robot_number)" />
@@ -16,23 +18,41 @@ https://answers.ros.org/question/41433/multiple-robots-simulation-and-navigation
         args="$(arg pose) -urdf -model $(arg robot_name) -param robot_description"
         respawn="false" output="screen" />
 
-  <!-- Start state publishing node -->
+  <!-- Start tf state publishing node -->
   <node pkg="robot_state_publisher" type="robot_state_publisher"  name="robot_state_publisher">
     <param name="publish_frequency" type="double" value="30.0" />
   </node>
 
   <!-- Load configs to publish the state of all joints -->
   <rosparam command="load"
-            file="$(find vss_simulation)/config/joints.yaml"
-            ns="vss_robot_joint_state_controller" />
+            file="$(find vss_simulation)/config/joints.yaml" />
 
-  <!-- Load configs to control robot motors -->
-  <rosparam command="load"
-          file="$(find vss_simulation)/config/diffdrive.yaml"
-          ns="vss_robot_diff_drive_controller" />
+  <!-- If direct_drive is True, we set set the motors speed (left-right)
+  directly with JointVelocityController. -->
+  <group if="$(arg direct_drive)">
+    <!-- Load configs to control robot motors -->
+    <rosparam command="load"
+            file="$(find vss_simulation)/config/motor_drive.yaml" />
 
-  <node name="vss_robot_controller_spawner" pkg="controller_manager" type="spawner"
-    args="vss_robot_joint_state_controller
-          vss_robot_diff_drive_controller "/>
+    <node name="vss_robot_controller" pkg="controller_manager" type="spawner"
+      args="vss_robot_left_controller
+            vss_robot_right_controller
+            vss_robot_joint_state_controller"/>
+
+  </group>
+
+  <!-- If direct_drive is False, we use the differencial drive module
+  to control the robot speed (linear-angular) with DiffDriveController. -->
+  <group unless="$(arg direct_drive)">
+    <!-- Load configs to control robot motors -->
+    <rosparam command="load"
+            file="$(find vss_simulation)/config/diffdrive.yaml"
+            ns="vss_robot_diff_drive_controller" />
+
+    <node name="vss_robot_controller_spawner" pkg="controller_manager" type="spawner"
+      args="vss_robot_joint_state_controller
+            vss_robot_diff_drive_controller "/>
+
+  </group>
 
 </launch>

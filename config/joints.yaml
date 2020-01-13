@@ -1,2 +1,3 @@
-type: "joint_state_controller/JointStateController"
-publish_rate: 50
+vss_robot_joint_state_controller:
+  type: "joint_state_controller/JointStateController"
+  publish_rate: 50
