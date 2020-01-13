@@ -1,6 +1,8 @@
 
 <launch>
 
+  <arg name="model" default="$(find vss_simulation)/urdf/vss_robot.xacro" />
+
   <!-- Spawn robot #0 -->
   <group ns="robot_0">
     <param name="tf_prefix" value="robot0_tf" />
