@@ -11,11 +11,12 @@
   <!-- Load gazebo simulation -->
   <include file="$(find vss_simulation)/launch/gazebo.launch">
     <arg name="model" value="$(arg model)" />
-    <arg name="debug" default="$(arg debug)"/>
-    <arg name="gui" default="$(arg gui)"/>
-    <arg name="paused" default="$(arg paused)"/>
-    <arg name="use_sim_time" default="$(arg use_sim_time)"/>
-    <arg name="headless" default="$(arg headless)"/>
+    <arg name="debug" value="$(arg debug)"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="headless" value="$(arg headless)"/>
+    <arg name="single" value="true"/>
   </include>
 
   <!-- Display controllers to user -->

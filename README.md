@@ -7,10 +7,16 @@ Projeto de simulação de um time VSS em um campo oficial em ROS utilizando Gaze
 
 É necessário clonar o projeto dentro de um workspace catkin. Para criar um workspace, veja [esse link](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)
 
-Para rodar a simulação, digite:
+Para rodar a simulação com um robô controlável, digite:
 
 ```bash
-roslaunch vss_simulation simulation.launch
+roslaunch vss_simulation single_simulation.launch
+```
+
+Para rodar a simulação com o time completo, digite:
+
+```bash
+roslaunch vss_simulation team_simulation.launch
 ```
 
 ## Dependencias

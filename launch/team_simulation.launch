@@ -1,0 +1,22 @@
+<launch>
+
+  <!-- Load robot model -->
+  <arg name="model" default="$(find vss_simulation)/urdf/vss_robot.xacro"/>
+  <arg name="debug" default="false"/>
+  <arg name="gui" default="true"/>
+  <arg name="paused" default="true"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="headless" default="false"/>
+
+  <!-- Load gazebo simulation -->
+  <include file="$(find vss_simulation)/launch/gazebo.launch">
+    <arg name="model" value="$(arg model)" />
+    <arg name="debug" value="$(arg debug)"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="headless" value="$(arg headless)"/>
+    <arg name="single" value="true"/>
+  </include>
+
+</launch>
