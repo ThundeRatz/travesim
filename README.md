@@ -13,6 +13,20 @@ Para rodar a simulação, digite:
 roslaunch vss_simulation simulation.launch
 ```
 
+## Dependencias
+
+O projeto depende do pacote velocity_controllers dentro da biblioteca ros_controlles. É possível instalar com ```apt-get```
+
+```bash
+sudo apt install ros-melodic-velocity-controllers
+```
+
+Ou usando ```rosdep```
+
+```bash
+rosdep install vss_simulation
+```
+
 ## TODO
 
 No momento, a simulação possui os 3 robôs. Faltam incluir o campo e a bola.
