@@ -11,10 +11,8 @@
     <gazebo reference="corpo">
         <mu1 value="0.01"/>
         <mu2 value="0.01"/>
-        <maxVel value="0.0"/>
         <kp value="100.0" />
         <kd value="1000.0" />
-        <minDepth value="0.001" />
         <material>Gazebo/White</material>
     </gazebo>
 
@@ -22,10 +20,8 @@
     <gazebo reference="chapeu_link">
         <mu1 value="0.01"/>
         <mu2 value="0.01"/>
-        <maxVel value="0.0"/>
         <kp value="100.0" />
         <kd value="1000.0" />
-        <minDepth value="0.001" />
     </gazebo>
 
     <!-- Rodas -->
@@ -33,7 +29,6 @@
         <gazebo reference="roda_${side}_link">
             <mu1 value="20.0"/>
             <mu2 value="20.0"/>
-            <maxVel value="0.0"/>
             <kp value="100.0" />
             <kd value="1.0" />
             <material>Gazebo/Green</material>
