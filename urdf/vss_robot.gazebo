@@ -40,4 +40,10 @@
 
     <xacro:include filename="$(find vss_simulation)/urdf/vss_team.xacro" />
 
+    <!-- Load gazebo plugin to control the robot -->
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+        <robotNamespace>/robot_$(arg robot_number)</robotNamespace>
+        </plugin>
+    </gazebo>
 </robot>
