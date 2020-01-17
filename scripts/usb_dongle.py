@@ -47,8 +47,12 @@ print("HAS_ROS: {}".format(HAS_ROS))
 KEYS = [pygame.K_a, pygame.K_s, pygame.K_d, pygame.K_w]
 
 # Indice dos eixos x e y do joystick
-X_AXIS = 1
-Y_AXIS = 3
+X_AXIS = 0
+Y_AXIS = 4
+INVERT_X_AXIS = False
+INVERT_Y_AXIS = True
+ANG_SCALE = 6
+LIN_SCALE = 1
 
 DEFAULT_SERIAL_PORT = "/dev/ttyUSB0"
 DEFAULT_BAUDRATE = 9600
@@ -87,7 +91,7 @@ def main(serial_port = DEFAULT_SERIAL_PORT,
     rate = None
     if HAS_ROS:
         rospy.init_node('vss_human_controller')
-        vel_pub = rospy.Publisher('/turtle1/cmd_vel', Twist, queue_size=10)
+        vel_pub = rospy.Publisher('/robot_0/vss_robot_diff_drive_controller/cmd_vel', Twist, queue_size=10)
         vel_msg = Twist()
         rate = rospy.Rate(10) # 10hz
 
@@ -141,9 +145,16 @@ def main(serial_port = DEFAULT_SERIAL_PORT,
             if e.type == pygame.JOYAXISMOTION:
                 if e.dict['axis'] in (X_AXIS, Y_AXIS):
                     if e.dict['axis'] == X_AXIS:
-                        axis[0] = e.value
+                        if INVERT_X_AXIS:
+                            axis[0] = -e.value
+                        else:
+                            axis[0] = e.value
+
                     elif e.dict['axis'] == Y_AXIS:
-                        axis[1] = e.value
+                        if INVERT_Y_AXIS:
+                            axis[1] = -e.value
+                        else:
+                            axis[1] = e.value
 
             # Caso algum botão do joystick seja apertado
             if e.type == pygame.JOYBUTTONDOWN \
@@ -174,13 +185,13 @@ def main(serial_port = DEFAULT_SERIAL_PORT,
             console = console[-13:]
 
             if HAS_ROS:
-                vel_msg.linear.x = axis[0]
+                vel_msg.linear.x = axis[1]*LIN_SCALE
                 vel_msg.linear.y = 0
                 vel_msg.linear.z = 0
 
                 vel_msg.angular.x = 0
                 vel_msg.angular.y = 0
-                vel_msg.angular.z = axis[1]
+                vel_msg.angular.z = -axis[0]*ANG_SCALE
 
         else:
             vel_y = 0.0
@@ -204,13 +215,13 @@ def main(serial_port = DEFAULT_SERIAL_PORT,
             console = console[-13:]
 
             if HAS_ROS:
-                vel_msg.linear.x = vel_x
+                vel_msg.linear.x = vel_x*LIN_SCALE
                 vel_msg.linear.y = 0
                 vel_msg.linear.z = 0
 
                 vel_msg.angular.x = 0
                 vel_msg.angular.y = 0
-                vel_msg.angular.z = vel_y
+                vel_msg.angular.z = vel_y*ANG_SCALE
 
         if HAS_ROS:
             vel_pub.publish(vel_msg)
@@ -228,9 +239,11 @@ def sendCommand(vel_x, vel_y,
         :param vel_y: float from -1.0 to 1.0
     """
 
-    if abs(vel_x) > 1.0 or abs(vel_y) > 1.0:
-        raise ValueError("Velocities must be in the interval [-1.0;1.0]\n" +
-                        f"Vel_x = {vel_x}\tVel_y = {vel_y}")
+    if abs(vel_x) > 1.0:
+        vel_x = vel_x/abs(vel_x)
+
+    if abs(vel_y) > 1.0:
+        vel_y = vel_y/abs(vel_y)
 
     # SCALE = 126
     vel_x = int(SCALE*vel_x)
