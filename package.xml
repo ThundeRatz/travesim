@@ -16,6 +16,16 @@ for vss_robot robot</p>
   <depend>rviz</depend>
   <depend>joint_state_publisher</depend>
   <depend>gazebo</depend>
+
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>rospy</build_depend>
+
+  <build_export_depend>geometry_msgs</build_export_depend>
+  <build_export_depend>rospy</build_export_depend>
+
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>rospy</exec_depend>
+
   <export>
     <architecture_independent />
   </export>
