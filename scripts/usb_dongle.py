@@ -2,16 +2,20 @@
 """
     File:
         usb_dongle.py
+
     Description:
         Simple python routine to watch the keyboard or a joystick
     to send velocity commands to a connected nRF Dongle
+
     Arguments:
         -s, --serial-port       Serial port of nRF Dongle
         -b, --baudrate          Baudrate for serial comunication
+
     Protocol:
         +------+-------+-------+-------+------+
         | 0xFF | Vel 1 | Vel 2 | CRC-8 | 0xFE |
         +------+-------+-------+-------+------+
+
             0xFF - Start byte
             Vel 1 - signed byte from -126 to 126
             Vel 2 - signed byte from -126 to 126
@@ -27,6 +31,13 @@ import pygame
 import time
 import crcmod
 import argparse
+
+HAS_ROS = True
+try:
+    import rospy
+    from geometry_msgs.msg import Twist
+except ModuleNotFoundError:
+    HAS_ROS = True
 
 # Vamos acompanhar o estado dessas teclas
 KEYS = [pygame.K_a, pygame.K_s, pygame.K_d, pygame.K_w]
@@ -66,6 +77,15 @@ def drawConsole(win: pygame.display, font:pygame.font.Font,
 
 def main(serial_port: str = DEFAULT_SERIAL_PORT,
          baudreate: int = DEFAULT_BAUDRATE):
+
+    vel_pub = None
+    vel_msg = None
+    rate = None
+    if HAS_ROS:
+        rospy.init_node('vss_human_controller')
+        vel_pub = rospy.Publisher('/turtle1/cmd_vel', Twist, queue_size=10)
+        vel_msg = Twist()
+        rate = rospy.Rate(10) # 10hz
 
     pygame.init()
 
@@ -147,6 +167,16 @@ def main(serial_port: str = DEFAULT_SERIAL_PORT,
             img = font.render(txt, 1, (50, 200, 50), (0, 0, 0))
             console.append(img)
             console = console[-13:]
+
+            if HAS_ROS:
+                vel_msg.linear.x = axis[0]
+                vel_msg.linear.y = 0
+                vel_msg.linear.z = 0
+
+                vel_msg.angular.x = 0
+                vel_msg.angular.y = 0
+                vel_msg.angular.z = axis[1]
+
         else:
             vel_y = 0.0
             if state[pygame.K_a]:
@@ -174,7 +204,20 @@ def main(serial_port: str = DEFAULT_SERIAL_PORT,
             console.append(img)
             console = console[-13:]
 
-        time.sleep(0.1)
+            if HAS_ROS:
+                vel_msg.linear.x = vel_x
+                vel_msg.linear.y = 0
+                vel_msg.linear.z = 0
+
+                vel_msg.angular.x = 0
+                vel_msg.angular.y = 0
+                vel_msg.angular.z = vel_y
+
+        if HAS_ROS:
+            vel_pub.publish(vel_msg)
+            rate.sleep()
+        else:
+            time.sleep(0.1)
 
 
 def sendCommand(vel_x: float, vel_y: float,
