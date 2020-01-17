@@ -1,4 +1,5 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
+# coding=utf-8
 """
     File:
         usb_dongle.py
@@ -23,7 +24,7 @@
             0xFE - Stop byte
 """
 
-from typing import List
+# from typing import List
 from ctypes import c_byte
 import numpy as np
 import serial
@@ -33,11 +34,14 @@ import crcmod
 import argparse
 
 HAS_ROS = True
+import rospy
 try:
     import rospy
     from geometry_msgs.msg import Twist
 except ModuleNotFoundError:
-    HAS_ROS = True
+    HAS_ROS = False
+
+print("HAS_ROS: {}".format(HAS_ROS))
 
 # Vamos acompanhar o estado dessas teclas
 KEYS = [pygame.K_a, pygame.K_s, pygame.K_d, pygame.K_w]
@@ -56,8 +60,8 @@ SCALE = 126
 crcCalc = crcmod.mkCrcFun(0x1AB, initCrc=0, rev=False)
 
 
-def drawConsole(win: pygame.display, font:pygame.font.Font,
-                console: List[pygame.font.Font.render]):
+def drawConsole(win, font,
+                console):
     """
     Fills window console with the sentences stored in the list console
         :param win: pygame.display Window object to be filled
@@ -75,8 +79,8 @@ def drawConsole(win: pygame.display, font:pygame.font.Font,
         ypos -= font.get_height()
 
 
-def main(serial_port: str = DEFAULT_SERIAL_PORT,
-         baudreate: int = DEFAULT_BAUDRATE):
+def main(serial_port = DEFAULT_SERIAL_PORT,
+         baudreate = DEFAULT_BAUDRATE):
 
     vel_pub = None
     vel_msg = None
@@ -161,8 +165,9 @@ def main(serial_port: str = DEFAULT_SERIAL_PORT,
         pygame.display.flip()
 
         if using_joystick:
-            sendCommand(*axis, serial_port, baudreate)
-            txt = f"X: {int(axis[0]*SCALE)} Y: {int(axis[1]*SCALE)}"
+            sendCommand(axis[0], axis[1], serial_port, baudreate)
+            # txt = f"X: {int(axis[0]*SCALE)} Y: {int(axis[1]*SCALE)}"
+            txt = "X: {} Y: {}".format(int(axis[0]*SCALE), int(axis[1]*SCALE))
             print(txt)
             img = font.render(txt, 1, (50, 200, 50), (0, 0, 0))
             console.append(img)
@@ -191,14 +196,8 @@ def main(serial_port: str = DEFAULT_SERIAL_PORT,
                 vel_x += 1.0
 
             sendCommand(vel_x, vel_y, serial_port, baudreate)
-
-            vel_x = int(SCALE*vel_x)
-            vel_y = int(SCALE*vel_y)
-
-            motor_dir = (vel_x + vel_y)//2
-            motor_esq = (vel_x - vel_y)//2
-
-            txt = f"Esquerda: {int(motor_esq):>3}    Direita: {int(motor_dir):>3}"
+            # txt = f"X: {int(vel_x*SCALE)} Y: {int(vel_y*SCALE)}"
+            txt = "X: {} Y: {}".format(int(vel_x*SCALE), int(vel_y*SCALE))
             print(txt)
             img = font.render(txt, 1, (50, 200, 50), (0, 0, 0))
             console.append(img)
@@ -220,9 +219,9 @@ def main(serial_port: str = DEFAULT_SERIAL_PORT,
             time.sleep(0.1)
 
 
-def sendCommand(vel_x: float, vel_y: float,
-                serial_port: str = DEFAULT_SERIAL_PORT,
-                baudreate: int = DEFAULT_BAUDRATE):
+def sendCommand(vel_x, vel_y,
+                serial_port = DEFAULT_SERIAL_PORT,
+                baudreate = DEFAULT_BAUDRATE):
     """
     Sends a velocity command through the serial
         :param vel_x: float from -1.0 to 1.0
@@ -247,7 +246,8 @@ def sendCommand(vel_x: float, vel_y: float,
         with serial.Serial(serial_port, baudreate) as dongle:
             dongle.write(msg)
     except serial.serialutil.SerialException:
-        print(f"Erro no serial! {serial_port} {baudreate}")
+        # print(f"Erro no serial! {serial_port} {baudreate}")
+        print("Erro no serial! {} {}".format(serial_port, baudreate))
 
 
 if __name__ == "__main__":
