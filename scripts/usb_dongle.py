@@ -253,7 +253,7 @@ def sendCommand(vel_x, vel_y,
     motor_esq = bytes(c_byte((vel_x - vel_y)//2))
 
     crc = bytes(crcCalc(motor_esq + motor_dir))
-    msg = b'0xFF' + motor_esq + motor_dir + crc + b'0xFE'
+    msg = b'\xFF' + motor_esq + motor_dir + crc + b'\xFE'
 
     try:
         with serial.Serial(serial_port, baudreate) as dongle:
