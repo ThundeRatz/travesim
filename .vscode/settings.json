@@ -1,0 +1,11 @@
+{
+    "ros.distro": "melodic",
+    "doxdocgen.generic.dateFormat": "MM/YYYY",
+    "doxdocgen.file.copyrightTag": [
+        "@copyright MIT License - Copyright (c) {year} ThundeRatz"
+    ],
+    "C_Cpp.default.configurationProvider": "go2sh.cmake-integration",
+    "python.autoComplete.extraPaths": [
+        "/opt/ros/melodic/lib/python2.7/dist-packages"
+    ]
+}
