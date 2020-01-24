@@ -13,6 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  gazebo_msgs
 )
 
 foreach(dir config launch meshes urdf)
