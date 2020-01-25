@@ -20,8 +20,8 @@
   </include>
 
   <!-- Display controllers to user -->
-  <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
+  <!-- <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
     <param name="default_topic" value="/robot_0/vss_robot_diff_drive_controller/cmd_vel"/>
-  </node>
+  </node> -->
 
 </launch>

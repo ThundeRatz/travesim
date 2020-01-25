@@ -10,13 +10,13 @@ Projeto de simulação de um time VSS em um campo oficial em ROS utilizando Gaze
 Para rodar a simulação com um robô controlável, digite:
 
 ```bash
-roslaunch vss_simulation single_simulation.launch
+roslaunch vss_simulation simulation_robot.launch
 ```
 
 Para rodar a simulação com o time completo, digite:
 
 ```bash
-roslaunch vss_simulation team_simulation.launch
+roslaunch vss_simulation simulation_team.launch
 ```
 
 ## Dependencias
