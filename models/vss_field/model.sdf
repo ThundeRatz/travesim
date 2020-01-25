@@ -1,0 +1,116 @@
+<?xml version="1.0" ?>
+
+<!-- This SDL file were translated from URDF file exported by SW2URDF
+  Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+  For more information, please see http://wiki.ros.org/sw_urdf_exporter-->
+
+<sdf version="1.5">
+  <model name='vss_field'>
+
+    <static>1</static>
+
+    <link name='field_link'>
+      <pose frame=''>0 0 0 0 0 0</pose>
+
+      <inertial>
+        <pose frame=''>0 0 0.01 0 0 0</pose>
+        <mass>4.6526</mass>
+        <inertia>
+          <ixx>0.50723</ixx>
+          <ixy>-7.32956e-07</ixy>
+          <ixz>2.53149e-08</ixz>
+          <iyy>0.842188</iyy>
+          <iyz>3.64809e-08</iyz>
+          <izz>1.34821</izz>
+        </inertia>
+      </inertial>
+
+      <collision name='field_link_collision'>
+        <pose frame=''>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://vss_field/meshes/field_link.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+            <torsional>
+              <ode/>
+            </torsional>
+          </friction>
+          <bounce/>
+        </surface>
+        <max_contacts>10</max_contacts>
+      </collision>
+
+      <collision name='laterais_link_collision'>
+        <pose frame=''>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://vss_field/meshes/laterais_link.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+            <torsional>
+              <ode/>
+            </torsional>
+          </friction>
+          <bounce/>
+        </surface>
+        <max_contacts>10</max_contacts>
+      </collision>
+
+      <visual name='field_link_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://vss_field/meshes/field_link.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+
+      <visual name='laterais_link_visual'>
+        <pose frame=''>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://vss_field/meshes/laterais_link.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/White</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+
+      <velocity_decay/>
+      <gravity>1</gravity>
+      <velocity_decay/>
+
+      <self_collide>0</self_collide>
+      <enable_wind>0</enable_wind>
+      <kinematic>0</kinematic>
+    </link>
+    <pose frame=''>0 0 0.01 0 0 0</pose>
+  </model>
+</sdf>
