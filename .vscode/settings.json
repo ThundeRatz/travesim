@@ -7,5 +7,11 @@
     "C_Cpp.default.configurationProvider": "go2sh.cmake-integration",
     "python.autoComplete.extraPaths": [
         "/opt/ros/melodic/lib/python2.7/dist-packages"
-    ]
+    ],
+    "files.associations": {
+        "*.world": "xml",
+        "*.gazebo": "xml",
+        "*.sdf": "xml",
+        "*.config": "xml"
+    },
 }
