@@ -6,7 +6,12 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
 
   <arg name="robot_number" default="0" />
   <arg name="robot_name" default="robot_$(arg robot_number)" />
-  <arg name="pose" default="-x 0 -y 0.5 -z 0 -R 0 -P 0 -Y 0"/>
+  <arg name="x" default="0"/>
+  <arg name="y" default="0"/>
+  <arg name="z" default="0.04"/>
+  <arg name="row" default="0"/>
+  <arg name="pitch" default="0"/>
+  <arg name="yaw" default="0"/>
   <arg name="model" default="$(find vss_simulation)/urdf/vss_robot.xacro"/>
   <arg name="direct_drive" default="true" />
 
@@ -15,7 +20,9 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
 
   <!-- push robot_description to factory and spawn robot in gazebo -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
-        args="$(arg pose) -urdf -model $(arg robot_name) -param robot_description"
+        args="-x $(arg x) -y $(arg y) -z $(arg z)
+              -R $(arg row) -P $(arg pitch) -Y $(arg yaw)
+              -urdf -model $(arg robot_name) -param robot_description"
         respawn="false" output="screen" />
 
   <!-- Start tf state publishing node -->
