@@ -7,6 +7,7 @@
     Description:
         Simple python routine to watch the keyboard or a joystick
     to send velocity commands to a connected nRF Dongle
+        Taken from https://github.com/ThundeRatz/VSSFirmware
 
     Arguments:
         -s, --serial-port       Serial port of nRF Dongle
@@ -24,7 +25,6 @@
             0xFE - Stop byte
 """
 
-# from typing import List
 from ctypes import c_byte
 import numpy as np
 import serial
@@ -196,9 +196,9 @@ def main(serial_port = DEFAULT_SERIAL_PORT,
         else:
             vel_y = 0.0
             if state[pygame.K_a]:
-                vel_y -= 1.0
-            if state[pygame.K_d]:
                 vel_y += 1.0
+            if state[pygame.K_d]:
+                vel_y -= 1.0
 
             vel_x = 0.0
             if state[pygame.K_s]:
