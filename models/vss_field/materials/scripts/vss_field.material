@@ -1,0 +1,20 @@
+// Ref:
+// https://bitbucket.org/osrf/gazebo_models/src/default/robocup09_spl_field/materials/scripts/robocup09_spl_field.material
+// http://gazebosim.org/tutorials?tut=color_model#ExampleAddingColorandTexturestoaModel
+
+material vssField/Carpet
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        // Relative to the location of the material script
+        texture ../textures/bitmap.png
+        // Repeat the texture over the surface (4 per face)
+        // scale 0.5 0.5
+      }
+    }
+  }
+}

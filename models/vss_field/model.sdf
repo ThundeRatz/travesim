@@ -81,6 +81,9 @@
         </geometry>
         <material>
           <script>
+            <!-- <uri>model://vss_field/materials/scripts/</uri>
+            <uri>model://vss_field/materials/textures/</uri>
+            <name>vssField/Carpet</name> -->
             <name>Gazebo/Black</name>
             <uri>file://media/materials/scripts/gazebo.material</uri>
           </script>
