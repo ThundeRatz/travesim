@@ -14,7 +14,6 @@ Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando
   - [Screenshots](#screenshots)
     - [Simulação de um robô](#simula%c3%a7%c3%a3o-de-um-rob%c3%b4)
     - [Simulação do time](#simula%c3%a7%c3%a3o-do-time)
-  - [Custom models](#custom-models)
 
 ## Introdução
 
@@ -75,11 +74,3 @@ Completar documentação e integrar com código do [ThunderVolt](https://github.
 ### Simulação do time
 
 ![screenshot](./docs/screenshot_team.png)
-
-## Custom models
-
-http://gazebosim.org/tutorials?tut=build_model#ComponentsofaSDFModels
-http://gazebosim.org/tutorials?tut=build_world
-http://gazebosim.org/tutorials?tut=drcsim_create_atlas_world&cat=drcsim
-http://wiki.ros.org/cob_gazebo_worlds/Tutorials/Create%20your%20own%20world
-https://answers.ros.org/question/53752/how-can-i-transform-an-urdf-file-to-an-sdf-file/
