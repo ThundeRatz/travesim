@@ -10,18 +10,30 @@
     <include>
       <uri>model://sun</uri>
     </include>
+
     <!-- A ground plane -->
     <include>
       <uri>model://ground_plane</uri>
     </include>
+
     <!-- VSS Field -->
     <include>
       <uri>model://vss_field</uri>
     </include>
+
     <!-- VSS ball -->
     <include>
       <pose>0 0 0.030 0 0 0</pose>
       <uri>model://golf_ball</uri>
     </include>
+
+    <!-- Configure camera angles for isometric view -->
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame=''>0 0 0 0 0.565472 2.35619</pose>
+        <view_controller>ortho</view_controller>
+        <projection_type>orthographic</projection_type>
+      </camera>
+    </gui>
   </world>
 </sdf>
