@@ -25,6 +25,9 @@ missing
 .tags*
 *.save*
 
+# Hidden files
+..*
+
 # vscode files
 .vscode/*
 !.vscode/extensions.json
