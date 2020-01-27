@@ -45,10 +45,16 @@ TODO
 
 ## Dependências
 
-O projeto depende do pacote velocity_controllers dentro da biblioteca ros_controlles. É possível instalar com ```apt-get```
+A simulação é desenvolvida para ROS e Gazebo, é recomendável instalar ambos com o comando:
 
 ```bash
-sudo apt install ros-melodic-velocity-controllers
+sudo apt install ros-melodic-desktop-full
+```
+
+O projeto depende do pacote velocity_controllers dentro da biblioteca [ros_controllers](https://github.com/ros-controls/ros_controllers) e da biblioteca python [pygame](https://github.com/pygame/pygame). É possível instalar com ```apt-get```
+
+```bash
+sudo apt install ros-melodic-velocity-controllers python-pygame
 ```
 
 Ou usando ```rosdep```
