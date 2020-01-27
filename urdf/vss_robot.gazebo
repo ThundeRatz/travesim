@@ -11,8 +11,8 @@
     <gazebo reference="corpo">
         <mu1 value="0.01"/>
         <mu2 value="0.01"/>
-        <kp value="100.0" />
-        <kd value="1000.0" />
+        <kp value="1000.0" />
+        <kd value="10.0" />
         <material>Gazebo/White</material>
     </gazebo>
 
@@ -20,8 +20,8 @@
     <gazebo reference="chapeu_link">
         <mu1 value="0.01"/>
         <mu2 value="0.01"/>
-        <kp value="100.0" />
-        <kd value="1000.0" />
+        <kp value="1000.0" />
+        <kd value="10.0" />
     </gazebo>
 
     <!-- Rodas -->
