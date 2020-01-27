@@ -4,6 +4,9 @@
   Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
   For more information, please see http://wiki.ros.org/sw_urdf_exporter-->
 
+<!-- Physical parameters (contact properties) taken from
+https://bitbucket.org/osrf/gazebo/src/gazebo11/models/ground_plane/model.sdf -->
+
 <sdf version="1.5">
   <model name='vss_field'>
 
@@ -35,10 +38,13 @@
         </geometry>
         <surface>
           <contact>
-            <ode/>
+            <collide_bitmask>0xffff</collide_bitmask>
           </contact>
           <friction>
-            <ode/>
+            <ode>
+              <mu>100</mu>
+              <mu2>50</mu2>
+            </ode>
             <torsional>
               <ode/>
             </torsional>
