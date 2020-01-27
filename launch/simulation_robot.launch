@@ -8,6 +8,9 @@
   <arg name="use_sim_time" default="true"/>
   <arg name="headless" default="false"/>
 
+  <!-- Control option -->
+  <arg name="keyboard" default="true"/>
+
   <!-- Load gazebo simulation -->
   <include file="$(find vss_simulation)/launch/gazebo.launch">
     <arg name="model" value="$(arg model)" />
@@ -19,9 +22,17 @@
     <arg name="single" value="true"/>
   </include>
 
+  <group if="$(arg keyboard)">
+    <node name="keyboard_controller" pkg="vss_simulation" type="usb_dongle.py"/>
+  </group>
+
+  <group unless="$(arg keyboard)">
+
   <!-- Display controllers to user -->
-  <!-- <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
-    <param name="default_topic" value="/robot_0/vss_robot_diff_drive_controller/cmd_vel"/>
-  </node> -->
+    <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
+      <param name="default_topic" value="/robot_0/vss_robot_diff_drive_controller/cmd_vel"/>
+    </node>
+
+  </group>
 
 </launch>
