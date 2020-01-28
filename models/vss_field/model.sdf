@@ -51,7 +51,7 @@ https://bitbucket.org/osrf/gazebo/src/gazebo11/models/ground_plane/model.sdf -->
           </friction>
           <bounce/>
         </surface>
-        <max_contacts>10</max_contacts>
+        <max_contacts>20</max_contacts>
       </collision>
 
       <collision name='laterais_link_collision'>
@@ -64,17 +64,17 @@ https://bitbucket.org/osrf/gazebo/src/gazebo11/models/ground_plane/model.sdf -->
         </geometry>
         <surface>
           <contact>
-            <ode/>
+            <collide_bitmask>0xffff</collide_bitmask>
           </contact>
           <friction>
-            <ode/>
-            <torsional>
-              <ode/>
-            </torsional>
+            <ode>
+              <mu>0.5</mu>
+              <mu2>0.25</mu2>
+            </ode>
           </friction>
           <bounce/>
         </surface>
-        <max_contacts>10</max_contacts>
+        <max_contacts>20</max_contacts>
       </collision>
 
       <visual name='field_link_visual'>
@@ -90,7 +90,7 @@ https://bitbucket.org/osrf/gazebo/src/gazebo11/models/ground_plane/model.sdf -->
             <!-- <uri>model://vss_field/materials/scripts/</uri>
             <uri>model://vss_field/materials/textures/</uri>
             <name>vssField/Carpet</name> -->
-            <name>Gazebo/Black</name>
+            <name>Gazebo/FlatBlack</name>
             <uri>file://media/materials/scripts/gazebo.material</uri>
           </script>
         </material>
@@ -112,13 +112,6 @@ https://bitbucket.org/osrf/gazebo/src/gazebo11/models/ground_plane/model.sdf -->
         </material>
       </visual>
 
-      <velocity_decay/>
-      <gravity>1</gravity>
-      <velocity_decay/>
-
-      <self_collide>0</self_collide>
-      <enable_wind>0</enable_wind>
-      <kinematic>0</kinematic>
     </link>
     <pose frame=''>0 0 0.01 0 0 0</pose>
   </model>
