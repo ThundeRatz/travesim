@@ -26,19 +26,26 @@ Y_AXIS = 4
 INVERT_X_AXIS = False
 INVERT_Y_AXIS = True
 
+ROBOTS = 3
 
 # Namespace dos tópicos que iremos publicar
-DEFAULT_NAMESPACE = "/robot_0"
+DEFAULT_NAMESPACE = "/robot_{}"
+
+DEFAULT_DEBUG = False
 
 # A vel máxima do robô é 2 m/s
-LIN_VEL =  1 # m/s
-WHEEL_RAIDUS = 0.030 # m
+LIN_VEL = 1  # m/s
+WHEEL_RADIUS = 0.030  # m
 
-ANG_VEL = LIN_VEL/WHEEL_RAIDUS # rad/s
+ANG_VEL = LIN_VEL/WHEEL_RADIUS  # rad/s
 
 # Os comandos vão de -126 até 126 de modo que os bytes 0xFE e 0xFF
 # nunca são utilizados
 SCALE = 126
+
+
+def getNamespace(number):
+    return DEFAULT_NAMESPACE.format(number)
 
 
 def drawConsole(win, font, console):
@@ -59,19 +66,24 @@ def drawConsole(win, font, console):
         ypos -= font.get_height()
 
 
-def main(namespace):
+def main(namespace, debug=DEFAULT_DEBUG):
 
     vel_pub = None
     vel_msg = None
     rate = None
+    current_robot = 0
 
     # Inicia configs do ROS
     rospy.init_node('vss_human_controller')
 
-    vel_pub_dir = rospy.Publisher(namespace + '/vss_robot_right_controller/command',
-                                  Float64, queue_size=2)
-    vel_pub_esq = rospy.Publisher(namespace + '/vss_robot_left_controller/command',
-                                  Float64, queue_size=2)
+    vel_pub_dir = []
+    vel_pub_esq = []
+
+    for i in range(ROBOTS):
+        vel_pub_dir.append(rospy.Publisher(getNamespace(i) + '/vss_robot_right_controller/command',
+                                    Float64, queue_size=2))
+        vel_pub_esq.append(rospy.Publisher(getNamespace(i) + '/vss_robot_left_controller/command',
+                                    Float64, queue_size=2))
 
     rate = rospy.Rate(60) # 60hz
 
@@ -147,6 +159,15 @@ def main(namespace):
                     console.append(img)
                     console = console[-13:]
 
+            # L1 pressionado
+            if e.type == pygame.JOYBUTTONDOWN and e.dict['button'] == 4:
+                current_robot += 1
+                current_robot %= ROBOTS
+
+            if e.type == pygame.JOYBUTTONDOWN and e.dict['button'] == 5:
+                current_robot -= 1
+                current_robot %= ROBOTS
+
             elif e.type == pygame.VIDEORESIZE:
                 win = pygame.display.set_mode(e.size, pygame.RESIZABLE)
 
@@ -158,16 +179,17 @@ def main(namespace):
 
         if using_joystick:
             txt = "X: {} Y: {}".format(int(axis[0]*SCALE), int(axis[1]*SCALE))
-            print(txt)
-            img = font.render(txt, 1, (50, 200, 50), (0, 0, 0))
-            console.append(img)
-            console = console[-13:]
+            if debug:
+                print(txt)
+                img = font.render(txt, 1, (50, 200, 50), (0, 0, 0))
+                console.append(img)
+                console = console[-13:]
 
             vel_dir = Float64((axis[1] - axis[0])*ANG_VEL/2)
             vel_esq = Float64((axis[1] + axis[0])*ANG_VEL/2)
 
-            vel_pub_dir.publish(vel_dir)
-            vel_pub_esq.publish(vel_esq)
+            vel_pub_dir[current_robot].publish(vel_dir)
+            vel_pub_esq[current_robot].publish(vel_esq)
 
         else:
             vel_y = 0.0
@@ -183,24 +205,27 @@ def main(namespace):
                 vel_x += 1.0
 
             txt = "X: {} Y: {}".format(int(vel_x*SCALE), int(vel_y*SCALE))
-            print(txt)
-            img = font.render(txt, 1, (50, 200, 50), (0, 0, 0))
-            console.append(img)
-            console = console[-13:]
+            if debug:
+                print(txt)
+                img = font.render(txt, 1, (50, 200, 50), (0, 0, 0))
+                console.append(img)
+                console = console[-13:]
 
             vel_dir = Float64((vel_y - vel_x)*ANG_VEL/2)
             vel_esq = Float64((vel_y + vel_x)*ANG_VEL/2)
 
-            vel_pub_dir.publish(vel_dir)
-            vel_pub_esq.publish(vel_esq)
+            vel_pub_dir[current_robot].publish(vel_dir)
+            vel_pub_esq[current_robot].publish(vel_esq)
 
         rate.sleep()
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("-n", "--namespace", type=str, default=DEFAULT_NAMESPACE)
+    parser.add_argument("-n", "--namespace", type=str,
+                        default=DEFAULT_NAMESPACE)
+    parser.add_argument("-d", "--debug", action="store_true")
 
     args = parser.parse_args()
 
-    main(args.namespace)
+    main(args.namespace, debug=args.debug)
