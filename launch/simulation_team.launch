@@ -6,7 +6,7 @@
   <arg name="gui" default="true"/>
   <arg name="paused" default="true"/>
   <arg name="use_sim_time" default="true"/>
-  <arg name="headless" default="false"/>
+  <arg name="recording" default="false"/>
 
   <!-- Load gazebo simulation -->
   <include file="$(find vss_simulation)/launch/gazebo.launch">
@@ -15,7 +15,7 @@
     <arg name="gui" value="$(arg gui)"/>
     <arg name="paused" value="$(arg paused)"/>
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
-    <arg name="headless" value="$(arg headless)"/>
+    <arg name="recording" value="$(arg recording)"/>
   </include>
 
 </launch>
