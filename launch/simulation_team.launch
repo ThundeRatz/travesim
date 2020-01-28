@@ -7,6 +7,7 @@
   <arg name="paused" default="true"/>
   <arg name="use_sim_time" default="true"/>
   <arg name="recording" default="false"/>
+  <arg name="keyboard" default="false"/>
 
   <!-- Load gazebo simulation -->
   <include file="$(find vss_simulation)/launch/gazebo.launch">
@@ -17,5 +18,9 @@
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
     <arg name="recording" value="$(arg recording)"/>
   </include>
+
+  <group if="$(arg keyboard)">
+    <node name="keyboard_controller" pkg="vss_simulation" type="usb_dongle.py"/>
+  </group>
 
 </launch>
