@@ -5,14 +5,14 @@ vss_robot_left_controller:
   type: velocity_controllers/JointVelocityController
   joint: roda_esq_joint
   pid:
-    p: 5.0
-    i: 20.0
-    i_clamp: 100.0
+    p: 100.0
+    i: 0.01
+    d: 10.0
 
 vss_robot_right_controller:
   type: velocity_controllers/JointVelocityController
   joint: roda_dir_joint
   pid:
-    p: 5.0
-    i: 20.0
-    i_clamp: 100.0
+    p: 100.0
+    i: 0.01
+    d: 10.0
