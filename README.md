@@ -8,14 +8,14 @@ Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando
 - [Simulação de VSS em ROS com Gazebo](#simula%c3%a7%c3%a3o-de-vss-em-ros-com-gazebo)
   - [Introdução](#introdu%c3%a7%c3%a3o)
   - [Parâmetros](#par%c3%a2metros)
-    - [Simulação de um robô](#simula%c3%a7%c3%a3o-de-um-rob%c3%b4)
+    - [Roslaunch](#roslaunch)
   - [Estrutura de pastas](#estrutura-de-pastas)
   - [Dependências](#depend%c3%aancias)
   - [Modelos utilizados](#modelos-utilizados)
-  - [TODO](#todo)
   - [Screenshots](#screenshots)
-    - [Simulação de um robô](#simula%c3%a7%c3%a3o-de-um-rob%c3%b4-1)
+    - [Simulação de um robô](#simula%c3%a7%c3%a3o-de-um-rob%c3%b4)
     - [Simulação do time](#simula%c3%a7%c3%a3o-do-time)
+  - [TODO](#todo)
 
 ## Introdução
 
@@ -35,27 +35,34 @@ roslaunch vss_simulation simulation_team.launch
 
 ## Parâmetros
 
-### Simulação de um robô
+### Roslaunch
 
- - **model** - Caminho do modelo do robô simulado, padrão "./urdf/vss_robot.xacro"
- - **debug** - Habilita mensagens de debug no terminal, padrão "false"
- - **gui** - Habilita janela GUI do Gazebo, padrão "true"
- - **paused** - Inicia a simulação com pause, padrão "true"
- - **use_sim_time** - Utiliza o tempo da simulação como referências das msgs, padrão "true"
- - **recording** - Habilita o log de estados do Gazebo, padrão "false"
- - **keyboard** - Habilita o node do controle pelo teclado/joystick, padrão "true" para simualtion_robot e padrão "false" para simulation_team
+- ```model``` - Caminho do modelo do robô simulado, padrão "./urdf/vss_robot.xacro"
+- ```debug``` - Habilita mensagens de debug no terminal, padrão "false"
+- ```gui``` - Habilita janela GUI do Gazebo, padrão "true"
+- ```paused``` - Inicia a simulação com pause, padrão "true"
+- ```use_sim_time``` - Utiliza o tempo da simulação como referências das msgs, padrão "true"
+- ```recording``` - Habilita o log de estados do Gazebo, padrão "false"
+- ```keyboard``` - Habilita o node do controle pelo teclado/joystick, padrão "false"
+
+Para passar um parâmetro na execução da simulação, basta escrever o nome do parâmetro separado do novo valor com ```:=```
+
+Por exemplo, para mudar o parâmetro ```keyboard``` para ```true```:
+
+```bash
+roslaunch vss_simulation simulation_team.launch keyboard:=true
+```
 
 ## Estrutura de pastas
 
-TODO
-
-- **docs/**
-- **launch/**
-- **meshes/**
-- **models/**
-- **scripts/**
-- **urdf/**
-- **worlds/**
+- **docs/** - Arquivos de documentação
+- **launch/** - Arquivos do [roslaunch](http://wiki.ros.org/roslaunch) escritos na [sintaxe XML](http://wiki.ros.org/roslaunch/XML) do ROS
+- **meshes/** - Arquivos .stl do modelo dos nossos robôs, gerados com a extensão [SW2URDF](http://wiki.ros.org/sw_urdf_exporter) do SolidWorks
+- **models/** - [Modelos personalizados para Gazebo](http://gazebosim.org/tutorials?tut=build_model) utilizados na simulação, como o campo e a bola do VSS
+- **scripts/** - Rotinas python usadas no projeto
+  - keyboard_node.py - Rotina para capturar a entrada do teclado ou de um joystick para controlar a simulação.
+- **urdf/** - Arquivos de descrição dos robôs no formato [.urdf](http://wiki.ros.org/urdf/XML) e [.xacro](http://wiki.ros.org/xacro). Os arquivos .urdf gerados com a extensão [SW2URDF](http://wiki.ros.org/sw_urdf_exporter) do SolidWorks
+- **worlds/** - Arquivos .world no formato [SDL](http://sdformat.org/)
 
 ## Dependências
 
@@ -81,10 +88,6 @@ rosdep install vss_simulation
 
 A simulação é construída em volta da versão 1.1 do robô de VSS do time ThunderVolt. Como suporte, foram criados modelos para o campo do VSS e para a bola de golf utilizada na partida, ambos construídos a partir das [regras da Robocore](https://www.robocore.net/modules.php?name=Forums&file=download&id=1424) para IEEE VSS.
 
-## TODO
-
-Completar documentação e integrar com código do [ThunderVolt](https://github.com/ThundeRatz/vss_thundervolt).
-
 ## Screenshots
 
 ### Simulação de um robô
@@ -94,3 +97,7 @@ Completar documentação e integrar com código do [ThunderVolt](https://github.
 ### Simulação do time
 
 ![screenshot](./docs/screenshot_team.png)
+
+## TODO
+
+Completar documentação e integrar com código do [ThunderVolt](https://github.com/ThundeRatz/vss_thundervolt).
