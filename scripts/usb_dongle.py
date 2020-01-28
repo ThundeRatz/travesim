@@ -10,11 +10,7 @@
         See https://github.com/ThundeRatz/VSSFirmware
 """
 
-from ctypes import c_byte
-import numpy as np
-import serial
 import pygame
-import time
 import argparse
 
 import rospy
