@@ -9,8 +9,8 @@
 
     <!-- Corpo -->
     <gazebo reference="corpo">
-        <mu1 value="0.01"/>
-        <mu2 value="0.01"/>
+        <mu1 value="0.1"/>
+        <mu2 value="0.1"/>
         <kp value="1000.0" />
         <kd value="10.0" />
         <material>Gazebo/White</material>
@@ -27,10 +27,10 @@
     <!-- Rodas -->
     <xacro:macro name="roda" params="side">
         <gazebo reference="roda_${side}_link">
-            <mu1 value="20.0"/>
-            <mu2 value="20.0"/>
-            <kp value="100.0" />
-            <kd value="1.0" />
+            <mu1 value="2.0"/>
+            <mu2 value="2.0"/>
+            <kp  value="1e12" />
+            <kd  value="1.0" />
             <material>Gazebo/Green</material>
         </gazebo>
     </xacro:macro>
