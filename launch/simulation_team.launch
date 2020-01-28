@@ -7,6 +7,8 @@
   <arg name="paused" default="true"/>
   <arg name="use_sim_time" default="true"/>
   <arg name="recording" default="false"/>
+
+  <!-- Control option -->
   <arg name="keyboard" default="false"/>
 
   <!-- Load gazebo simulation -->

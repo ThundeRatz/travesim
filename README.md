@@ -7,12 +7,14 @@ Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando
 
 - [Simulação de VSS em ROS com Gazebo](#simula%c3%a7%c3%a3o-de-vss-em-ros-com-gazebo)
   - [Introdução](#introdu%c3%a7%c3%a3o)
+  - [Parâmetros](#par%c3%a2metros)
+    - [Simulação de um robô](#simula%c3%a7%c3%a3o-de-um-rob%c3%b4)
   - [Estrutura de pastas](#estrutura-de-pastas)
   - [Dependências](#depend%c3%aancias)
   - [Modelos utilizados](#modelos-utilizados)
   - [TODO](#todo)
   - [Screenshots](#screenshots)
-    - [Simulação de um robô](#simula%c3%a7%c3%a3o-de-um-rob%c3%b4)
+    - [Simulação de um robô](#simula%c3%a7%c3%a3o-de-um-rob%c3%b4-1)
     - [Simulação do time](#simula%c3%a7%c3%a3o-do-time)
 
 ## Introdução
@@ -30,6 +32,18 @@ Para rodar a simulação com o time completo, digite:
 ```bash
 roslaunch vss_simulation simulation_team.launch
 ```
+
+## Parâmetros
+
+### Simulação de um robô
+
+ - **model** - Caminho do modelo do robô simulado, padrão "./urdf/vss_robot.xacro"
+ - **debug** - Habilita mensagens de debug no terminal, padrão "false"
+ - **gui** - Habilita janela GUI do Gazebo, padrão "true"
+ - **paused** - Inicia a simulação com pause, padrão "true"
+ - **use_sim_time** - Utiliza o tempo da simulação como referências das msgs, padrão "true"
+ - **recording** - Habilita o log de estados do Gazebo, padrão "false"
+ - **keyboard** - Habilita o node do controle pelo teclado/joystick, padrão "true" para simualtion_robot e padrão "false" para simulation_team
 
 ## Estrutura de pastas
 
