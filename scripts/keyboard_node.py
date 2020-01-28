@@ -2,7 +2,7 @@
 # coding=utf-8
 """
     File:
-        usb_dongle.py
+        keyboard_node.py
 
     Description:
         Simple python routine to watch the keyboard or a joystick

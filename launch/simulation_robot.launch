@@ -9,7 +9,7 @@
   <arg name="recording" default="false"/>
 
   <!-- Control option -->
-  <arg name="keyboard" default="true"/>
+  <arg name="keyboard" default="false"/>
 
   <!-- Load gazebo simulation -->
   <include file="$(find vss_simulation)/launch/gazebo.launch">
@@ -24,7 +24,7 @@
   </include>
 
   <group if="$(arg keyboard)">
-    <node name="keyboard_controller" pkg="vss_simulation" type="usb_dongle.py"/>
+    <node name="keyboard_controller" pkg="vss_simulation" type="keyboard_node.py"/>
   </group>
 
   <group unless="$(arg keyboard)">
