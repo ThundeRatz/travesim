@@ -80,12 +80,14 @@ def main(namespace, debug=DEFAULT_DEBUG):
     vel_pub_esq = []
 
     for i in range(ROBOTS):
-        vel_pub_dir.append(rospy.Publisher(getNamespace(i) + '/vss_robot_right_controller/command',
-                                    Float64, queue_size=2))
-        vel_pub_esq.append(rospy.Publisher(getNamespace(i) + '/vss_robot_left_controller/command',
-                                    Float64, queue_size=2))
+        vel_pub_dir.append(rospy.Publisher(
+            getNamespace(i) + '/vss_robot_right_controller/command',
+            Float64, queue_size=2))
+        vel_pub_esq.append(rospy.Publisher(
+            getNamespace(i) + '/vss_robot_left_controller/command',
+            Float64, queue_size=2))
 
-    rate = rospy.Rate(60) # 60hz
+    rate = rospy.Rate(60)  # 60hz
 
     pygame.init()
 
@@ -116,7 +118,8 @@ def main(namespace, debug=DEFAULT_DEBUG):
     if not pygame.joystick.get_count():
         using_joystick = False
         print("No Joysticks to Initialize")
-        img = font.render("No Joysticks to Initialize", 1, (50, 200, 50), (0, 0, 0))
+        img = font.render("No Joysticks to Initialize", 1,
+                          (50, 200, 50), (0, 0, 0))
         console.append(img)
 
     running = True
@@ -152,7 +155,8 @@ def main(namespace, debug=DEFAULT_DEBUG):
             # Caso algum botão do joystick seja apertado
             if e.type == pygame.JOYBUTTONDOWN \
                 or e.type == pygame.JOYBUTTONUP \
-                or e.type == pygame.JOYHATMOTION:
+                    or e.type == pygame.JOYHATMOTION:
+
                     txt = "%s: %s" % (pygame.event.event_name(e.type), e.dict)
                     print(txt)
                     img = font.render(txt, 1, (50, 200, 50), (0, 0, 0))

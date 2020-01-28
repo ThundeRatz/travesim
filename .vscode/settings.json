@@ -14,4 +14,6 @@
         "*.sdf": "xml",
         "*.config": "xml"
     },
+    "python.linting.pep8Enabled": true,
+    "python.linting.enabled": true,
 }
