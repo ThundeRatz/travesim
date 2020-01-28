@@ -15,6 +15,8 @@ import argparse
 
 import rospy
 from geometry_msgs.msg import Twist
+from std_msgs.msg import Float64
+
 # Vamos acompanhar o estado dessas teclas
 KEYS = [pygame.K_a, pygame.K_s, pygame.K_d, pygame.K_w]
 
@@ -23,12 +25,21 @@ X_AXIS = 0
 Y_AXIS = 4
 INVERT_X_AXIS = False
 INVERT_Y_AXIS = True
-ANG_SCALE = 6
-LIN_SCALE = 1
+
+
+# Namespace dos tópicos que iremos publicar
+DEFAULT_NAMESPACE = "/robot_0"
+
+# A vel máxima do robô é 2 m/s
+LIN_VEL =  1 # m/s
+WHEEL_RAIDUS = 0.030 # m
+
+ANG_VEL = LIN_VEL/WHEEL_RAIDUS # rad/s
 
 # Os comandos vão de -126 até 126 de modo que os bytes 0xFE e 0xFF
 # nunca são utilizados
 SCALE = 126
+
 
 def drawConsole(win, font, console):
     """
@@ -48,7 +59,7 @@ def drawConsole(win, font, console):
         ypos -= font.get_height()
 
 
-def main():
+def main(namespace):
 
     vel_pub = None
     vel_msg = None
@@ -56,9 +67,13 @@ def main():
 
     # Inicia configs do ROS
     rospy.init_node('vss_human_controller')
-    vel_pub = rospy.Publisher('/robot_0/vss_robot_diff_drive_controller/cmd_vel', Twist, queue_size=10)
-    vel_msg = Twist()
-    rate = rospy.Rate(10) # 10hz
+
+    vel_pub_dir = rospy.Publisher(namespace + '/vss_robot_right_controller/command',
+                                  Float64, queue_size=2)
+    vel_pub_esq = rospy.Publisher(namespace + '/vss_robot_left_controller/command',
+                                  Float64, queue_size=2)
+
+    rate = rospy.Rate(60) # 60hz
 
     pygame.init()
 
@@ -148,13 +163,11 @@ def main():
             console.append(img)
             console = console[-13:]
 
-            vel_msg.linear.x = axis[1]*LIN_SCALE
-            vel_msg.linear.y = 0
-            vel_msg.linear.z = 0
+            vel_dir = Float64((axis[1] - axis[0])*ANG_VEL/2)
+            vel_esq = Float64((axis[1] + axis[0])*ANG_VEL/2)
 
-            vel_msg.angular.x = 0
-            vel_msg.angular.y = 0
-            vel_msg.angular.z = -axis[0]*ANG_SCALE
+            vel_pub_dir.publish(vel_dir)
+            vel_pub_esq.publish(vel_esq)
 
         else:
             vel_y = 0.0
@@ -175,20 +188,19 @@ def main():
             console.append(img)
             console = console[-13:]
 
-            vel_msg.linear.x = vel_x*LIN_SCALE
-            vel_msg.linear.y = 0
-            vel_msg.linear.z = 0
+            vel_dir = Float64((vel_y - vel_x)*ANG_VEL/2)
+            vel_esq = Float64((vel_y + vel_x)*ANG_VEL/2)
 
-            vel_msg.angular.x = 0
-            vel_msg.angular.y = 0
-            vel_msg.angular.z = vel_y*ANG_SCALE
+            vel_pub_dir.publish(vel_dir)
+            vel_pub_esq.publish(vel_esq)
 
-        vel_pub.publish(vel_msg)
         rate.sleep()
 
 
 if __name__ == "__main__":
-    # parser = argparse.ArgumentParser()
-    # args = parser.parse_args()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-n", "--namespace", type=str, default=DEFAULT_NAMESPACE)
 
-    main()
+    args = parser.parse_args()
+
+    main(args.namespace)
