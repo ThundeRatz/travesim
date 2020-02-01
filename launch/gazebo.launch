@@ -35,6 +35,10 @@ https://github.com/ros/urdf_sim_tutorial -->
     type="static_transform_publisher"
     args="0 0 0 0 0 0 base_link base_footprint 40" />
 
+  <!-- Load node to re-publish the gazebo message in the sintax of
+    ThunderVolt project -->
+  <node name="vision_proxy" pkg="vss_simulation" type="vision_proxy.py"/>
+
   <group if="$(arg single)" ns="robot_0">
     <!-- Load robot file -->
     <include file="$(find vss_simulation)/launch/spawn_robot.launch">
