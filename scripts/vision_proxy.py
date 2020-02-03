@@ -21,7 +21,7 @@ MODELS = ["vss_ball",
 pubs = {}
 
 for model in MODELS:
-    pubs[model] = rospy.Publisher("/vision/" + model, ModelState, queue_size=2)
+    pubs[model] = rospy.Publisher("/vision/" + model, ModelState, queue_size=1)
 
 
 def callback(data):
@@ -37,7 +37,7 @@ def callback(data):
 def listener():
 
     rospy.init_node("gzb_proxy")
-    rospy.Subscriber("/gazebo/model_states", ModelStates, callback)
+    rospy.Subscriber("/gazebo/model_states", ModelStates, callback, queue_size = 1)
 
     # spin() simply keeps python from exiting until this node is stopped
     rospy.spin()
