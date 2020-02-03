@@ -12,6 +12,7 @@
 
 import pygame
 import argparse
+import sys
 
 import rospy
 from geometry_msgs.msg import Twist
@@ -225,11 +226,19 @@ def main(namespace, debug=DEFAULT_DEBUG):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-n", "--namespace", type=str,
-                        default=DEFAULT_NAMESPACE)
-    parser.add_argument("-d", "--debug", action="store_true")
+    rospy.loginfo("Começando a brincadeira!")
 
-    args = parser.parse_args()
+    # Clean ROS parameters from command line
+    myargv = rospy.myargv(argv=sys.argv)
 
-    main(args.namespace, debug=args.debug)
+    # parser = argparse.ArgumentParser()
+    # parser.add_argument("-n", "--namespace", type=str,
+                        # default=DEFAULT_NAMESPACE)
+    # parser.add_argument("-d", "--debug", action="store_true")
+
+    print(myargv)
+    rospy.loginfo(myargv)
+
+    # args = parser.parse_args(myargv)
+
+    main(DEFAULT_NAMESPACE)
