@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!-- Here we have the definition of a simple continuous motor
-  with a mechanical reduction -->
+  with a mechanical reduction
+  Ref: https://www.pololu.com/product/3064-->
 
 <!-- Ref: Item 7.
   https://wiki.ros.org/urdf/Tutorials/Using%20a%20URDF%20in%20Gazebo -->
@@ -18,6 +19,8 @@
       </actuator>
 
       <joint name="roda_${side}_joint">
+        <!-- <limit effort="30" velocity="1.0" lower="-2.2" upper="0.7" /> -->
+        <limit effort="11e-3" velocity="100" />
         <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
       </joint>
 
