@@ -7,6 +7,7 @@ Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando
 
 - [Simulação de VSS em ROS com Gazebo](#simula%c3%a7%c3%a3o-de-vss-em-ros-com-gazebo)
   - [Introdução](#introdu%c3%a7%c3%a3o)
+  - [Tópicos ROS](#t%c3%b3picos-ros)
   - [Parâmetros](#par%c3%a2metros)
     - [Roslaunch](#roslaunch)
   - [Estrutura de pastas](#estrutura-de-pastas)
@@ -32,6 +33,34 @@ Para rodar a simulação com o time completo, digite:
 ```bash
 roslaunch vss_simulation simulation_team.launch
 ```
+
+## Tópicos ROS
+
+O pacore [ThunderVolt](https://github.com/ThundeRatz/vss_thundervolt) se inscreve em 7 tópicos do tipo [gazebo_msgs/ModelState](http://docs.ros.org/jade/api/gazebo_msgs/html/msg/ModelState.html) (3 robôs, 3 adversários e 1 bola)
+
+```c
+# Set Gazebo Model pose and twist
+string model_name           # model to set state (pose and twist)
+geometry_msgs/Pose pose     # desired pose in reference frame
+geometry_msgs/Twist twist   # desired twist in reference frame
+string reference_frame      # set pose/twist relative to the frame of this entity (Body/Model)
+                            # leave empty or "world" or "map" defaults to world-frame
+```
+
+Por padrão o Gazebo publica 1 tópico do tipo [gazebo_msgs/ModelStates](http://docs.ros.org/jade/api/gazebo_msgs/html/msg/ModelStates.html)
+
+```c
+# broadcast all model states in world frame
+string[] name                 # model names
+geometry_msgs/Pose[] pose     # desired pose in world frame
+geometry_msgs/Twist[] twist   # desired twist in world frame
+```
+
+Este pacote de simulação possui um script python que se increve no tópico do Gazebo e republica a informação nos 7 tópicos esperados pelo [ThunderVolt](https://github.com/ThundeRatz/vss_thundervolt):
+
+- **/vision/robot_[0...2]** - Tópicos para os robôs do nosso time
+- **/vision/foe_[0...2]** - Tópicos para os robôs adversários
+- **/vision/ball** - Tópico para a bola
 
 ## Parâmetros
 
@@ -100,4 +129,4 @@ A simulação é construída em volta da versão 1.1 do robô de VSS do time Thu
 
 ## TODO
 
-Completar documentação e integrar com código do [ThunderVolt](https://github.com/ThundeRatz/vss_thundervolt).
+Completar documentação.
