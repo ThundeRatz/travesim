@@ -62,6 +62,8 @@ Este pacote de simulação possui um script python que se increve no tópico do 
 - **/vision/foe_[0...2]** - Tópicos para os robôs adversários
 - **/vision/ball** - Tópico para a bola
 
+Todas as unidades estão no SI, distâncias estão em metros, ângulos estão em radianos, velocidade linear está em m/s e velocidade angular estã em rad/s
+
 ## Parâmetros
 
 ### Roslaunch
