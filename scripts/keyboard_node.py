@@ -19,7 +19,7 @@ from geometry_msgs.msg import Twist
 from std_msgs.msg import Float64
 
 # Vamos acompanhar o estado dessas teclas
-KEYS = [pygame.K_a, pygame.K_s, pygame.K_d, pygame.K_w]
+KEYS = [pygame.K_w, pygame.K_a, pygame.K_s, pygame.K_d]
 
 # Indice dos eixos x e y do joystick
 X_AXIS = 0
@@ -198,15 +198,15 @@ def main(namespace, debug=DEFAULT_DEBUG):
 
         else:
             vel_y = 0.0
-            if state[pygame.K_a]:
+            if state[pygame.K_w]:
                 vel_y += 1.0
-            if state[pygame.K_d]:
+            if state[pygame.K_s]:
                 vel_y -= 1.0
 
             vel_x = 0.0
-            if state[pygame.K_s]:
+            if state[pygame.K_a]:
                 vel_x -= 1.0
-            if state[pygame.K_w]:
+            if state[pygame.K_d]:
                 vel_x += 1.0
 
             txt = "X: {} Y: {}".format(int(vel_x*SCALE), int(vel_y*SCALE))
