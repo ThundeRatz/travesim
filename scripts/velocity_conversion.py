@@ -10,7 +10,8 @@
 """
 
 import rospy
-from gazebo_msgs.msg import Twist
+from geometry_msgs.msg import Twist
+from std_msgs.msg import Float64
 
 # A vel máxima do robô é 2 m/s
 LIN_VEL = 1  # m/s
