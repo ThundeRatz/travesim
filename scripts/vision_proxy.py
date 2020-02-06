@@ -25,6 +25,7 @@ for model in MODELS:
 
 
 def callback(data):
+
     rospy.loginfo(rospy.get_caller_id() + " I heard %s", data.name)
     for i, model in enumerate(data.name):
         if model in MODELS:
@@ -37,7 +38,8 @@ def callback(data):
 def listener():
 
     rospy.init_node("gzb_proxy")
-    rospy.Subscriber("/gazebo/model_states", ModelStates, callback, queue_size = 1)
+    rospy.Subscriber("/gazebo/model_states", ModelStates, callback,
+                     queue_size=1)
 
     # spin() simply keeps python from exiting until this node is stopped
     rospy.spin()
