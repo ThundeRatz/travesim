@@ -27,7 +27,12 @@ vel_pub_esq = rospy.Publisher("/robot_0/vss_robot_left_controller/command",
 
 
 def callback(data):
+    """
+    Function called when a message is received
 
+    :param data: Message received in the ROS topic
+    :type data: Twist
+    """
     vel_lin = data.linear.x
     vel_ang = data.angular.z
 
@@ -45,7 +50,9 @@ def callback(data):
 
 
 def listener():
-    
+    """
+    Main function, a simple ROS listener
+    """
     rospy.init_node("velocity_proxy")
     rospy.Subscriber("steering_topic", Twist, callback)
 
