@@ -26,12 +26,12 @@
   <group if="$(arg keyboard)">
     <node name="keyboard_controller" pkg="vss_simulation" type="keyboard_node.py"/>
   </group>
-
+  
   <group unless="$(arg keyboard)">
 
   <!-- Display controllers to user -->
     <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
-      <param name="default_topic" value="/robot_0/vss_robot_diff_drive_controller/cmd_vel"/>
+      <param name="default_topic" value="steering_topic"/>
     </node>
 
   </group>
