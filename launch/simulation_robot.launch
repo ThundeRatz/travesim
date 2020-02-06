@@ -20,19 +20,21 @@
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
     <arg name="recording" value="$(arg recording)"/>
     <arg name="single" value="true"/>
-    <arg name="direct_drive" value="$(arg keyboard)"/>
   </include>
 
   <group if="$(arg keyboard)">
     <node name="keyboard_controller" pkg="vss_simulation" type="keyboard_node.py"/>
   </group>
-
+  
   <group unless="$(arg keyboard)">
 
-  <!-- Display controllers to user -->
+    <!-- Display controllers to user -->
     <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
-      <param name="default_topic" value="/robot_0/vss_robot_diff_drive_controller/cmd_vel"/>
+      <param name="default_topic" value="steering_topic"/>
     </node>
+
+    <!-- Run velocity conversion proxy -->
+    <node name="velocity_proxy" pkg="vss_simulation" type="velocity_proxy.py"/>
 
   </group>
 

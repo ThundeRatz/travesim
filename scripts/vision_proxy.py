@@ -25,6 +25,12 @@ for model in MODELS:
 
 
 def callback(data):
+    """
+    Function called when a message is received
+
+    :param data: Message received in the ROS topic
+    :type data: ModelStates
+    """
     rospy.loginfo(rospy.get_caller_id() + " I heard %s", data.name)
     for i, model in enumerate(data.name):
         if model in MODELS:
@@ -35,9 +41,12 @@ def callback(data):
 
 
 def listener():
-
+    """
+    Main function, a simple ROS listener
+    """
     rospy.init_node("gzb_proxy")
-    rospy.Subscriber("/gazebo/model_states", ModelStates, callback, queue_size = 1)
+    rospy.Subscriber("/gazebo/model_states", ModelStates, callback,
+                     queue_size=1)
 
     # spin() simply keeps python from exiting until this node is stopped
     rospy.spin()
