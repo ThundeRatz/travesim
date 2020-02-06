@@ -10,7 +10,6 @@
 """
 
 import rospy
-from std_msgs.msg import String
 from gazebo_msgs.msg import Twist
 
 # A vel máxima do robô é 2 m/s
@@ -38,7 +37,7 @@ def callback(data):
 def listener():
 
     rospy.init_node("vel_conversion")
-    rospy.Subscriber("steering_topic", Twist, callback, queue_size = 1)
+    rospy.Subscriber("steering_topic", Twist, callback)
 
     # spin() simply keeps python from exiting until this node is stopped
     rospy.spin()

@@ -20,7 +20,6 @@
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
     <arg name="recording" value="$(arg recording)"/>
     <arg name="single" value="true"/>
-    <arg name="direct_drive" value="$(arg keyboard)"/>
   </include>
 
   <group if="$(arg keyboard)">
