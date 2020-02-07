@@ -92,6 +92,8 @@ roslaunch vss_simulation simulation_team.launch keyboard:=true
 - **models/** - [Modelos personalizados para Gazebo](http://gazebosim.org/tutorials?tut=build_model) utilizados na simulação, como o campo e a bola do VSS
 - **scripts/** - Rotinas python usadas no projeto
   - keyboard_node.py - Rotina para capturar a entrada do teclado ou de um joystick para controlar a simulação.
+  - velocity_proxy.py - Rotina para converter a entrada recebida pelo controlador em uma mensagem de velocidade para cada motor.
+  - vision_proxy.py - Rotina para separar a informação de estado do Gazebo em tópicos diferentes para cada modelo (robôs e bola).
 - **urdf/** - Arquivos de descrição dos robôs no formato [.urdf](http://wiki.ros.org/urdf/XML) e [.xacro](http://wiki.ros.org/xacro). Os arquivos .urdf gerados com a extensão [SW2URDF](http://wiki.ros.org/sw_urdf_exporter) do SolidWorks
 - **worlds/** - Arquivos .world no formato [SDL](http://sdformat.org/)
 
