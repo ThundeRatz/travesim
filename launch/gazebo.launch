@@ -15,6 +15,7 @@ https://github.com/ros/urdf_sim_tutorial -->
   <arg name="height" default="0.080"/>
   <arg name="x" default="-0.25" />
   <arg name="y" default="0" />
+  <arg name="yaw" default="0" />
 
   <!-- Add our project workspace to Gazebo index to load custom models -->
   <env name="GAZEBO_RESOURCE_PATH" value="$(find vss_simulation)"/>
@@ -47,6 +48,7 @@ https://github.com/ros/urdf_sim_tutorial -->
       <arg name="model" value="$(arg model)" />
       <arg name="x" value="$(arg x)" />
       <arg name="y" value="$(arg y)" />
+      <arg name="yaw" value="$(arg yaw)" />
     </include>
   </group>
 
