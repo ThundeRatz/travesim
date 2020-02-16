@@ -4,19 +4,54 @@
     <xacro:arg name="robot_number" default="0" />
     <xacro:property name="robot_number" value="$(arg robot_number)" />
 
-    <gazebo reference="chapeu_link">
-
-        <xacro:if value="${robot_number == 0}">
-            <material>Gazebo/Black</material>
-        </xacro:if>
-
-        <xacro:if value="${robot_number == 1}">
-            <material>Gazebo/Yellow</material>
-        </xacro:if>
-
-        <xacro:if value="${robot_number == 2}">
-            <material>Gazebo/Orange</material>
-        </xacro:if>
-
+    <!-- Set common colors -->
+    <gazebo reference="tile_sup_dir_link">
+        <material>Gazebo/Black</material>
     </gazebo>
+
+    <gazebo reference="tile_inf_esq_link">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+    <gazebo reference="tile_inf_dir_link">
+        <material>Gazebo/Yellow</material>
+    </gazebo>
+
+    <!-- Set specific colors -->
+    <xacro:if value="${robot_number == 0}">
+
+        <gazebo reference="chapeu_link">
+            <material>Gazebo/Black</material>
+        </gazebo>
+
+        <gazebo reference="tile_sup_esq_link">
+            <material>Gazebo/Purple</material>
+        </gazebo>
+
+    </xacro:if>
+
+    <xacro:if value="${robot_number == 1}">
+
+        <gazebo reference="chapeu_link">
+            <material>Gazebo/Black</material>
+        </gazebo>
+
+        <gazebo reference="tile_sup_esq_link">
+            <material>Gazebo/Orange</material>
+        </gazebo>
+
+    </xacro:if>
+
+    <xacro:if value="${robot_number == 2}">
+
+        <gazebo reference="chapeu_link">
+            <material>Gazebo/Black</material>
+        </gazebo>
+
+        <gazebo reference="tile_sup_esq_link">
+            <material>Gazebo/Green</material>
+        </gazebo>
+
+    </xacro:if>
+
 </robot>
