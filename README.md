@@ -13,6 +13,7 @@ Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando
   - [Estrutura de pastas](#estrutura-de-pastas)
   - [Dependências](#depend%c3%aancias)
   - [Modelos utilizados](#modelos-utilizados)
+  - [Cores no Gazebo](#cores-no-gazebo)
   - [Screenshots](#screenshots)
     - [Simulação de um robô](#simula%c3%a7%c3%a3o-de-um-rob%c3%b4)
     - [Simulação do time](#simula%c3%a7%c3%a3o-do-time)
@@ -120,6 +121,10 @@ rosdep install vss_simulation
 ## Modelos utilizados
 
 A simulação é construída em volta da versão 1.1 do robô de VSS do time ThunderVolt. Como suporte, foram criados modelos para o campo do VSS e para a bola de golf utilizada na partida, ambos construídos a partir das [regras da Robocore](https://www.robocore.net/modules.php?name=Forums&file=download&id=1424) para IEEE VSS.
+
+## Cores no Gazebo
+
+Para uma lista das cores disposníveis no Gazebo, confira o arquivo de configuração do [repo oficial](https://bitbucket.org/osrf/gazebo/src/gazebo11/media/materials/scripts/gazebo.material)
 
 ## Screenshots
 
