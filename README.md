@@ -35,6 +35,12 @@ Para rodar a simulação com o time completo, digite:
 roslaunch vss_simulation simulation_team.launch
 ```
 
+Para rodar a simulação de uma partida, digite:
+
+```bash
+roslaunch vss_simulation simulation_match.launch
+```
+
 ## Tópicos ROS
 
 O pacore [ThunderVolt](https://github.com/ThundeRatz/vss_thundervolt) se inscreve em 7 tópicos do tipo [gazebo_msgs/ModelState](http://docs.ros.org/jade/api/gazebo_msgs/html/msg/ModelState.html) (3 robôs, 3 adversários e 1 bola)
@@ -135,6 +141,10 @@ Para uma lista das cores disposníveis no Gazebo, confira o arquivo de configura
 ### Simulação do time
 
 ![screenshot](./docs/screenshot_team.png)
+
+### Simulação da partida
+
+![screenshot](./docs/screenshot_match.png)
 
 ## TODO
 

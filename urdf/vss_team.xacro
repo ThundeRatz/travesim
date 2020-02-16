@@ -54,4 +54,101 @@
 
     </xacro:if>
 
+        <!-- <xacro:if value="${robot_number == 3}">
+            <material>Gazebo/Black</material>
+        </xacro:if>
+
+        <xacro:if value="${robot_number == 4}">
+            <material>Gazebo/Yellow</material>
+        </xacro:if>
+
+        <xacro:if value="${robot_number == 5}">
+            <material>Gazebo/Orange</material>
+        </xacro:if>
+
+    </gazebo> -->
+
+    <gazebo reference="corpo">
+
+        <xacro:if value="${robot_number == 0}">
+            <material>Gazebo/White</material>
+        </xacro:if>
+
+        <xacro:if value="${robot_number == 1}">
+            <material>Gazebo/White</material>
+        </xacro:if>
+
+        <xacro:if value="${robot_number == 2}">
+            <material>Gazebo/White</material>
+        </xacro:if>
+
+        <xacro:if value="${robot_number == 3}">
+            <material>Gazebo/Grey</material>
+        </xacro:if>
+
+        <xacro:if value="${robot_number == 4}">
+            <material>Gazebo/Grey</material>
+        </xacro:if>
+
+        <xacro:if value="${robot_number == 5}">
+            <material>Gazebo/Grey</material>
+        </xacro:if>
+
+    </gazebo>
+
+    <gazebo reference="roda_dir_link">
+
+        <xacro:if value="${robot_number == 0}">
+            <material>Gazebo/Green</material>
+        </xacro:if>
+
+        <xacro:if value="${robot_number == 1}">
+            <material>Gazebo/Green</material>
+        </xacro:if>
+
+        <xacro:if value="${robot_number == 2}">
+            <material>Gazebo/Green</material>
+        </xacro:if>
+
+        <xacro:if value="${robot_number == 3}">
+            <material>Gazebo/Red</material>
+        </xacro:if>
+
+        <xacro:if value="${robot_number == 4}">
+            <material>Gazebo/Red</material>
+        </xacro:if>
+
+        <xacro:if value="${robot_number == 5}">
+            <material>Gazebo/Red</material>
+        </xacro:if>
+
+    </gazebo>
+
+    <gazebo reference="roda_esq_link">
+
+        <xacro:if value="${robot_number == 0}">
+            <material>Gazebo/Green</material>
+        </xacro:if>
+
+        <xacro:if value="${robot_number == 1}">
+            <material>Gazebo/Green</material>
+        </xacro:if>
+
+        <xacro:if value="${robot_number == 2}">
+            <material>Gazebo/Green</material>
+        </xacro:if>
+
+        <xacro:if value="${robot_number == 3}">
+            <material>Gazebo/Red</material>
+        </xacro:if>
+
+        <xacro:if value="${robot_number == 4}">
+            <material>Gazebo/Red</material>
+        </xacro:if>
+
+        <xacro:if value="${robot_number == 5}">
+            <material>Gazebo/Red</material>
+        </xacro:if>
+
+    </gazebo>
 </robot>

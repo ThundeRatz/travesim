@@ -13,7 +13,7 @@
         <mu2 value="0.1"/>
         <kp value="1000.0" />
         <kd value="10.0" />
-        <material>Gazebo/White</material>
+        <!-- <material>Gazebo/White</material> -->
     </gazebo>
 
     <!-- Chapeu -->
@@ -31,7 +31,7 @@
             <mu2 value="2.0"/>
             <kp  value="1e12" />
             <kd  value="1.0" />
-            <material>Gazebo/Green</material>
+            <!-- <material>Gazebo/Green</material> -->
         </gazebo>
     </xacro:macro>
 
