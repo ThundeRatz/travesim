@@ -13,6 +13,7 @@ Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando
   - [Estrutura de pastas](#estrutura-de-pastas)
   - [Dependências](#depend%c3%aancias)
   - [Modelos utilizados](#modelos-utilizados)
+  - [Cores no Gazebo](#cores-no-gazebo)
   - [Screenshots](#screenshots)
     - [Simulação de um robô](#simula%c3%a7%c3%a3o-de-um-rob%c3%b4)
     - [Simulação do time](#simula%c3%a7%c3%a3o-do-time)
@@ -32,6 +33,12 @@ Para rodar a simulação com o time completo, digite:
 
 ```bash
 roslaunch vss_simulation simulation_team.launch
+```
+
+Para rodar a simulação de uma partida, digite:
+
+```bash
+roslaunch vss_simulation simulation_match.launch
 ```
 
 ## Tópicos ROS
@@ -92,6 +99,8 @@ roslaunch vss_simulation simulation_team.launch keyboard:=true
 - **models/** - [Modelos personalizados para Gazebo](http://gazebosim.org/tutorials?tut=build_model) utilizados na simulação, como o campo e a bola do VSS
 - **scripts/** - Rotinas python usadas no projeto
   - keyboard_node.py - Rotina para capturar a entrada do teclado ou de um joystick para controlar a simulação.
+  - velocity_proxy.py - Rotina para converter a entrada recebida pelo controlador em uma mensagem de velocidade para cada motor.
+  - vision_proxy.py - Rotina para separar a informação de estado do Gazebo em tópicos diferentes para cada modelo (robôs e bola).
 - **urdf/** - Arquivos de descrição dos robôs no formato [.urdf](http://wiki.ros.org/urdf/XML) e [.xacro](http://wiki.ros.org/xacro). Os arquivos .urdf gerados com a extensão [SW2URDF](http://wiki.ros.org/sw_urdf_exporter) do SolidWorks
 - **worlds/** - Arquivos .world no formato [SDL](http://sdformat.org/)
 
@@ -119,6 +128,10 @@ rosdep install vss_simulation
 
 A simulação é construída em volta da versão 1.1 do robô de VSS do time ThunderVolt. Como suporte, foram criados modelos para o campo do VSS e para a bola de golf utilizada na partida, ambos construídos a partir das [regras da Robocore](https://www.robocore.net/modules.php?name=Forums&file=download&id=1424) para IEEE VSS.
 
+## Cores no Gazebo
+
+Para uma lista das cores disposníveis no Gazebo, confira o arquivo de configuração do [repo oficial](https://bitbucket.org/osrf/gazebo/src/gazebo11/media/materials/scripts/gazebo.material)
+
 ## Screenshots
 
 ### Simulação de um robô
@@ -128,6 +141,10 @@ A simulação é construída em volta da versão 1.1 do robô de VSS do time Thu
 ### Simulação do time
 
 ![screenshot](./docs/screenshot_team.png)
+
+### Simulação da partida
+
+![screenshot](./docs/screenshot_match.png)
 
 ## TODO
 

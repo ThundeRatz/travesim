@@ -13,7 +13,6 @@
         <mu2 value="0.1"/>
         <kp value="1000.0" />
         <kd value="10.0" />
-        <material>Gazebo/White</material>
     </gazebo>
 
     <!-- Chapeu -->
@@ -31,13 +30,13 @@
             <mu2 value="2.0"/>
             <kp  value="1e12" />
             <kd  value="1.0" />
-            <material>Gazebo/Green</material>
         </gazebo>
     </xacro:macro>
 
     <xacro:roda side="esq"/>
     <xacro:roda side="dir"/>
 
+    <!-- Include team-specific color configs -->
     <xacro:include filename="$(find vss_simulation)/urdf/vss_team.xacro" />
 
     <!-- Load gazebo plugin to control the robot -->

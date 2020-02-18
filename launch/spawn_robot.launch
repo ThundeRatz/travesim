@@ -5,7 +5,8 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
 <launch>
 
   <arg name="robot_number" default="0" />
-  <arg name="robot_name" default="robot_$(arg robot_number)" />
+  <arg name="team_number" default="0" />
+  <arg name="robot_name" default="$(eval 'robot_'+str(team_number*3+robot_number))" />
   <arg name="x" default="0"/>
   <arg name="y" default="0"/>
   <arg name="z" default="0.04"/>
@@ -15,7 +16,9 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
   <arg name="model" default="$(find vss_simulation)/urdf/vss_robot.xacro"/>
 
   <param name="robot_description"
-    command="$(find xacro)/xacro $(arg model) robot_number:=$(arg robot_number)" />
+    command="$(find xacro)/xacro $(arg model)
+                robot_number:=$(arg robot_number)
+                team_number:=$(arg team_number)" />
 
   <!-- push robot_description to factory and spawn robot in gazebo -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"

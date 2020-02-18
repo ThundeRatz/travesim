@@ -16,7 +16,10 @@ from gazebo_msgs.msg import ModelStates, ModelState
 MODELS = ["vss_ball",
           "robot_0",
           "robot_1",
-          "robot_2"]
+          "robot_2",
+          "foe_0",
+          "foe_1",
+          "foe_2"]
 
 pubs = {}
 

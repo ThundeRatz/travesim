@@ -2,21 +2,95 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
     <xacro:arg name="robot_number" default="0" />
+    <xacro:arg name="team_number" default="0" />
     <xacro:property name="robot_number" value="$(arg robot_number)" />
+    <xacro:property name="team_number" value="$(arg team_number)" />
 
-    <gazebo reference="chapeu_link">
-
-        <xacro:if value="${robot_number == 0}">
-            <material>Gazebo/Black</material>
-        </xacro:if>
-
-        <xacro:if value="${robot_number == 1}">
-            <material>Gazebo/Yellow</material>
-        </xacro:if>
-
-        <xacro:if value="${robot_number == 2}">
-            <material>Gazebo/Orange</material>
-        </xacro:if>
-
+    <!-- Set common colors -->
+    <gazebo reference="tile_sup_dir_link">
+        <material>Gazebo/Black</material>
     </gazebo>
+
+    <gazebo reference="tile_inf_esq_link">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+    <!-- Set teams configuration -->
+    <xacro:if value="${team_number == 0}">
+
+        <gazebo reference="tile_inf_dir_link">
+            <material>Gazebo/Yellow</material>
+        </gazebo>
+
+        <gazebo reference="corpo">
+            <material>Gazebo/White</material>
+        </gazebo>
+
+        <gazebo reference="roda_dir_link">
+            <material>Gazebo/Green</material>
+        </gazebo>
+
+        <gazebo reference="roda_esq_link">
+            <material>Gazebo/Green</material>
+        </gazebo>
+
+    </xacro:if>
+
+    <xacro:if value="${team_number == 1}">
+
+        <gazebo reference="tile_inf_dir_link">
+            <material>Gazebo/Blue</material>
+        </gazebo>
+
+        <gazebo reference="corpo">
+            <material>Gazebo/Grey</material>
+        </gazebo>
+
+        <gazebo reference="roda_dir_link">
+            <material>Gazebo/Red</material>
+        </gazebo>
+
+        <gazebo reference="roda_esq_link">
+            <material>Gazebo/Red</material>
+        </gazebo>
+
+    </xacro:if>
+
+    <!-- Set robots colors -->
+    <xacro:if value="${robot_number == 0}">
+
+        <gazebo reference="chapeu_link">
+            <material>Gazebo/Black</material>
+        </gazebo>
+
+        <gazebo reference="tile_sup_esq_link">
+            <material>Gazebo/Purple</material>
+        </gazebo>
+
+    </xacro:if>
+
+    <xacro:if value="${robot_number == 1}">
+
+        <gazebo reference="chapeu_link">
+            <material>Gazebo/Black</material>
+        </gazebo>
+
+        <gazebo reference="tile_sup_esq_link">
+            <material>Gazebo/Orange</material>
+        </gazebo>
+
+    </xacro:if>
+
+    <xacro:if value="${robot_number == 2}">
+
+        <gazebo reference="chapeu_link">
+            <material>Gazebo/Black</material>
+        </gazebo>
+
+        <gazebo reference="tile_sup_esq_link">
+            <material>Gazebo/Green</material>
+        </gazebo>
+
+    </xacro:if>
+
 </robot>

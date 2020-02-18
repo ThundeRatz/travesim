@@ -7,8 +7,6 @@
   <arg name="paused" default="true"/>
   <arg name="use_sim_time" default="true"/>
   <arg name="recording" default="false"/>
-  <arg name="x" default="-0.25" />
-  <arg name="y" default="0" />
 
   <!-- Control option -->
   <arg name="keyboard" default="false"/>
@@ -21,25 +19,11 @@
     <arg name="paused" value="$(arg paused)"/>
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
     <arg name="recording" value="$(arg recording)"/>
-    <arg name="x" default="$(arg x)" />
-    <arg name="y" default="$(arg y)" />
-    <arg name="single" value="true"/>
+    <arg name="match" value="true"/>
   </include>
 
   <group if="$(arg keyboard)">
     <node name="keyboard_controller" pkg="vss_simulation" type="keyboard_node.py"/>
-  </group>
-
-  <group unless="$(arg keyboard)">
-
-    <!-- Display controllers to user -->
-    <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
-      <param name="default_topic" value="steering_topic"/>
-    </node>
-
-    <!-- Run velocity conversion proxy -->
-    <node name="velocity_proxy" pkg="vss_simulation" type="velocity_proxy.py"/>
-
   </group>
 
 </launch>

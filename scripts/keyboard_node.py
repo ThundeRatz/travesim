@@ -165,11 +165,11 @@ def main(namespace, debug=DEFAULT_DEBUG):
                     console = console[-13:]
 
             # L1 pressionado
-            if e.type == pygame.JOYBUTTONDOWN and e.dict['button'] == 4:
+            if (e.type == pygame.JOYBUTTONDOWN and e.dict['button'] == 4) or (e.type == pygame.KEYDOWN and e.key == pygame.K_e):
                 current_robot += 1
                 current_robot %= ROBOTS
 
-            if e.type == pygame.JOYBUTTONDOWN and e.dict['button'] == 5:
+            if (e.type == pygame.JOYBUTTONDOWN and e.dict['button'] == 5) or (e.type == pygame.KEYDOWN and e.key == pygame.K_q):
                 current_robot -= 1
                 current_robot %= ROBOTS
 

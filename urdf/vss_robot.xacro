@@ -3,6 +3,7 @@
 <robot name="vss_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:arg name="robot_number" default="0" />
+  <xacro:arg name="team_number" default="0" />
   <link name="base_link"/>
 
   <joint name="base_joint" type="fixed">
