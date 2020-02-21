@@ -9,6 +9,7 @@
   <arg name="recording" default="false"/>
   <arg name="x" default="-0.25" />
   <arg name="y" default="0" />
+  <arg name="yaw" default="0" />
 
   <!-- Control option -->
   <arg name="keyboard" default="false"/>
@@ -23,6 +24,7 @@
     <arg name="recording" value="$(arg recording)"/>
     <arg name="x" default="$(arg x)" />
     <arg name="y" default="$(arg y)" />
+    <arg name="yaw" default="$(arg yaw)" />
     <arg name="single" value="true"/>
   </include>
 
