@@ -4,12 +4,13 @@
   Ref:
   https://bitbucket.org/osrf/gazebo/src/gazebo11/worlds/robocup09_spl_field.world -->
 
-<!-- Isometric view version -->
+<!-- Top view version -->
 
 <sdf version="1.5">
   <world name="default">
     <!-- A global light source -->
     <include>
+      <pose>10.0 0 10.0 0 0 0</pose>
       <uri>model://sun</uri>
     </include>
 
@@ -36,7 +37,7 @@
     <!-- Configure camera angles for isometric view -->
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>0 0 0 0 0.565472 2.35619</pose>
+        <pose frame=''>0 0 0 -1.570769 1.570769 0</pose>
         <view_controller>ortho</view_controller>
         <projection_type>orthographic</projection_type>
       </camera>
