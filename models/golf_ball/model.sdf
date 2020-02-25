@@ -4,7 +4,7 @@
 Proprieties according to IEEE VSS 3x3 rules -->
 
 <sdf version="1.5">
-  <model name='vss_ball'>
+  <model name='ball'>
 
     <link name='sphere'>
       <inertial>

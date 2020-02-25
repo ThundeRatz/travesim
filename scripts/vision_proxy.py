@@ -13,7 +13,7 @@ import rospy
 from std_msgs.msg import String
 from gazebo_msgs.msg import ModelStates, ModelState
 
-MODELS = ["vss_ball",
+MODELS = ["ball",
           "robot_0",
           "robot_1",
           "robot_2",
