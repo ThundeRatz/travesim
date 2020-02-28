@@ -14,12 +14,12 @@ from std_msgs.msg import String
 from gazebo_msgs.msg import ModelStates, ModelState
 
 MODELS = ["ball",
-          "robot_0",
-          "robot_1",
-          "robot_2",
-          "foe_0",
-          "foe_1",
-          "foe_2"]
+          "robot1",
+          "robot2",
+          "robot3",
+          "foe1",
+          "foe2",
+          "foe3"]
 
 pubs = {}
 
