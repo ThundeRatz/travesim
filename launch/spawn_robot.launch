@@ -4,7 +4,7 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
 
 <launch>
 
-  <arg name="robot_number" default="0" />
+  <arg name="robot_number" default="1" />
   <arg name="team_number" default="0" />
   <arg name="robot_name" default="$(eval 'robot'+str(team_number*3+robot_number))" />
   <arg name="x" default="0"/>
