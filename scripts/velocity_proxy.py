@@ -20,9 +20,9 @@ WHEEL_SEPARATION = 0.060  # m
 
 ANG_VEL = LIN_VEL/WHEEL_RADIUS  # rad/s
 
-vel_pub_dir = rospy.Publisher("/robot_0/vss_robot_right_controller/command",
+vel_pub_dir = rospy.Publisher("/robot1/vss_robot_right_controller/command",
                               Float64, queue_size=1)
-vel_pub_esq = rospy.Publisher("/robot_0/vss_robot_left_controller/command",
+vel_pub_esq = rospy.Publisher("/robot1/vss_robot_left_controller/command",
                               Float64, queue_size=1)
 
 
