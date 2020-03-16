@@ -27,11 +27,6 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
               -urdf -model $(arg robot_name) -param robot_description"
         respawn="false" output="screen" />
 
-  <!-- Start tf state publishing node -->
-  <node pkg="robot_state_publisher" type="robot_state_publisher"  name="robot_state_publisher">
-    <param name="publish_frequency" type="double" value="30.0" />
-  </node>
-
   <!-- Load configs to publish the state of all joints -->
   <rosparam command="load"
             file="$(find vss_simulation)/config/joints.yaml" />
