@@ -1,10 +1,10 @@
 <?xml version="1.0" ?>
 
 <!-- File generated with Gazebo Model Editor
-Proprieties according to IEEE VSS 3x3 rules -->
+Proprieties according to IEEE 3x3 rules -->
 
 <sdf version="1.5">
-  <model name='ball'>
+  <model name='vss_ball'>
 
     <link name='sphere'>
       <inertial>
