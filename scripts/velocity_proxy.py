@@ -2,7 +2,7 @@
 # coding=utf-8
 """
     File:
-        velocity_conversion.py
+        velocity_proxy.py
 
     Description:
         Simple python routine to convert velocity message
