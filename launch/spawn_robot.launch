@@ -38,7 +38,7 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
 
   <!-- Load configs to control robot motors -->
   <rosparam command="load"
-          file="$(find vss_simulation)/config/motor_drive.yaml" />
+          file="$(find vss_simulation)/config/motor_effort.yaml" />
 
   <node name="vss_robot_controller" pkg="controller_manager" type="spawner"
     args="vss_robot_left_controller

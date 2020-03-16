@@ -19,9 +19,7 @@
       </actuator>
 
       <joint name="roda_${side}_joint">
-        <!-- <limit effort="30" velocity="1.0" lower="-2.2" upper="0.7" /> -->
-        <limit effort="11e-3" velocity="100" />
-        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       </joint>
 
     </transmission>
