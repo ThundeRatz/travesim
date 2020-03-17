@@ -66,8 +66,8 @@ geometry_msgs/Twist[] twist   # desired twist in world frame
 
 Este pacote de simulação possui um script python que se increve no tópico do Gazebo e republica a informação nos 7 tópicos esperados pelo [ThunderVolt](https://github.com/ThundeRatz/vss_thundervolt):
 
-- **/vision/robot_[0...2]** - Tópicos para os robôs do nosso time
-- **/vision/foe_[0...2]** - Tópicos para os robôs adversários
+- **/vision/robot[1...3]** - Tópicos para os robôs do nosso time
+- **/vision/foe[1...3]** - Tópicos para os robôs adversários
 - **/vision/ball** - Tópico para a bola
 
 Todas as unidades estão no SI, distâncias estão em metros, ângulos estão em radianos, velocidade linear está em m/s e velocidade angular estã em rad/s
