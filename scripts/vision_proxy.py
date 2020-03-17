@@ -34,10 +34,15 @@ MODELS_NAMES = ["vss_ball",
 
 pubs = {}
 
-for model in MODELS_NAMES:
+
+def clean_model_name(model):
     if model.split("_")[0] == "vss":
         model = "_".join(model.split("_")[1:])
-    pubs[model] = rospy.Publisher("/vision/" + model, ModelState, queue_size=1)
+    return model
+
+for model in MODELS_NAMES:
+    pubs[model] = rospy.Publisher("/vision/" + clean_model_name(model),
+                                  ModelState, queue_size=1)
 
 
 def callback(data):
