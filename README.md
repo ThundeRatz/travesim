@@ -17,6 +17,7 @@ Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando
   - [Screenshots](#screenshots)
     - [Simulação de um robô](#simula%c3%a7%c3%a3o-de-um-rob%c3%b4)
     - [Simulação do time](#simula%c3%a7%c3%a3o-do-time)
+    - [Simulação da partida](#simula%c3%a7%c3%a3o-da-partida)
   - [TODO](#todo)
 
 ## Introdução
