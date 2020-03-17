@@ -6,7 +6,17 @@
 
     Description:
         Simple python routine to separe the information published
-    from gazebo into several topics
+    from gazebo into several topics.
+        We remove any "vss_" prefixes when creating the topic name
+
+    Topics:
+        - /vision/ball
+        - /vision/robot1
+        - /vision/robot2
+        - /vision/robot3
+        - /vision/foe1
+        - /vision/foe2
+        - /vision/foe3
 """
 
 import rospy
