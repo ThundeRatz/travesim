@@ -6,8 +6,6 @@ find_package(catkin REQUIRED)
 
 catkin_package()
 
-# find_package(?roslaunch)
-
 find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   roscpp
@@ -16,7 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
   gazebo_msgs
 )
 
-foreach(dir config launch meshes urdf)
+foreach(dir config launch meshes urdf media worlds models)
 	install(DIRECTORY ${dir}/
 		DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/${dir})
 endforeach(dir)
