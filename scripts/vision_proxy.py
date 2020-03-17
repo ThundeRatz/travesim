@@ -23,17 +23,20 @@ import rospy
 from std_msgs.msg import String
 from gazebo_msgs.msg import ModelStates, ModelState
 
-MODELS = ["ball",
-          "robot1",
-          "robot2",
-          "robot3",
-          "foe1",
-          "foe2",
-          "foe3"]
+# We take out every "vss_" prefix from our models
+MODELS_NAMES = ["vss_ball",
+                "robot1",
+                "robot2",
+                "robot3",
+                "foe1",
+                "foe2",
+                "foe3"]
 
 pubs = {}
 
-for model in MODELS:
+for model in MODELS_NAMES:
+    if model.split("_")[0] == "vss":
+        model = "_".join(model.split("_")[1:])
     pubs[model] = rospy.Publisher("/vision/" + model, ModelState, queue_size=1)
 
 
@@ -46,7 +49,7 @@ def callback(data):
     """
     rospy.loginfo(rospy.get_caller_id() + " I heard %s", data.name)
     for i, model in enumerate(data.name):
-        if model in MODELS:
+        if model in MODELS_NAMES:
             msg = ModelState(model_name=model,
                              pose=data.pose[i],
                              twist=data.twist[i])
