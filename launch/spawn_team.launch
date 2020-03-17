@@ -3,6 +3,9 @@
 
   <arg name="model" default="$(find vss_simulation)/urdf/vss_robot.xacro" />
 
+  <!-- NOTE: The namespace prefix for the topic name is set in the <gazebo>
+    inside the vss_robot.gazebo file -->
+
   <!-- Spawn robot #0 -->
   <group ns="robot1">
     <param name="tf_prefix" value="robot0_tf" />

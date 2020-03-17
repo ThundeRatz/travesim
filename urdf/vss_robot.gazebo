@@ -7,6 +7,11 @@
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+    <xacro:arg name="robot_number" default="0" />
+    <xacro:arg name="team_number" default="0" />
+    <xacro:property name="robot_number" value="$(arg robot_number)" />
+    <xacro:property name="team_number" value="$(arg team_number)" />
+
     <!-- Corpo -->
     <gazebo reference="corpo">
         <mu1 value="0.1"/>
@@ -42,7 +47,12 @@
     <!-- Load gazebo plugin to control the robot -->
     <gazebo>
         <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-        <robotNamespace>/robot$(arg robot_number)</robotNamespace>
+            <xacro:if value="${team_number == 0}">
+                <robotNamespace>/robot$(arg robot_number)</robotNamespace>
+            </xacro:if>
+            <xacro:if value="${team_number == 1}">
+                <robotNamespace>/foe$(arg robot_number)</robotNamespace>
+            </xacro:if>
         </plugin>
     </gazebo>
 </robot>
