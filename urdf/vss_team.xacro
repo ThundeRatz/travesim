@@ -54,7 +54,7 @@
 
         <!-- Set robots colors -->
         <xacro:if value="${robot_number == 1}">
-            <xacro:hat_colors team_color="Gazebo/Blue" robot_color="Gazebo/SkyBlue" />
+            <xacro:hat_colors team_color="Gazebo/Blue" robot_color="VSS/Wine" />
         </xacro:if>
 
         <xacro:if value="${robot_number == 2}">
