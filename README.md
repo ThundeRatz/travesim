@@ -113,10 +113,10 @@ A simulação é desenvolvida para ROS e Gazebo, é recomendável instalar ambos
 sudo apt install ros-melodic-desktop-full
 ```
 
-O projeto depende do pacote velocity_controllers dentro da biblioteca [ros_controllers](https://github.com/ros-controls/ros_controllers) e da biblioteca python [pygame](https://github.com/pygame/pygame). É possível instalar com ```apt-get```
+O projeto depende do pacote velocity_controllers e do effort-controllers dentro da biblioteca [ros_controllers](https://github.com/ros-controls/ros_controllers) e da biblioteca python [pygame](https://github.com/pygame/pygame). É possível instalar com ```apt-get```
 
 ```bash
-sudo apt install ros-melodic-velocity-controllers python-pygame
+sudo apt install ros-melodic-velocity-controllers ros-melodic-effort-controllers python-pygame
 ```
 
 Ou usando ```rosdep```
@@ -131,7 +131,7 @@ A simulação é construída em volta da versão 1.1 do robô de VSS do time Thu
 
 ## Cores no Gazebo
 
-Para uma lista das cores disposníveis no Gazebo, confira o arquivo de configuração do [repo oficial](https://bitbucket.org/osrf/gazebo/src/gazebo11/media/materials/scripts/gazebo.material)
+Para uma lista das cores disponíveis no Gazebo, confira o arquivo de configuração do [repo oficial](https://bitbucket.org/osrf/gazebo/src/gazebo11/media/materials/scripts/gazebo.material). Temos também um [script OGRE](./media/materials/scripts/vss.material) para a definição de cores customizadas ([ref](http://gazebosim.org/tutorials?tut=color_model) do Gazebo a respeito).
 
 ## Screenshots
 
@@ -149,4 +149,5 @@ Para uma lista das cores disposníveis no Gazebo, confira o arquivo de configura
 
 ## TODO
 
-Completar documentação.
+- Completar documentação.
+- Atualizar screenshots
