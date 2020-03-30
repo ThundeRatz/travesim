@@ -9,6 +9,10 @@
     from gazebo into several topics.
         We remove any "vss_" prefixes when creating the topic name
 
+    Params:
+        - /vision/precision
+        - /vision/std_dev
+
     Topics:
         - /vision/ball
         - /vision/robot1
@@ -20,6 +24,8 @@
 """
 
 import rospy
+import random
+from math import sin, cos, pi
 from std_msgs.msg import String
 from gazebo_msgs.msg import ModelStates, ModelState
 
@@ -45,6 +51,19 @@ for model in MODELS_NAMES:
                                   ModelState, queue_size=1)
 
 
+def apply_noise(data):
+    precision = rospy.get_param("/vision/precision", 0)
+    std_dev = rospy.get_param("/vision/std_dev", 0)
+
+    theta = random.uniform(0, pi)
+    radius = precision*random.gauss(0, std_dev)
+
+    data.position.x += radius*cos(theta)
+    data.position.y += radius*sin(theta)
+
+    return data
+
+
 def callback(data):
     """
     Function called when a message is received
@@ -56,7 +75,7 @@ def callback(data):
     for i, model in enumerate(data.name):
         if model in MODELS_NAMES:
             msg = ModelState(model_name=model,
-                             pose=data.pose[i],
+                             pose=apply_noise(data.pose[i]),
                              twist=data.twist[i])
             pubs[model].publish(msg)
 
