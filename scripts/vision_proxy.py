@@ -52,11 +52,10 @@ for model in MODELS_NAMES:
 
 
 def apply_noise(data):
-    precision = rospy.get_param("/vision/precision", 0)
     std_dev = rospy.get_param("/vision/std_dev", 0)
 
     theta = random.uniform(0, pi)
-    radius = precision*random.gauss(0, std_dev)
+    radius = random.gauss(0, std_dev)
 
     data.position.x += radius*cos(theta)
     data.position.y += radius*sin(theta)

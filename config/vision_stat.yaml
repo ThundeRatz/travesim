@@ -2,8 +2,7 @@
 # See: vision_proxy.py
 #
 # var = data + error
-# error = precision*gaus(mu=0, ro=std_dev)
+# error = gaus(mu=0, ro=std_dev)
 
 vision:
-  precision: 0
   std_dev: 0
