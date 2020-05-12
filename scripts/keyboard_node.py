@@ -30,7 +30,7 @@ INVERT_Y_AXIS = True
 ROBOTS = 3
 
 # Namespace dos tópicos que iremos publicar
-DEFAULT_NAMESPACE = "/robot_{}"
+DEFAULT_NAMESPACE = "/robot{}"
 
 DEFAULT_DEBUG = False
 
@@ -39,6 +39,7 @@ LIN_VEL = 1  # m/s
 WHEEL_RADIUS = 0.030  # m
 
 ANG_VEL = LIN_VEL/WHEEL_RADIUS  # rad/s
+ANG_VEL = 0.1078  # Nm
 
 # Os comandos vão de -126 até 126 de modo que os bytes 0xFE e 0xFF
 # nunca são utilizados
@@ -46,7 +47,7 @@ SCALE = 126
 
 
 def getNamespace(number):
-    return DEFAULT_NAMESPACE.format(number)
+    return DEFAULT_NAMESPACE.format(number+1)
 
 
 def drawConsole(win, font, console):

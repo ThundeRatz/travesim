@@ -25,6 +25,9 @@ missing
 .tags*
 *.save*
 
+# Python compiled files
+*.pyc
+
 # Hidden files
 ..*
 

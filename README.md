@@ -17,6 +17,7 @@ Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando
   - [Screenshots](#screenshots)
     - [Simulação de um robô](#simula%c3%a7%c3%a3o-de-um-rob%c3%b4)
     - [Simulação do time](#simula%c3%a7%c3%a3o-do-time)
+    - [Simulação da partida](#simula%c3%a7%c3%a3o-da-partida)
   - [TODO](#todo)
 
 ## Introdução
@@ -65,8 +66,8 @@ geometry_msgs/Twist[] twist   # desired twist in world frame
 
 Este pacote de simulação possui um script python que se increve no tópico do Gazebo e republica a informação nos 7 tópicos esperados pelo [ThunderVolt](https://github.com/ThundeRatz/vss_thundervolt):
 
-- **/vision/robot_[0...2]** - Tópicos para os robôs do nosso time
-- **/vision/foe_[0...2]** - Tópicos para os robôs adversários
+- **/vision/robot[1...3]** - Tópicos para os robôs do nosso time
+- **/vision/foe[1...3]** - Tópicos para os robôs adversários
 - **/vision/ball** - Tópico para a bola
 
 Todas as unidades estão no SI, distâncias estão em metros, ângulos estão em radianos, velocidade linear está em m/s e velocidade angular estã em rad/s
@@ -112,10 +113,10 @@ A simulação é desenvolvida para ROS e Gazebo, é recomendável instalar ambos
 sudo apt install ros-melodic-desktop-full
 ```
 
-O projeto depende do pacote velocity_controllers dentro da biblioteca [ros_controllers](https://github.com/ros-controls/ros_controllers) e da biblioteca python [pygame](https://github.com/pygame/pygame). É possível instalar com ```apt-get```
+O projeto depende do pacote velocity_controllers e do effort-controllers dentro da biblioteca [ros_controllers](https://github.com/ros-controls/ros_controllers) e da biblioteca python [pygame](https://github.com/pygame/pygame). É possível instalar com ```apt-get```
 
 ```bash
-sudo apt install ros-melodic-velocity-controllers python-pygame
+sudo apt install ros-melodic-velocity-controllers ros-melodic-effort-controllers python-pygame
 ```
 
 Ou usando ```rosdep```
@@ -130,7 +131,7 @@ A simulação é construída em volta da versão 1.1 do robô de VSS do time Thu
 
 ## Cores no Gazebo
 
-Para uma lista das cores disposníveis no Gazebo, confira o arquivo de configuração do [repo oficial](https://bitbucket.org/osrf/gazebo/src/gazebo11/media/materials/scripts/gazebo.material)
+Para uma lista das cores disponíveis no Gazebo, confira o arquivo de configuração do [repo oficial](https://bitbucket.org/osrf/gazebo/src/gazebo11/media/materials/scripts/gazebo.material). Temos também um [script OGRE](./media/materials/scripts/vss.material) para a definição de cores customizadas ([ref](http://gazebosim.org/tutorials?tut=color_model) do Gazebo a respeito).
 
 ## Screenshots
 
@@ -148,4 +149,5 @@ Para uma lista das cores disposníveis no Gazebo, confira o arquivo de configura
 
 ## TODO
 
-Completar documentação.
+- Completar documentação.
+- Atualizar screenshots

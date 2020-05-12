@@ -87,6 +87,11 @@
   <joint
     name="roda_dir_joint"
     type="continuous">
+    <!-- Manually added -->
+    <!-- damp = stall_torque/max_vel -->
+    <dynamics damping="2.3e-3" friction="0.01" />
+    <limit effort="108e-3" velocity="100" />
+    <!-- Manually added -->
     <origin
       xyz="0 -0.0362 0.0267989207102477"
       rpy="1.5707963267949 -0.257204591428631 0" />
@@ -140,6 +145,11 @@
   <joint
     name="roda_esq_joint"
     type="continuous">
+    <!-- Manually added -->
+    <!-- damp = stall_torque/max_vel -->
+    <dynamics damping="2.3e-3" friction="0.01" />
+    <limit effort="108e-3" velocity="100" />
+    <!-- Manually added -->
     <origin
       xyz="0 0.0362 0.02679871482879"
       rpy="1.5707963267949 -0.0133976378081295 3.14159265358979" />

@@ -1,0 +1,8 @@
+# Parameters for statistical error simulation
+# See: vision_proxy.py
+#
+# var = data + error
+# error = gaus(mu=0, ro=std_dev)
+
+vision:
+  std_dev: 0

@@ -5,22 +5,10 @@
     <xacro:arg name="team_number" default="0" />
     <xacro:property name="robot_number" value="$(arg robot_number)" />
     <xacro:property name="team_number" value="$(arg team_number)" />
+    <xacro:include filename="$(find vss_simulation)/urdf/hat_colors.xacro"/>
 
-    <!-- Set common colors -->
-    <gazebo reference="tile_sup_dir_link">
-        <material>Gazebo/Black</material>
-    </gazebo>
-
-    <gazebo reference="tile_inf_esq_link">
-        <material>Gazebo/Black</material>
-    </gazebo>
-
-    <!-- Set teams configuration -->
+    <!-- Set team configuration -->
     <xacro:if value="${team_number == 0}">
-
-        <gazebo reference="tile_inf_dir_link">
-            <material>Gazebo/Yellow</material>
-        </gazebo>
 
         <gazebo reference="corpo">
             <material>Gazebo/White</material>
@@ -35,49 +23,22 @@
         </gazebo>
 
         <!-- Set robots colors -->
-        <xacro:if value="${robot_number == 0}">
-
-            <gazebo reference="chapeu_link">
-                <material>Gazebo/Black</material>
-            </gazebo>
-
-            <gazebo reference="tile_sup_esq_link">
-                <material>Gazebo/Purple</material>
-            </gazebo>
-
-        </xacro:if>
-
         <xacro:if value="${robot_number == 1}">
-
-            <gazebo reference="chapeu_link">
-                <material>Gazebo/Black</material>
-            </gazebo>
-
-            <gazebo reference="tile_sup_esq_link">
-                <material>Gazebo/Red</material>
-            </gazebo>
-
+            <xacro:hat_colors team_color="Gazebo/Yellow" robot_color="Gazebo/Purple" />
         </xacro:if>
 
         <xacro:if value="${robot_number == 2}">
+            <xacro:hat_colors team_color="Gazebo/Yellow" robot_color="Gazebo/Red" />
+        </xacro:if>
 
-            <gazebo reference="chapeu_link">
-                <material>Gazebo/Black</material>
-            </gazebo>
-
-            <gazebo reference="tile_sup_esq_link">
-                <material>Gazebo/Green</material>
-            </gazebo>
-
+        <xacro:if value="${robot_number == 3}">
+            <xacro:hat_colors team_color="Gazebo/Yellow" robot_color="Gazebo/Green" />
         </xacro:if>  <!-- /Set robots colors -->
 
-    </xacro:if>
+    </xacro:if> <!-- /Set team configuration -->
 
+    <!-- Set team configuration -->
     <xacro:if value="${team_number == 1}">
-
-        <gazebo reference="tile_inf_dir_link">
-            <material>Gazebo/Blue</material>
-        </gazebo>
 
         <gazebo reference="corpo">
             <material>Gazebo/Grey</material>
@@ -92,42 +53,18 @@
         </gazebo>
 
         <!-- Set robots colors -->
-        <xacro:if value="${robot_number == 0}">
-
-            <gazebo reference="chapeu_link">
-                <material>Gazebo/Black</material>
-            </gazebo>
-
-            <gazebo reference="tile_sup_esq_link">
-                <material>Gazebo/SkyBlue</material>
-            </gazebo>
-
-        </xacro:if>
-
         <xacro:if value="${robot_number == 1}">
-
-            <gazebo reference="chapeu_link">
-                <material>Gazebo/Black</material>
-            </gazebo>
-
-            <gazebo reference="tile_sup_esq_link">
-                <material>Gazebo/Turquoise</material>
-            </gazebo>
-
+            <xacro:hat_colors team_color="Gazebo/Blue" robot_color="VSS/Wine" />
         </xacro:if>
 
         <xacro:if value="${robot_number == 2}">
+            <xacro:hat_colors team_color="Gazebo/Blue" robot_color="Gazebo/Turquoise" />
+        </xacro:if>
 
-            <gazebo reference="chapeu_link">
-                <material>Gazebo/Black</material>
-            </gazebo>
-
-            <gazebo reference="tile_sup_esq_link">
-                <material>Gazebo/Indigo</material>
-            </gazebo>
-
+        <xacro:if value="${robot_number == 3}">
+            <xacro:hat_colors team_color="Gazebo/Blue" robot_color="Gazebo/Indigo" />
         </xacro:if>  <!-- /Set robots colors -->
 
-    </xacro:if>
+    </xacro:if> <!-- /Set team configuration -->
 
 </robot>
