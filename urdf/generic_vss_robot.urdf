@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="generic_vss_robot">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0 -6.93889390390723E-18 0.0300217633588078"
+        rpy="0 0 0" />
+      <mass
+        value="0.113374359717356" />
+      <inertia
+        ixx="7.53748708949032E-05"
+        ixy="1.00192251695485E-21"
+        ixz="-2.05369079266837E-21"
+        iyy="7.94977991899896E-05"
+        iyz="4.67673387095597E-21"
+        izz="8.66719183047349E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://generic_vss_robot/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://generic_vss_robot/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="chapeu_link">
+    <inertial>
+      <origin
+        xyz="0 -1.3878E-17 0.061"
+        rpy="0 0 0" />
+      <mass
+        value="0.012087" />
+      <inertia
+        ixx="6.2903E-06"
+        ixy="2.3039E-22"
+        ixz="-2.9084E-23"
+        iyy="5.6698E-06"
+        iyz="-3.7247E-24"
+        izz="1.1952E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://generic_vss_robot/meshes/chapeu_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://generic_vss_robot/meshes/chapeu_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="chapeu_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="chapeu_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="parede_dir_link">
+    <inertial>
+      <origin
+        xyz="6.9389E-18 -0.0385 0.03"
+        rpy="0 0 0" />
+      <mass
+        value="0.00918" />
+      <inertia
+        ixx="2.7571E-06"
+        ixy="-2.5312E-23"
+        ixz="0"
+        iyy="7.0571E-06"
+        iyz="0"
+        izz="4.3062E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://generic_vss_robot/meshes/parede_dir_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://generic_vss_robot/meshes/parede_dir_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="parede_dir_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="parede_dir_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <!-- <link
+    name="parede_esq_link">
+    <inertial>
+      <origin
+        xyz="0 0.0385 0.03"
+        rpy="0 0 0" />
+      <mass
+        value="0.00918" />
+      <inertia
+        ixx="2.7571E-06"
+        ixy="-8.7658E-24"
+        ixz="-2.1599E-22"
+        iyy="7.0571E-06"
+        iyz="3.112E-24"
+        izz="4.3062E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://generic_vss_robot/meshes/parede_esq_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://generic_vss_robot/meshes/parede_esq_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="parede_dir_joint"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="parede_esq_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint> -->
+  <link
+    name="roda_dir_link">
+    <inertial>
+      <origin
+        xyz="0 0.004 3.4694E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.018064" />
+      <inertia
+        ixx="2.9189E-06"
+        ixy="-3.4908E-39"
+        ixz="2.1559E-38"
+        iyy="5.645E-06"
+        iyz="4.9934E-39"
+        izz="2.9189E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://generic_vss_robot/meshes/roda_dir_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79608 0.82353 0.93725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://generic_vss_robot/meshes/roda_dir_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="roda_dir_joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.0355 0.023"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="roda_dir_link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="0.108"
+      velocity="100" />
+    <dynamics
+      damping="0.0023"
+      friction="0.01" />
+  </joint>
+  <link
+    name="roda_esq_link">
+    <inertial>
+      <origin
+        xyz="0 -0.004 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.018064" />
+      <inertia
+        ixx="2.9189E-06"
+        ixy="-3.4908E-39"
+        ixz="2.1559E-38"
+        iyy="5.645E-06"
+        iyz="-1.0274E-38"
+        izz="2.9189E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://generic_vss_robot/meshes/roda_esq_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79608 0.82353 0.93725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://generic_vss_robot/meshes/roda_esq_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="roda_esq_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.0355 0.023"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="roda_esq_link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="0.108"
+      velocity="100" />
+    <dynamics
+      damping="0.0023"
+      friction="0.01" />
+  </joint>
+</robot>
