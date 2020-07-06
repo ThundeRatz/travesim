@@ -1,10 +1,10 @@
 
 <launch>
 
-  <arg name="model" default="$(find vss_simulation)/urdf/vss_robot.xacro" />
+  <arg name="model" default="$(find vss_simulation)/urdf/generic_vss_robot.xacro" />
 
   <!-- NOTE: The namespace prefix for the topic name is set in the <gazebo>
-    inside the vss_robot.gazebo file -->
+    inside the generic_vss_robot.gazebo file -->
 
   <!-- Spawn frinds team -->
   <!-- Spawn robot #0 -->

@@ -13,7 +13,7 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
   <arg name="row" default="0"/>
   <arg name="pitch" default="0"/>
   <arg name="yaw" default="0"/>
-  <arg name="model" default="$(find vss_simulation)/urdf/vss_robot.xacro"/>
+  <arg name="model" default="$(find vss_simulation)/urdf/generic_vss_robot.xacro"/>
 
   <param name="robot_description"
     command="$(find xacro)/xacro $(arg model)
