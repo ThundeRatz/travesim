@@ -10,7 +10,7 @@
   <world name="default">
     <!-- A global light source -->
     <include>
-      <uri>model://my_sun</uri>
+      <uri>model://sun</uri>
     </include>
 
     <!-- A ground plane -->
@@ -30,10 +30,10 @@
       <uri>model://vss_ball</uri>
     </include>
 
-  <!-- VSS Camera -->
-  <include>
-    <uri>model://vss_camera</uri>
-  </include>
+    <!-- VSS Camera -->
+    <include>
+      <uri>model://vss_camera</uri>
+    </include>
 
     <physics type='ode'>
       <real_time_factor>0.5</real_time_factor>
