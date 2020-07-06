@@ -1,7 +1,7 @@
 <launch>
 
   <!-- Load robot model -->
-  <arg name="model" default="$(find vss_simulation)/urdf/vss_robot.xacro"/>
+  <arg name="model" default="$(find vss_simulation)/urdf/generic_vss_robot.xacro"/>
   <arg name="debug" default="false"/>
   <arg name="gui" default="true"/>
   <arg name="paused" default="true"/>
