@@ -62,11 +62,12 @@
     </inertial>
     <visual>
       <origin
-        xyz="0 0 0"
+        xyz="0 0 60e-3"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://generic_vss_robot/meshes/chapeu_link.STL" />
+        <!-- <mesh
+          filename="package://generic_vss_robot/meshes/chapeu_link.STL" /> -->
+          <box size="80e-3 80e-3 2e-3"/>
       </geometry>
       <material
         name="">
@@ -76,11 +77,12 @@
     </visual>
     <collision>
       <origin
-        xyz="0 0 0"
+        xyz="0 0 60e-3"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://generic_vss_robot/meshes/chapeu_link.STL" />
+        <!-- <mesh
+          filename="package://generic_vss_robot/meshes/chapeu_link.STL" /> -->
+          <box size="80e-3 80e-3 2e-3"/>
       </geometry>
     </collision>
   </link>
@@ -115,11 +117,12 @@
     </inertial>
     <visual>
       <origin
-        xyz="0 0 0"
+        xyz="0 -38.5e-3 30e-3"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://generic_vss_robot/meshes/parede_dir_link.STL" />
+        <!-- <mesh
+          filename="package://generic_vss_robot/meshes/parede_dir_link.STL" /> -->
+          <box size="75e-3 2e-3 60e-3"/>
       </geometry>
       <material
         name="">
@@ -129,11 +132,12 @@
     </visual>
     <collision>
       <origin
-        xyz="0 0 0"
+        xyz="0 -38.5e-3 30e-3"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://generic_vss_robot/meshes/parede_dir_link.STL" />
+        <!-- <mesh
+          filename="package://generic_vss_robot/meshes/parede_dir_link.STL" /> -->
+          <box size="75e-3 2e-3 60e-3"/>
       </geometry>
     </collision>
   </link>
@@ -150,7 +154,7 @@
     <axis
       xyz="0 0 0" />
   </joint>
-  <!-- <link
+  <link
     name="parede_esq_link">
     <inertial>
       <origin
@@ -168,11 +172,12 @@
     </inertial>
     <visual>
       <origin
-        xyz="0 0 0"
+        xyz="0 38.5e-3 30e-3"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://generic_vss_robot/meshes/parede_esq_link.STL" />
+        <!-- <mesh
+        filename="package://generic_vss_robot/meshes/parede_esq_link.STL" /> -->
+        <box size="75e-3 2e-3 60e-3"/>
       </geometry>
       <material
         name="">
@@ -191,8 +196,8 @@
     </collision>
   </link>
   <joint
-    name="parede_dir_joint"
-    type="continuous">
+    name="parede_esq_joint"
+    type="fixed">
     <origin
       xyz="0 0 0"
       rpy="0 0 0" />
@@ -201,8 +206,8 @@
     <child
       link="parede_esq_link" />
     <axis
-      xyz="0 0 1" />
-  </joint> -->
+      xyz="0 0 0" />
+  </joint>
   <link
     name="roda_dir_link">
     <inertial>

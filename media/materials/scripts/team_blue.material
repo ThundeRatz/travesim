@@ -1,0 +1,63 @@
+import * from "grid.material"
+
+// Ref: http://wiki.ogre3d.org/Materials
+
+material TeamBlue/Sides
+{
+  receive_shadows off
+  technique
+  {
+    pass ambient
+    {
+      texture_unit
+      {
+      	texture blue_0.png
+      }
+    }
+  }
+}
+
+material TeamBlue/Robot1/Hat
+{
+  receive_shadows off
+  technique
+  {
+    pass ambient
+    {
+      texture_unit
+      {
+      	texture blue_1.png
+      }
+    }
+  }
+}
+
+material TeamBlue/Robot2/Hat
+{
+  receive_shadows off
+  technique
+  {
+    pass ambient
+    {
+      texture_unit
+      {
+      	texture blue_2.png
+      }
+    }
+  }
+}
+
+material TeamBlue/Robot3/Hat
+{
+  receive_shadows off
+  technique
+  {
+    pass ambient
+    {
+      texture_unit
+      {
+      	texture blue_3.png
+      }
+    }
+  }
+}
