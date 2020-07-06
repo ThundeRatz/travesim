@@ -5,19 +5,19 @@
 
 Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando Gazebo
 
-- [Simulação de VSS em ROS com Gazebo](#simula%c3%a7%c3%a3o-de-vss-em-ros-com-gazebo)
-  - [Introdução](#introdu%c3%a7%c3%a3o)
-  - [Tópicos ROS](#t%c3%b3picos-ros)
-  - [Parâmetros](#par%c3%a2metros)
+- [Simulação de VSS em ROS com Gazebo](#simulação-de-vss-em-ros-com-gazebo)
+  - [Introdução](#introdução)
+  - [Tópicos ROS](#tópicos-ros)
+  - [Parâmetros](#parâmetros)
     - [Roslaunch](#roslaunch)
   - [Estrutura de pastas](#estrutura-de-pastas)
-  - [Dependências](#depend%c3%aancias)
+  - [Dependências](#dependências)
   - [Modelos utilizados](#modelos-utilizados)
   - [Cores no Gazebo](#cores-no-gazebo)
   - [Screenshots](#screenshots)
-    - [Simulação de um robô](#simula%c3%a7%c3%a3o-de-um-rob%c3%b4)
-    - [Simulação do time](#simula%c3%a7%c3%a3o-do-time)
-    - [Simulação da partida](#simula%c3%a7%c3%a3o-da-partida)
+    - [Simulação de um robô](#simulação-de-um-robô)
+    - [Simulação do time](#simulação-do-time)
+    - [Simulação da partida](#simulação-da-partida)
   - [TODO](#todo)
 
 ## Introdução
@@ -127,7 +127,11 @@ rosdep install vss_simulation
 
 ## Modelos utilizados
 
-A simulação é construída em volta da versão 1.1 do robô de VSS do time ThunderVolt. Como suporte, foram criados modelos para o campo do VSS e para a bola de golf utilizada na partida, ambos construídos a partir das [regras da Robocore](https://www.robocore.net/modules.php?name=Forums&file=download&id=1424) para IEEE VSS.
+A simulação é construída em de um modelo de robô de VSS genérico, inspirado no modelo do VSS SDK.
+
+== Inserir imagens descrição ==
+
+Como suporte, foram criados modelos para o campo do VSS e para a bola de golf utilizada na partida, ambos construídos a partir das [regras da Robocore](https://www.robocore.net/modules.php?name=Forums&file=download&id=1424) para IEEE VSS.
 
 ## Cores no Gazebo
 
