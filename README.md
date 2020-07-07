@@ -89,13 +89,24 @@ rosrun image_view image_view image:=/camera/image_raw
 
 ### Roslaunch
 
-- ```model``` - Caminho do modelo do robô simulado, padrão "./urdf/vss_robot.xacro"
-- ```debug``` - Habilita mensagens de debug no terminal, padrão "false"
-- ```gui``` - Habilita janela GUI do Gazebo, padrão "true"
-- ```paused``` - Inicia a simulação com pause, padrão "true"
-- ```use_sim_time``` - Utiliza o tempo da simulação como referências das msgs, padrão "true"
-- ```recording``` - Habilita o log de estados do Gazebo, padrão "false"
-- ```keyboard``` - Habilita o node do controle pelo teclado/joystick, padrão "false"
+- ```model``` - Caminho do modelo do robô simulado
+  - **Padrão** "./urdf/vss_robot.xacro"
+- ```debug``` - Habilita mensagens de debug no terminal
+  - **Padrão** "false"
+- ```gui``` - Habilita janela GUI do Gazebo
+  - **Padrão** "true"
+- ```paused``` - Inicia a simulação com pause
+  - **Padrão** "true"
+- ```use_sim_time``` - Utiliza o tempo da simulação como referências das mensagens publicadas
+  - **Padrão** "true"
+- ```world_name``` - Seleciona o arquivo .world a ser utilizado
+  - **Padrão** "vss_field.world" - Conjunto de bola e campo em vista isométrica
+  - "vss_field_top.world" - Conjunto de bola e campo em vista superior ortogonal
+  - "vss_field_spots.world" - Conjunto de bola e campo em vista isométrica com fontes de luz pontuais
+- ```recording``` - Habilita o log de estados do Gazebo
+  - **Padrão** "false"
+- ```keyboard``` - Habilita o node do controle pelo teclado/joystick
+  - **Padrão** "false"
 
 Para passar um parâmetro na execução da simulação, basta escrever o nome do parâmetro separado do novo valor com ```:=```
 
