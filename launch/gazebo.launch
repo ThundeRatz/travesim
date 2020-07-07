@@ -37,7 +37,7 @@ https://github.com/ros/urdf_sim_tutorial -->
 
   <!-- Load configs to statistical error simulation -->
   <rosparam command="load"
-            file="$(find vss_simulation)/config/vision_stat.yaml" />
+            file="$(find vss_simulation)/config/vision_proxy_config.yaml" />
 
   <group if="$(arg single)" ns="robot1">
     <!-- Load robot file -->
