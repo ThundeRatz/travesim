@@ -5,19 +5,20 @@
 
 Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando Gazebo
 
-- [Simulação de VSS em ROS com Gazebo](#simula%c3%a7%c3%a3o-de-vss-em-ros-com-gazebo)
-  - [Introdução](#introdu%c3%a7%c3%a3o)
-  - [Tópicos ROS](#t%c3%b3picos-ros)
-  - [Parâmetros](#par%c3%a2metros)
+- [Simulação de VSS em ROS com Gazebo](#simulação-de-vss-em-ros-com-gazebo)
+  - [Introdução](#introdução)
+  - [Tópicos ROS](#tópicos-ros)
+  - [Câmera virtual](#câmera-virtual)
+  - [Parâmetros](#parâmetros)
     - [Roslaunch](#roslaunch)
   - [Estrutura de pastas](#estrutura-de-pastas)
-  - [Dependências](#depend%c3%aancias)
+  - [Dependências](#dependências)
   - [Modelos utilizados](#modelos-utilizados)
   - [Cores no Gazebo](#cores-no-gazebo)
   - [Screenshots](#screenshots)
-    - [Simulação de um robô](#simula%c3%a7%c3%a3o-de-um-rob%c3%b4)
-    - [Simulação do time](#simula%c3%a7%c3%a3o-do-time)
-    - [Simulação da partida](#simula%c3%a7%c3%a3o-da-partida)
+    - [Simulação de um robô](#simulação-de-um-robô)
+    - [Simulação do time](#simulação-do-time)
+    - [Simulação da partida](#simulação-da-partida)
   - [TODO](#todo)
 
 ## Introdução
@@ -71,6 +72,18 @@ Este pacote de simulação possui um script python que se increve no tópico do 
 - **/vision/ball** - Tópico para a bola
 
 Todas as unidades estão no SI, distâncias estão em metros, ângulos estão em radianos, velocidade linear está em m/s e velocidade angular estã em rad/s
+
+## Câmera virtual
+
+A simulação possui uma câmera virtual que captura imagens do topo do campo, de forma semelhante ao que acontece em uma partida de VSS real.
+
+A câmera publica as imagens obtidas no tópico **/camera/image_raw**
+
+É possível acompanhar as imagens com o auxílio do pacote [image_view](http://wiki.ros.org/image_view)
+
+```sh
+rosrun image_view image_view image:=/camera/image_raw
+```
 
 ## Parâmetros
 
