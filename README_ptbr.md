@@ -118,6 +118,7 @@ Para criar um modelo urdf do seu projeto, você pode utilizar as ferramentas
 - [Phobos](https://github.com/dfki-ric/phobos) - Gera arquivos urdf files a partir do Blender
 - [SW2URDF](http://wiki.ros.org/sw_urdf_exporter) - Gera arquivos urdf a partir do SolidWorks
 - [fusion2urdf](https://github.com/syuntoku14/fusion2urdf) - Gera arquivos urdf a partir do Fusion 360
+- [ROS wiki](http://wiki.ros.org/urdf/Tutorials/Building%20a%20Visual%20Robot%20Model%20with%20URDF%20from%20Scratch) - Como criar um modelo urdf do zero
 
 Para usar seu modelo customizado, altere o valor do parâmetro ```model``` ao iniciar a simulação
 

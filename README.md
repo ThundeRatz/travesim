@@ -120,6 +120,7 @@ To create a model for your project, refer to:
 - [Phobos](https://github.com/dfki-ric/phobos) - Generate urdf files from Blender
 - [SW2URDF](http://wiki.ros.org/sw_urdf_exporter) - Generate urdf files from SolidWorks
 - [fusion2urdf](https://github.com/syuntoku14/fusion2urdf) - Generate urdf files from Fusion 360
+- [ROS wiki](http://wiki.ros.org/urdf/Tutorials/Building%20a%20Visual%20Robot%20Model%20with%20URDF%20from%20Scratch) - How build a urdf model from scratch
 
 To use your custom model, change the value of the ```model``` parameter when launching the simulation
 
