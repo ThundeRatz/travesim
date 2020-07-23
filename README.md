@@ -8,6 +8,10 @@ IEEE VSS team simulation project with ROS and Gazebo
 Para a versão em PT-BR 🇧🇷 desse documento, [veja aqui](./README_ptbr.md)
 
 - [VSS simulation with ROS and Gazebo](#vss-simulation-with-ros-and-gazebo)
+  - [📷 Screenshots](#-screenshots)
+    - [One robot simulation](#one-robot-simulation)
+    - [Team simulation](#team-simulation)
+    - [Match simulation](#match-simulation)
   - [🎈 Intro](#-intro)
   - [📣 ROS topics](#-ros-topics)
   - [🔧 Parameters](#-parameters)
@@ -16,10 +20,20 @@ Para a versão em PT-BR 🇧🇷 desse documento, [veja aqui](./README_ptbr.md)
   - [➕ Dependencies](#-dependencies)
   - [📏 Used models](#-used-models)
   - [🎨 Gazebo colors](#-gazebo-colors)
-  - [📷 Screenshots](#-screenshots)
-    - [One robot simulation](#one-robot-simulation)
-    - [Team simulation](#team-simulation)
-    - [Match simulation](#match-simulation)
+
+## 📷 Screenshots
+
+### One robot simulation
+
+![screenshot](./docs/screenshot_robot.png)
+
+### Team simulation
+
+![screenshot](./docs/screenshot_team.png)
+
+### Match simulation
+
+![screenshot](./docs/screenshot_match.png)
 
 ## 🎈 Intro
 
@@ -136,17 +150,3 @@ As support, were created models for the VSS field and ball, both build from [Rob
 ## 🎨 Gazebo colors
 
 For a list of default available color in Gazebo, refert to the config file in the [oficial repo](https://bitbucket.org/osrf/gazebo/src/gazebo11/media/materials/scripts/gazebo.material). We have also 2 OGRE scripts [team blue](./media/materials/scripts/team_blue.material) and [team yellow](./media/materials/scripts/team_yellow.material) for custom colors definition ([Gazebo ref](http://gazebosim.org/tutorials?tut=color_model) and [OGRE ref](http://wiki.ogre3d.org/Materials))
-
-## 📷 Screenshots
-
-### One robot simulation
-
-![screenshot](./docs/screenshot_robot.png)
-
-### Team simulation
-
-![screenshot](./docs/screenshot_team.png)
-
-### Match simulation
-
-![screenshot](./docs/screenshot_match.png)
