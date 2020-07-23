@@ -14,11 +14,12 @@ Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando
   - [📣 Tópicos ROS](#-tópicos-ros)
     - [⬅ Entrada](#-entrada)
     - [➡ Saída](#-saída)
+  - [📏 Modelos utilizados](#-modelos-utilizados)
+    - [© Crie seu próprio modelo](#-crie-seu-próprio-modelo)
   - [🔧 Parâmetros](#-parâmetros)
     - [Roslaunch](#roslaunch)
   - [📁 Estrutura de pastas](#-estrutura-de-pastas)
   - [➕ Dependências](#-dependências)
-  - [📏 Modelos utilizados](#-modelos-utilizados)
   - [🎨 Cores no Gazebo](#-cores-no-gazebo)
 
 ## 📷 Screenshots
@@ -104,6 +105,22 @@ Os tópicos republicados são
 
 Todas as unidades estão no SI, distâncias estão em metros, ângulos estão em radianos, velocidade linear está em m/s e velocidade angular estã em rad/s
 
+## 📏 Modelos utilizados
+
+A simulação é construída a partir de um modelo de robô de VSS genérico, inspirado no modelo do [VSS SDK model](https://github.com/VSS-SDK/VSS-SDK)
+
+Como suporte, foram criados modelos para o campo do VSS e para a bola de golf utilizada na partida, ambos construídos a partir das [regras da Robocore](https://www.robocore.net/modules.php?name=Forums&file=download&id=1424) para IEEE VSS.
+
+### © Crie seu próprio modelo
+
+Para criar um modelo urdf do seu projeto, você pode utilizar as ferramentas
+
+- [Phobos](https://github.com/dfki-ric/phobos) - Gera arquivos urdf files a partir do Blender
+- [SW2URDF](http://wiki.ros.org/sw_urdf_exporter) - Gera arquivos urdf a partir do SolidWorks
+- [fusion2urdf](https://github.com/syuntoku14/fusion2urdf) - Gera arquivos urdf a partir do Fusion 360
+
+Para usar seu modelo customizado, altere o valor do parâmetro ```model``` ao iniciar a simulação
+
 ## 🔧 Parâmetros
 
 ### Roslaunch
@@ -156,14 +173,6 @@ Ou usando ```rosdep```
 ```bash
 rosdep install vss_simulation
 ```
-
-## 📏 Modelos utilizados
-
-A simulação é construída em de um modelo de robô de VSS genérico, inspirado no modelo do VSS SDK.
-
-== Inserir imagens descrição ==
-
-Como suporte, foram criados modelos para o campo do VSS e para a bola de golf utilizada na partida, ambos construídos a partir das [regras da Robocore](https://www.robocore.net/modules.php?name=Forums&file=download&id=1424) para IEEE VSS.
 
 ## 🎨 Cores no Gazebo
 

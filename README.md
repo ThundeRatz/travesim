@@ -16,11 +16,12 @@ Para a versão em PT-BR 🇧🇷 desse documento, [veja aqui](./README_ptbr.md)
   - [📣 ROS topics](#-ros-topics)
     - [⬅ Input](#-input)
     - [➡ Output](#-output)
+  - [📏 Used models](#-used-models)
+    - [© Create your own model](#-create-your-own-model)
   - [🔧 Parameters](#-parameters)
     - [Roslaunch](#roslaunch)
   - [📁 Folder structure](#-folder-structure)
   - [➕ Dependencies](#-dependencies)
-  - [📏 Used models](#-used-models)
   - [🎨 Gazebo colors](#-gazebo-colors)
 
 ## 📷 Screenshots
@@ -106,6 +107,22 @@ The republised topics are
 
 All units are [SI](https://en.wikipedia.org/wiki/International_System_of_Units), distances are measured in meters, angles in radians, linear velocity in m/s and angular velocity in rad/s
 
+## 📏 Used models
+
+The simulation is build upon a generic vss robot (more details [here](./urdf/motor.xacro)), inspired by [VSS SDK model](https://github.com/VSS-SDK/VSS-SDK)
+
+As support, were created models for the VSS field and ball, both build from [Robocore's rules](https://www.robocore.net/modules.php?name=Forums&file=download&id=1424) for IEEE VSS.
+
+### © Create your own model
+
+To create a model for your project, refer to:
+
+- [Phobos](https://github.com/dfki-ric/phobos) - Generate urdf files from Blender
+- [SW2URDF](http://wiki.ros.org/sw_urdf_exporter) - Generate urdf files from SolidWorks
+- [fusion2urdf](https://github.com/syuntoku14/fusion2urdf) - Generate urdf files from Fusion 360
+
+To use your custom model, change the value of the ```model``` parameter when launching the simulation
+
 ## 🔧 Parameters
 
 ### Roslaunch
@@ -159,12 +176,6 @@ Or using ```rosdep```
 ```bash
 rosdep install vss_simulation
 ```
-
-## 📏 Used models
-
-The simulation is build upon a generic vss robot, inspired by [VSS SDK model](https://github.com/VSS-SDK/VSS-SDK)
-
-As support, were created models for the VSS field and ball, both build from [Robocore's rules](https://www.robocore.net/modules.php?name=Forums&file=download&id=1424) for IEEE VSS
 
 ## 🎨 Gazebo colors
 
