@@ -1,50 +1,51 @@
 [![forthebadge](https://forthebadge.com/images/badges/built-with-science.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/its-not-a-lie-if-you-believe-it.svg)](https://forthebadge.com)
 
-# Simulação de VSS em ROS com Gazebo
+# VSS simulation with ROS and Gazebo
 
-Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando Gazebo
+IEEE VSS team simulation project with ROS and Gazebo
 
-- [Simulação de VSS em ROS com Gazebo](#simulação-de-vss-em-ros-com-gazebo)
-  - [🎈 Introdução](#-introdução)
-  - [📣 Tópicos ROS](#-tópicos-ros)
-  - [🔧 Parâmetros](#-parâmetros)
+Para a versão em PT-BR 🇧🇷 desse documento, [veja aqui](./README_ptbr.md)
+
+- [VSS simulation with ROS and Gazebo](#vss-simulation-with-ros-and-gazebo)
+  - [🎈 Intro](#-intro)
+  - [📣 ROS topics](#-ros-topics)
+  - [🔧 Parameters](#-parameters)
     - [Roslaunch](#roslaunch)
-  - [📁 Estrutura de pastas](#-estrutura-de-pastas)
-  - [➕ Dependências](#-dependências)
-  - [📏 Modelos utilizados](#-modelos-utilizados)
-  - [🎨 Cores no Gazebo](#-cores-no-gazebo)
+  - [📁 Folder structure](#-folder-structure)
+  - [➕ Dependencies](#-dependencies)
+  - [📏 Used models](#-used-models)
+  - [🎨 Gazebo colors](#-gazebo-colors)
   - [📷 Screenshots](#-screenshots)
-    - [Simulação de um robô](#simulação-de-um-robô)
-    - [Simulação do time](#simulação-do-time)
-    - [Simulação da partida](#simulação-da-partida)
-  - [TODO](#todo)
+    - [One robot simulation](#one-robot-simulation)
+    - [Team simulation](#team-simulation)
+    - [Match simulation](#match-simulation)
 
-## 🎈 Introdução
+## 🎈 Intro
 
-É necessário clonar o projeto dentro de um workspace catkin. Para criar um workspace, veja [esse link](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)
+It is necessary to cone the project inside a catkin workspace. To create a workspace, refer to [this link](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)
 
-Para rodar a simulação com um robô controlável, digite:
+To run the simulation with one controlable robot
 
 ```bash
 roslaunch vss_simulation simulation_robot.launch
 ```
 
-Para rodar a simulação com o time completo, digite:
+To run the simulation with the entire team
 
 ```bash
 roslaunch vss_simulation simulation_team.launch
 ```
 
-Para rodar a simulação de uma partida, digite:
+To run the simulation of a match
 
 ```bash
 roslaunch vss_simulation simulation_match.launch
 ```
 
-## 📣 Tópicos ROS
+## 📣 ROS topics
 
-Por padrão, o Gazebo publica no tópico **/gazebo/model_states** do tipo [gazebo_msgs/ModelStates](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelStates.html), com uma lista de informações acerca de cada um dos modelos presentes na simulação.
+By default, Gazebo publishes in the topic **/gazebo/model_states** of type [gazebo_msgs/ModelStates](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelStates.html), with an array of informations about each model in the simulation.
 
 ```c
 # broadcast all model states in world frame
@@ -53,7 +54,7 @@ geometry_msgs/Pose[] pose     # desired pose in world frame
 geometry_msgs/Twist[] twist   # desired twist in world frame
 ```
 
-Por comodidade, este pacote possui um script ([vision_proxy.py](./scripts/vision_proxy.py)) que se inscreve nesse tópico e republica a informação diferentes tópicos do tipo [gazebo_msgs/ModelState](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelState.html) para cada entidade (3 robôs, 3 adversários e 1 bola, 7 tópicos no total)
+For convenience, this package have a script ([vision_proxy.py](./scripts/vision_proxy.py)) that subscribes this topic and republishes the information at diferent topics of type [gazebo_msgs/ModelState](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelState.html) for each entity (3 robots, 3 foes and 1 ball, 7 in total)
 
 ```c
 # Set Gazebo Model pose and twist
@@ -64,94 +65,88 @@ string reference_frame      # set pose/twist relative to the frame of this entit
                             # leave empty or "world" or "map" defaults to world-frame
 ```
 
-Os tópicos republicados são
+The republised topics are
 
 - **/vision/robot[1...3]** - Tópicos para os robôs do nosso time
 - **/vision/foe[1...3]** - Tópicos para os robôs adversários
 - **/vision/ball** - Tópico para a bola
 
-Todas as unidades estão no SI, distâncias estão em metros, ângulos estão em radianos, velocidade linear está em m/s e velocidade angular estã em rad/s
+All units are [SI](https://en.wikipedia.org/wiki/International_System_of_Units), distances are measured in meters, angles in radians, linear velocity in m/s and angular velocity in rad/s
 
-## 🔧 Parâmetros
+## 🔧 Parameters
 
 ### Roslaunch
 
-- ```model``` - Caminho do modelo do robô simulado, padrão "./urdf/vss_robot.xacro"
-- ```debug``` - Habilita mensagens de debug no terminal, padrão "false"
-- ```gui``` - Habilita janela GUI do Gazebo, padrão "true"
-- ```paused``` - Inicia a simulação com pause, padrão "true"
-- ```use_sim_time``` - Utiliza o tempo da simulação como referências das msgs, padrão "true"
-- ```recording``` - Habilita o log de estados do Gazebo, padrão "false"
-- ```keyboard``` - Habilita o node do controle pelo teclado/joystick, padrão "false"
+- ```model``` - Path of simulated robot model, default "./urdf/vss_robot.xacro"
+- ```debug``` - Enable debug messagens in termianl, default "false"
+- ```gui``` - Enable Gazebo's GUI window, default "true"
+- ```paused``` - Init simulation paused, default "true"
+- ```use_sim_time``` - Use simulated time as reference in messages, default "true"
+- ```recording``` - Enable Gazebo's state log, default "false"
+- ```keyboard``` - Enable joystick/keyboard control node, default "false"
 
-Para passar um parâmetro na execução da simulação, basta escrever o nome do parâmetro separado do novo valor com ```:=```
+To change a simulation parameter, just type the parameter followed by ```:=``` and the new value
 
-Por exemplo, para mudar o parâmetro ```keyboard``` para ```true```:
+For example, to change the parameter ```keyboard``` to ```true```:
 
 ```bash
 roslaunch vss_simulation simulation_team.launch keyboard:=true
 ```
 
-## 📁 Estrutura de pastas
+## 📁 Folder structure
 
-- **docs/** - Arquivos de documentação
-- **launch/** - Arquivos do [roslaunch](http://wiki.ros.org/roslaunch) escritos na [sintaxe XML](http://wiki.ros.org/roslaunch/XML) do ROS
-- **meshes/** - Arquivos .stl do modelo dos nossos robôs, gerados com a extensão [SW2URDF](http://wiki.ros.org/sw_urdf_exporter) do SolidWorks
-- **models/** - [Modelos personalizados para Gazebo](http://gazebosim.org/tutorials?tut=build_model) utilizados na simulação, como o campo e a bola do VSS
-- **scripts/** - Rotinas python usadas no projeto
-  - keyboard_node.py - Rotina para capturar a entrada do teclado ou de um joystick para controlar a simulação.
-  - velocity_proxy.py - Rotina para converter a entrada recebida pelo controlador em uma mensagem de velocidade para cada motor.
-  - vision_proxy.py - Rotina para separar a informação de estado do Gazebo em tópicos diferentes para cada modelo (robôs e bola).
-- **urdf/** - Arquivos de descrição dos robôs no formato [.urdf](http://wiki.ros.org/urdf/XML) e [.xacro](http://wiki.ros.org/xacro). Os arquivos .urdf gerados com a extensão [SW2URDF](http://wiki.ros.org/sw_urdf_exporter) do SolidWorks
-- **worlds/** - Arquivos .world no formato [SDL](http://sdformat.org/)
+- **docs/** - Documentation files
+- **launch/** - [Roslaunch](http://wiki.ros.org/roslaunch) files written in [XML syntax](http://wiki.ros.org/roslaunch/XML) do ROS
+- **meshes/** - .stl files for [vss_generic_robot](./urdf/README.md), created with SolidWorks extension [SW2URDF](http://wiki.ros.org/sw_urdf_exporter) do SolidWorks
+- **models/** - [Custom Gazebo models](http://gazebosim.org/tutorials?tut=build_model) used inside the simulation, as the field and the VSS ball
+- **scripts/** - Python scripts used in the project
+  - keyboard_node.py - Pygame script to capture keyboard or joystick input to control the simulation
+  - velocity_proxy.py - Script to convert a [std_msgs/Twist](http://docs.ros.org/melodic/api/geometry_msgs/html/msg/Twist.html) message from a [rqt robot steering](http://wiki.ros.org/rqt_robot_steering) to speed or torque comands to 2 motors
+  - vision_proxy.py - Script to split [gazebo_msgs/ModelStates](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelStates.html) array in several [gazebo_msgs/ModelState](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelState.html) topics
 
-## ➕ Dependências
+- **urdf/** - Robot description files in [.urdf](http://wiki.ros.org/urdf/XML) and [.xacro](http://wiki.ros.org/xacro) format. The .urdf files were generated with SolidWorks [SW2URDF](http://wiki.ros.org/sw_urdf_exporter) extension
+- **worlds/** - World files in [SDL](http://sdformat.org/) format
 
-A simulação é desenvolvida para ROS e Gazebo, é recomendável instalar ambos com o comando:
+## ➕ Dependencies
+
+The simulation is develop for ROS and Gazebo, it is recommend to install both with:
 
 ```bash
 sudo apt install ros-melodic-desktop-full
 ```
 
-O projeto depende do pacote velocity_controllers e do effort-controllers dentro da biblioteca [ros_controllers](https://github.com/ros-controls/ros_controllers) e da biblioteca python [pygame](https://github.com/pygame/pygame). É possível instalar com ```apt-get```
+The project depends on the package velocity_controllers and effort_controllers in the library [ros_controllers](https://github.com/ros-controls/ros_controllers) and the python lybrary [pygame](https://github.com/pygame/pygame). It is possible to install both with ```apt-get```
 
 ```bash
 sudo apt install ros-melodic-velocity-controllers ros-melodic-effort-controllers python-pygame
 ```
 
-Ou usando ```rosdep```
+Or using ```rosdep```
 
 ```bash
 rosdep install vss_simulation
 ```
 
-## 📏 Modelos utilizados
+## 📏 Used models
 
-A simulação é construída em de um modelo de robô de VSS genérico, inspirado no modelo do VSS SDK.
+The simulation is build upon a generic vss robot, inspired by [VSS SDK model](https://github.com/VSS-SDK/VSS-SDK)
 
-== Inserir imagens descrição ==
+As support, were created models for the VSS field and ball, both build from [Robocore's rules](https://www.robocore.net/modules.php?name=Forums&file=download&id=1424) for IEEE VSS
 
-Como suporte, foram criados modelos para o campo do VSS e para a bola de golf utilizada na partida, ambos construídos a partir das [regras da Robocore](https://www.robocore.net/modules.php?name=Forums&file=download&id=1424) para IEEE VSS.
+## 🎨 Gazebo colors
 
-## 🎨 Cores no Gazebo
-
-Para uma lista das cores disponíveis no Gazebo, confira o arquivo de configuração do [repo oficial](https://bitbucket.org/osrf/gazebo/src/gazebo11/media/materials/scripts/gazebo.material). Temos também um [script OGRE](./media/materials/scripts/vss.material) para a definição de cores customizadas ([ref](http://gazebosim.org/tutorials?tut=color_model) do Gazebo a respeito).
+For a list of default available color in Gazebo, refert to the config file in the [oficial repo](https://bitbucket.org/osrf/gazebo/src/gazebo11/media/materials/scripts/gazebo.material). We have also 2 OGRE scripts [team blue](./media/materials/scripts/team_blue.material) and [team yellow](./media/materials/scripts/team_yellow.material) for custom colors definition ([Gazebo ref](http://gazebosim.org/tutorials?tut=color_model) and [OGRE ref](http://wiki.ogre3d.org/Materials))
 
 ## 📷 Screenshots
 
-### Simulação de um robô
+### One robot simulation
 
 ![screenshot](./docs/screenshot_robot.png)
 
-### Simulação do time
+### Team simulation
 
 ![screenshot](./docs/screenshot_team.png)
 
-### Simulação da partida
+### Match simulation
 
 ![screenshot](./docs/screenshot_match.png)
-
-## TODO
-
-- Completar documentação.
-- Atualizar screenshots
