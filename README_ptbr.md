@@ -12,6 +12,8 @@ Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando
     - [Simulação da partida](#simulação-da-partida)
   - [🎈 Introdução](#-introdução)
   - [📣 Tópicos ROS](#-tópicos-ros)
+    - [⬅ Entrada](#-entrada)
+    - [➡ Saída](#-saída)
   - [🔧 Parâmetros](#-parâmetros)
     - [Roslaunch](#roslaunch)
   - [📁 Estrutura de pastas](#-estrutura-de-pastas)
@@ -56,6 +58,23 @@ roslaunch vss_simulation simulation_match.launch
 ```
 
 ## 📣 Tópicos ROS
+
+### ⬅ Entrada
+
+A simulação suporta controle por meio de comandos de **torque** (por meio da interface **effort_controller**) ou comandos de **velocidade angular** (por meio da interface **velocity_controller**) para os dois motores de cada um dos robôs. Ambas as insterfaces estão disponíveis na biblioteca [ros_control](http://wiki.ros.org/ros_control)
+
+Para simular robôs sem controle da rotação em malha fechada, o controle por meio do **torque** é mais adequado, uma vez que o torque é aproximadamente proporcial à tensão aplicada nos terminais de um motor DC.
+
+Caso contrário, a interface de controle por **velocidade angular** é a mais adequada.
+
+Em ambos os casos, os comandos são lidos nos tópicos do tipo [std_msgs/Float64](http://docs.ros.org/melodic/api/std_msgs/html/msg/Float64.html)
+
+- **/robot[1..3]/vss_robot_left_controller/command**
+- **/robot[1..3]/vss_robot_right_controller/command**
+- **/foe[1..3]/vss_robot_left_controller/command**
+- **/foe[1..3]/vss_robot_right_controller/command**
+
+### ➡ Saída
 
 Por padrão, o Gazebo publica no tópico **/gazebo/model_states** do tipo [gazebo_msgs/ModelStates](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelStates.html), com uma lista de informações acerca de cada um dos modelos presentes na simulação.
 
@@ -126,7 +145,7 @@ A simulação é desenvolvida para ROS e Gazebo, é recomendável instalar ambos
 sudo apt install ros-melodic-desktop-full
 ```
 
-O projeto depende do pacote velocity_controllers e do effort-controllers dentro da biblioteca [ros_controllers](https://github.com/ros-controls/ros_controllers) e da biblioteca python [pygame](https://github.com/pygame/pygame). É possível instalar com ```apt-get```
+O projeto depende do pacote velocity_controllers e do effort_controllers dentro da biblioteca [ros_controllers](https://github.com/ros-controls/ros_controllers) e da biblioteca python [pygame](https://github.com/pygame/pygame). É possível instalar com ```apt-get```
 
 ```bash
 sudo apt install ros-melodic-velocity-controllers ros-melodic-effort-controllers python-pygame

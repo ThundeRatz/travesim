@@ -14,6 +14,8 @@ Para a versão em PT-BR 🇧🇷 desse documento, [veja aqui](./README_ptbr.md)
     - [Match simulation](#match-simulation)
   - [🎈 Intro](#-intro)
   - [📣 ROS topics](#-ros-topics)
+    - [⬅ Input](#-input)
+    - [➡ Output](#-output)
   - [🔧 Parameters](#-parameters)
     - [Roslaunch](#roslaunch)
   - [📁 Folder structure](#-folder-structure)
@@ -58,6 +60,23 @@ roslaunch vss_simulation simulation_match.launch
 ```
 
 ## 📣 ROS topics
+
+### ⬅ Input
+
+The simulation accepts control over **torque** comands (through the interface **effort_controller**) or over **angular velocity** commands (through the interface **velocity_controller**) for the two motors of each robot. Both interfaces are available in the library [ros_control](http://wiki.ros.org/ros_control)
+
+To simulate robots without closed loop rotation simulation, the control over **torque** is more suitable, since torque is approximately proportional to applied tension in a DC motor terminals
+
+In the other hand, the control interface over **angular velocity** is more suitable
+
+In both cases, the comands are read from topics of type [std_msgs/Float64](http://docs.ros.org/melodic/api/std_msgs/html/msg/Float64.html)
+
+- **/robot[1..3]/vss_robot_left_controller/command**
+- **/robot[1..3]/vss_robot_right_controller/command**
+- **/foe[1..3]/vss_robot_left_controller/command**
+- **/foe[1..3]/vss_robot_right_controller/command**
+
+### ➡ Output
 
 By default, Gazebo publishes in the topic **/gazebo/model_states** of type [gazebo_msgs/ModelStates](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelStates.html), with an array of informations about each model in the simulation.
 
