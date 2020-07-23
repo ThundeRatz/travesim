@@ -42,9 +42,16 @@ Para rodar a simulação de uma partida, digite:
 roslaunch vss_simulation simulation_match.launch
 ```
 
-## Tópicos ROS
+Por padrão, o Gazebo publica no tópico **/gazebo/model_states** do tipo [gazebo_msgs/ModelStates](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelStates.html), com uma lista de informações acerca de cada um dos modelos presentes na simulação.
 
-O pacore [ThunderVolt](https://github.com/ThundeRatz/vss_thundervolt) se inscreve em 7 tópicos do tipo [gazebo_msgs/ModelState](http://docs.ros.org/jade/api/gazebo_msgs/html/msg/ModelState.html) (3 robôs, 3 adversários e 1 bola)
+```c
+# broadcast all model states in world frame
+string[] name                 # model names
+geometry_msgs/Pose[] pose     # desired pose in world frame
+geometry_msgs/Twist[] twist   # desired twist in world frame
+```
+
+Por comodidade, este pacote possui um script ([vision_proxy.py](./scripts/vision_proxy.py)) que se inscreve nesse tópico e republica a informação diferentes tópicos do tipo [gazebo_msgs/ModelState](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelState.html) para cada entidade (3 robôs, 3 adversários e 1 bola, 7 tópicos no total)
 
 ```c
 # Set Gazebo Model pose and twist
@@ -55,16 +62,7 @@ string reference_frame      # set pose/twist relative to the frame of this entit
                             # leave empty or "world" or "map" defaults to world-frame
 ```
 
-Por padrão o Gazebo publica 1 tópico do tipo [gazebo_msgs/ModelStates](http://docs.ros.org/jade/api/gazebo_msgs/html/msg/ModelStates.html)
-
-```c
-# broadcast all model states in world frame
-string[] name                 # model names
-geometry_msgs/Pose[] pose     # desired pose in world frame
-geometry_msgs/Twist[] twist   # desired twist in world frame
-```
-
-Este pacote de simulação possui um script python que se increve no tópico do Gazebo e republica a informação nos 7 tópicos esperados pelo [ThunderVolt](https://github.com/ThundeRatz/vss_thundervolt):
+Os tópicos republicados são
 
 - **/vision/robot[1...3]** - Tópicos para os robôs do nosso time
 - **/vision/foe[1...3]** - Tópicos para os robôs adversários
