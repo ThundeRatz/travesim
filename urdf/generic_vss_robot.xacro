@@ -8,9 +8,6 @@
   <!-- Import all Gazebo-customization elements, including Gazebo colors -->
   <xacro:include filename="$(find vss_simulation)/urdf/generic_vss_robot.gazebo" />
 
-  <!-- Import Rviz colors -->
-  <xacro:include filename="$(find vss_simulation)/urdf/materials.xacro" />
-
   <!-- Code exported from SolidWorks -->
   <xacro:include filename="$(find vss_simulation)/urdf/generic_vss_robot.urdf" />
 
