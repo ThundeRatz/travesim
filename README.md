@@ -40,7 +40,7 @@ Para a versão em PT-BR 🇧🇷 desse documento, [veja aqui](./README_ptbr.md)
 
 ## 🎈 Intro
 
-It is necessary to cone the project inside a catkin workspace. To create a workspace, refer to [this link](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)
+It is necessary to clone the project inside a catkin workspace. To create a workspace, refer to [this link](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)
 
 To run the simulation with one controlable robot
 
