@@ -27,7 +27,13 @@
     <arg name="x" default="$(arg x)" />
     <arg name="y" default="$(arg y)" />
     <arg name="yaw" default="$(arg yaw)" />
-    <arg name="single" value="true"/>
+  </include>
+
+  <include file="$(find vss_simulation)/launch/spawn_robot.launch">
+    <arg name="model" value="$(arg model)" />
+    <arg name="x" value="$(arg x)" />
+    <arg name="y" value="$(arg y)" />
+    <arg name="yaw" value="$(arg yaw)" />
   </include>
 
   <group if="$(arg keyboard)">
