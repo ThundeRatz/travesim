@@ -6,21 +6,21 @@
 Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando Gazebo
 
 - [Simulação de VSS em ROS com Gazebo](#simulação-de-vss-em-ros-com-gazebo)
-  - [Introdução](#introdução)
-  - [Tópicos ROS](#tópicos-ros)
-  - [Parâmetros](#parâmetros)
+  - [🎈 Introdução](#-introdução)
+  - [📣 Tópicos ROS](#-tópicos-ros)
+  - [🔧 Parâmetros](#-parâmetros)
     - [Roslaunch](#roslaunch)
-  - [Estrutura de pastas](#estrutura-de-pastas)
-  - [Dependências](#dependências)
-  - [Modelos utilizados](#modelos-utilizados)
-  - [Cores no Gazebo](#cores-no-gazebo)
-  - [Screenshots](#screenshots)
+  - [📁 Estrutura de pastas](#-estrutura-de-pastas)
+  - [➕ Dependências](#-dependências)
+  - [📏 Modelos utilizados](#-modelos-utilizados)
+  - [🎨 Cores no Gazebo](#-cores-no-gazebo)
+  - [📷 Screenshots](#-screenshots)
     - [Simulação de um robô](#simulação-de-um-robô)
     - [Simulação do time](#simulação-do-time)
     - [Simulação da partida](#simulação-da-partida)
   - [TODO](#todo)
 
-## Introdução
+## 🎈 Introdução
 
 É necessário clonar o projeto dentro de um workspace catkin. Para criar um workspace, veja [esse link](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)
 
@@ -41,6 +41,8 @@ Para rodar a simulação de uma partida, digite:
 ```bash
 roslaunch vss_simulation simulation_match.launch
 ```
+
+## 📣 Tópicos ROS
 
 Por padrão, o Gazebo publica no tópico **/gazebo/model_states** do tipo [gazebo_msgs/ModelStates](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelStates.html), com uma lista de informações acerca de cada um dos modelos presentes na simulação.
 
@@ -70,7 +72,7 @@ Os tópicos republicados são
 
 Todas as unidades estão no SI, distâncias estão em metros, ângulos estão em radianos, velocidade linear está em m/s e velocidade angular estã em rad/s
 
-## Parâmetros
+## 🔧 Parâmetros
 
 ### Roslaunch
 
@@ -90,7 +92,7 @@ Por exemplo, para mudar o parâmetro ```keyboard``` para ```true```:
 roslaunch vss_simulation simulation_team.launch keyboard:=true
 ```
 
-## Estrutura de pastas
+## 📁 Estrutura de pastas
 
 - **docs/** - Arquivos de documentação
 - **launch/** - Arquivos do [roslaunch](http://wiki.ros.org/roslaunch) escritos na [sintaxe XML](http://wiki.ros.org/roslaunch/XML) do ROS
@@ -103,7 +105,7 @@ roslaunch vss_simulation simulation_team.launch keyboard:=true
 - **urdf/** - Arquivos de descrição dos robôs no formato [.urdf](http://wiki.ros.org/urdf/XML) e [.xacro](http://wiki.ros.org/xacro). Os arquivos .urdf gerados com a extensão [SW2URDF](http://wiki.ros.org/sw_urdf_exporter) do SolidWorks
 - **worlds/** - Arquivos .world no formato [SDL](http://sdformat.org/)
 
-## Dependências
+## ➕ Dependências
 
 A simulação é desenvolvida para ROS e Gazebo, é recomendável instalar ambos com o comando:
 
@@ -123,7 +125,7 @@ Ou usando ```rosdep```
 rosdep install vss_simulation
 ```
 
-## Modelos utilizados
+## 📏 Modelos utilizados
 
 A simulação é construída em de um modelo de robô de VSS genérico, inspirado no modelo do VSS SDK.
 
@@ -131,11 +133,11 @@ A simulação é construída em de um modelo de robô de VSS genérico, inspirad
 
 Como suporte, foram criados modelos para o campo do VSS e para a bola de golf utilizada na partida, ambos construídos a partir das [regras da Robocore](https://www.robocore.net/modules.php?name=Forums&file=download&id=1424) para IEEE VSS.
 
-## Cores no Gazebo
+## 🎨 Cores no Gazebo
 
 Para uma lista das cores disponíveis no Gazebo, confira o arquivo de configuração do [repo oficial](https://bitbucket.org/osrf/gazebo/src/gazebo11/media/materials/scripts/gazebo.material). Temos também um [script OGRE](./media/materials/scripts/vss.material) para a definição de cores customizadas ([ref](http://gazebosim.org/tutorials?tut=color_model) do Gazebo a respeito).
 
-## Screenshots
+## 📷 Screenshots
 
 ### Simulação de um robô
 
