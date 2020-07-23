@@ -16,5 +16,4 @@
     },
     "python.linting.pycodestyleEnabled": true,
     "python.linting.enabled": true,
-    "python.linting.pep8Enabled": true,
 }
