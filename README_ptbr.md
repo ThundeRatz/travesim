@@ -18,7 +18,6 @@ Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando
     - [Simulação de um robô](#simulação-de-um-robô)
     - [Simulação do time](#simulação-do-time)
     - [Simulação da partida](#simulação-da-partida)
-  - [TODO](#todo)
 
 ## 🎈 Introdução
 
@@ -135,7 +134,7 @@ Como suporte, foram criados modelos para o campo do VSS e para a bola de golf ut
 
 ## 🎨 Cores no Gazebo
 
-Para uma lista das cores disponíveis no Gazebo, confira o arquivo de configuração do [repo oficial](https://bitbucket.org/osrf/gazebo/src/gazebo11/media/materials/scripts/gazebo.material). Temos também um [script OGRE](./media/materials/scripts/vss.material) para a definição de cores customizadas ([ref](http://gazebosim.org/tutorials?tut=color_model) do Gazebo a respeito).
+Para uma lista das cores disponíveis no Gazebo, confira o arquivo de configuração do [repo oficial](https://bitbucket.org/osrf/gazebo/src/gazebo11/media/materials/scripts/gazebo.material). Temos também 2 scripts OGRE [team blue](./media/materials/scripts/team_blue.material.material) e [team yellow](./media/materials/scripts/team_yellow.material.material) para a definição de cores customizadas ([ref Gazebo](http://gazebosim.org/tutorials?tut=color_model) e [ref OGRE](http://wiki.ogre3d.org/Materials)).
 
 ## 📷 Screenshots
 
@@ -150,8 +149,3 @@ Para uma lista das cores disponíveis no Gazebo, confira o arquivo de configura�
 ### Simulação da partida
 
 ![screenshot](./docs/screenshot_match.png)
-
-## TODO
-
-- Completar documentação.
-- Atualizar screenshots
