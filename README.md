@@ -22,6 +22,7 @@ Para a versão em PT-BR 🇧🇷 desse documento, [veja aqui](./README.pt-br.md)
     - [Roslaunch](#roslaunch)
   - [📁 Folder structure](#-folder-structure)
   - [➕ Dependencies](#-dependencies)
+    - [🐍 Python virtual enviroment](#-python-virtual-enviroment)
   - [🎨 Gazebo colors](#-gazebo-colors)
 
 ## 📷 Screenshots
@@ -176,6 +177,45 @@ Or using ```rosdep```
 
 ```bash
 rosdep install vss_simulation
+```
+
+### 🐍 Python virtual enviroment
+
+One may want to run the project inside a python [virtualenv](https://docs.python.org/3/tutorial/venv.html), after all this is a good practice in the python development book
+
+You can create a python enviroment with the command
+
+```sh
+python3 -m venv venv
+```
+
+Then you should run ```source``` in the virtual enviroment
+
+```sh
+source ./venv/bin/activate
+```
+
+To install the dependencies, run the command
+
+```sh
+pip install -r requirements.txt
+```
+
+Some external libraries may be missing to [build](https://stackoverflow.com/questions/7652385/where-can-i-find-and-install-the-dependencies-for-pygame) ```pygame````package. You can install then with
+
+```sh
+sudo apt-get install
+  subversion \
+  ffmpeg \
+  libsdl1.2-dev \
+  libsdl-image1.2-dev \
+  libsdl-mixer1.2-dev \
+  libsdl-ttf2.0-dev \
+  libavcodec-dev \
+  libavformat-dev \
+  libportmidi-dev \
+  libsmpeg-dev \
+  libswscale-dev \
 ```
 
 ## 🎨 Gazebo colors

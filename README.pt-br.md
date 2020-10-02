@@ -20,6 +20,7 @@ Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando
     - [Roslaunch](#roslaunch)
   - [📁 Estrutura de pastas](#-estrutura-de-pastas)
   - [➕ Dependências](#-dependências)
+    - [🐍 Python virtual enviroment](#-python-virtual-enviroment)
   - [🎨 Cores no Gazebo](#-cores-no-gazebo)
 
 ## 📷 Screenshots
@@ -173,6 +174,45 @@ Ou usando ```rosdep```
 
 ```bash
 rosdep install vss_simulation
+```
+
+### 🐍 Python virtual enviroment
+
+Você pode querer rodar o projeto dentro de um ambiente virtual de python ([python virtualenv](https://docs.python.org/3/tutorial/venv.html)), afinal, essa é uma boa prática listada no livro de bolso de desenvolvimento python
+
+Você pode criar um novo ambiente virtual com o comando
+
+```sh
+python3 -m venv venv
+```
+
+Em seguida, você deve rodar ```source``` para ativar o ambiente virtual
+
+```sh
+source ./venv/bin/activate
+```
+
+Para instalar as dependências, rode o comando
+
+```sh
+pip install -r requirements.txt
+```
+
+Algumas biblitecas externas podem estar faltando para [compilar](https://stackoverflow.com/questions/7652385/where-can-i-find-and-install-the-dependencies-for-pygame) o pacote ```pygame```. Você pode instalar tudo com o comando
+
+```sh
+sudo apt-get install
+  subversion \
+  ffmpeg \
+  libsdl1.2-dev \
+  libsdl-image1.2-dev \
+  libsdl-mixer1.2-dev \
+  libsdl-ttf2.0-dev \
+  libavcodec-dev \
+  libavformat-dev \
+  libportmidi-dev \
+  libsmpeg-dev \
+  libswscale-dev \
 ```
 
 ## 🎨 Cores no Gazebo
