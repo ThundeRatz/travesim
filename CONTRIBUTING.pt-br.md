@@ -2,7 +2,7 @@
 
 Primeiramente, obrigado pelo interesse! Nós agradecemos muito pela participação da comunidade nesse projeto! ✨
 
-Esse documento descreve um conjunto de diretrizes para contribuir com esse projeto. Não são regras estritas, então sempre vale o bom senso, e, em caso de dúvidas, nos contate em contato@thunderatz.org.
+Esse documento descreve um conjunto de diretrizes para contribuir com esse projeto. Não são regras estritas, então sempre vale o bom senso, e, em caso de dúvidas, nos contate em comp@thunderatz.org.
 
 ## Como eu posso contribuir?
 

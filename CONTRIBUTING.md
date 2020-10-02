@@ -4,7 +4,7 @@ Para a versão em PT-BR :brazil: desse documento, [veja aqui](link).
 
 First of all, thanks for your interest! We really appreciate the participation of the community! ✨
 
-Here we describe a set of guidelines when contributing to the VSS simulation. These are not strict rules, so use your best judgment, and in case you have questions, contact us on contato@thunderatz.org.
+Here we describe a set of guidelines when contributing to the VSS simulation. These are not strict rules, so use your best judgment, and in case you have questions, contact us on comp@thunderatz.org.
 
 ## How can I contribute?
 
