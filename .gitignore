@@ -38,3 +38,6 @@ missing
 
 # Doxygen generated files
 Doxygen/
+
+# ROS bagfiles
+*.bag
