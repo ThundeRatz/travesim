@@ -28,7 +28,7 @@ for vss_robot robot</p>
 
   <exec_depend>geometry_msgs</exec_depend>
   <exec_depend>rospy</exec_depend>
-  <exec_depend>python-pygame</exec_depend>
+  <exec_depend>python3-pygame</exec_depend>
 
   <export>
     <architecture_independent />
