@@ -42,7 +42,7 @@
         <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
           <alwaysOn>true</alwaysOn>
           <updateRate>30.0</updateRate>
-          <cameraName>robot1/camera1</cameraName>
+          <cameraName>field_camera</cameraName>
           <imageTopicName>/camera/image_raw</imageTopicName>
           <cameraInfoTopicName>/camera/camera_info</cameraInfoTopicName>
           <frameName>camera_link</frameName>
