@@ -5,7 +5,7 @@
 
 IEEE VSS team simulation project with ROS and Gazebo
 
-Para a versão em PT-BR 🇧🇷 desse documento, [veja aqui](./README_ptbr.md)
+Para a versão em PT-BR 🇧🇷 desse documento, [veja aqui](./README.pt-br.md)
 
 - [VSS simulation with ROS and Gazebo](#vss-simulation-with-ros-and-gazebo)
   - [📷 Screenshots](#-screenshots)
