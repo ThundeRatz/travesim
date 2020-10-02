@@ -1,8 +1,8 @@
-# Contributing to VSS Simulation :rocket:
+# Contributing to VSS Simulation 🚀
 
 Para a versão em PT-BR :brazil: desse documento, [veja aqui](link).
 
-First of all, thanks for your interest! We really appreciate the participation of the community! :sparkles:
+First of all, thanks for your interest! We really appreciate the participation of the community! ✨
 
 Here we describe a set of guidelines when contributing to the VSS simulation. These are not strict rules, so use your best judgment, and in case you have questions, contact us on contato@thunderatz.org.
 
@@ -19,7 +19,7 @@ For each of these, there is a specific [label](https://docs.github.com/en/enterp
 
 But before creating an issue, first check if there is already one with the same subject. You can search and filter by labels, for example, [here](https://github.com/ThundeRatz/vss_simulation/labels/bug) we only see the issues that are active and have the `bug` label.
 
-#### Reporting Bugs
+#### Reporting Bugs 🐛
 - Use a clear title
 - Specify the version of the package
 - Specify OS, VM (if applicable), packages installed, and other configurations that may be usefull
@@ -27,13 +27,13 @@ But before creating an issue, first check if there is already one with the same 
 - Describe the observed and the expected behavior
 - Include screenshots, gifs, any type of reference that helps to explain the problem
 
-#### Suggesting Enhancements
+#### Suggesting Enhancements ✨
 - Use a clear title
 - Describe the suggestion step-by-step
 - Describe the expected behavior after implementing this idea
 - Explain why this new feature or update can be usefull
 
-#### Imporoving documentation
+#### Imporoving documentation 📝
 - Use a clear title
 - Specify the files that need to be documented
 - Explain your suggestion and why would it be better/clearer
@@ -47,7 +47,7 @@ A few recomendations:
 - Link the applicable issue in your Pull Request (if there is none, please, create a new one)
 - Make sure that you are following the [Syleguide](#Styleguide)
 
-## Styleguide
+## Styleguide 💄
 The code and structure must follow the the [ROS Use Patterns](http://wiki.ros.org/ROS/Patterns) and [ROS Best Practices](http://wiki.ros.org/BestPractices).
 
 ### Python
@@ -57,11 +57,11 @@ Python code should follow the [ROS Python](http://wiki.ros.org/PyStyleGuide) and
 - Use the present tense ("Add feature" not "Added feature")
 - Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
 - It is strongly recommended to start a commit message with a related emoji
-  - :memo: `:memo:` for documentation
-  - :bug: `:bug:` for bug issues
-  - :ambulance: `:ambulance:` for critical fixes
-  - :art: `:art:` for imporoving structure
-  - :sparkles: `:sparkles:` for new features
+  - 📝 `:memo:` for documentation
+  - 🐛 `:bug:` for bug issues
+  - 🚑 `:ambulance:` for critical fixes
+  - 🎨 `:art:` for imporoving structure
+  - ✨ `:sparkles:` for new features
   
   For more examples, see [this reference](https://gitmoji.carloscuesta.me/).
 
