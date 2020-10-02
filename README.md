@@ -64,11 +64,11 @@ roslaunch vss_simulation simulation_match.launch
 
 ### ⬅ Input
 
-The simulation accepts control over **torque** comands (through the interface **effort_controller**) or over **angular velocity** commands (through the interface **velocity_controller**) for the two motors of each robot. Both interfaces are available in the library [ros_control](http://wiki.ros.org/ros_control)
+The simulation accepts control over **torque** comands (through the interface **effort_controller**) or over **angular velocity** commands (through the interface **velocity_controller**) for the two motors of each robot. Both interfaces are available in the library [ros_control](http://wiki.ros.org/ros_control).
 
-To simulate robots without closed loop rotation simulation, the control over **torque** is more suitable, since torque is approximately proportional to applied tension in a DC motor terminals
+To simulate robots without closed loop rotation simulation, the control over **torque** is more suitable, since torque is approximately proportional to applied tension in a DC motor terminals.
 
-In the other hand, the control interface over **angular velocity** is more suitable
+Otherwise, the control interface over **angular velocity** is more suitable.
 
 In both cases, the comands are read from topics of type [std_msgs/Float64](http://docs.ros.org/melodic/api/std_msgs/html/msg/Float64.html)
 
@@ -88,7 +88,7 @@ geometry_msgs/Pose[] pose     # desired pose in world frame
 geometry_msgs/Twist[] twist   # desired twist in world frame
 ```
 
-For convenience, this package have a script ([vision_proxy.py](./scripts/vision_proxy.py)) that subscribes this topic and republishes the information at diferent topics of type [gazebo_msgs/ModelState](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelState.html) for each entity (3 robots, 3 foes and 1 ball, 7 in total)
+For convenience, this package have a script ([vision_proxy.py](./scripts/vision_proxy.py)) that subscribes this topic and republishes the information at diferent topics of type [gazebo_msgs/ModelState](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelState.html) for each entity (3 robots, 3 foes and 1 ball, 7 in total).
 
 ```c
 # Set Gazebo Model pose and twist
@@ -101,17 +101,17 @@ string reference_frame      # set pose/twist relative to the frame of this entit
 
 The republised topics are
 
-- **/vision/robot[1...3]** - Tópicos para os robôs do nosso time
-- **/vision/foe[1...3]** - Tópicos para os robôs adversários
-- **/vision/ball** - Tópico para a bola
+- **/vision/robot[1...3]** - Team robots's topics
+- **/vision/foe[1...3]** - Adversary robots's topics
+- **/vision/ball** - Ball's topic
 
-All units are [SI](https://en.wikipedia.org/wiki/International_System_of_Units), distances are measured in meters, angles in radians, linear velocity in m/s and angular velocity in rad/s
+All units are [SI](https://en.wikipedia.org/wiki/International_System_of_Units), distances are measured in meters, angles in radians, linear velocity in m/s and angular velocity in rad/s.
 
 ## 📏 Used models
 
-The simulation is build upon a generic vss robot (more details [here](./urdf/motor.xacro)), inspired by [VSS SDK model](https://github.com/VSS-SDK/VSS-SDK)
+The simulation is build upon a generic vss robot (more details [here](./urdf/motor.xacro)), inspired by [VSS SDK model](https://github.com/VSS-SDK/VSS-SDK).
 
-As support, were created models for the VSS field and ball, both build from [Robocore's rules](https://www.robocore.net/modules.php?name=Forums&file=download&id=1424) for IEEE VSS.
+As support, models were created for the VSS field and ball, both build from [Robocore's rules](https://www.robocore.net/modules.php?name=Forums&file=download&id=1424) for IEEE VSS.
 
 ### © Create your own model
 
@@ -122,7 +122,7 @@ To create a model for your project, refer to:
 - [fusion2urdf](https://github.com/syuntoku14/fusion2urdf) - Generate urdf files from Fusion 360
 - [ROS wiki](http://wiki.ros.org/urdf/Tutorials/Building%20a%20Visual%20Robot%20Model%20with%20URDF%20from%20Scratch) - How build a urdf model from scratch
 
-To use your custom model, change the value of the ```model``` parameter when launching the simulation
+To use your custom model, change the value of the ```model``` parameter when launching the simulation.
 
 ## 🔧 Parameters
 
@@ -136,7 +136,7 @@ To use your custom model, change the value of the ```model``` parameter when lau
 - ```recording``` - Enable Gazebo's state log, default "false"
 - ```keyboard``` - Enable joystick/keyboard control node, default "false"
 
-To change a simulation parameter, just type the parameter followed by ```:=``` and the new value
+To change a simulation parameter, just type the parameter followed by ```:=``` and the new value.
 
 For example, to change the parameter ```keyboard``` to ```true```:
 
@@ -147,8 +147,8 @@ roslaunch vss_simulation simulation_team.launch keyboard:=true
 ## 📁 Folder structure
 
 - **docs/** - Documentation files
-- **launch/** - [Roslaunch](http://wiki.ros.org/roslaunch) files written in [XML syntax](http://wiki.ros.org/roslaunch/XML) do ROS
-- **meshes/** - .stl files for [vss_generic_robot](./urdf/README.md), created with SolidWorks extension [SW2URDF](http://wiki.ros.org/sw_urdf_exporter) do SolidWorks
+- **launch/** - [Roslaunch](http://wiki.ros.org/roslaunch) files written in ROS [XML syntax](http://wiki.ros.org/roslaunch/XML)
+- **meshes/** - .stl files for [vss_generic_robot](./urdf/README.md), created with SolidWorks [SW2URDF](http://wiki.ros.org/sw_urdf_exporter) extension
 - **models/** - [Custom Gazebo models](http://gazebosim.org/tutorials?tut=build_model) used inside the simulation, as the field and the VSS ball
 - **scripts/** - Python scripts used in the project
   - keyboard_node.py - Pygame script to capture keyboard or joystick input to control the simulation
