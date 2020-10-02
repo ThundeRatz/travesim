@@ -11,7 +11,7 @@ https://github.com/ros/urdf_sim_tutorial -->
   <arg name="single" default="false"/>
   <arg name="match" default="false"/>
   <arg name="world_name" default="vss_field.world"/>
-  <arg name="model" default="$(find vss_simulation)/urdf/vss_simulation.xacro"/>
+  <arg name="model" default="$(find vss_simulation)/urdf/vss_robot.xacro"/>
   <arg name="height" default="0.080"/>
   <arg name="x" default="-0.25" />
   <arg name="y" default="0" />
