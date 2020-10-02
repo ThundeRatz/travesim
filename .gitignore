@@ -1,4 +1,4 @@
-# .gitignore taken from https://github.com/ThundeRatz/ThunderTrekking
+# .gitignore taken from https://github.com/ThundeRatz/ThunderTrekking-Public
 
 *.o
 *~
@@ -38,3 +38,5 @@ missing
 
 # Doxygen generated files
 Doxygen/
+
+venv/*
