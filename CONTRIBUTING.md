@@ -1,6 +1,6 @@
 # Contributing to VSS Simulation 🚀
 
-Para a versão em PT-BR :brazil: desse documento, [veja aqui](link).
+Para a versão em PT-BR 🇧🇷 desse documento, [veja aqui](CONTRIBUTING.pt-br.md).
 
 First of all, thanks for your interest! We really appreciate the participation of the community! ✨
 
@@ -15,7 +15,7 @@ Most contributions are made with [GitHub Issues](https://guides.github.com/featu
 2. Suggesting Enhancements - `enhancement`
 3. Improving documentation - `documentation`
 
-For each of these, there is a specific [label](https://docs.github.com/en/enterprise/2.17/user/github/managing-your-work-on-github/applying-labels-to-issues-and-pull-requests). We strongly recommend that every issue created has at least one of the three labels described above. 
+For each of these, there is a specific [label](https://docs.github.com/en/enterprise/2.17/user/github/managing-your-work-on-github/applying-labels-to-issues-and-pull-requests). We strongly recommend that every issue created has at least one of the three labels described above.
 
 But before creating an issue, first check if there is already one with the same subject. You can search and filter by labels, for example, [here](https://github.com/ThundeRatz/vss_simulation/labels/bug) we only see the issues that are active and have the `bug` label.
 
@@ -62,7 +62,7 @@ Python code should follow the [ROS Python](http://wiki.ros.org/PyStyleGuide) and
   - 🚑 `:ambulance:` for critical fixes
   - 🎨 `:art:` for imporoving structure
   - ✨ `:sparkles:` for new features
-  
+
   For more examples, see [this reference](https://gitmoji.carloscuesta.me/).
 
 ### Git workflow

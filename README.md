@@ -220,4 +220,8 @@ sudo apt-get install
 
 ## 🎨 Gazebo colors
 
-For a list of default available color in Gazebo, refert to the config file in the [oficial repo](https://bitbucket.org/osrf/gazebo/src/gazebo11/media/materials/scripts/gazebo.material). We have also 2 OGRE scripts [team blue](./media/materials/scripts/team_blue.material) and [team yellow](./media/materials/scripts/team_yellow.material) for custom colors definition ([Gazebo ref](http://gazebosim.org/tutorials?tut=color_model) and [OGRE ref](http://wiki.ogre3d.org/Materials))
+For a list of default available color in Gazebo, refert to the config file in the [oficial repo](https://github.com/osrf/gazebo/blob/gazebo11/media/materials/scripts/gazebo.material). We have also 2 OGRE scripts [team blue](./media/materials/scripts/team_blue.material) and [team yellow](./media/materials/scripts/team_yellow.material) for custom colors definition ([Gazebo ref](http://gazebosim.org/tutorials?tut=color_model) and [OGRE ref](http://wiki.ogre3d.org/Materials))
+
+## 📝 Contributing
+
+Any help in the development of robotics is welcome, we encourage you to contribute to the project! To learn how, see the contribution guidelines [here](CONTRIBUTING.md).
