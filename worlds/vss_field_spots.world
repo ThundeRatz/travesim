@@ -2,7 +2,7 @@
 
 <!-- Simple world with vss field and ball
   Ref:
-  https://bitbucket.org/osrf/gazebo/src/gazebo11/worlds/robocup09_spl_field.world -->
+  https://github.com/osrf/gazebo/blob/gazebo11/worlds/robocup09_spl_field.world -->
 
 <!-- Isometric view version -->
 
