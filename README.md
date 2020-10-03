@@ -24,6 +24,7 @@ Para a versão em PT-BR 🇧🇷 desse documento, [veja aqui](./README.pt-br.md)
   - [➕ Dependencies](#-dependencies)
     - [🐍 Python virtual enviroment](#-python-virtual-enviroment)
   - [🎨 Gazebo colors](#-gazebo-colors)
+  - [📝 Contributing](#-contributing)
 
 ## 📷 Screenshots
 

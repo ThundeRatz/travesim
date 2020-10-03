@@ -22,6 +22,7 @@ Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando
   - [➕ Dependências](#-dependências)
     - [🐍 Python virtual enviroment](#-python-virtual-enviroment)
   - [🎨 Cores no Gazebo](#-cores-no-gazebo)
+  - [📝 Contribuindo](#-contribuindo)
 
 ## 📷 Screenshots
 
@@ -219,6 +220,6 @@ sudo apt-get install
 
 Para uma lista das cores disponíveis no Gazebo, confira o arquivo de configuração do [repo oficial](hhttps://github.com/osrf/gazebo/blob/gazebo11/media/materials/scripts/gazebo.material). Temos também 2 scripts OGRE [team blue](./media/materials/scripts/team_blue.material.material) e [team yellow](./media/materials/scripts/team_yellow.material.material) para a definição de cores customizadas ([ref Gazebo](http://gazebosim.org/tutorials?tut=color_model) e [ref OGRE](http://wiki.ogre3d.org/Materials)).
 
-## 📝 Contributing
+## 📝 Contribuindo
 
 Toda a ajuda no desenvolvimento da robótica é bem-vinda, nós lhe encourajamos a contribuir para o projeto! Para saber como fazer, veja as diretrizes de contribuição [aqui](CONTRIBUTING.pt-br.md).
