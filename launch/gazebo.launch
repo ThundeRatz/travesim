@@ -65,4 +65,10 @@ https://github.com/ros/urdf_sim_tutorial -->
     </group>
   </group>
 
+  <group ns="camera/image_raw">
+    <rosparam param="disable_pub_plugins">
+      - 'image_transport/compressedDepth'
+    </rosparam>
+  </group>
+
 </launch>
