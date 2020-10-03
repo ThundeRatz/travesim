@@ -202,7 +202,7 @@ To install the dependencies, run the command
 pip install -r requirements.txt
 ```
 
-Some external libraries may be missing to [build](https://stackoverflow.com/questions/7652385/where-can-i-find-and-install-the-dependencies-for-pygame) ```pygame````package. You can install then with
+Some external libraries may be missing to [build](https://stackoverflow.com/questions/7652385/where-can-i-find-and-install-the-dependencies-for-pygame) ```pygame``` package. You can install then with
 
 ```sh
 sudo apt-get install
