@@ -155,7 +155,7 @@ A simulação é construída em volta da versão 1.1 do robô de VSS do time Thu
 
 ## Cores no Gazebo
 
-Para uma lista das cores disponíveis no Gazebo, confira o arquivo de configuração do [repo oficial](https://bitbucket.org/osrf/gazebo/src/gazebo11/media/materials/scripts/gazebo.material). Temos também um [script OGRE](./media/materials/scripts/vss.material) para a definição de cores customizadas ([ref](http://gazebosim.org/tutorials?tut=color_model) do Gazebo a respeito).
+Para uma lista das cores disponíveis no Gazebo, confira o arquivo de configuração do [repo oficial](https://github.com/osrf/gazebo/blob/gazebo11/media/materials/scripts/gazebo.material). Temos também um [script OGRE](./media/materials/scripts/vss.material) para a definição de cores customizadas ([ref](http://gazebosim.org/tutorials?tut=color_model) do Gazebo a respeito).
 
 ## Screenshots
 
