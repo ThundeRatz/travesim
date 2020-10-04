@@ -159,6 +159,7 @@ rosrun image_view image_view image:=/camera/image_raw
 
 ## 📁 Estrutura de pastas
 
+- **bagfiles/** - Pasta para guardar [bagfiles](./bagfiles/README.md)
 - **docs/** - Arquivos de documentação
 - **launch/** - Arquivos do [roslaunch](http://wiki.ros.org/roslaunch) escritos na [sintaxe XML](http://wiki.ros.org/roslaunch/XML) do ROS
 - **meshes/** - Arquivos .stl do modelo dos nossos robôs, gerados com a extensão [SW2URDF](http://wiki.ros.org/sw_urdf_exporter) do SolidWorks

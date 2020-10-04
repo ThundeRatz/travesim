@@ -153,6 +153,7 @@ rosrun image_view image_view image:=/camera/image_raw
 
 ## 📁 Folder structure
 
+- **bagfiles/** - Folder to store recorded [bagfiles](./bagfiles/README.md)
 - **docs/** - Documentation files
 - **launch/** - [Roslaunch](http://wiki.ros.org/roslaunch) files written in ROS [XML syntax](http://wiki.ros.org/roslaunch/XML)
 - **meshes/** - .stl files for [vss_generic_robot](./urdf/README.md), created with SolidWorks [SW2URDF](http://wiki.ros.org/sw_urdf_exporter) extension
