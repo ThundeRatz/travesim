@@ -29,7 +29,7 @@ Para a versão em PT-BR 🇧🇷 desse documento, [veja aqui](./README.pt-br.md)
     - [🐍 Python virtual enviroment](#-python-virtual-enviroment)
   - [🎨 Gazebo colors](#-gazebo-colors)
   - [📝 Contributing](#-contributing)
-  - [Contributors ✨](#contributors-)
+  - [✨ Contributors](#-contributors)
 
 ## 📷 Screenshots
 
@@ -237,7 +237,7 @@ For a list of default available color in Gazebo, refert to the config file in th
 
 Any help in the development of robotics is welcome, we encourage you to contribute to the project! To learn how, see the contribution guidelines [here](CONTRIBUTING.md).
 
-## Contributors ✨
+## ✨ Contributors
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
