@@ -71,7 +71,7 @@ Para simular robôs sem controle da rotação em malha fechada, o controle por m
 
 Caso contrário, a interface de controle por **velocidade angular** é a mais adequada.
 
-Em ambos os casos, os comandos são lidos nos tópicos do tipo [std_msgs/Float64](http://docs.ros.org/melodic/api/std_msgs/html/msg/Float64.html)
+Em ambos os casos, os comandos são lidos nos tópicos do tipo [std_msgs/Float64](http://docs.ros.org/noetic/api/std_msgs/html/msg/Float64.html)
 
 - **/robot[1..3]/vss_robot_left_controller/command**
 - **/robot[1..3]/vss_robot_right_controller/command**
@@ -176,14 +176,12 @@ rosrun image_view image_view image:=/camera/image_raw
 A simulação é desenvolvida para ROS e Gazebo, é recomendável instalar ambos com o comando:
 
 ```bash
-sudo apt install ros-melodic-desktop-full
-```
+sudo apt install ros-noetic-desktop-full
 
 O projeto depende do pacote velocity_controllers e do effort_controllers dentro da biblioteca [ros_controllers](https://github.com/ros-controls/ros_controllers) e da biblioteca python [pygame](https://github.com/pygame/pygame). É possível instalar com ```apt-get```
 
 ```bash
-sudo apt install ros-melodic-velocity-controllers ros-melodic-effort-controllers python-pygame
-```
+sudo apt install ros-noetic-velocity-controllers ros-noetic-effort-controllers python-pygame
 
 Ou usando ```rosdep```
 

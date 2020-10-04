@@ -77,7 +77,7 @@ To simulate robots without closed loop rotation simulation, the control over **t
 
 Otherwise, the control interface over **angular velocity** is more suitable.
 
-In both cases, the comands are read from topics of type [std_msgs/Float64](http://docs.ros.org/melodic/api/std_msgs/html/msg/Float64.html)
+In both cases, the comands are read from topics of type [std_msgs/Float64](http://docs.ros.org/noetic/api/std_msgs/html/msg/Float64.html)
 
 - **/robot[1..3]/vss_robot_left_controller/command**
 - **/robot[1..3]/vss_robot_right_controller/command**
@@ -164,7 +164,7 @@ rosrun image_view image_view image:=/camera/image_raw
 - **models/** - [Custom Gazebo models](http://gazebosim.org/tutorials?tut=build_model) used inside the simulation, as the field and the VSS ball
 - **scripts/** - Python scripts used in the project
   - keyboard_node.py - Pygame script to capture keyboard or joystick input to control the simulation
-  - velocity_proxy.py - Script to convert a [std_msgs/Twist](http://docs.ros.org/melodic/api/geometry_msgs/html/msg/Twist.html) message from a [rqt robot steering](http://wiki.ros.org/rqt_robot_steering) to speed or torque comands to 2 motors
+  - velocity_proxy.py - Script to convert a [std_msgs/Twist](http://docs.ros.org/noetic/api/geometry_msgs/html/msg/Twist.html) message from a [rqt robot steering](http://wiki.ros.org/rqt_robot_steering) to speed or torque comands to 2 motors
   - vision_proxy.py - Script to split [gazebo_msgs/ModelStates](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelStates.html) array in several [gazebo_msgs/ModelState](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelState.html) topics
 
 - **urdf/** - Robot description files in [.urdf](http://wiki.ros.org/urdf/XML) and [.xacro](http://wiki.ros.org/xacro) format. The .urdf files were generated with SolidWorks [SW2URDF](http://wiki.ros.org/sw_urdf_exporter) extension
@@ -175,14 +175,12 @@ rosrun image_view image_view image:=/camera/image_raw
 The simulation is develop for ROS and Gazebo, it is recommend to install both with:
 
 ```bash
-sudo apt install ros-melodic-desktop-full
-```
+sudo apt install ros-noetic-desktop-full
 
 The project depends on the package velocity_controllers and effort_controllers in the library [ros_controllers](https://github.com/ros-controls/ros_controllers) and the python lybrary [pygame](https://github.com/pygame/pygame). It is possible to install both with ```apt-get```
 
 ```bash
-sudo apt install ros-melodic-velocity-controllers ros-melodic-effort-controllers python-pygame
-```
+sudo apt install ros-noetic-velocity-controllers ros-noetic-effort-controllers python-pygame
 
 Or using ```rosdep```
 
