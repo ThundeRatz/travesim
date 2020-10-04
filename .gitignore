@@ -39,4 +39,8 @@ missing
 # Doxygen generated files
 Doxygen/
 
+# Python virtual enviroment
 venv/*
+
+# ROS bagfiles
+*.bag

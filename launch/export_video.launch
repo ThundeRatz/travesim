@@ -1,0 +1,13 @@
+<launch>
+
+    <!--The bagfile should be placed inside /bagfiles folder -->
+    <arg name="bagfile" default="my_bagfile.bag"/>
+
+    <!-- The output video file is generated under ~/.ros/output.avi -->
+    <node name="extract" pkg="image_view" type="video_recorder" respawn="false" required="true" output="screen" cwd="ROS_HOME">
+        <remap from="image" to="/camera/image_raw" />
+        <param name="fps" value="30" />
+    </node>
+
+    <node pkg="rosbag" type="play" name="rosbag" required="true" args="$(find vss_simulation)/bagfiles/$(arg bagfile)" />
+</launch>

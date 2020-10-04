@@ -20,6 +20,7 @@ Para a versão em PT-BR 🇧🇷 desse documento, [veja aqui](./README.pt-br.md)
     - [© Create your own model](#-create-your-own-model)
   - [🔧 Parameters](#-parameters)
     - [Roslaunch](#roslaunch)
+  - [Câmera virtual](#câmera-virtual)
   - [📁 Folder structure](#-folder-structure)
   - [➕ Dependencies](#-dependencies)
     - [🐍 Python virtual enviroment](#-python-virtual-enviroment)
@@ -138,12 +139,16 @@ To use your custom model, change the value of the ```model``` parameter when lau
 - ```recording``` - Enable Gazebo's state log, default "false"
 - ```keyboard``` - Enable joystick/keyboard control node, default "false"
 
-To change a simulation parameter, just type the parameter followed by ```:=``` and the new value.
+## Câmera virtual
 
-For example, to change the parameter ```keyboard``` to ```true```:
+A simulação possui uma câmera virtual que captura imagens do topo do campo, de forma semelhante ao que acontece em uma partida de VSS real.
 
-```bash
-roslaunch vss_simulation simulation_team.launch keyboard:=true
+A câmera publica as imagens obtidas no tópico **/camera/image_raw**
+
+É possível acompanhar as imagens com o auxílio do pacote [image_view](http://wiki.ros.org/image_view)
+
+```sh
+rosrun image_view image_view image:=/camera/image_raw
 ```
 
 ## 📁 Folder structure

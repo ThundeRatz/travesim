@@ -9,7 +9,7 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
   <arg name="robot_name" default="$(eval 'robot'+str(team_number*3+robot_number))" />
   <arg name="x" default="0"/>
   <arg name="y" default="0"/>
-  <arg name="z" default="0.04"/>
+  <arg name="z" default="0.03"/>
   <arg name="row" default="0"/>
   <arg name="pitch" default="0"/>
   <arg name="yaw" default="0"/>
