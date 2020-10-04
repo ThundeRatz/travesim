@@ -176,11 +176,13 @@ The simulation is develop for ROS and Gazebo, it is recommend to install both wi
 
 ```bash
 sudo apt install ros-noetic-desktop-full
+```
 
 The project depends on the package velocity_controllers and effort_controllers in the library [ros_controllers](https://github.com/ros-controls/ros_controllers) and the python lybrary [pygame](https://github.com/pygame/pygame). It is possible to install both with ```apt-get```
 
 ```bash
 sudo apt install ros-noetic-velocity-controllers ros-noetic-effort-controllers python-pygame
+```
 
 Or using ```rosdep```
 
