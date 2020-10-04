@@ -12,7 +12,7 @@ To generate a bagfile from the active simulation, run the command
 rosbag record -a
 ```
 
-All topics being published will be recorded in the bagfile. It is possible to select specific topics to pe saved with the syntax
+All topics being published will be recorded in the bagfile. It is possible to select specific topics to be saved with the syntax
 
 ```sh
 rosbag record -O subset /topic1 /topic2

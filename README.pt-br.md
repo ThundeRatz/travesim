@@ -236,4 +236,4 @@ Para uma lista das cores disponíveis no Gazebo, confira o arquivo de configura�
 
 ## 📝 Contribuindo
 
-Toda a ajuda no desenvolvimento da robótica é bem-vinda, nós lhe encourajamos a contribuir para o projeto! Para saber como fazer, veja as diretrizes de contribuição [aqui](CONTRIBUTING.pt-br.md).
+Toda a ajuda no desenvolvimento da robótica é bem-vinda, nós lhe encorajamos a contribuir para o projeto! Para saber como fazer, veja as diretrizes de contribuição [aqui](CONTRIBUTING.pt-br.md).
