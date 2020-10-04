@@ -17,7 +17,8 @@ Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando
   - [📏 Modelos utilizados](#-modelos-utilizados)
     - [© Crie seu próprio modelo](#-crie-seu-próprio-modelo)
   - [🔧 Parâmetros](#-parâmetros)
-    - [Roslaunch](#roslaunch)
+    - [🚀 Roslaunch](#-roslaunch)
+  - [📷 Câmera virtual](#-câmera-virtual)
   - [📁 Estrutura de pastas](#-estrutura-de-pastas)
   - [➕ Dependências](#-dependências)
     - [🐍 Python virtual enviroment](#-python-virtual-enviroment)
@@ -126,7 +127,7 @@ Para usar seu modelo customizado, altere o valor do parâmetro ```model``` ao in
 
 ## 🔧 Parâmetros
 
-### Roslaunch
+### 🚀 Roslaunch
 
 - ```model``` - Caminho do modelo do robô simulado, padrão "./urdf/vss_robot.xacro"
 - ```debug``` - Habilita mensagens de debug no terminal, padrão "false"
@@ -142,6 +143,18 @@ Por exemplo, para mudar o parâmetro ```keyboard``` para ```true```:
 
 ```bash
 roslaunch vss_simulation simulation_team.launch keyboard:=true
+```
+
+## 📷 Câmera virtual
+
+A simulação possui uma câmera virtual que captura imagens do topo do campo, de forma semelhante ao que acontece em uma partida de VSS real.
+
+A câmera publica as imagens obtidas no tópico **/camera/image_raw**
+
+É possível acompanhar as imagens com o auxílio do pacote [image_view](http://wiki.ros.org/image_view)
+
+```sh
+rosrun image_view image_view image:=/camera/image_raw
 ```
 
 ## 📁 Estrutura de pastas

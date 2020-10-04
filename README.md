@@ -19,8 +19,8 @@ Para a versão em PT-BR 🇧🇷 desse documento, [veja aqui](./README.pt-br.md)
   - [📏 Used models](#-used-models)
     - [© Create your own model](#-create-your-own-model)
   - [🔧 Parameters](#-parameters)
-    - [Roslaunch](#roslaunch)
-  - [Câmera virtual](#câmera-virtual)
+    - [🚀 Roslaunch](#-roslaunch)
+  - [📷 Virtual camera](#-virtual-camera)
   - [📁 Folder structure](#-folder-structure)
   - [➕ Dependencies](#-dependencies)
     - [🐍 Python virtual enviroment](#-python-virtual-enviroment)
@@ -129,7 +129,7 @@ To use your custom model, change the value of the ```model``` parameter when lau
 
 ## 🔧 Parameters
 
-### Roslaunch
+### 🚀 Roslaunch
 
 - ```model``` - Path of simulated robot model, default "./urdf/vss_robot.xacro"
 - ```debug``` - Enable debug messagens in termianl, default "false"
@@ -139,13 +139,13 @@ To use your custom model, change the value of the ```model``` parameter when lau
 - ```recording``` - Enable Gazebo's state log, default "false"
 - ```keyboard``` - Enable joystick/keyboard control node, default "false"
 
-## Câmera virtual
+## 📷 Virtual camera
 
-A simulação possui uma câmera virtual que captura imagens do topo do campo, de forma semelhante ao que acontece em uma partida de VSS real.
+The simulation have a virtual camera that record images from the top of the field, in the same way as a real VSS match.
 
-A câmera publica as imagens obtidas no tópico **/camera/image_raw**
+The images are published in the topic **/camera/image_raw**
 
-É possível acompanhar as imagens com o auxílio do pacote [image_view](http://wiki.ros.org/image_view)
+It is possible to watch the footage with the package [image_view](http://wiki.ros.org/image_view)
 
 ```sh
 rosrun image_view image_view image:=/camera/image_raw
