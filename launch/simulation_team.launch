@@ -23,10 +23,6 @@
     <arg name="recording" value="$(arg recording)"/>
   </include>
 
-  <include file="$(find vss_simulation)/launch/spawn_team.launch">
-    <arg name="model" value="$(arg model)" />
-  </include>
-
   <group if="$(arg keyboard)">
     <node name="keyboard_controller" pkg="vss_simulation" type="keyboard_node.py"/>
   </group>

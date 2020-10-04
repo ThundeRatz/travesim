@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com)
      Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
@@ -26,7 +26,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://generic_vss_robot/meshes/base_link.STL" />
+          filename="package://vss_simulation/meshes/base_link.STL" />
       </geometry>
       <material
         name="">
@@ -40,7 +40,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://generic_vss_robot/meshes/base_link.STL" />
+          filename="package://vss_simulation/meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -66,7 +66,7 @@
         rpy="0 0 0" />
       <geometry>
         <!-- <mesh
-          filename="package://generic_vss_robot/meshes/chapeu_link.STL" /> -->
+          filename="package://vss_simulation/meshes/chapeu_link.STL" /> -->
           <box size="80e-3 80e-3 2e-3"/>
       </geometry>
       <material
@@ -81,7 +81,7 @@
         rpy="0 0 0" />
       <geometry>
         <!-- <mesh
-          filename="package://generic_vss_robot/meshes/chapeu_link.STL" /> -->
+          filename="package://vss_simulation/meshes/chapeu_link.STL" /> -->
           <box size="80e-3 80e-3 2e-3"/>
       </geometry>
     </collision>
@@ -121,7 +121,7 @@
         rpy="0 0 0" />
       <geometry>
         <!-- <mesh
-          filename="package://generic_vss_robot/meshes/parede_dir_link.STL" /> -->
+          filename="package://vss_simulation/meshes/parede_dir_link.STL" /> -->
           <box size="75e-3 2e-3 60e-3"/>
       </geometry>
       <material
@@ -136,7 +136,7 @@
         rpy="0 0 0" />
       <geometry>
         <!-- <mesh
-          filename="package://generic_vss_robot/meshes/parede_dir_link.STL" /> -->
+          filename="package://vss_simulation/meshes/parede_dir_link.STL" /> -->
           <box size="75e-3 2e-3 60e-3"/>
       </geometry>
     </collision>
@@ -176,7 +176,7 @@
         rpy="0 0 0" />
       <geometry>
         <!-- <mesh
-        filename="package://generic_vss_robot/meshes/parede_esq_link.STL" /> -->
+        filename="package://vss_simulation/meshes/parede_esq_link.STL" /> -->
         <box size="75e-3 2e-3 60e-3"/>
       </geometry>
       <material
@@ -191,7 +191,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://generic_vss_robot/meshes/parede_esq_link.STL" />
+          filename="package://vss_simulation/meshes/parede_esq_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -230,7 +230,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://generic_vss_robot/meshes/roda_dir_link.STL" />
+          filename="package://vss_simulation/meshes/roda_dir_link.STL" />
       </geometry>
       <material
         name="">
@@ -244,7 +244,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://generic_vss_robot/meshes/roda_dir_link.STL" />
+          filename="package://vss_simulation/meshes/roda_dir_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -289,7 +289,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://generic_vss_robot/meshes/roda_esq_link.STL" />
+          filename="package://vss_simulation/meshes/roda_esq_link.STL" />
       </geometry>
       <material
         name="">
@@ -303,7 +303,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://generic_vss_robot/meshes/roda_esq_link.STL" />
+          filename="package://vss_simulation/meshes/roda_esq_link.STL" />
       </geometry>
     </collision>
   </link>
