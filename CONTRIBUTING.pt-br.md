@@ -4,6 +4,8 @@ Primeiramente, obrigado pelo interesse! Nós agradecemos muito pela participaç�
 
 Esse documento descreve um conjunto de diretrizes para contribuir com esse projeto. Não são regras estritas, então sempre vale o bom senso, e, em caso de dúvidas, nos contate em comp@thunderatz.org.
 
+Por favor, note que este projeto é liberado com um [Código de Conduta para Colaboradores](./CODE_OF_CONDUCT.pt-br.md). Ao participar deste projeto, você concorda em cumprir seus termos.
+
 ## Como eu posso contribuir?
 
 ### Issues
@@ -61,7 +63,7 @@ Todo código em python deve seguir os guias [ROS Python](http://wiki.ros.org/PyS
   - 🚑 `:ambulance:` para correções críticas
   - 🎨 `:art:` para melhorias na estrutura
   - ✨ `:sparkles:` para novos recursos
-  
+
   Para mais exemplos, veja [aqui](https://gitmoji.carloscuesta.me/).
 
 ### Fluxo de trabalho

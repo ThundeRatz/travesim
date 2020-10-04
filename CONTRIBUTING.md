@@ -6,6 +6,8 @@ First of all, thanks for your interest! We really appreciate the participation o
 
 Here we describe a set of guidelines when contributing to the VSS simulation. These are not strict rules, so use your best judgment, and in case you have questions, contact us on comp@thunderatz.org.
 
+Please note that this project is released with a [Contributor Code of Conduct](./CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+
 ## How can I contribute?
 
 ### Issues
