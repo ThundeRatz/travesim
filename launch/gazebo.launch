@@ -7,15 +7,8 @@ https://github.com/ros/urdf_sim_tutorial -->
   <arg name="gui" default="true"/>
   <arg name="paused" default="true"/>
   <arg name="use_sim_time" default="true"/>
-  <arg name="recording" default="false"/>
-  <arg name="single" default="false"/>
-  <arg name="match" default="false"/>
   <arg name="world_name" default="vss_field.world"/>
-  <arg name="model" default="$(find vss_simulation)/urdf/vss_robot.xacro"/>
-  <arg name="height" default="0.080"/>
-  <arg name="x" default="-0.25" />
-  <arg name="y" default="0" />
-  <arg name="yaw" default="0" />
+  <arg name="recording" default="false"/>
 
   <!-- Add our project workspace to Gazebo index to load custom models -->
   <env name="GAZEBO_RESOURCE_PATH" value="$(find vss_simulation)"/>
@@ -27,8 +20,8 @@ https://github.com/ros/urdf_sim_tutorial -->
     <arg name="gui" value="$(arg gui)" />
     <arg name="paused" value="$(arg paused)"/>
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
-    <arg name="recording" value="$(arg recording)"/>
     <arg name="world_name" value="$(find vss_simulation)/worlds/$(arg world_name)"/>
+    <arg name="recording" value="$(arg recording)"/>
   </include>
 
   <!-- Load node to re-publish the gazebo message in the sintax of
@@ -38,32 +31,6 @@ https://github.com/ros/urdf_sim_tutorial -->
   <!-- Load configs to statistical error simulation -->
   <rosparam command="load"
             file="$(find vss_simulation)/config/vision_proxy_config.yaml" />
-
-  <group if="$(arg single)" ns="robot1">
-    <!-- Load robot file -->
-    <include file="$(find vss_simulation)/launch/spawn_robot.launch">
-      <arg name="model" value="$(arg model)" />
-      <arg name="x" value="$(arg x)" />
-      <arg name="y" value="$(arg y)" />
-      <arg name="yaw" value="$(arg yaw)" />
-    </include>
-  </group>
-
-  <group unless="$(arg single)">
-    <group if="$(arg match)">
-        <!-- Load robot file and build a 2 teams -->
-        <include file="$(find vss_simulation)/launch/spawn_match.launch">
-        <arg name="model" value="$(arg model)" />
-        </include>
-    </group>
-
-    <group unless="$(arg match)">
-      <!-- Load robot file and build a 3 robot team -->
-      <include file="$(find vss_simulation)/launch/spawn_team.launch">
-      <arg name="model" value="$(arg model)" />
-      </include>
-    </group>
-  </group>
 
   <group ns="camera/image_raw">
     <rosparam param="disable_pub_plugins">

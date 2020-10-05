@@ -1,27 +1,27 @@
 # 🛄 ROS bagfiles
 
-Nessa pasta devem ser salvas as rosbags geradas pela simulação
+The generated bagfiles should be stored in this folder
 
-## Instruções
+## Instructions
 
-Uma ferramenta especialmente útil no desenvolvimento de projetos ROS é a criação de bagfiles com auxílio do [rosbag](http://wiki.ros.org/rosbag)
+A helpfull tool in ROS development is the creation of bagfiles with help of [rosbag](http://wiki.ros.org/rosbag)
 
-Para gerar uma bagfile a partir da simulação sendo executada, basta executar o comando
+To generate a bagfile from the active simulation, run the command
 
 ```sh
 rosbag record -a
 ```
 
-Todos os tópicos sendo publicados no momento serão salvos no registo da bagfile. É possível selecionar tópicos específicos a serem guardados
+All topics being published will be recorded in the bagfile. It is possible to select specific topics to be saved with the syntax
 
 ```sh
 rosbag record -O subset /topic1 /topic2
 ```
 
-Para obter maiores informações sobre uma rosbag, utilize o comando
+To get more information about a rosbag, use the command
 
 ```sh
 rosbag info <filename>
 ```
 
-Mais detalhes de como utilizar rosbags [aqui](http://wiki.ros.org/rosbag/Tutorials/Recording%20and%20playing%20back%20data)
+More details in how to use rosbags [here](http://wiki.ros.org/rosbag/Tutorials/Recording%20and%20playing%20back%20data)

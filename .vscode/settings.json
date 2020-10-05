@@ -1,12 +1,12 @@
 {
-    "ros.distro": "melodic",
+    "ros.distro": "noetic",
     "doxdocgen.generic.dateFormat": "MM/YYYY",
     "doxdocgen.file.copyrightTag": [
-        "@copyright MIT License - Copyright (c) {year} ThundeRatz"
+        "@copyright MIT License - Copyright (c) 2020 ThundeRatz"
     ],
     "C_Cpp.default.configurationProvider": "go2sh.cmake-integration",
     "python.autoComplete.extraPaths": [
-        "/opt/ros/melodic/lib/python2.7/dist-packages"
+        "/opt/ros/noetic/lib/python3/dist-packages"
     ],
     "files.associations": {
         "*.world": "xml",
@@ -16,5 +16,4 @@
     },
     "python.linting.pycodestyleEnabled": true,
     "python.linting.enabled": true,
-    "python.linting.pep8Enabled": true,
 }
