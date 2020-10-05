@@ -259,7 +259,7 @@
     <child
       link="roda_dir_link" />
     <axis
-      xyz="0 -1 0" />
+      xyz="0 1 0" />
     <limit
       effort="0.108"
       velocity="100" />
@@ -318,7 +318,7 @@
     <child
       link="roda_esq_link" />
     <axis
-      xyz="0 -1 0" />
+      xyz="0 1 0" />
     <limit
       effort="0.108"
       velocity="100" />
