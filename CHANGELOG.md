@@ -1,5 +1,24 @@
 # Changelog
 
+## v2.0.0
+
+- Upgrade para Gazebo 11 e ROS noetic
+- Ambiente de simulação liberado como software livre
+- Adição da licença MIT para o projeto
+- Adição de um modelo de robô vss genérico
+- Remoção do modelo original do time ThunderVolt
+- Adição do plugin de câmera do Gazebo
+- Adição de requirements.txt para ambiente virtual python
+
+### Próximos passos
+
+- Criação de plugin de árbitro para o ambiente
+
+### Problemas conhecidos
+
+- Propriedades físicas da bola
+- A simulação falha em iniciar ocasionalmente
+
 ## v2.0.0-alpha
 
 - Quebra de compatibilidade com a v1.0.0
