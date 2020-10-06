@@ -186,7 +186,7 @@ sudo apt install ros-noetic-desktop-full
 O projeto depende do pacote velocity_controllers e do effort_controllers dentro da biblioteca [ros_controllers](https://github.com/ros-controls/ros_controllers) e da biblioteca python [pygame](https://github.com/pygame/pygame). É possível instalar com ```apt-get```
 
 ```bash
-sudo apt install ros-noetic-velocity-controllers ros-noetic-effort-controllers python-pygame
+sudo apt install ros-noetic-velocity-controllers ros-noetic-effort-controllers python3-pygame
 ```
 
 Ou usando ```rosdep```
