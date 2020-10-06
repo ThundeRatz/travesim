@@ -51,5 +51,5 @@ Para a versão em PT-BR 🇧🇷 desse documento, veja [aqui](./CHANGELOG.pt-br.
 
 ### Known problems
 
-- Propriedades físicas da bola
-- Comportamento dos motores ideal demais - longe da realidade
+- Ball physical properties
+- Motors behavior too ideal - far from reality
