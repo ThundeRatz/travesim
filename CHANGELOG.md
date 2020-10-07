@@ -1,34 +1,67 @@
 # Changelog
 
-## v2.0.0-alpha
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-- Quebra de compatibilidade com a v1.0.0
-- Tópicos recebem o valor do **torque em Nm**
+Para a versão em PT-BR 🇧🇷 desse documento, veja [aqui](./CHANGELOG.pt-br.md)
+
+## [2.0.0] - 2020-10-05 - [Open Camera](https://github.com/ThundeRatz/vss_simulation/releases/tag/v2.0)
+
+### Added
+
+- Software license (MIT)
+- Generic vss robot model
+- Gazebo camera plugin
+- File requirements.txt for python virtual environments
+
+### Changed
+
+- Upgrade to Gazebo 11 and ROS noetic
+- Simulation environmet released as free software
+
+### Deprecated
+
+- Remove original model of ThunderVolt team
+
+### Known problems
+
+- Ball physical properties
+- The simulation fails to start sometimes
+
+## [2.0.0-alpha] - 2020-05-12
+
+### Added
+
+- Simulation of dry and viscous friction in wheels movement
+- Dependency ```effort_controllers```
+
+### Changed
+
+- Topics receive the command of **torque in Nm**
   - /robotX/vss_robot_left_controller/command
   - /robotX/vss_robot_right_controller/command
-- Padronização da nomenclatura com o VSSVision
-- Simulação do atrito seco e viscoso no movimento das rodas
-- Adição do ```effort_controllers``` como dependência
+- Name standardization with VSSVision
 
-### Problemas conhecidos
+### Known problems
 
-- Propriedades físicas da bola
-- A simulação falha em iniciar ocasionalmente
+- Ball physical properties
+- The simulation fails to start sometimes
 
-## v1.0.0 - Iron Cup 2020
+## [1.0.0] - 2020-05-04 - [Iron Cup 2020](https://github.com/ThundeRatz/vss_simulation/releases/tag/v1.0)
 
-- Primeira versão funcional
-- Projeto mecânico v1.1 - Thalles e Diego
-- Controle dos motores pela **velocidade em rad/s**
+### Added
+
+- Mechanical project v1.1 - Thalles e Diego
+- Motors control with **velocity in rad/s**
   - /robot_X/vss_robot_left_controller/command
   - /robot_X/vss_robot_right_controller/command
-- Ambientes de simulação
-  - Robô único
-  - Time de 3
-  - Partida 3x3
-- Adição do ```velocity_controllers``` como dependência
+- Simulation environments
+  - Single robot
+  - Team of 3
+  - Match 3x3
+- Dependency ```velocity_controllers```
 
-### Problemas conhecidos
+### Known problems
 
-- Propriedades físicas da bola
-- Comportamento dos motores ideal demais - longe da realidade
+- Ball physical properties
+- Motors behavior too ideal - far from reality
