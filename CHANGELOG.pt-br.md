@@ -1,42 +1,55 @@
 # Changelog
 
-## v2.0.0
+O formato é baseado no [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+e esse projeto segue a convenção [versionamento semântico](https://semver.org/spec/v2.0.0.html).
 
-- Upgrade para Gazebo 11 e ROS noetic
+## [2.0.0] - 2020-10-05
+
+### Adicionado
+
+- Licensa de software (MIT)
+- Modelo de robô vss genérico
+- Plugin de câmero do Gazebo
+- Arquivo requirements.txt para ambientes virtuais de python
+
+### Modificado
+
+- Atualização para Gazebo 11 e ROS noetic
 - Ambiente de simulação liberado como software livre
-- Adição da licença MIT para o projeto
-- Adição de um modelo de robô vss genérico
+
+### Obsoleto
+
 - Remoção do modelo original do time ThunderVolt
-- Adição do plugin de câmera do Gazebo
-- Adição de requirements.txt para ambiente virtual python
-
-### Próximos passos
-
-- Criação de plugin de árbitro para o ambiente
 
 ### Problemas conhecidos
 
 - Propriedades físicas da bola
 - A simulação falha em iniciar ocasionalmente
 
-## v2.0.0-alpha
+## [2.0.0-alpha] - 2020-05-12
 
-- Quebra de compatibilidade com a v1.0.0
+### Adicionado
+
+- Simulação de atrito seco e viscoso no movimento das rodas
+- Dependência ```effort_controllers```
+
+### Modificado
+
 - Tópicos recebem o valor do **torque em Nm**
   - /robotX/vss_robot_left_controller/command
   - /robotX/vss_robot_right_controller/command
 - Padronização da nomenclatura com o VSSVision
 - Simulação do atrito seco e viscoso no movimento das rodas
-- Adição do ```effort_controllers``` como dependência
 
 ### Problemas conhecidos
 
 - Propriedades físicas da bola
 - A simulação falha em iniciar ocasionalmente
 
-## v1.0.0 - Iron Cup 2020
+## [1.0.0] - 2020-05-04 - Iron Cup 2020
 
-- Primeira versão funcional
+### Adicionado
+
 - Projeto mecânico v1.1 - Thalles e Diego
 - Controle dos motores pela **velocidade em rad/s**
   - /robot_X/vss_robot_left_controller/command
@@ -45,7 +58,7 @@
   - Robô único
   - Time de 3
   - Partida 3x3
-- Adição do ```velocity_controllers``` como dependência
+- Dependência```velocity_controllers```
 
 ### Problemas conhecidos
 

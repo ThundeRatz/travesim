@@ -1,44 +1,56 @@
 # Changelog
 
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
 Para a versão em PT-BR 🇧🇷 desse documento, veja [aqui](./CHANGELOG.pt-br.md)
 
-## v2.0.0
+## [2.0.0] - 2020-10-05
+
+### Added
+
+- Software license (MIT)
+- Generic vss robot model
+- Gazebo camera plugin
+- File requirements.txt for python virtual environments
+
+### Changed
 
 - Upgrade to Gazebo 11 and ROS noetic
 - Simulation environmet released as free software
-- Add MIT license to the project
-- Add generic vss robot model to the simulation
+
+### Deprecated
+
 - Remove original model of ThunderVolt team
-- Add Gazebo camera plugin
-- Add requirements.txt for python virtual environments
-
-### Roadmap
-
-- Creation of referee plugin for the environment
 
 ### Known problems
 
 - Ball physical properties
 - The simulation fails to start sometimes
 
-## v2.0.0-alpha
+## [2.0.0-alpha] - 2020-05-12
 
-- Compatibility break with v1.0.0
+### Added
+
+- Simulation of dry and viscous friction in wheels movement
+- Dependency ```effort_controllers```
+
+### Changed
+
 - Topics receive the command of **torque in Nm**
   - /robotX/vss_robot_left_controller/command
   - /robotX/vss_robot_right_controller/command
 - Name standardization with VSSVision
-- Simulation of dry and viscous friction in wheels movement
-- Add ```effort_controllers``` as dependency
 
 ### Known problems
 
 - Ball physical properties
 - The simulation fails to start sometimes
 
-## v1.0.0 - Iron Cup 2020
+## [1.0.0] - 2020-05-04 - Iron Cup 2020
 
-- First working version
+### Added
+
 - Mechanical project v1.1 - Thalles e Diego
 - Motors control with **velocity in rad/s**
   - /robot_X/vss_robot_left_controller/command
@@ -47,7 +59,7 @@ Para a versão em PT-BR 🇧🇷 desse documento, veja [aqui](./CHANGELOG.pt-br.
   - Single robot
   - Team of 3
   - Match 3x3
-- Add ```velocity_controllers``` as dependency
+- Dependency ```velocity_controllers```
 
 ### Known problems
 
