@@ -3,7 +3,7 @@
 O formato é baseado no [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 e esse projeto segue a convenção [versionamento semântico](https://semver.org/spec/v2.0.0.html).
 
-## [2.0.0] - 2020-10-05
+## [2.0.0] - 2020-10-05 - [Open Camera](https://github.com/ThundeRatz/vss_simulation/releases/tag/v2.0)
 
 ### Adicionado
 
@@ -46,7 +46,7 @@ e esse projeto segue a convenção [versionamento semântico](https://semver.org
 - Propriedades físicas da bola
 - A simulação falha em iniciar ocasionalmente
 
-## [1.0.0] - 2020-05-04 - Iron Cup 2020
+## [1.0.0] - 2020-05-04 - [Iron Cup 2020](https://github.com/ThundeRatz/vss_simulation/releases/tag/v1.0)
 
 ### Adicionado
 
