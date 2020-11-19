@@ -69,24 +69,26 @@ roslaunch vss_simulation simulation_match.launch
 
 ### ⬅ Entrada
 
-A simulação suporta controle por meio de comandos de **torque** (por meio da interface **effort_controller**) ou comandos de **velocidade angular** (por meio da interface **velocity_controller**) para os dois motores de cada um dos robôs. Ambas as insterfaces estão disponíveis na biblioteca [ros_control](http://wiki.ros.org/ros_control)
+A simulação recebe comandos do tipo [geometry_msgs/Twist](http://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/Twist.html), representando a velocidade do robô em duas componentes: linear e angular.
 
-Para simular robôs sem controle da rotação em malha fechada, o controle por meio do **torque** é mais adequado, uma vez que o torque é aproximadamente proporcial à tensão aplicada nos terminais de um motor DC.
+```python
+# This expresses velocity in free space broken into its linear and angular parts.
+Vector3  linear
+Vector3  angular
+```
 
-Caso contrário, a interface de controle por **velocidade angular** é a mais adequada.
+Os tópicos ROS seguem a convenção de nomenclatura:
 
-Em ambos os casos, os comandos são lidos nos tópicos do tipo [std_msgs/Float64](http://docs.ros.org/noetic/api/std_msgs/html/msg/Float64.html)
+- **/robot[1..3]/vss_robot_diff_drive_controller/cmd_vel**
+- **/foe[1..3]/vss_robot_diff_drive_controller/cmd_vel**
 
-- **/robot[1..3]/vss_robot_left_controller/command**
-- **/robot[1..3]/vss_robot_right_controller/command**
-- **/foe[1..3]/vss_robot_left_controller/command**
-- **/foe[1..3]/vss_robot_right_controller/command**
+O controle do robô é feito pelo [diff_driver_controller](http://wiki.ros.org/diff_drive_controller). Os parâmetros de controle estão especificados no arquivo [./config/motor_diff_drive.yaml](./config/motor_diff_drive.yaml).
 
 ### ➡ Saída
 
 Por padrão, o Gazebo publica no tópico **/gazebo/model_states** do tipo [gazebo_msgs/ModelStates](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelStates.html), com uma lista de informações acerca de cada um dos modelos presentes na simulação.
 
-```c
+```python
 # broadcast all model states in world frame
 string[] name                 # model names
 geometry_msgs/Pose[] pose     # desired pose in world frame
@@ -95,7 +97,7 @@ geometry_msgs/Twist[] twist   # desired twist in world frame
 
 Por comodidade, este pacote possui um script ([vision_proxy.py](./scripts/vision_proxy.py)) que se inscreve nesse tópico e republica a informação diferentes tópicos do tipo [gazebo_msgs/ModelState](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelState.html) para cada entidade (3 robôs, 3 adversários e 1 bola, 7 tópicos no total)
 
-```c
+```python
 # Set Gazebo Model pose and twist
 string model_name           # model to set state (pose and twist)
 geometry_msgs/Pose pose     # desired pose in reference frame
@@ -170,7 +172,6 @@ rosrun image_view image_view image:=/camera/image_raw
 - **models/** - [Modelos personalizados para Gazebo](http://gazebosim.org/tutorials?tut=build_model) utilizados na simulação, como o campo e a bola do VSS
 - **scripts/** - Rotinas python usadas no projeto
   - keyboard_node.py - Rotina para capturar a entrada do teclado ou de um joystick para controlar a simulação.
-  - velocity_proxy.py - Rotina para converter a entrada recebida pelo controlador em uma mensagem de velocidade para cada motor.
   - vision_proxy.py - Rotina para separar a informação de estado do Gazebo em tópicos diferentes para cada modelo (robôs e bola).
 - **urdf/** - Arquivos de descrição dos robôs no formato [.urdf](http://wiki.ros.org/urdf/XML) e [.xacro](http://wiki.ros.org/xacro). Os arquivos .urdf gerados com a extensão [SW2URDF](http://wiki.ros.org/sw_urdf_exporter) do SolidWorks
 - **worlds/** - Arquivos .world no formato [SDL](http://sdformat.org/)

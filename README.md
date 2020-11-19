@@ -71,24 +71,26 @@ roslaunch vss_simulation simulation_match.launch
 
 ### ⬅ Input
 
-The simulation accepts control over **torque** comands (through the interface **effort_controller**) or over **angular velocity** commands (through the interface **velocity_controller**) for the two motors of each robot. Both interfaces are available in the library [ros_control](http://wiki.ros.org/ros_control).
+The simulation receives commands of type [geometry_msgs/Twist](http://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/Twist.html), representing the velocity of the robot in two components: linear and angular.
 
-To simulate robots without closed loop rotation simulation, the control over **torque** is more suitable, since torque is approximately proportional to applied tension in a DC motor terminals.
+```python
+# This expresses velocity in free space broken into its linear and angular parts.
+Vector3  linear
+Vector3  angular
+```
 
-Otherwise, the control interface over **angular velocity** is more suitable.
+The ROS topics follow the naming convention:
 
-In both cases, the comands are read from topics of type [std_msgs/Float64](http://docs.ros.org/noetic/api/std_msgs/html/msg/Float64.html)
+- **/robot[1..3]/vss_robot_diff_drive_controller/cmd_vel**
+- **/foe[1..3]/vss_robot_diff_drive_controller/cmd_vel**
 
-- **/robot[1..3]/vss_robot_left_controller/command**
-- **/robot[1..3]/vss_robot_right_controller/command**
-- **/foe[1..3]/vss_robot_left_controller/command**
-- **/foe[1..3]/vss_robot_right_controller/command**
+The control of the robot is performed by the [diff_driver_controller](http://wiki.ros.org/diff_drive_controller). The parameters of the controller are specified in the file [./config/motor_diff_drive.yaml](./config/motor_diff_drive.yaml).
 
 ### ➡ Output
 
 By default, Gazebo publishes in the topic **/gazebo/model_states** of type [gazebo_msgs/ModelStates](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelStates.html), with an array of informations about each model in the simulation.
 
-```c
+```python
 # broadcast all model states in world frame
 string[] name                 # model names
 geometry_msgs/Pose[] pose     # desired pose in world frame
@@ -97,7 +99,7 @@ geometry_msgs/Twist[] twist   # desired twist in world frame
 
 For convenience, this package have a script ([vision_proxy.py](./scripts/vision_proxy.py)) that subscribes this topic and republishes the information at diferent topics of type [gazebo_msgs/ModelState](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelState.html) for each entity (3 robots, 3 foes and 1 ball, 7 in total).
 
-```c
+```python
 # Set Gazebo Model pose and twist
 string model_name           # model to set state (pose and twist)
 geometry_msgs/Pose pose     # desired pose in reference frame
