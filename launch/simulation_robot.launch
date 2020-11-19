@@ -42,11 +42,8 @@
 
     <!-- Display controllers to user -->
     <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
-      <param name="default_topic" value="steering_topic"/>
+      <param name="default_topic" value="/robot1/vss_robot_diff_drive_controller/cmd_vel"/>
     </node>
-
-    <!-- Run velocity conversion proxy -->
-    <node name="velocity_proxy" pkg="vss_simulation" type="velocity_proxy.py"/>
 
   </group>
 
