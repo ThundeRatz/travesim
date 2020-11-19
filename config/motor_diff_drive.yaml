@@ -1,0 +1,38 @@
+# Ref:
+# http://wiki.ros.org/urdf/Tutorials/Using%20a%20URDF%20in%20Gazebo
+# http://wiki.ros.org/diff_drive_controller
+#
+
+vss_robot_diff_drive_controller:
+  type: "diff_drive_controller/DiffDriveController"
+  publish_rate: 60
+
+  left_wheel: 'roda_esq_joint'
+  right_wheel: 'roda_dir_joint'
+
+  wheel_separation: 0.075
+  wheel_radius: 0.025
+
+  # Odometry covariances for the encoder output of the robot. These values should
+  # be tuned to your robot's sample odometry data, but these values are a good place
+  # to start
+  pose_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.03]
+  twist_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.03]
+
+  # Top level frame (link) of the robot description
+  base_frame_id: base_link
+
+  # Velocity and acceleration limits for the robot
+  # Acceleration = Torque/(J+M*R^2)
+  linear:
+    x:
+      has_velocity_limits    : true
+      max_velocity           : 2.0   # m/s
+      has_acceleration_limits: true
+      max_acceleration       : 32.0   # m/s^2
+  angular:
+    z:
+      has_velocity_limits    : true
+      max_velocity           : 50.0   # rad/s
+      has_acceleration_limits: true
+      max_acceleration       : 870.0   # rad/s^2
