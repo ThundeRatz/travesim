@@ -5,6 +5,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Para a versão em PT-BR 🇧🇷 desse documento, veja [aqui](./CHANGELOG.pt-br.md)
 
+## [2.1.0] - 2020-11-18
+
+### Added
+
+- Differential drive controller (control trought Twist messages)
+
+### Changed
+
+- Migrate keyboard controller script
+
+### Deprecated
+
+- Wheels torque and velocity direct control
+
 ## [2.0.0] - 2020-10-05 - [Open Camera](https://github.com/ThundeRatz/vss_simulation/releases/tag/v2.0)
 
 ### Added
@@ -17,7 +31,7 @@ Para a versão em PT-BR 🇧🇷 desse documento, veja [aqui](./CHANGELOG.pt-br.
 ### Changed
 
 - Upgrade to Gazebo 11 and ROS noetic
-- Simulation environmet released as free software
+- Simulation environment released as free software
 
 ### Deprecated
 
