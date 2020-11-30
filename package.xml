@@ -16,7 +16,7 @@ for vss_robot robot</p>
   <depend>robot_state_publisher</depend>
   <depend>velocity_controllers</depend>
   <depend>effort_controllers</depend>
-  <depend>rviz</depend>
+
   <depend>joint_state_publisher</depend>
   <depend>gazebo</depend>
 
@@ -26,6 +26,7 @@ for vss_robot robot</p>
   <build_export_depend>geometry_msgs</build_export_depend>
   <build_export_depend>rospy</build_export_depend>
 
+  <exec_depend>controller_manager</exec_depend>
   <exec_depend>image_view</exec_depend>
   <exec_depend>rosbag</exec_depend>
   <exec_depend>geometry_msgs</exec_depend>
