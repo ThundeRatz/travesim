@@ -38,17 +38,23 @@
     </include>
   </group>
 
-  <group if="$(arg keyboard)">
-    <node name="keyboard_controller" pkg="travesim" type="keyboard_node.py"/>
-  </group>
 
-  <group unless="$(arg keyboard)">
+  <group if="$(arg gui)">
+    <group if="$(arg keyboard)">
+      <node name="keyboard_controller" pkg="travesim" type="keyboard_node.py"/>
+    </group>
 
-    <!-- Display controllers to user -->
-    <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
-      <param name="default_topic" value="/yellow_team/robot_0/diff_drive_controller/cmd_vel"/>
-    </node>
+    <group unless="$(arg keyboard)">
 
+      <!-- Display controllers to user -->
+      <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
+        <param name="default_topic" value="/yellow_team/robot_0/diff_drive_controller/cmd_vel"/>
+      </node>
+
+      <!-- Run velocity conversion proxy -->
+      <node name="velocity_proxy" pkg="travesim" type="velocity_proxy.py"/>
+
+    </group>
   </group>
 
 </launch>
