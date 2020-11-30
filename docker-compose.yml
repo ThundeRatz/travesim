@@ -1,0 +1,28 @@
+version: "3"
+
+networks:
+  ros:
+    driver: bridge
+
+services:
+  server:
+    image: vss_sim:latest
+    container_name: vss_sim-gazebo
+    networks:
+      - ros
+    ports:
+      - 11311:11311
+
+  client:
+    image: gzweb:latest
+    container_name: vss_sim-gzweb
+    depends_on:
+      - server
+    environment:
+      - "ROS_MASTER_URI=http://vss_sim-gazebo:11311"
+      - "GAZEBO_MASTER_URI=http://vss_sim-gazebo:11345"
+      - "ROS_HOSTNAME=gzweb"
+    networks:
+      - ros
+    ports:
+      - 8080:8080
