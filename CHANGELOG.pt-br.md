@@ -7,7 +7,7 @@ e esse projeto segue a convenção [versionamento semântico](https://semver.org
 
 ### Adicionado
 
-- Controlador diferecial (controle por mensagens Twist)
+- Controlador diferencial (controle por mensagens Twist)
 
 ### Modificado
 
