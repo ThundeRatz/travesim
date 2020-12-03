@@ -166,7 +166,6 @@ rosrun image_view image_view image:=/camera/image_raw
 - **models/** - [Custom Gazebo models](http://gazebosim.org/tutorials?tut=build_model) used inside the simulation, as the field and the VSS ball
 - **scripts/** - Python scripts used in the project
   - keyboard_node.py - Pygame script to capture keyboard or joystick input to control the simulation
-  - velocity_proxy.py - Script to convert a [std_msgs/Twist](http://docs.ros.org/noetic/api/geometry_msgs/html/msg/Twist.html) message from a [rqt robot steering](http://wiki.ros.org/rqt_robot_steering) to speed or torque comands to 2 motors
   - vision_proxy.py - Script to split [gazebo_msgs/ModelStates](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelStates.html) array in several [gazebo_msgs/ModelState](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelState.html) topics
 
 - **urdf/** - Robot description files in [.urdf](http://wiki.ros.org/urdf/XML) and [.xacro](http://wiki.ros.org/xacro) format. The .urdf files were generated with SolidWorks [SW2URDF](http://wiki.ros.org/sw_urdf_exporter) extension
