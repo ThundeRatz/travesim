@@ -1,8 +1,5 @@
 # VSS simulation with ROS and Gazebo
 
-[![forthebadge](https://forthebadge.com/images/badges/built-with-science.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/its-not-a-lie-if-you-believe-it.svg)](https://forthebadge.com)
-
 [![ROS version](https://img.shields.io/badge/ROS%20version-noetic-informational?style=for-the-badge)](http://wiki.ros.org/noetic)
 [![Gazebo version](https://img.shields.io/badge/Gazebo%20version-11-important?style=for-the-badge)](http://gazebosim.org/)
 [![Amigos da Poli](./docs/badge_adp.svg)](https://www.amigosdapoli.com.br/)
