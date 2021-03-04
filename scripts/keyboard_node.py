@@ -159,11 +159,11 @@ def main(namespace, debug=DEFAULT_DEBUG):
                 or e.type == pygame.JOYBUTTONUP \
                     or e.type == pygame.JOYHATMOTION:
 
-                    txt = "%s: %s" % (pygame.event.event_name(e.type), e.dict)
-                    print(txt)
-                    img = font.render(txt, 1, (50, 200, 50), (0, 0, 0))
-                    console.append(img)
-                    console = console[-13:]
+                txt = "%s: %s" % (pygame.event.event_name(e.type), e.dict)
+                print(txt)
+                img = font.render(txt, 1, (50, 200, 50), (0, 0, 0))
+                console.append(img)
+                console = console[-13:]
 
             # L1 pressionado
             if (e.type == pygame.JOYBUTTONDOWN and e.dict['button'] == 4) or (e.type == pygame.KEYDOWN and e.key == pygame.K_e):

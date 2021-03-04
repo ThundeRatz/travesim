@@ -15,28 +15,20 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
   <arg name="yaw" default="0"/>
   <arg name="model" default="$(find vss_simulation)/urdf/generic_vss_robot.xacro"/>
 
-  <param name="robot_description"
-         command="$(find xacro)/xacro $(arg model)
-                    robot_number:=$(arg robot_number)
-                    team_number:=$(arg team_number)" />
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model) robot_number:=$(arg robot_number) team_number:=$(arg team_number)" />
 
   <!-- push robot_description to factory and spawn robot in gazebo -->
-  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
-        args="-x $(arg x) -y $(arg y) -z $(arg z)
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" args="-x $(arg x) -y $(arg y) -z $(arg z)
               -R $(arg row) -P $(arg pitch) -Y $(arg yaw)
-              -urdf -model $(arg robot_name) -param robot_description"
-        respawn="false" output="screen" />
+              -urdf -model $(arg robot_name) -param robot_description" respawn="false" output="screen" />
 
   <!-- Load configs to publish the state of all joints -->
-  <rosparam command="load"
-            file="$(find vss_simulation)/config/joints.yaml" />
+  <rosparam command="load" file="$(find vss_simulation)/config/joints.yaml" />
 
   <!-- Load configs to control robot motors -->
-  <rosparam command="load"
-            file="$(find vss_simulation)/config/motor_effort.yaml" />
+  <rosparam command="load" file="$(find vss_simulation)/config/motor_effort.yaml" />
 
-  <node name="vss_robot_controller" pkg="controller_manager" type="spawner"
-        args="vss_robot_left_controller
+  <node name="vss_robot_controller" pkg="controller_manager" type="spawner" args="vss_robot_left_controller
               vss_robot_right_controller
               vss_robot_joint_state_controller"/>
 

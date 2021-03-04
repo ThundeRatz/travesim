@@ -1,23 +1,23 @@
 {
-    "ros.distro": "noetic",
-    "doxdocgen.generic.dateFormat": "MM/YYYY",
-    "doxdocgen.file.copyrightTag": [
-        "@copyright MIT License - Copyright (c) 2020 ThundeRatz"
-    ],
-    "C_Cpp.default.configurationProvider": "go2sh.cmake-integration",
-    "files.associations": {
-        "*.world": "xml",
-        "*.gazebo": "xml",
-        "*.sdf": "xml",
-        "*.config": "xml"
-    },
-    "python.linting.pycodestyleEnabled": true,
-    "python.linting.enabled": true,
-    "python.analysis.extraPaths": [
-        "/opt/ros/noetic/lib/python3/dist-packages"
-    ],
-    "python.autoComplete.extraPaths": [
-      "/opt/ros/noetic/lib/python3/dist-packages"
-    ],
-    "editor.formatOnSave": true,
+  "ros.distro": "noetic",
+  "doxdocgen.generic.dateFormat": "MM/YYYY",
+  "doxdocgen.file.copyrightTag": [
+    "@copyright MIT License - Copyright (c) 2020 ThundeRatz"
+  ],
+  "C_Cpp.default.configurationProvider": "go2sh.cmake-integration",
+  "files.associations": {
+    "*.world": "xml",
+    "*.gazebo": "xml",
+    "*.sdf": "xml",
+    "*.config": "xml"
+  },
+  "python.linting.pycodestyleEnabled": true,
+  "python.linting.enabled": true,
+  "python.analysis.extraPaths": [
+    "/opt/ros/noetic/lib/python3/dist-packages"
+  ],
+  "python.autoComplete.extraPaths": [
+    "/opt/ros/noetic/lib/python3/dist-packages"
+  ],
+  "editor.formatOnSave": true,
 }
