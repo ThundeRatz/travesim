@@ -5,9 +5,6 @@
         "@copyright MIT License - Copyright (c) 2020 ThundeRatz"
     ],
     "C_Cpp.default.configurationProvider": "go2sh.cmake-integration",
-    "python.autoComplete.extraPaths": [
-        "/opt/ros/noetic/lib/python3/dist-packages"
-    ],
     "files.associations": {
         "*.world": "xml",
         "*.gazebo": "xml",
@@ -16,4 +13,10 @@
     },
     "python.linting.pycodestyleEnabled": true,
     "python.linting.enabled": true,
+    "python.analysis.extraPaths": [
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "python.autoComplete.extraPaths": [
+      "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
 }
