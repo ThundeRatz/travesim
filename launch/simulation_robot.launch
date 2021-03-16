@@ -31,6 +31,7 @@
       <arg name="x" value="$(arg x)" />
       <arg name="y" value="$(arg y)" />
       <arg name="yaw" value="$(arg yaw)" />
+      <arg name="twist_interface" value="$(arg twist_interface)"/>
     </include>
   </group>
 
