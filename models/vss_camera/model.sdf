@@ -1,8 +1,6 @@
 <?xml version="1.0" ?>
 
-<!-- Refs:
-  http://gazebosim.org/tutorials?tut=camera_save
-  http://gazebosim.org/tutorials?tut=ros_gzplugins#Camera
+<!-- Refs: http://gazebosim.org/tutorials?tut=camera_save http://gazebosim.org/tutorials?tut=ros_gzplugins#Camera
   http://wiki.ros.org/image_view -->
 
 <sdf version="1.5">
@@ -12,9 +10,9 @@
     <link name='camera_link'>
       <visual name='visual'>
         <geometry>
-        <box>
-          <size>0.1 0.1 0.1</size>
-        </box>
+          <box>
+            <size>0.1 0.1 0.1</size>
+          </box>
         </geometry>
         <material>
           <script>
