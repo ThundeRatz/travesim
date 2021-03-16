@@ -40,9 +40,6 @@
   <xacro:roda side="esq"/>
   <xacro:roda side="dir"/>
 
-  <!-- Include team-specific color configs -->
-  <xacro:include filename="$(find vss_simulation)/urdf/generic_vss_team.gazebo" />
-
   <!-- Load gazebo plugin to control the robot -->
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
