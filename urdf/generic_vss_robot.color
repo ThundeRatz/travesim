@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:arg name="robot_number" default="0" />
-  <xacro:arg name="team_number" default="0" />
-  <xacro:property name="robot_number" value="$(arg robot_number)" />
-  <xacro:property name="team_number" value="$(arg team_number)" />
-
   <!-- Set team configuration -->
   <xacro:if value="${team_number == 0}">
 

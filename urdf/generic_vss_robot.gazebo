@@ -6,11 +6,6 @@
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:arg name="robot_number" default="0" />
-  <xacro:arg name="team_number" default="0" />
-  <xacro:property name="robot_number" value="$(arg robot_number)" />
-  <xacro:property name="team_number" value="$(arg team_number)" />
-
   <!-- Corpo -->
   <gazebo reference="base_link">
     <mu1 value="0.1"/>
