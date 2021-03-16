@@ -141,7 +141,7 @@
     <parent link="base_link" />
     <child link="roda_dir_link" />
     <axis xyz="0 1 0" />
-    <limit effort="0.108" velocity="100" />
+    <limit effort="73e-3" velocity="68" />
     <dynamics damping="0.0023" friction="0.01" />
   </joint>
   <link name="roda_esq_link">
@@ -171,7 +171,7 @@
     <parent link="base_link" />
     <child link="roda_esq_link" />
     <axis xyz="0 1 0" />
-    <limit effort="0.108" velocity="100" />
+    <limit effort="73e-3" velocity="68" />
     <dynamics damping="0.0023" friction="0.01" />
   </joint>
 </robot>

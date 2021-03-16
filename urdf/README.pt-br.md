@@ -17,16 +17,31 @@ Dentro da pasta **meshes/**, estão os arquivos .stl de cada parte do robô e, d
 
 ## 📜 Parâmetros principais
 
-|      Parâmetro      |           Valor|Unidade|
-|:-------------------:|---------------:|:------|
-|    Raio da roda     |              25| mm    |
-|  Espessura da roda  |               8| mm    |
-| Separação das rodas |              55| mm    |
-|        Altura       |              62| mm    |
-|     Comprimento     |              78| mm    |
-|       Largura       |              78| mm    |
-| Densidade das rodas |            1150| kg/m³ |
-|  Material das rodas |           Nylon| \-    |
-|  Material do corpo  |  50% infill ABS| \-    |
-|  Densidade do corpo |             510| kg/m³ |
-|     Massa total     |           \~180| g     |
+|          Parâmetro           |          Valor | Unidade |
+| :--------------------------: | -------------: | :------ |
+|         Raio da roda         |             25 | mm      |
+|      Espessura da roda       |              8 | mm      |
+|     Separação das rodas      |             55 | mm      |
+|     Densidade das rodas      |           1150 | kg/m³   |
+|    Massa das rodas (cada)    |             18 | g       |
+|      Material das rodas      |          Nylon | \-      |
+|      Material do corpo       | 50% infill ABS | \-      |
+|      Densidade do corpo      |            510 | kg/m³   |
+|         Altura total         |             62 | mm      |
+|      Profundidade total      |             78 | mm      |
+|        Largura total         |             78 | mm      |
+|         Massa total          |            180 | g       |
+| Momento de inércia total Izz |          0.113 | g m²    |
+
+## 🟣 Parâmetros dos motores
+
+O motor do modelo é inspirado no [Micro Motor de Engranagens 50:1 da Pololu](https://www.pololu.com/product/3073) de modo a obtermos valores realistas
+
+|           Parâmetro            | Valor | Unidade |
+| :----------------------------: | ----: | :------ |
+|        Torque máx motor        |    73 | mN m    |
+| Aceleração linear máx do robô  |    16 | m/s²    |
+| Aceleração angular máx do robõ |  1420 | rad/s²  |
+|      Velocidade máx motor      |   650 | RPM     |
+|   Velocidade linear máx robô   |   1.7 | m/s     |
+| Velocidade angular máx do robô |   9.8 | rad/s   |
