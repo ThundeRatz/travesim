@@ -20,6 +20,8 @@ Para a versão em PT-BR 🇧🇷 desse documento, [veja aqui](./README.pt-br.md)
   - [🎈 Intro](#-intro)
   - [📣 ROS topics](#-ros-topics)
     - [⬅ Input](#-input)
+      - [Differencial drive control (default)](#differencial-drive-control-default)
+      - [Direct motor control](#direct-motor-control)
     - [➡ Output](#-output)
   - [📏 Used models](#-used-models)
     - [© Create your own model](#-create-your-own-model)
@@ -73,7 +75,11 @@ roslaunch vss_simulation simulation_match.launch
 
 ### ⬅ Input
 
-The simulation receives commands of type [geometry_msgs/Twist](http://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/Twist.html), representing the velocity of the robot in two components: linear and angular.
+The simulation can work using 2 input interfaces, **differencial drive control** (default) or **direct motor control**. It is important to notice that is not possible to use both interfaces to control different robots at the same time.
+
+#### Differencial drive control (default)
+
+By default, the simulation receives commands of type [geometry_msgs/Twist](http://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/Twist.html), representing the desired velocity of the robot in two components: linear and angular.
 
 ```python
 # This expresses velocity in free space broken into its linear and angular parts.
@@ -86,7 +92,24 @@ The ROS topics follow the naming convention:
 - **/robot[1..3]/vss_robot_diff_drive_controller/cmd_vel**
 - **/foe[1..3]/vss_robot_diff_drive_controller/cmd_vel**
 
-The control of the robot is performed by the [diff_driver_controller](http://wiki.ros.org/diff_drive_controller). The parameters of the controller are specified in the file [./config/motor_diff_drive.yml](./config/motor_diff_drive.yml).
+The control of the robot is performed by the [diff_driver_controller](http://wiki.ros.org/diff_drive_controller) from the library [ros_control](http://wiki.ros.org/ros_control). The controller represents the behavior of the embedded system of the robot and will send torque commands to the motors in order to follow the received set point.
+
+The parameters of this controller are specified in the file [./config/motor_diff_drive.yml](./config/motor_diff_drive.yml).
+
+#### Direct motor control
+
+The simulation also accepts control directly over **angular velocity** commands (in rad/s) for both robot's motors (through the interface [velocity_controller](http://wiki.ros.org/velocity_controllers) from [ros_control](http://wiki.ros.org/ros_control)). This interface mimics a controler interface more coupled to the robots caracteristics than differencial drive control.
+
+The comands are read from topics of type [std_msgs/Float64](http://docs.ros.org/noetic/api/std_msgs/html/msg/Float64.html), representing each motor's speed in **rad/s**
+
+- **/robot[1..3]/vss_robot_left_controller/command**
+- **/robot[1..3]/vss_robot_right_controller/command**
+- **/foe[1..3]/vss_robot_left_controller/command**
+- **/foe[1..3]/vss_robot_right_controller/command**
+
+In order to enable this control interface, one should send the parameter `twist_interface` as false in roslaunch [parameters](#-parameters)
+
+The parameters of this controller are specified in the file [./config/motor_direct_drive.yml](./config/motor_direct_drive.yml).
 
 ### ➡ Output
 
@@ -146,6 +169,15 @@ To use your custom model, change the value of the ```model``` parameter when lau
 - ```use_sim_time``` - Use simulated time as reference in messages, default "true"
 - ```recording``` - Enable Gazebo's state log, default "false"
 - ```keyboard``` - Enable joystick/keyboard control node, default "false"
+- ```twist_interface``` - Enable [geometry_msgs/Twist](http://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/Twist.html) interface if true, 2 std_msgs/Float64 control interface otherwise. Default "true". See the [docs](#-intro) for more info.
+
+To pass a parameter to the simulation, just write the parameter name and its new value with `:=`
+
+For example, to change the parameter `keyboard` to `true`:
+
+```bash
+roslaunch vss_simulation simulation_team.launch keyboard:=true
+```
 
 ## 📷 Virtual camera
 

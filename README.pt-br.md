@@ -18,6 +18,8 @@ Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando
   - [🎈 Introdução](#-introdução)
   - [📣 Tópicos ROS](#-tópicos-ros)
     - [⬅ Entrada](#-entrada)
+      - [Controle por direção diferencial (padrão)](#controle-por-direção-diferencial-padrão)
+      - [Controle direto dos motores](#controle-direto-dos-motores)
     - [➡ Saída](#-saída)
   - [📏 Modelos utilizados](#-modelos-utilizados)
     - [© Crie seu próprio modelo](#-crie-seu-próprio-modelo)
@@ -71,7 +73,11 @@ roslaunch vss_simulation simulation_match.launch
 
 ### ⬅ Entrada
 
-A simulação recebe comandos do tipo [geometry_msgs/Twist](http://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/Twist.html), representando a velocidade do robô em duas componentes: linear e angular.
+A simulação pode ser usada com duas interfaces de entrada, **controle por direção diferencial** (padrão) ou **controle direto dos motores**. É importante notar que não é possível usar as duas interfaces para controlar robôs diferentes ao mesmo tempo.
+
+#### Controle por direção diferencial (padrão)
+
+Por padrão, a simulação recebe comandos do tipo [geometry_msgs/Twist](http://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/Twist.html), representando a velocidade do robô em duas componentes: linear e angular.
 
 ```python
 # This expresses velocity in free space broken into its linear and angular parts.
@@ -84,7 +90,22 @@ Os tópicos ROS seguem a convenção de nomenclatura:
 - **/robot[1..3]/vss_robot_diff_drive_controller/cmd_vel**
 - **/foe[1..3]/vss_robot_diff_drive_controller/cmd_vel**
 
-O controle do robô é feito pelo [diff_driver_controller](http://wiki.ros.org/diff_drive_controller). Os parâmetros de controle estão especificados no arquivo [./config/motor_diff_drive.yml](./config/motor_diff_drive.yml).
+O controle do robô é feito pelo [diff_driver_controller](http://wiki.ros.org/diff_drive_controller). Os parâmetros de controle estão especificados no arquivo [./config/motor_diff_drive.yml](./config/motor_diff_drive.yml). O controlador representa o comportamento do sistema de controle embarcado no robô e envia comandos de torque para os motores de modo a seguir o set point recebido.
+
+The parameters of this controller are specified in the file [./config/motor_diff_drive.yml](./config/motor_diff_drive.yml).
+
+#### Controle direto dos motores
+
+A simulação também aceita contole diretamente por meio de comandos de **velocidade angular** para ambos os motores do robô (por meio da interface [velocity_controller](http://wiki.ros.org/velocity_controllers) do pacote [ros_control](http://wiki.ros.org/ros_control)). Essa interface imita uma interface de controle mais acoplada às características do robô em relação ao controle de direção diferencial.
+
+Os comandos são lidos de tópicos do tipo [std_msgs/Float64](http://docs.ros.org/noetic/api/std_msgs/html/msg/Float64.html), representando a velocidade de cada motor em **rad/s**
+
+- **/robot[1..3]/vss_robot_left_controller/command**
+- **/robot[1..3]/vss_robot_right_controller/command**
+- **/foe[1..3]/vss_robot_left_controller/command**
+- **/foe[1..3]/vss_robot_right_controller/command**
+
+Para habilitar essa interface de controle, é necessário enviar o parâmetro `twist_interface` como false nos [parâmeteros](#-parâmetros) do roslaunch
 
 ### ➡ Saída
 
@@ -144,6 +165,7 @@ Para usar seu modelo customizado, altere o valor do parâmetro ```model``` ao in
 - ```use_sim_time``` - Utiliza o tempo da simulação como referências das msgs, padrão "true"
 - ```recording``` - Habilita o log de estados do Gazebo, padrão "false"
 - ```keyboard``` - Habilita o node do controle pelo teclado/joystick, padrão "false"
+- ```twist_interface``` - Habilita a interface controle por meio de mensagens [geometry_msgs/Twist](http://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/Twist.html) se verdadeiro, utiliza a interface de controle com 2 mensagens std_msgs/Float64 caso contrário. Padrão "true". Veja a [documentação](#-entrada) para mais detalhes.
 
 Para passar um parâmetro na execução da simulação, basta escrever o nome do parâmetro separado do novo valor com ```:=```
 
