@@ -84,7 +84,7 @@ Os tópicos ROS seguem a convenção de nomenclatura:
 - **/robot[1..3]/vss_robot_diff_drive_controller/cmd_vel**
 - **/foe[1..3]/vss_robot_diff_drive_controller/cmd_vel**
 
-O controle do robô é feito pelo [diff_driver_controller](http://wiki.ros.org/diff_drive_controller). Os parâmetros de controle estão especificados no arquivo [./config/motor_diff_drive.yaml](./config/motor_diff_drive.yaml).
+O controle do robô é feito pelo [diff_driver_controller](http://wiki.ros.org/diff_drive_controller). Os parâmetros de controle estão especificados no arquivo [./config/motor_diff_drive.yml](./config/motor_diff_drive.yml).
 
 ### ➡ Saída
 

@@ -86,7 +86,7 @@ The ROS topics follow the naming convention:
 - **/robot[1..3]/vss_robot_diff_drive_controller/cmd_vel**
 - **/foe[1..3]/vss_robot_diff_drive_controller/cmd_vel**
 
-The control of the robot is performed by the [diff_driver_controller](http://wiki.ros.org/diff_drive_controller). The parameters of the controller are specified in the file [./config/motor_diff_drive.yaml](./config/motor_diff_drive.yaml).
+The control of the robot is performed by the [diff_driver_controller](http://wiki.ros.org/diff_drive_controller). The parameters of the controller are specified in the file [./config/motor_diff_drive.yml](./config/motor_diff_drive.yml).
 
 ### ➡ Output
 
