@@ -46,6 +46,7 @@ def clean_model_name(model):
         model = "_".join(model.split("_")[1:])
     return model
 
+
 for model in MODELS_NAMES:
     pubs[model] = rospy.Publisher("/vision/" + clean_model_name(model),
                                   ModelState, queue_size=1)
@@ -89,6 +90,7 @@ def listener():
 
     # spin() simply keeps python from exiting until this node is stopped
     rospy.spin()
+
 
 if __name__ == '__main__':
     listener()
