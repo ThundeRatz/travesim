@@ -45,3 +45,10 @@ O motor do modelo é inspirado no [Micro Motor de Engranagens 50:1 da Pololu](ht
 |      Velocidade máx motor      |   650 | RPM     |
 |   Velocidade linear máx robô   |   1.7 | m/s     |
 | Velocidade angular máx do robô |   9.8 | rad/s   |
+
+Os valores foram estimados a partir das relações obtidas desprezando-se o momento de inércia das rodas no eixo y (eixo de rotação do motor)
+
+<img src="https://render.githubusercontent.com/render/math?math=\ddot{x} m=T/R_{roda}">
+<img src="https://render.githubusercontent.com/render/math?math=\dot{\omega} I_{zz}=T S_{rodas}/2 R_{roda}">
+
+Onde "S rodas" é a separação entre as duas rodas
