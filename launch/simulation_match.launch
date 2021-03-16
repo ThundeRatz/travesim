@@ -8,6 +8,7 @@
   <arg name="use_sim_time" default="true"/>
   <arg name="world_name" default="vss_field.world"/>
   <arg name="recording" default="false"/>
+  <arg name="twist_interface" default="true"/>
 
   <!-- Control option -->
   <arg name="keyboard" default="false"/>

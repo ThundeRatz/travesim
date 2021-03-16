@@ -11,6 +11,7 @@
   <arg name="x" default="-0.25" />
   <arg name="y" default="0" />
   <arg name="yaw" default="0" />
+  <arg name="twist_interface" default="true"/>
 
   <!-- Control option -->
   <arg name="keyboard" default="false"/>
