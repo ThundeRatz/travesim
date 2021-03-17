@@ -28,7 +28,7 @@ Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando
   - [📷 Câmera virtual](#-câmera-virtual)
   - [📁 Estrutura de pastas](#-estrutura-de-pastas)
   - [➕ Dependências](#-dependências)
-    - [🐍 Python virtual enviroment](#-python-virtual-enviroment)
+    - [🐍 Python virtual environment](#-python-virtual-environment)
   - [🎨 Cores no Gazebo](#-cores-no-gazebo)
   - [📝 Contribuindo](#-contribuindo)
   - [✨ Contribuidores](#-contribuidores)
@@ -96,7 +96,7 @@ The parameters of this controller are specified in the file [./config/motor_diff
 
 #### Controle direto dos motores
 
-A simulação também aceita contole diretamente por meio de comandos de **velocidade angular** para ambos os motores do robô (por meio da interface [velocity_controller](http://wiki.ros.org/velocity_controllers) do pacote [ros_control](http://wiki.ros.org/ros_control)). Essa interface imita uma interface de controle mais acoplada às características do robô em relação ao controle de direção diferencial.
+A simulação também aceita controle diretamente por meio de comandos de **velocidade angular** para ambos os motores do robô (por meio da interface [velocity_controller](http://wiki.ros.org/velocity_controllers) do pacote [ros_control](http://wiki.ros.org/ros_control)). Essa interface imita uma interface de controle mais acoplada às características do robô em relação ao controle de direção diferencial.
 
 Os comandos são lidos de tópicos do tipo [std_msgs/Float64](http://docs.ros.org/noetic/api/std_msgs/html/msg/Float64.html), representando a velocidade de cada motor em **rad/s**
 
@@ -105,7 +105,7 @@ Os comandos são lidos de tópicos do tipo [std_msgs/Float64](http://docs.ros.or
 - **/foe[1..3]/vss_robot_left_controller/command**
 - **/foe[1..3]/vss_robot_right_controller/command**
 
-Para habilitar essa interface de controle, é necessário enviar o parâmetro `twist_interface` como false nos [parâmeteros](#-parâmetros) do roslaunch
+Para habilitar essa interface de controle, é necessário enviar o parâmetro `twist_interface` como false nos [parâmetros](#-parâmetros) do roslaunch
 
 ### ➡ Saída
 
@@ -135,7 +135,7 @@ Os tópicos republicados são
 - **/vision/foe[1...3]** - Tópicos para os robôs adversários
 - **/vision/ball** - Tópico para a bola
 
-Todas as unidades estão no SI, distâncias estão em metros, ângulos estão em radianos, velocidade linear está em m/s e velocidade angular estã em rad/s
+Todas as unidades estão no SI, distâncias estão em metros, ângulos estão em radianos, velocidade linear está em m/s e velocidade angular está em rad/s
 
 ## 📏 Modelos utilizados
 
@@ -220,7 +220,7 @@ Ou usando ```rosdep```
 rosdep install vss_simulation
 ```
 
-### 🐍 Python virtual enviroment
+### 🐍 Python virtual environment
 
 Você pode querer rodar o projeto dentro de um ambiente virtual de python ([python virtualenv](https://docs.python.org/3/tutorial/venv.html)), afinal, essa é uma boa prática listada no livro de bolso de desenvolvimento python
 
@@ -242,7 +242,7 @@ Para instalar as dependências, rode o comando
 pip install -r requirements.txt
 ```
 
-Algumas biblitecas externas podem estar faltando para [compilar](https://stackoverflow.com/questions/7652385/where-can-i-find-and-install-the-dependencies-for-pygame) o pacote ```pygame```. Você pode instalar tudo com o comando
+Algumas bibliotecas externas podem estar faltando para [compilar](https://stackoverflow.com/questions/7652385/where-can-i-find-and-install-the-dependencies-for-pygame) o pacote ```pygame```. Você pode instalar tudo com o comando
 
 ```sh
 sudo apt-get install

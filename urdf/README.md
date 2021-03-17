@@ -46,7 +46,7 @@ The model's motor is inspired in [Pololu's 50:1 Micro Metal Gearmotor](https://w
 |     Robot max linear speed     |   1.7 | m/s    |
 |    Robot max angular speed     |   9.8 | rad/s  |
 
-The values were estimated from the relations derived neglegting the wheel's momento of inertia in y axis (motor's rotation axis)
+The values were estimated from the relations derived neglecting the wheel's momento of inertia in y axis (motor's rotation axis)
 
 <img src="https://render.githubusercontent.com/render/math?math=\ddot{x} m=T/R_{wheel}">
 <img src="https://render.githubusercontent.com/render/math?math=\dot{\omega} I_{zz}=T S_{wheels}/2 R_{wheel}">

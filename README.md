@@ -20,7 +20,7 @@ Para a versão em PT-BR 🇧🇷 desse documento, [veja aqui](./README.pt-br.md)
   - [🎈 Intro](#-intro)
   - [📣 ROS topics](#-ros-topics)
     - [⬅ Input](#-input)
-      - [Differencial drive control (default)](#differencial-drive-control-default)
+      - [Differential drive control (default)](#differencial-drive-control-default)
       - [Direct motor control](#direct-motor-control)
     - [➡ Output](#-output)
   - [📏 Used models](#-used-models)
@@ -30,7 +30,7 @@ Para a versão em PT-BR 🇧🇷 desse documento, [veja aqui](./README.pt-br.md)
   - [📷 Virtual camera](#-virtual-camera)
   - [📁 Folder structure](#-folder-structure)
   - [➕ Dependencies](#-dependencies)
-    - [🐍 Python virtual enviroment](#-python-virtual-enviroment)
+    - [🐍 Python virtual environment](#-python-virtual-environment)
   - [🎨 Gazebo colors](#-gazebo-colors)
   - [📝 Contributing](#-contributing)
   - [✨ Contributors](#-contributors)
@@ -53,7 +53,7 @@ Para a versão em PT-BR 🇧🇷 desse documento, [veja aqui](./README.pt-br.md)
 
 It is necessary to clone the project inside a catkin workspace. To create a workspace, refer to [this link](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)
 
-To run the simulation with one controlable robot
+To run the simulation with one controllable robot
 
 ```bash
 roslaunch vss_simulation simulation_robot.launch
@@ -75,9 +75,9 @@ roslaunch vss_simulation simulation_match.launch
 
 ### ⬅ Input
 
-The simulation can work using 2 input interfaces, **differencial drive control** (default) or **direct motor control**. It is important to notice that is not possible to use both interfaces to control different robots at the same time.
+The simulation can work using 2 input interfaces, **differential drive control** (default) or **direct motor control**. It is important to notice that is not possible to use both interfaces to control different robots at the same time.
 
-#### Differencial drive control (default)
+#### Differential drive control (default)
 
 By default, the simulation receives commands of type [geometry_msgs/Twist](http://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/Twist.html), representing the desired velocity of the robot in two components: linear and angular.
 
@@ -98,9 +98,9 @@ The parameters of this controller are specified in the file [./config/motor_diff
 
 #### Direct motor control
 
-The simulation also accepts control directly over **angular velocity** commands (in rad/s) for both robot's motors (through the interface [velocity_controller](http://wiki.ros.org/velocity_controllers) from [ros_control](http://wiki.ros.org/ros_control)). This interface mimics a controler interface more coupled to the robots caracteristics than differencial drive control.
+The simulation also accepts control directly over **angular velocity** commands (in rad/s) for both robot's motors (through the interface [velocity_controller](http://wiki.ros.org/velocity_controllers) from [ros_control](http://wiki.ros.org/ros_control)). This interface mimics a controller interface more coupled to the robots characteristics than differential drive control.
 
-The comands are read from topics of type [std_msgs/Float64](http://docs.ros.org/noetic/api/std_msgs/html/msg/Float64.html), representing each motor's speed in **rad/s**
+The commands are read from topics of type [std_msgs/Float64](http://docs.ros.org/noetic/api/std_msgs/html/msg/Float64.html), representing each motor's speed in **rad/s**
 
 - **/robot[1..3]/vss_robot_left_controller/command**
 - **/robot[1..3]/vss_robot_right_controller/command**
@@ -122,7 +122,7 @@ geometry_msgs/Pose[] pose     # desired pose in world frame
 geometry_msgs/Twist[] twist   # desired twist in world frame
 ```
 
-For convenience, this package have a script ([vision_proxy.py](./scripts/vision_proxy.py)) that subscribes this topic and republishes the information at diferent topics of type [gazebo_msgs/ModelState](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelState.html) for each entity (3 robots, 3 foes and 1 ball, 7 in total).
+For convenience, this package have a script ([vision_proxy.py](./scripts/vision_proxy.py)) that subscribes this topic and republishes the information at different topics of type [gazebo_msgs/ModelState](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelState.html) for each entity (3 robots, 3 foes and 1 ball, 7 in total).
 
 ```python
 # Set Gazebo Model pose and twist
@@ -133,7 +133,7 @@ string reference_frame      # set pose/twist relative to the frame of this entit
                             # leave empty or "world" or "map" defaults to world-frame
 ```
 
-The republised topics are
+The republished topics are
 
 - **/vision/robot[1...3]** - Team robots's topics
 - **/vision/foe[1...3]** - Adversary robots's topics
@@ -163,7 +163,7 @@ To use your custom model, change the value of the ```model``` parameter when lau
 ### 🚀 Roslaunch
 
 - ```model``` - Path of simulated robot model, default "./urdf/vss_robot.xacro"
-- ```debug``` - Enable debug messagens in termianl, default "false"
+- ```debug``` - Enable debug messages in terminal, default "false"
 - ```gui``` - Enable Gazebo's GUI window, default "true"
 - ```paused``` - Init simulation paused, default "true"
 - ```use_sim_time``` - Use simulated time as reference in messages, default "true"
@@ -213,7 +213,7 @@ The simulation is develop for ROS and Gazebo, it is recommend to install both wi
 sudo apt install ros-noetic-desktop-full
 ```
 
-The project depends on the package velocity_controllers and effort_controllers in the library [ros_controllers](https://github.com/ros-controls/ros_controllers) and the python lybrary [pygame](https://github.com/pygame/pygame). It is possible to install both with ```apt-get```
+The project depends on the package velocity_controllers and effort_controllers in the library [ros_controllers](https://github.com/ros-controls/ros_controllers) and the python library [pygame](https://github.com/pygame/pygame). It is possible to install both with ```apt-get```
 
 ```bash
 sudo apt install ros-noetic-velocity-controllers ros-noetic-effort-controllers python3-pygame
@@ -225,17 +225,17 @@ Or using ```rosdep```
 rosdep install vss_simulation
 ```
 
-### 🐍 Python virtual enviroment
+### 🐍 Python virtual environment
 
 One may want to run the project inside a python [virtualenv](https://docs.python.org/3/tutorial/venv.html), after all this is a good practice in the python development book
 
-You can create a python enviroment with the command
+You can create a python environment with the command
 
 ```sh
 python3 -m venv venv
 ```
 
-Then you should run ```source``` in the virtual enviroment
+Then you should run ```source``` in the virtual environment
 
 ```sh
 source ./venv/bin/activate
@@ -266,7 +266,7 @@ sudo apt-get install
 
 ## 🎨 Gazebo colors
 
-For a list of default available color in Gazebo, refert to the config file in the [oficial repo](https://github.com/osrf/gazebo/blob/gazebo11/media/materials/scripts/gazebo.material). We have also 2 OGRE scripts [team blue](./media/materials/scripts/team_blue.material) and [team yellow](./media/materials/scripts/team_yellow.material) for custom colors definition ([Gazebo ref](http://gazebosim.org/tutorials?tut=color_model) and [OGRE ref](http://wiki.ogre3d.org/Materials))
+For a list of default available color in Gazebo, refer to the config file in the [oficial repo](https://github.com/osrf/gazebo/blob/gazebo11/media/materials/scripts/gazebo.material). We have also 2 OGRE scripts [team blue](./media/materials/scripts/team_blue.material) and [team yellow](./media/materials/scripts/team_yellow.material) for custom colors definition ([Gazebo ref](http://gazebosim.org/tutorials?tut=color_model) and [OGRE ref](http://wiki.ogre3d.org/Materials))
 
 ## 📝 Contributing
 
