@@ -20,7 +20,7 @@ Para a versão em PT-BR 🇧🇷 desse documento, [veja aqui](./README.pt-br.md)
   - [🎈 Intro](#-intro)
   - [📣 ROS topics](#-ros-topics)
     - [⬅ Input](#-input)
-      - [Differential drive control (default)](#differencial-drive-control-default)
+      - [Differential drive control (default)](#differential-drive-control-default)
       - [Direct motor control](#direct-motor-control)
     - [➡ Output](#-output)
   - [📏 Used models](#-used-models)
@@ -163,6 +163,7 @@ To use your custom model, change the value of the ```model``` parameter when lau
 ### 🚀 Roslaunch
 
 - ```model``` - Path of simulated robot model, default "./urdf/vss_robot.xacro"
+- ```config_file``` - Path of simulated robot controllers config file, default "./config/motor_diff_drive.yml" if `twist_interface` is true, "./config/motor_direct_drive.yml" otherwise
 - ```debug``` - Enable debug messages in terminal, default "false"
 - ```gui``` - Enable Gazebo's GUI window, default "true"
 - ```paused``` - Init simulation paused, default "true"
