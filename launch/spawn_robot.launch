@@ -34,8 +34,7 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
       <rosparam command="load" file="config_file" />
     </group>
 
-    <node name="vss_robot_controller" pkg="controller_manager" type="spawner" args="vss_robot_joint_state_controller
-      vss_robot_diff_drive_controller"/>
+    <node name="vss_robot_controller" pkg="controller_manager" type="spawner" args="vss_robot_diff_drive_controller"/>
   </group>
 
 
@@ -49,8 +48,7 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
       <rosparam command="load" file="config_file" />
     </group>
 
-    <node name="vss_robot_controller" pkg="controller_manager" type="spawner" args="vss_robot_joint_state_controller
-      vss_robot_left_controller
+    <node name="vss_robot_controller" pkg="controller_manager" type="spawner" args="vss_robot_left_controller
       vss_robot_right_controller"/>
   </group>
 
