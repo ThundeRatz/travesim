@@ -92,7 +92,7 @@ Os tópicos ROS seguem a convenção de nomenclatura:
 
 O controle do robô é feito pelo [diff_driver_controller](http://wiki.ros.org/diff_drive_controller). Os parâmetros de controle estão especificados no arquivo [./config/motor_diff_drive.yml](./config/motor_diff_drive.yml). O controlador representa o comportamento do sistema de controle embarcado no robô e envia comandos de torque para os motores de modo a seguir o set point recebido.
 
-The parameters of this controller are specified in the file [./config/motor_diff_drive.yml](./config/motor_diff_drive.yml).
+Os parâmetros do controlador estão especificados no arquivo [./config/motor_diff_drive.yml](./config/motor_diff_drive.yml).
 
 #### Controle direto dos motores
 
