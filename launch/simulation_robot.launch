@@ -12,6 +12,7 @@
   <arg name="y" default="0" />
   <arg name="yaw" default="0" />
   <arg name="twist_interface" default="true"/>
+  <arg name="config_file" default=""/>
 
   <!-- Control option -->
   <arg name="keyboard" default="false"/>
@@ -33,6 +34,7 @@
       <arg name="y" value="$(arg y)" />
       <arg name="yaw" value="$(arg yaw)" />
       <arg name="twist_interface" value="$(arg twist_interface)"/>
+      <arg name="config_file" value="$(arg config_file)"/>
     </include>
   </group>
 
