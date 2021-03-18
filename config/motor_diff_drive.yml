@@ -21,19 +21,3 @@ vss_robot_diff_drive_controller:
 
   # Top level frame (link) of the robot description
   base_frame_id: base_link
-
-  # Velocity and acceleration limits for the robot
-  # Linear acceleration = Torque/(M*R)
-  # Angular acceleration = Torque/Izz
-  linear:
-    x:
-      has_velocity_limits    : true
-      max_velocity           : 1.7     # m/s
-      has_acceleration_limits: true
-      max_acceleration       : 16.0    # m/s^2
-  angular:
-    z:
-      has_velocity_limits    : true
-      max_velocity           : 9.8     # rad/s
-      has_acceleration_limits: true
-      max_acceleration       : 1420.0  # rad/s^2
