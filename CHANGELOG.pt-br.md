@@ -3,11 +3,11 @@
 O formato é baseado no [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 e esse projeto segue a convenção [versionamento semântico](https://semver.org/spec/v2.0.0.html).
 
-## [2.1.0] - 2020-11-18
+## [2.1.0] - 2021-03-22
 
 ### Adicionado
 
-- Controlador diferencial (controle por mensagens Twist)
+- Interface de controle selecionável: Controlador diferencial (mensagens Twist) ou controle direto por velocidade angular das rodas
 
 ### Modificado
 
@@ -15,7 +15,7 @@ e esse projeto segue a convenção [versionamento semântico](https://semver.org
 
 ### Obsoleto
 
-- Controle direto das rodas por torque e velocidade
+- Controle direto das rodas por torque
 
 ## [2.0.0] - 2020-10-05 - [Open Camera](https://github.com/ThundeRatz/vss_simulation/releases/tag/v2.0)
 
