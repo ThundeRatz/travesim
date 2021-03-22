@@ -18,6 +18,8 @@ Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando
   - [🎈 Introdução](#-introdução)
   - [📣 Tópicos ROS](#-tópicos-ros)
     - [⬅ Entrada](#-entrada)
+      - [Controle por direção diferencial (padrão)](#controle-por-direção-diferencial-padrão)
+      - [Controle direto dos motores](#controle-direto-dos-motores)
     - [➡ Saída](#-saída)
   - [📏 Modelos utilizados](#-modelos-utilizados)
     - [© Crie seu próprio modelo](#-crie-seu-próprio-modelo)
@@ -26,7 +28,7 @@ Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando
   - [📷 Câmera virtual](#-câmera-virtual)
   - [📁 Estrutura de pastas](#-estrutura-de-pastas)
   - [➕ Dependências](#-dependências)
-    - [🐍 Python virtual enviroment](#-python-virtual-enviroment)
+    - [🐍 Python virtual environment](#-python-virtual-environment)
   - [🎨 Cores no Gazebo](#-cores-no-gazebo)
   - [📝 Contribuindo](#-contribuindo)
   - [✨ Contribuidores](#-contribuidores)
@@ -71,24 +73,45 @@ roslaunch vss_simulation simulation_match.launch
 
 ### ⬅ Entrada
 
-A simulação suporta controle por meio de comandos de **torque** (por meio da interface **effort_controller**) ou comandos de **velocidade angular** (por meio da interface **velocity_controller**) para os dois motores de cada um dos robôs. Ambas as insterfaces estão disponíveis na biblioteca [ros_control](http://wiki.ros.org/ros_control)
+A simulação pode ser usada com duas interfaces de entrada, **controle por direção diferencial** (padrão) ou **controle direto dos motores**. É importante notar que não é possível usar as duas interfaces para controlar robôs diferentes ao mesmo tempo.
 
-Para simular robôs sem controle da rotação em malha fechada, o controle por meio do **torque** é mais adequado, uma vez que o torque é aproximadamente proporcial à tensão aplicada nos terminais de um motor DC.
+#### Controle por direção diferencial (padrão)
 
-Caso contrário, a interface de controle por **velocidade angular** é a mais adequada.
+Por padrão, a simulação recebe comandos do tipo [geometry_msgs/Twist](http://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/Twist.html), representando a velocidade do robô em duas componentes: linear e angular.
 
-Em ambos os casos, os comandos são lidos nos tópicos do tipo [std_msgs/Float64](http://docs.ros.org/noetic/api/std_msgs/html/msg/Float64.html)
+```python
+# This expresses velocity in free space broken into its linear and angular parts.
+Vector3  linear
+Vector3  angular
+```
+
+Os tópicos ROS seguem a convenção de nomenclatura:
+
+- **/robot[1..3]/vss_robot_diff_drive_controller/cmd_vel**
+- **/foe[1..3]/vss_robot_diff_drive_controller/cmd_vel**
+
+O controle do robô é feito pelo [diff_driver_controller](http://wiki.ros.org/diff_drive_controller). Os parâmetros de controle estão especificados no arquivo [./config/motor_diff_drive.yml](./config/motor_diff_drive.yml). O controlador representa o comportamento do sistema de controle embarcado no robô e envia comandos de torque para os motores de modo a seguir o set point recebido.
+
+Os parâmetros do controlador estão especificados no arquivo [./config/motor_diff_drive.yml](./config/motor_diff_drive.yml).
+
+#### Controle direto dos motores
+
+A simulação também aceita controle diretamente por meio de comandos de **velocidade angular** para ambos os motores do robô (por meio da interface [velocity_controller](http://wiki.ros.org/velocity_controllers) do pacote [ros_control](http://wiki.ros.org/ros_control)). Essa interface imita uma interface de controle mais acoplada às características do robô em relação ao controle de direção diferencial.
+
+Os comandos são lidos de tópicos do tipo [std_msgs/Float64](http://docs.ros.org/noetic/api/std_msgs/html/msg/Float64.html), representando a velocidade de cada motor em **rad/s**
 
 - **/robot[1..3]/vss_robot_left_controller/command**
 - **/robot[1..3]/vss_robot_right_controller/command**
 - **/foe[1..3]/vss_robot_left_controller/command**
 - **/foe[1..3]/vss_robot_right_controller/command**
 
+Para habilitar essa interface de controle, é necessário enviar o parâmetro `twist_interface` como false nos [parâmetros](#-parâmetros) do roslaunch
+
 ### ➡ Saída
 
 Por padrão, o Gazebo publica no tópico **/gazebo/model_states** do tipo [gazebo_msgs/ModelStates](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelStates.html), com uma lista de informações acerca de cada um dos modelos presentes na simulação.
 
-```c
+```python
 # broadcast all model states in world frame
 string[] name                 # model names
 geometry_msgs/Pose[] pose     # desired pose in world frame
@@ -97,7 +120,7 @@ geometry_msgs/Twist[] twist   # desired twist in world frame
 
 Por comodidade, este pacote possui um script ([vision_proxy.py](./scripts/vision_proxy.py)) que se inscreve nesse tópico e republica a informação diferentes tópicos do tipo [gazebo_msgs/ModelState](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelState.html) para cada entidade (3 robôs, 3 adversários e 1 bola, 7 tópicos no total)
 
-```c
+```python
 # Set Gazebo Model pose and twist
 string model_name           # model to set state (pose and twist)
 geometry_msgs/Pose pose     # desired pose in reference frame
@@ -112,7 +135,7 @@ Os tópicos republicados são
 - **/vision/foe[1...3]** - Tópicos para os robôs adversários
 - **/vision/ball** - Tópico para a bola
 
-Todas as unidades estão no SI, distâncias estão em metros, ângulos estão em radianos, velocidade linear está em m/s e velocidade angular estã em rad/s
+Todas as unidades estão no SI, distâncias estão em metros, ângulos estão em radianos, velocidade linear está em m/s e velocidade angular está em rad/s
 
 ## 📏 Modelos utilizados
 
@@ -136,12 +159,14 @@ Para usar seu modelo customizado, altere o valor do parâmetro ```model``` ao in
 ### 🚀 Roslaunch
 
 - ```model``` - Caminho do modelo do robô simulado, padrão "./urdf/vss_robot.xacro"
+- - ```config_file``` - Caminho do arquivo de configuração dos controladores do robô simulado, padrão "./config/motor_diff_drive.yml" se `twist_interface` é "true", "./config/motor_direct_drive.yml" caso contrário
 - ```debug``` - Habilita mensagens de debug no terminal, padrão "false"
 - ```gui``` - Habilita janela GUI do Gazebo, padrão "true"
 - ```paused``` - Inicia a simulação com pause, padrão "true"
 - ```use_sim_time``` - Utiliza o tempo da simulação como referências das msgs, padrão "true"
 - ```recording``` - Habilita o log de estados do Gazebo, padrão "false"
 - ```keyboard``` - Habilita o node do controle pelo teclado/joystick, padrão "false"
+- ```twist_interface``` - Habilita a interface controle por meio de mensagens [geometry_msgs/Twist](http://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/Twist.html) se verdadeiro, utiliza a interface de controle com 2 mensagens std_msgs/Float64 caso contrário. Padrão "true". Veja a [documentação](#-entrada) para mais detalhes.
 
 Para passar um parâmetro na execução da simulação, basta escrever o nome do parâmetro separado do novo valor com ```:=```
 
@@ -196,7 +221,7 @@ Ou usando ```rosdep```
 rosdep install vss_simulation
 ```
 
-### 🐍 Python virtual enviroment
+### 🐍 Python virtual environment
 
 Você pode querer rodar o projeto dentro de um ambiente virtual de python ([python virtualenv](https://docs.python.org/3/tutorial/venv.html)), afinal, essa é uma boa prática listada no livro de bolso de desenvolvimento python
 
@@ -218,7 +243,7 @@ Para instalar as dependências, rode o comando
 pip install -r requirements.txt
 ```
 
-Algumas biblitecas externas podem estar faltando para [compilar](https://stackoverflow.com/questions/7652385/where-can-i-find-and-install-the-dependencies-for-pygame) o pacote ```pygame```. Você pode instalar tudo com o comando
+Algumas bibliotecas externas podem estar faltando para [compilar](https://stackoverflow.com/questions/7652385/where-can-i-find-and-install-the-dependencies-for-pygame) o pacote ```pygame```. Você pode instalar tudo com o comando
 
 ```sh
 sudo apt-get install
@@ -262,6 +287,9 @@ Agradecimentos a essas pessoas incríveis ([emoji key](https://allcontributors.o
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/TetsuoTakahashi"><img src="https://avatars2.githubusercontent.com/u/38441802?v=4?s=100" width="100px;" alt=""/><br /><sub><b>TetsuoTakahashi</b></sub></a><br /><a href="#ideas-TetsuoTakahashi" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/GabrielCosme"><img src="https://avatars0.githubusercontent.com/u/62270066?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Gabriel Cosme Barbosa</b></sub></a><br /><a href="https://github.com/thunderatz/vss_simulation/pulls?q=is%3Apr+reviewed-by%3AGabrielCosme" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://github.com/RicardoHonda"><img src="https://avatars1.githubusercontent.com/u/62343088?v=4?s=100" width="100px;" alt=""/><br /><sub><b>RicardoHonda</b></sub></a><br /><a href="https://github.com/thunderatz/vss_simulation/pulls?q=is%3Apr+reviewed-by%3ARicardoHonda" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://github.com/leticiakimoto"><img src="https://avatars0.githubusercontent.com/u/62733251?v=4?s=100" width="100px;" alt=""/><br /><sub><b>leticiakimoto</b></sub></a><br /><a href="https://github.com/thunderatz/vss_simulation/pulls?q=is%3Apr+reviewed-by%3Aleticiakimoto" title="Reviewed Pull Requests">👀</a></td>
   </tr>
 </table>
 

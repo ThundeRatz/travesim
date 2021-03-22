@@ -11,6 +11,8 @@
   <arg name="x" default="-0.25" />
   <arg name="y" default="0" />
   <arg name="yaw" default="0" />
+  <arg name="twist_interface" default="true"/>
+  <arg name="config_file" default=""/>
 
   <!-- Control option -->
   <arg name="keyboard" default="false"/>
@@ -31,6 +33,8 @@
       <arg name="x" value="$(arg x)" />
       <arg name="y" value="$(arg y)" />
       <arg name="yaw" value="$(arg yaw)" />
+      <arg name="twist_interface" value="$(arg twist_interface)"/>
+      <arg name="config_file" value="$(arg config_file)"/>
     </include>
   </group>
 
@@ -42,11 +46,8 @@
 
     <!-- Display controllers to user -->
     <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
-      <param name="default_topic" value="steering_topic"/>
+      <param name="default_topic" value="/robot1/vss_robot_diff_drive_controller/cmd_vel"/>
     </node>
-
-    <!-- Run velocity conversion proxy -->
-    <node name="velocity_proxy" pkg="vss_simulation" type="velocity_proxy.py"/>
 
   </group>
 

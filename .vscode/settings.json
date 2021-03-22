@@ -9,6 +9,9 @@
     "*.world": "xml",
     "*.gazebo": "xml",
     "*.sdf": "xml",
+    "*.color": "xml",
+    "*.xacro": "xml",
+    "*.urdf": "xml",
     "*.config": "xml"
   },
   "python.linting.pycodestyleEnabled": true,

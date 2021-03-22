@@ -94,6 +94,33 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "GabrielCosme",
+      "name": "Gabriel Cosme Barbosa",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/62270066?v=4",
+      "profile": "https://github.com/GabrielCosme",
+      "contributions": [
+        "review"
+      ]
+    },
+    {
+      "login": "RicardoHonda",
+      "name": "RicardoHonda",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/62343088?v=4",
+      "profile": "https://github.com/RicardoHonda",
+      "contributions": [
+        "review"
+      ]
+    },
+    {
+      "login": "leticiakimoto",
+      "name": "leticiakimoto",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/62733251?v=4",
+      "profile": "https://github.com/leticiakimoto",
+      "contributions": [
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7
