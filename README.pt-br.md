@@ -87,8 +87,8 @@ Vector3  angular
 
 Os tópicos ROS seguem a convenção de nomenclatura:
 
-- **/yellow_team/robot_[0..2]/vss_robot_diff_drive_controller/cmd_vel**
-- **/blue_team/robot_[0..2]/vss_robot_diff_drive_controller/cmd_vel**
+- **/yellow_team/robot_[0..2]/diff_drive_controller/cmd_vel**
+- **/blue_team/robot_[0..2]/diff_drive_controller/cmd_vel**
 
 O controle do robô é feito pelo [diff_driver_controller](http://wiki.ros.org/diff_drive_controller). Os parâmetros de controle estão especificados no arquivo [./config/motor_diff_drive.yml](./config/motor_diff_drive.yml). O controlador representa o comportamento do sistema de controle embarcado no robô e envia comandos de torque para os motores de modo a seguir o set point recebido.
 
