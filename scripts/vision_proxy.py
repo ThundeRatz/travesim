@@ -15,12 +15,12 @@
 
     Topics:
         - /vision/ball
-        - /vision/robot1
-        - /vision/robot2
-        - /vision/robot3
-        - /vision/foe1
-        - /vision/foe2
-        - /vision/foe3
+        - /vision/yellow_team/robot_0
+        - /vision/yellow_team/robot_1
+        - /vision/yellow_team/robot_2
+        - /vision/blue_team/robot_0
+        - /vision/blue_team/robot_1
+        - /vision/blue_team/robot_2
 """
 
 import rospy
