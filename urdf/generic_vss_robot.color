@@ -26,15 +26,15 @@
 
     <!-- Set robots colors -->
     <gazebo reference="chapeu_link">
-      <xacro:if value="${robot_number == 1}">
+      <xacro:if value="${robot_number == 0}">
         <material>TeamYellow/Robot1/Hat</material>
       </xacro:if>
 
-      <xacro:if value="${robot_number == 2}">
+      <xacro:if value="${robot_number == 1}">
         <material>TeamYellow/Robot2/Hat</material>
       </xacro:if>
 
-      <xacro:if value="${robot_number == 3}">
+      <xacro:if value="${robot_number == 2}">
         <material>TeamYellow/Robot3/Hat</material>
       </xacro:if>      <!-- /Set robots colors -->
     </gazebo>
@@ -65,15 +65,15 @@
 
     <!-- Set robots colors -->
     <gazebo reference="chapeu_link">
-      <xacro:if value="${robot_number == 1}">
+      <xacro:if value="${robot_number == 0}">
         <material>TeamBlue/Robot1/Hat</material>
       </xacro:if>
 
-      <xacro:if value="${robot_number == 2}">
+      <xacro:if value="${robot_number == 1}">
         <material>TeamBlue/Robot2/Hat</material>
       </xacro:if>
 
-      <xacro:if value="${robot_number == 3}">
+      <xacro:if value="${robot_number == 2}">
         <material>TeamBlue/Robot3/Hat</material>
       </xacro:if>      <!-- /Set robots colors -->
     </gazebo>

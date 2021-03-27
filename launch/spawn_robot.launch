@@ -4,9 +4,9 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
 
 <launch>
 
-  <arg name="robot_number" default="1" />
+  <arg name="robot_number" default="0" />
   <arg name="is_yellow" default="true" />
-  <arg name="robot_name" default="yellow_team/robot_1" />
+  <arg name="robot_name" default="yellow_team/robot_0" />
   <arg name="x" default="0"/>
   <arg name="y" default="0"/>
   <arg name="z" default="0.03"/>
