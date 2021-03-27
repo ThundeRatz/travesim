@@ -2,6 +2,21 @@ import * from "grid.material"
 
 // Ref: http://wiki.ogre3d.org/Materials
 
+material TeamYellow/Robot0/Hat
+{
+  receive_shadows off
+  technique
+  {
+    pass ambient
+    {
+      texture_unit
+      {
+      	texture yellow_0.png
+      }
+    }
+  }
+}
+
 material TeamYellow/Robot1/Hat
 {
   receive_shadows off
@@ -32,21 +47,6 @@ material TeamYellow/Robot2/Hat
   }
 }
 
-material TeamYellow/Robot3/Hat
-{
-  receive_shadows off
-  technique
-  {
-    pass ambient
-    {
-      texture_unit
-      {
-      	texture yellow_3.png
-      }
-    }
-  }
-}
-
 material TeamYellow/Sides
 {
   technique
@@ -55,7 +55,7 @@ material TeamYellow/Sides
     {
       texture_unit
       {
-      	texture yellow_0.png
+      	texture yellow_side.png
       }
     }
   }

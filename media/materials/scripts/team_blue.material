@@ -11,6 +11,21 @@ material TeamBlue/Sides
     {
       texture_unit
       {
+      	texture blue_side.png
+      }
+    }
+  }
+}
+
+material TeamBlue/Robot0/Hat
+{
+  receive_shadows off
+  technique
+  {
+    pass ambient
+    {
+      texture_unit
+      {
       	texture blue_0.png
       }
     }
@@ -42,21 +57,6 @@ material TeamBlue/Robot2/Hat
       texture_unit
       {
       	texture blue_2.png
-      }
-    }
-  }
-}
-
-material TeamBlue/Robot3/Hat
-{
-  receive_shadows off
-  technique
-  {
-    pass ambient
-    {
-      texture_unit
-      {
-      	texture blue_3.png
       }
     }
   }
