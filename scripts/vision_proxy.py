@@ -31,12 +31,13 @@ from gazebo_msgs.msg import ModelStates, ModelState
 
 # We take out every "vss_" prefix from our models
 MODELS_NAMES = ["vss_ball",
-                "robot1",
-                "robot2",
-                "robot3",
-                "foe1",
-                "foe2",
-                "foe3"]
+                "yellow_team/robot_0",
+                "yellow_team/robot_1",
+                "yellow_team/robot_2",
+                "blue_team/robot_0",
+                "blue_team/robot_1",
+                "blue_team/robot_2",
+                ]
 
 pubs = {}
 
