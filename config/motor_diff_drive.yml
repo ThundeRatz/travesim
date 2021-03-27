@@ -3,7 +3,7 @@
 # http://wiki.ros.org/diff_drive_controller
 #
 
-vss_robot_diff_drive_controller:
+diff_drive_controller:
   type: "diff_drive_controller/DiffDriveController"
   publish_rate: 60  # Hz
 
