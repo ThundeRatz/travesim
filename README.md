@@ -89,8 +89,8 @@ Vector3  angular
 
 The ROS topics follow the naming convention:
 
-- **/yellow_team/robot[0..2]/vss_robot_diff_drive_controller/cmd_vel**
-- **/blue_team/robot[0..2]/vss_robot_diff_drive_controller/cmd_vel**
+- **/yellow_team/robot_[0..2]/diff_drive_controller/cmd_vel**
+- **/blue_team/robot_[0..2]/diff_drive_controller/cmd_vel**
 
 The control of the robot is performed by the [diff_driver_controller](http://wiki.ros.org/diff_drive_controller) from the library [ros_control](http://wiki.ros.org/ros_control). The controller represents the behavior of the embedded system of the robot and will send torque commands to the motors in order to follow the received set point.
 
@@ -102,10 +102,10 @@ The simulation also accepts control directly over **angular velocity** commands 
 
 The commands are read from topics of type [std_msgs/Float64](http://docs.ros.org/noetic/api/std_msgs/html/msg/Float64.html), representing each motor's speed in **rad/s**
 
-- **/yellow_team/robot[0..2]/vss_robot_left_controller/command**
-- **/yellow_team/robot[0..2]/vss_robot_right_controller/command**
-- **/blue_team/robot[0..2]/vss_robot_left_controller/command**
-- **/blue_team/robot[0..2]/vss_robot_right_controller/command**
+- **/yellow_team/robot_[0..2]/left_controller/command**
+- **/yellow_team/robot_[0..2]/right_controller/command**
+- **/blue_team/robot_[0..2]/left_controller/command**
+- **/blue_team/robot_[0..2]/right_controller/command**
 
 In order to enable this control interface, one should send the parameter `twist_interface` as false in roslaunch [parameters](#-parameters)
 
@@ -122,7 +122,7 @@ geometry_msgs/Pose[] pose     # desired pose in world frame
 geometry_msgs/Twist[] twist   # desired twist in world frame
 ```
 
-For convenience, this package have a script ([vision_proxy.py](./scripts/vision_proxy.py)) that subscribes this topic and republishes the information at different topics of type [gazebo_msgs/ModelState](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelState.html) for each entity (3 robots, 3 foes and 1 ball, 7 in total).
+For convenience, this package have a script ([vision_proxy.py](./scripts/vision_proxy.py)) that subscribes this topic and republishes the information at different topics of type [gazebo_msgs/ModelState](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelState.html) for each entity (3 yellow team robots, 3 blue team robots and 1 ball, 7 in total).
 
 ```python
 # Set Gazebo Model pose and twist
