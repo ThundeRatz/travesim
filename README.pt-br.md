@@ -87,8 +87,8 @@ Vector3  angular
 
 Os tópicos ROS seguem a convenção de nomenclatura:
 
-- **/robot[1..3]/vss_robot_diff_drive_controller/cmd_vel**
-- **/foe[1..3]/vss_robot_diff_drive_controller/cmd_vel**
+- **/yellow_team/robot[0..2]/vss_robot_diff_drive_controller/cmd_vel**
+- **/blue_team/robot[0..2]/vss_robot_diff_drive_controller/cmd_vel**
 
 O controle do robô é feito pelo [diff_driver_controller](http://wiki.ros.org/diff_drive_controller). Os parâmetros de controle estão especificados no arquivo [./config/motor_diff_drive.yml](./config/motor_diff_drive.yml). O controlador representa o comportamento do sistema de controle embarcado no robô e envia comandos de torque para os motores de modo a seguir o set point recebido.
 
@@ -100,10 +100,10 @@ A simulação também aceita controle diretamente por meio de comandos de **velo
 
 Os comandos são lidos de tópicos do tipo [std_msgs/Float64](http://docs.ros.org/noetic/api/std_msgs/html/msg/Float64.html), representando a velocidade de cada motor em **rad/s**
 
-- **/robot[1..3]/vss_robot_left_controller/command**
-- **/robot[1..3]/vss_robot_right_controller/command**
-- **/foe[1..3]/vss_robot_left_controller/command**
-- **/foe[1..3]/vss_robot_right_controller/command**
+- **/yellow_team/robot[0..2]/vss_robot_left_controller/command**
+- **/yellow_team/robot[0..2]/vss_robot_right_controller/command**
+- **/blue_team/robot[0..2]/vss_robot_left_controller/command**
+- **/blue_team/robot[0..2]/vss_robot_right_controller/command**
 
 Para habilitar essa interface de controle, é necessário enviar o parâmetro `twist_interface` como false nos [parâmetros](#-parâmetros) do roslaunch
 
@@ -131,8 +131,8 @@ string reference_frame      # set pose/twist relative to the frame of this entit
 
 Os tópicos republicados são
 
-- **/vision/robot[1...3]** - Tópicos para os robôs do nosso time
-- **/vision/foe[1...3]** - Tópicos para os robôs adversários
+- **/vision/yellow_team/robot[0..2]** - Tópicos para os robôs do time amarelo
+- **/vision/blue_team/robot[0..2]** - Tópicos para os robôs do time azul
 - **/vision/ball** - Tópico para a bola
 
 Todas as unidades estão no SI, distâncias estão em metros, ângulos estão em radianos, velocidade linear está em m/s e velocidade angular está em rad/s

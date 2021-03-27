@@ -89,8 +89,8 @@ Vector3  angular
 
 The ROS topics follow the naming convention:
 
-- **/robot[1..3]/vss_robot_diff_drive_controller/cmd_vel**
-- **/foe[1..3]/vss_robot_diff_drive_controller/cmd_vel**
+- **/yellow_team/robot[0..2]/vss_robot_diff_drive_controller/cmd_vel**
+- **/blue_team/robot[0..2]/vss_robot_diff_drive_controller/cmd_vel**
 
 The control of the robot is performed by the [diff_driver_controller](http://wiki.ros.org/diff_drive_controller) from the library [ros_control](http://wiki.ros.org/ros_control). The controller represents the behavior of the embedded system of the robot and will send torque commands to the motors in order to follow the received set point.
 
@@ -102,10 +102,10 @@ The simulation also accepts control directly over **angular velocity** commands 
 
 The commands are read from topics of type [std_msgs/Float64](http://docs.ros.org/noetic/api/std_msgs/html/msg/Float64.html), representing each motor's speed in **rad/s**
 
-- **/robot[1..3]/vss_robot_left_controller/command**
-- **/robot[1..3]/vss_robot_right_controller/command**
-- **/foe[1..3]/vss_robot_left_controller/command**
-- **/foe[1..3]/vss_robot_right_controller/command**
+- **/yellow_team/robot[0..2]/vss_robot_left_controller/command**
+- **/yellow_team/robot[0..2]/vss_robot_right_controller/command**
+- **/blue_team/robot[0..2]/vss_robot_left_controller/command**
+- **/blue_team/robot[0..2]/vss_robot_right_controller/command**
 
 In order to enable this control interface, one should send the parameter `twist_interface` as false in roslaunch [parameters](#-parameters)
 
@@ -135,8 +135,8 @@ string reference_frame      # set pose/twist relative to the frame of this entit
 
 The republished topics are
 
-- **/vision/robot[1...3]** - Team robots's topics
-- **/vision/foe[1...3]** - Adversary robots's topics
+- **/vision/yellow_team/robot[0..2]** - Yellow team robots's topics
+- **/vision/blue_team/robot[0..2]** - Blue team robots's topics
 - **/vision/ball** - Ball's topic
 
 All units are [SI](https://en.wikipedia.org/wiki/International_System_of_Units), distances are measured in meters, angles in radians, linear velocity in m/s and angular velocity in rad/s.
