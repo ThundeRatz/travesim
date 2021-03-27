@@ -100,10 +100,10 @@ A simulação também aceita controle diretamente por meio de comandos de **velo
 
 Os comandos são lidos de tópicos do tipo [std_msgs/Float64](http://docs.ros.org/noetic/api/std_msgs/html/msg/Float64.html), representando a velocidade de cada motor em **rad/s**
 
-- **/yellow_team/robot_[0..2]/vss_robot_left_controller/command**
-- **/yellow_team/robot_[0..2]/vss_robot_right_controller/command**
-- **/blue_team/robot_[0..2]/vss_robot_left_controller/command**
-- **/blue_team/robot_[0..2]/vss_robot_right_controller/command**
+- **/yellow_team/robot_[0..2]/left_controller/command**
+- **/yellow_team/robot_[0..2]/right_controller/command**
+- **/blue_team/robot_[0..2]/left_controller/command**
+- **/blue_team/robot_[0..2]/right_controller/command**
 
 Para habilitar essa interface de controle, é necessário enviar o parâmetro `twist_interface` como false nos [parâmetros](#-parâmetros) do roslaunch
 
