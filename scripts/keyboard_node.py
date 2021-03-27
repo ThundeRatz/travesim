@@ -29,7 +29,7 @@ INVERT_Y_AXIS = True
 ROBOTS = 3
 
 # Namespace dos tópicos que iremos publicar
-DEFAULT_NAMESPACE = "/robot{}"
+DEFAULT_NAMESPACE = "/yellow_team/robot_{}"
 
 DEFAULT_DEBUG = False
 
@@ -64,7 +64,7 @@ def drawConsole(win, font, console):
         ypos -= font.get_height()
 
 
-def main(namespace, debug=DEFAULT_DEBUG):
+def main(debug=DEFAULT_DEBUG):
 
     vel_pub = None
     vel_msg = None
@@ -78,7 +78,7 @@ def main(namespace, debug=DEFAULT_DEBUG):
 
     for i in range(ROBOTS):
         vel_pub.append(rospy.Publisher(
-            getNamespace(i) + '/vss_robot_diff_drive_controller/cmd_vel',
+            getNamespace(i) + '/diff_drive_controller/cmd_vel',
             Twist, queue_size=2))
 
     rate = rospy.Rate(60)  # 60hz
@@ -87,7 +87,7 @@ def main(namespace, debug=DEFAULT_DEBUG):
 
     # Cria a janela
     win = pygame.display.set_mode((640, 480), pygame.RESIZABLE)
-    pygame.display.set_caption("nRFDongle Comunication Interface")
+    pygame.display.set_caption("Keyboard Comunication Interface")
 
     # Lista de frases a serem mostradas no console
     console = []
@@ -234,4 +234,4 @@ if __name__ == "__main__":
 
     # args = parser.parse_args(myargv)
 
-    main(DEFAULT_NAMESPACE)
+    main()
