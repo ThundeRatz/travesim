@@ -5,6 +5,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Para a versão em PT-BR 🇧🇷 desse documento, veja [aqui](./CHANGELOG.pt-br.md)
 
+## [3.0.0] - 2021-03-26
+
+### Changed
+
+- Robots names now follow the convention /[yellow|blue]_team/robot[0..2]. This change applies to robots model name and topics namespace
+
 ## [2.1.0] - 2021-03-22
 
 ### Added

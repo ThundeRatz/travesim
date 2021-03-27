@@ -3,6 +3,12 @@
 O formato é baseado no [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 e esse projeto segue a convenção [versionamento semântico](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2021-03-26
+
+### Modificado
+
+- Nomes dos robôs agora seguem a convenção /[yellow|blue]_team/robot[0..2]. Essa mudança se aplica aos nomes dos modelos dos robôs e ao namespace dos tópicos
+
 ## [2.1.0] - 2021-03-22
 
 ### Adicionado
