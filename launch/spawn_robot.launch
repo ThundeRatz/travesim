@@ -31,7 +31,7 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
     </group>
 
     <group unless="$(eval config_file=='')">
-      <rosparam command="load" file="config_file" />
+      <rosparam command="load" file="$(find vss_simulation)/config/$(arg config_file)" />
     </group>
 
     <node name="vss_robot_controller" pkg="controller_manager" type="spawner" args="vss_robot_diff_drive_controller"/>
@@ -45,7 +45,7 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
     </group>
 
     <group unless="$(eval config_file=='')">
-      <rosparam command="load" file="config_file" />
+      <rosparam command="load" file="$(find vss_simulation)/config/$(arg config_file)" />
     </group>
 
     <node name="vss_robot_controller" pkg="controller_manager" type="spawner" args="vss_robot_left_controller
