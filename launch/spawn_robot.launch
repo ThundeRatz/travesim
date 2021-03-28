@@ -26,11 +26,11 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
 
   <group if="$(arg twist_interface)">
     <!-- Load configs to control robot motors -->
-    <group if="$(eval config_file is '')">
+    <group if="$(eval config_file=='')">
       <rosparam command="load" file="$(find vss_simulation)/config/motor_diff_drive.yml" />
     </group>
 
-    <group unless="$(eval config_file is '')">
+    <group unless="$(eval config_file=='')">
       <rosparam command="load" file="config_file" />
     </group>
 
@@ -40,11 +40,11 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
 
   <group unless="$(arg twist_interface)">
     <!-- Load configs to control robot motors -->
-    <group if="$(eval config_file is '')">
+    <group if="$(eval config_file=='')">
       <rosparam command="load" file="$(find vss_simulation)/config/motor_direct_drive.yml" />
     </group>
 
-    <group unless="$(eval config_file is '')">
+    <group unless="$(eval config_file=='')">
       <rosparam command="load" file="config_file" />
     </group>
 
