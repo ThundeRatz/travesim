@@ -13,6 +13,7 @@
   <arg name="yaw" default="0" />
   <arg name="twist_interface" default="true"/>
   <arg name="drive_config_file" default=""/>
+  <arg name="ros_control_config_file" default=""/>
 
   <!-- Control option -->
   <arg name="keyboard" default="false"/>
@@ -35,6 +36,7 @@
       <arg name="yaw" value="$(arg yaw)" />
       <arg name="twist_interface" value="$(arg twist_interface)"/>
       <arg name="drive_config_file" value="$(arg drive_config_file)"/>
+      <arg name="ros_control_config_file" value="$(arg ros_control_config_file)"/>
     </include>
   </group>
 

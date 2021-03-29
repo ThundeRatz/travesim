@@ -8,15 +8,3 @@ vss_robot_left_controller:
 vss_robot_right_controller:
   type: velocity_controllers/JointVelocityController
   joint: roda_dir_joint
-
-gazebo_ros_control:
-  pid_gains:
-    roda_esq_joint:
-      p: 0.01
-      i: 0
-      d: 0
-    roda_dir_joint:
-      p: 0.01
-      i: 0
-      d: 0
-

@@ -22,13 +22,3 @@ vss_robot_diff_drive_controller:
   # Top level frame (link) of the robot description
   base_frame_id: base_link
 
-gazebo_ros_control:
-  pid_gains:
-    roda_esq_joint:
-      p: 0.01
-      i: 0
-      d: 0
-    roda_dir_joint:
-      p: 0.01
-      i: 0
-      d: 0
