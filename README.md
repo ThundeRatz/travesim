@@ -135,8 +135,8 @@ string reference_frame      # set pose/twist relative to the frame of this entit
 
 The republished topics are
 
-- **/vision/yellow_team/robot[0..2]** - Yellow team robots's topics
-- **/vision/blue_team/robot[0..2]** - Blue team robots's topics
+- **/vision/yellow_team/robot_[0..2]** - Yellow team robots's topics
+- **/vision/blue_team/robot_[0..2]** - Blue team robots's topics
 - **/vision/ball** - Ball's topic
 
 All units are [SI](https://en.wikipedia.org/wiki/International_System_of_Units), distances are measured in meters, angles in radians, linear velocity in m/s and angular velocity in rad/s.
