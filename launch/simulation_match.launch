@@ -9,7 +9,7 @@
   <arg name="world_name" default="vss_field.world"/>
   <arg name="recording" default="false"/>
   <arg name="twist_interface" default="true"/>
-  <arg name="config_file" default=""/>
+  <arg name="drive_config_file" default=""/>
 
   <!-- Control option -->
   <arg name="keyboard" default="false"/>
@@ -42,7 +42,7 @@
       <arg name="y" value="0" />
       <arg name="model" value="$(arg model)" />
       <arg name="twist_interface" value="$(arg twist_interface)"/>
-      <arg name="config_file" value="$(arg config_file)"/>
+      <arg name="drive_config_file" value="$(arg drive_config_file)"/>
     </include>
   </group>
 
@@ -56,7 +56,7 @@
       <arg name="y" value="0.3" />
       <arg name="model" value="$(arg model)" />
       <arg name="twist_interface" value="$(arg twist_interface)"/>
-      <arg name="config_file" value="$(arg config_file)"/>
+      <arg name="drive_config_file" value="$(arg drive_config_file)"/>
     </include>
   </group>
 
@@ -70,7 +70,7 @@
       <arg name="y" value="-0.3" />
       <arg name="model" value="$(arg model)" />
       <arg name="twist_interface" value="$(arg twist_interface)"/>
-      <arg name="config_file" value="$(arg config_file)"/>
+      <arg name="drive_config_file" value="$(arg drive_config_file)"/>
     </include>
   </group>
   <!-- /Spawn frinds team -->
@@ -88,7 +88,7 @@
       <arg name="yaw" value="3.14159" />
       <arg name="model" value="$(arg model)" />
       <arg name="twist_interface" value="$(arg twist_interface)"/>
-      <arg name="config_file" value="$(arg config_file)"/>
+      <arg name="drive_config_file" value="$(arg drive_config_file)"/>
     </include>
   </group>
 
@@ -104,7 +104,7 @@
       <arg name="yaw" value="3.14159" />
       <arg name="model" value="$(arg model)" />
       <arg name="twist_interface" value="$(arg twist_interface)"/>
-      <arg name="config_file" value="$(arg config_file)"/>
+      <arg name="drive_config_file" value="$(arg drive_config_file)"/>
     </include>
   </group>
 
@@ -120,7 +120,7 @@
       <arg name="yaw" value="3.14159" />
       <arg name="model" value="$(arg model)" />
       <arg name="twist_interface" value="$(arg twist_interface)"/>
-      <arg name="config_file" value="$(arg config_file)"/>
+      <arg name="drive_config_file" value="$(arg drive_config_file)"/>
     </include>
   </group>
   <!-- /Spawn foes team -->

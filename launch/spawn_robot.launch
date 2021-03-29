@@ -15,7 +15,7 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
   <arg name="yaw" default="0"/>
   <arg name="model" default="$(find vss_simulation)/urdf/generic_vss_robot.xacro"/>
   <arg name="twist_interface" default="true"/>
-  <arg name="config_file" default=""/>
+  <arg name="drive_config_file" default=""/>
 
   <param name="robot_description" command="$(find xacro)/xacro $(arg model) robot_number:=$(arg robot_number) team_number:=$(arg team_number)" />
 
@@ -26,12 +26,12 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
 
   <group if="$(arg twist_interface)">
     <!-- Load configs to control robot motors -->
-    <group if="$(eval config_file=='')">
+    <group if="$(eval drive_config_file=='')">
       <rosparam command="load" file="$(find vss_simulation)/config/motor_diff_drive.yml" />
     </group>
 
-    <group unless="$(eval config_file=='')">
-      <rosparam command="load" file="$(arg config_file)" />
+    <group unless="$(eval drive_config_file=='')">
+      <rosparam command="load" file="$(arg drive_config_file)" />
     </group>
 
     <node name="vss_robot_controller" pkg="controller_manager" type="spawner" args="vss_robot_diff_drive_controller"/>
@@ -40,12 +40,12 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
 
   <group unless="$(arg twist_interface)">
     <!-- Load configs to control robot motors -->
-    <group if="$(eval config_file=='')">
+    <group if="$(eval drive_config_file=='')">
       <rosparam command="load" file="$(find vss_simulation)/config/motor_direct_drive.yml" />
     </group>
 
-    <group unless="$(eval config_file=='')">
-      <rosparam command="load" file="$(arg config_file)" />
+    <group unless="$(eval drive_config_file=='')">
+      <rosparam command="load" file="$(arg drive_config_file)" />
     </group>
 
     <node name="vss_robot_controller" pkg="controller_manager" type="spawner" args="vss_robot_left_controller
