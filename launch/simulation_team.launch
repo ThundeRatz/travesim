@@ -9,7 +9,7 @@
   <arg name="world_name" default="vss_field.world"/>
   <arg name="recording" default="false"/>
   <arg name="twist_interface" default="true"/>
-  <arg name="drive_config_file" default=""/>
+  <arg name="controller_config_file" default=""/>
   <arg name="ros_control_config_file" default=""/>
 
   <!-- Control option -->
@@ -41,7 +41,7 @@
       <arg name="y" value="0" />
       <arg name="model" value="$(arg model)" />
       <arg name="twist_interface" value="$(arg twist_interface)"/>
-      <arg name="drive_config_file" value="$(arg drive_config_file)"/>
+      <arg name="controller_config_file" value="$(arg controller_config_file)"/>
       <arg name="ros_control_config_file" value="$(arg ros_control_config_file)"/>
     </include>
   </group>
@@ -55,7 +55,7 @@
       <arg name="y" value="0.3" />
       <arg name="model" value="$(arg model)" />
       <arg name="twist_interface" value="$(arg twist_interface)"/>
-      <arg name="drive_config_file" value="$(arg drive_config_file)"/>
+      <arg name="controller_config_file" value="$(arg controller_config_file)"/>
       <arg name="ros_control_config_file" value="$(arg ros_control_config_file)"/>
     </include>
   </group>
@@ -69,7 +69,7 @@
       <arg name="y" value="-0.3" />
       <arg name="model" value="$(arg model)" />
       <arg name="twist_interface" value="$(arg twist_interface)"/>
-      <arg name="drive_config_file" value="$(arg drive_config_file)"/>
+      <arg name="controller_config_file" value="$(arg controller_config_file)"/>
       <arg name="ros_control_config_file" value="$(arg ros_control_config_file)"/>
     </include>
   </group>
