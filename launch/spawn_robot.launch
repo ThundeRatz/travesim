@@ -28,8 +28,8 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
   <!-- Load ros control config file -->
   <rosparam command="load" file="$(arg ros_control_config_file)" />
 
+  <!-- Load configs to control robot motors in diff drive mode -->
   <group if="$(arg twist_interface)">
-    <!-- Load configs to control robot motors -->
     <group if="$(eval controller_config_file=='')">
       <rosparam command="load" file="$(find vss_simulation)/config/motor_diff_drive.yml" />
     </group>
@@ -41,9 +41,8 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
     <node name="vss_robot_controller" pkg="controller_manager" type="spawner" args="vss_robot_diff_drive_controller"/>
   </group>
 
-
+  <!-- Load configs to control robot motors in direct drive mode -->
   <group unless="$(arg twist_interface)">
-    <!-- Load configs to control robot motors -->
     <group if="$(eval controller_config_file=='')">
       <rosparam command="load" file="$(find vss_simulation)/config/motor_direct_drive.yml" />
     </group>
