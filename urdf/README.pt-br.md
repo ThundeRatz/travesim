@@ -9,7 +9,7 @@ Dentro dessa pasta estão os arquivos de descrição para um robô genérico de 
 - **generic\_vss\_robot.urdf** - Descrição em [URDF](http://wiki.ros.org/urdf) do robô, gerada com a extensão [SW2URDF](http://wiki.ros.org/sw_urdf_exporter) do SolidWorks
 - **generic\_vss\_robot.xacro** - Arquivo principal que importa todos os outros
 - **generic\_vss\_robot.gazebo** - Especificações específicas do Gazebo, por exemplo, propriedades físicas e configuração de cores
-  - **generic\_vss\_team.gazebo** - Configurações diferentes de cores para os dois times (Amarelo/Azul) e para cada robô (1..3) de cada time
+  - **generic\_vss\_team.gazebo** - Configurações diferentes de cores para os dois times (Amarelo/Azul) e para cada robô (0..2) de cada time
 - **motor.xacro** - Configuração do atuador e da transmissão para controle dos motores com a biblioteca [hardware\_interface](http://wiki.ros.org/ros_control#Hardware_Interfaces) de [ros\_control](http://wiki.ros.org/ros_control)
 - **generic_vss_robot.pdf** - Desenho técnico detalhado do modelo 3D do robô
 

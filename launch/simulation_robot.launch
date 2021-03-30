@@ -27,7 +27,7 @@
     <arg name="recording" value="$(arg recording)"/>
   </include>
 
-  <group ns="robot1">
+  <group ns="yellow_team/robot_0">
     <include file="$(find vss_simulation)/launch/spawn_robot.launch">
       <arg name="model" value="$(arg model)" />
       <arg name="x" value="$(arg x)" />
@@ -46,7 +46,7 @@
 
     <!-- Display controllers to user -->
     <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
-      <param name="default_topic" value="/robot1/vss_robot_diff_drive_controller/cmd_vel"/>
+      <param name="default_topic" value="/yellow_team/robot_0/diff_drive_controller/cmd_vel"/>
     </node>
 
   </group>

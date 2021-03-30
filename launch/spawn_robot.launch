@@ -4,9 +4,9 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
 
 <launch>
 
-  <arg name="robot_number" default="1" />
-  <arg name="team_number" default="0" />
-  <arg name="robot_name" default="$(eval 'robot'+str(team_number*3+robot_number))" />
+  <arg name="robot_number" default="0" />
+  <arg name="is_yellow" default="true" />
+  <arg name="robot_name" default="yellow_team/robot_0" />
   <arg name="x" default="0"/>
   <arg name="y" default="0"/>
   <arg name="z" default="0.03"/>
@@ -17,7 +17,7 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
   <arg name="twist_interface" default="true"/>
   <arg name="config_file" default=""/>
 
-  <param name="robot_description" command="$(find xacro)/xacro $(arg model) robot_number:=$(arg robot_number) team_number:=$(arg team_number)" />
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model) robot_number:=$(arg robot_number) is_yellow:=$(arg is_yellow)" />
 
   <!-- push robot_description to factory and spawn robot in gazebo -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" args="-x $(arg x) -y $(arg y) -z $(arg z)
@@ -34,7 +34,7 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
       <rosparam command="load" file="$(arg config_file)" />
     </group>
 
-    <node name="vss_robot_controller" pkg="controller_manager" type="spawner" args="vss_robot_diff_drive_controller"/>
+    <node name="controller_manager" pkg="controller_manager" type="spawner" args="diff_drive_controller"/>
   </group>
 
 
@@ -48,8 +48,8 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
       <rosparam command="load" file="$(arg config_file)" />
     </group>
 
-    <node name="vss_robot_controller" pkg="controller_manager" type="spawner" args="vss_robot_left_controller
-      vss_robot_right_controller"/>
+    <node name="controller_manager" pkg="controller_manager" type="spawner" args="left_controller
+      right_controller"/>
   </group>
 
 </launch>

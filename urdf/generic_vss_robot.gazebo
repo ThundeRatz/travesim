@@ -38,12 +38,12 @@
   <!-- Load gazebo plugin to control the robot -->
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <xacro:if value="${team_number == 0}">
-        <robotNamespace>/robot$(arg robot_number)</robotNamespace>
+      <xacro:if value="${is_yellow}">
+        <robotNamespace>/yellow_team/robot_$(arg robot_number)</robotNamespace>
       </xacro:if>
-      <xacro:if value="${team_number == 1}">
-        <robotNamespace>/foe$(arg robot_number)</robotNamespace>
-      </xacro:if>
+      <xacro:unless value="${is_yellow}">
+        <robotNamespace>/blue_team/robot_$(arg robot_number)</robotNamespace>
+      </xacro:unless>
     </plugin>
   </gazebo>
 </robot>

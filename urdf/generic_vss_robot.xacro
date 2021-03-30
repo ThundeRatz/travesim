@@ -4,10 +4,10 @@
   xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:arg name="robot_number" default="0" />
-  <xacro:arg name="team_number" default="0" />
+  <xacro:arg name="is_yellow" default="0" />
 
   <xacro:property name="robot_number" value="$(arg robot_number)" />
-  <xacro:property name="team_number" value="$(arg team_number)" />
+  <xacro:property name="is_yellow" value="$(arg is_yellow)" />
 
   <!-- Import all Gazebo-customization elements, except colors -->
   <xacro:include filename="$(find vss_simulation)/urdf/generic_vss_robot.gazebo" />
