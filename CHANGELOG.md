@@ -11,8 +11,8 @@ Para a versão em PT-BR 🇧🇷 desse documento, veja [aqui](./CHANGELOG.pt-br.
 
 - Robots names now follow the convention /[yellow|blue]\_team/robot\_[0..2]. This change applies to robots model name and topics namespace
 - The controllers topic changed as
-  - **/[yellow|blue]\_team/robot\_[0..2]/~~vss_robot_~~diff\_drive\_controller/cmd\_vel** - **/[yellow|blue]\_team/robot\_[0..2]/diff\_drive\_controller/cmd\_vel**
-  - **/[yellow|blue]\_team/robot\_[0..2]/~~vss_robot_~~[left|right]_controller/command** - **/[yellow|blue]\_team/robot\_[0..2]/[left|right]_controller/command**
+  - **/[yellow|blue]\_team/robot\_[0..2]/~~vss_robot~~\_diff\_drive\_controller/cmd\_vel** - **/[yellow|blue]\_team/robot\_[0..2]/diff\_drive\_controller/cmd\_vel**
+  - **/[yellow|blue]\_team/robot\_[0..2]/~~vss_robot~~\_[left|right]_controller/command** - **/[yellow|blue]\_team/robot\_[0..2]/[left|right]_controller/command**
 
 ## [2.1.0] - 2021-03-22
 
