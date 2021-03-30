@@ -9,8 +9,8 @@ e esse projeto segue a convenção [versionamento semântico](https://semver.org
 
 - Nomes dos robôs agora seguem a convenção /[yellow|blue]\_team/robot\_[0..2]. Essa mudança se aplica aos nomes dos modelos dos robôs e ao namespace dos tópicos
 - O tópico dos controladores mudou da forma
-  - **/[yellow|blue]\_team/robot\_[0..2]/~~vss_robot_~~diff\_drive\_controller/cmd\_vel** - **/[yellow|blue]\_team/robot\_[0..2]/diff\_drive\_controller/cmd\_vel**
-  - **/[yellow|blue]\_team/robot\_[0..2]/~~vss_robot_~~[left|right]_controller/command** - **/[yellow|blue]\_team/robot\_[0..2]/[left|right]_controller/command**
+  - **/[yellow|blue]\_team/robot\_[0..2]/~~vss_robot~~\_diff\_drive\_controller/cmd\_vel** - **/[yellow|blue]\_team/robot\_[0..2]/diff\_drive\_controller/cmd\_vel**
+  - **/[yellow|blue]\_team/robot\_[0..2]/~~vss_robot~~\_[left|right]_controller/command** - **/[yellow|blue]\_team/robot\_[0..2]/[left|right]_controller/command**
 
 ## [2.1.0] - 2021-03-22
 
