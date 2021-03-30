@@ -16,7 +16,7 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
   <arg name="model" default="$(find vss_simulation)/urdf/generic_vss_robot.xacro"/>
   <arg name="twist_interface" default="true"/>
   <arg name="controller_config_file" default=""/>
-  <arg name="ros_control_config_file" default=""/>
+  <arg name="ros_control_config_file" default="$(find vss_simulation)/config/ros_control_config.yml"/>
 
   <param name="robot_description" command="$(find xacro)/xacro $(arg model) robot_number:=$(arg robot_number) team_number:=$(arg team_number)" />
 
@@ -26,13 +26,7 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
               -urdf -model $(arg robot_name) -param robot_description" respawn="false" output="screen" />
 
   <!-- Load ros control config file -->
-  <group if="$(eval ros_control_config_file=='')">
-      <rosparam command="load" file="$(find vss_simulation)/config/ros_control_config.yml" />
-    </group>
-
-    <group unless="$(eval ros_control_config_file=='')">
-      <rosparam command="load" file="$(arg ros_control_config_file)" />
-  </group>
+  <rosparam command="load" file="$(arg ros_control_config_file)" />
 
   <group if="$(arg twist_interface)">
     <!-- Load configs to control robot motors -->
