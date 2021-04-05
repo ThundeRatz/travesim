@@ -14,10 +14,6 @@
 
 ---
 
-- [📷 Screenshots](#-screenshots)
-  - [Simulação de um robô](#simulação-de-um-robô)
-  - [Simulação do time](#simulação-do-time)
-  - [Simulação da partida](#simulação-da-partida)
 - [🎈 Introdução](#-introdução)
 - [📣 Tópicos ROS](#-tópicos-ros)
   - [⬅ Entrada](#-entrada)
@@ -35,20 +31,10 @@
 - [🎨 Cores no Gazebo](#-cores-no-gazebo)
 - [📝 Contribuindo](#-contribuindo)
 - [✨ Contribuidores](#-contribuidores)
-
-## 📷 Screenshots
-
-### Simulação de um robô
-
-![screenshot](./docs/screenshot_robot.png)
-
-### Simulação do time
-
-![screenshot](./docs/screenshot_team.png)
-
-### Simulação da partida
-
-![screenshot](./docs/screenshot_match.png)
+- [📷 Screenshots](#-screenshots)
+  - [Simulação de um robô](#simulação-de-um-robô)
+  - [Simulação do time](#simulação-do-time)
+  - [Simulação da partida](#simulação-da-partida)
 
 ## 🎈 Introdução
 
@@ -302,3 +288,17 @@ Agradecimentos a essas pessoas incríveis ([emoji key](https://allcontributors.o
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 Esse projeto segue a especificação do [all-contributors](https://github.com/all-contributors/all-contributors). Contribuições de qualquer tipo são bem vindas!
+
+## 📷 Screenshots
+
+### Simulação de um robô
+
+![screenshot](./docs/screenshot_robot.png)
+
+### Simulação do time
+
+![screenshot](./docs/screenshot_team.png)
+
+### Simulação da partida
+
+![screenshot](./docs/screenshot_match.png)
