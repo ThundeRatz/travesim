@@ -5,7 +5,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Para a versão em PT-BR 🇧🇷 desse documento, veja [aqui](./CHANGELOG.pt-br.md)
 
-## [3.0.0] - 2021-03-26
+## [21.03.2] - 2021-03-26
 
 ### Changed
 
@@ -14,7 +14,7 @@ Para a versão em PT-BR 🇧🇷 desse documento, veja [aqui](./CHANGELOG.pt-br.
   - **/[yellow|blue]\_team/robot\_[0..2]/~~vss_robot~~\_diff\_drive\_controller/cmd\_vel** - **/[yellow|blue]\_team/robot\_[0..2]/diff\_drive\_controller/cmd\_vel**
   - **/[yellow|blue]\_team/robot\_[0..2]/~~vss_robot~~\_[left|right]_controller/command** - **/[yellow|blue]\_team/robot\_[0..2]/[left|right]_controller/command**
 
-## [2.1.0] - 2021-03-22
+## [21.03.1] - 2021-03-22
 
 ### Added
 
@@ -28,7 +28,7 @@ Para a versão em PT-BR 🇧🇷 desse documento, veja [aqui](./CHANGELOG.pt-br.
 
 - Wheels torque direct control
 
-## [2.0.0] - 2020-10-05 - [Open Camera](https://github.com/ThundeRatz/vss_simulation/releases/tag/v2.0)
+## [20.10.1] - 2020-10-05 - [Open Camera](https://github.com/ThundeRatz/vss_simulation/releases/tag/v2.0)
 
 ### Added
 
@@ -51,7 +51,7 @@ Para a versão em PT-BR 🇧🇷 desse documento, veja [aqui](./CHANGELOG.pt-br.
 - Ball physical properties
 - The simulation fails to start sometimes
 
-## [2.0.0-alpha] - 2020-05-12
+## [20.05.2] - 2020-05-12
 
 ### Added
 
@@ -70,7 +70,7 @@ Para a versão em PT-BR 🇧🇷 desse documento, veja [aqui](./CHANGELOG.pt-br.
 - Ball physical properties
 - The simulation fails to start sometimes
 
-## [1.0.0] - 2020-05-04 - [Iron Cup 2020](https://github.com/ThundeRatz/vss_simulation/releases/tag/v1.0)
+## [20.05.1] - 2020-05-04 - [Iron Cup 2020](https://github.com/ThundeRatz/vss_simulation/releases/tag/v1.0)
 
 ### Added
 

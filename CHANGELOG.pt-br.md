@@ -3,7 +3,7 @@
 O formato é baseado no [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 e esse projeto segue a convenção [versionamento semântico](https://semver.org/spec/v2.0.0.html).
 
-## [3.0.0] - 2021-03-26
+## [21.03.2] - 2021-03-26
 
 ### Modificado
 
@@ -12,7 +12,7 @@ e esse projeto segue a convenção [versionamento semântico](https://semver.org
   - **/[yellow|blue]\_team/robot\_[0..2]/~~vss_robot~~\_diff\_drive\_controller/cmd\_vel** - **/[yellow|blue]\_team/robot\_[0..2]/diff\_drive\_controller/cmd\_vel**
   - **/[yellow|blue]\_team/robot\_[0..2]/~~vss_robot~~\_[left|right]_controller/command** - **/[yellow|blue]\_team/robot\_[0..2]/[left|right]_controller/command**
 
-## [2.1.0] - 2021-03-22
+## [21.03.1] - 2021-03-22
 
 ### Adicionado
 
@@ -26,7 +26,7 @@ e esse projeto segue a convenção [versionamento semântico](https://semver.org
 
 - Controle direto das rodas por torque
 
-## [2.0.0] - 2020-10-05 - [Open Camera](https://github.com/ThundeRatz/vss_simulation/releases/tag/v2.0)
+## [20.10.1] - 2020-10-05 - [Open Camera](https://github.com/ThundeRatz/vss_simulation/releases/tag/v2.0)
 
 ### Adicionado
 
@@ -49,7 +49,7 @@ e esse projeto segue a convenção [versionamento semântico](https://semver.org
 - Propriedades físicas da bola
 - A simulação falha em iniciar ocasionalmente
 
-## [2.0.0-alpha] - 2020-05-12
+## [20.05.2] - 2020-05-12
 
 ### Adicionado
 
@@ -69,7 +69,7 @@ e esse projeto segue a convenção [versionamento semântico](https://semver.org
 - Propriedades físicas da bola
 - A simulação falha em iniciar ocasionalmente
 
-## [1.0.0] - 2020-05-04 - [Iron Cup 2020](https://github.com/ThundeRatz/vss_simulation/releases/tag/v1.0)
+## [20.05.1] - 2020-05-04 - [Iron Cup 2020](https://github.com/ThundeRatz/vss_simulation/releases/tag/v1.0)
 
 ### Adicionado
 
