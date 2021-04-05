@@ -7,7 +7,7 @@
     "README.md",
     "README.pt-br.md"
   ],
-  "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=for-the-badge)](#-contributors)",
+  "badgeTemplate": "<img src=\"https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=for-the-badge\" href=\"#-contributors\"/>",
   "imageSize": 100,
   "commit": true,
   "commitConvention": "gitmoji",
