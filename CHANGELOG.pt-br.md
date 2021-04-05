@@ -3,6 +3,13 @@
 O formato é baseado no [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 e esse projeto segue a convenção [versionamento semântico](https://semver.org/spec/v2.0.0.html).
 
+## [21.04.1] - 2021-04-05
+
+### Modificado
+
+- Nome do projeto passa a ser **TraveSim** ao invés de **vss_simulation**
+- Projeto passa a utilizar o versionamento cronológico no formato YY.0D.MINOR
+
 ## [21.03.2] - 2021-03-26
 
 ### Modificado
@@ -88,10 +95,11 @@ e esse projeto segue a convenção [versionamento semântico](https://semver.org
 - Propriedades físicas da bola
 - Comportamento dos motores ideal demais - longe da realidade
 
-[Open Camera]: https://github.com/ThundeRatz/vss_simulation/releases/tag/v20.10.1
-[Iron Cup 2020]: https://github.com/ThundeRatz/vss_simulation/releases/tag/v20.05.1
-[21.03.2]: https://github.com/ThundeRatz/vss_simulation/releases/tag/v21.03.2
-[21.03.1]: https://github.com/ThundeRatz/vss_simulation/releases/tag/v21.03.1
-[20.10.1]: https://github.com/ThundeRatz/vss_simulation/releases/tag/v20.10.1
-[20.05.2]: https://github.com/ThundeRatz/vss_simulation/releases/tag/v20.05.2
-[20.05.1]: https://github.com/ThundeRatz/vss_simulation/releases/tag/v20.05.1
+[Open Camera]: https://github.com/ThundeRatz/travesim/releases/tag/v20.10.1
+[Iron Cup 2020]: https://github.com/ThundeRatz/travesim/releases/tag/v20.05.1
+[21.04.1]: https://github.com/ThundeRatz/travesim/releases/tag/v21.04.1
+[21.03.2]: https://github.com/ThundeRatz/travesim/releases/tag/v21.03.2
+[21.03.1]: https://github.com/ThundeRatz/travesim/releases/tag/v21.03.1
+[20.10.1]: https://github.com/ThundeRatz/travesim/releases/tag/v20.10.1
+[20.05.2]: https://github.com/ThundeRatz/travesim/releases/tag/v20.05.2
+[20.05.1]: https://github.com/ThundeRatz/travesim/releases/tag/v20.05.1
