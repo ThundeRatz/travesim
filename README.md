@@ -1,15 +1,18 @@
-# VSS simulation with ROS and Gazebo
+<h1 align="center"> ⚽ TraveSim 🥅 </h1>
+<p align="center">IEEE Very Small Size Soccer simulation project with ROS and Gazebo</p>
 
-[![ROS version](https://img.shields.io/badge/ROS%20version-noetic-informational?style=for-the-badge)](http://wiki.ros.org/noetic)
-[![Gazebo version](https://img.shields.io/badge/Gazebo%20version-11-important?style=for-the-badge)](http://gazebosim.org/)
-[![CalVer](https://img.shields.io/badge/calver-YY.0D.MINOR-blue?style=for-the-badge)](https://calver.org/)
-[![Amigos da Poli](./docs/badge_adp.svg)](https://www.amigosdapoli.com.br/)
+<p align="center">
 
+<img src="https://img.shields.io/badge/ROS%20version-noetic-informational?style=for-the-badge" href="http://wiki.ros.org/noetic"/>
+<img src="https://img.shields.io/badge/Gazebo%20version-11-important?style=for-the-badge" href="http://gazebosim.org/"/>
+<img src="https://img.shields.io/badge/calver-YY.0D.MINOR-blue?style=for-the-badge" href="https://calver.org/"/>
+<img src="./docs/badge_adp.svg" href="https://www.amigosdapoli.com.br/"/>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=for-the-badge)](#-contributors)
+<img src="https://img.shields.io/badge/all_contributors-11-orange.svg?style=for-the-badge" href="#-contributors"/>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
+</p>
 
-IEEE VSS team simulation project with ROS and Gazebo
+---
 
 Para a versão em PT-BR 🇧🇷 desse documento, [veja aqui](./README.pt-br.md)
 

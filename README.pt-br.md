@@ -1,38 +1,40 @@
-# Simulação de VSS em ROS com Gazebo
+<h1 align="center"> ⚽ TraveSim 🥅 </h1>
+<p align="center">Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando Gazebo</p>
 
-[![ROS version](https://img.shields.io/badge/ROS%20version-noetic-informational?style=for-the-badge)](http://wiki.ros.org/noetic)
-[![Gazebo version](https://img.shields.io/badge/Gazebo%20version-11-important?style=for-the-badge)](http://gazebosim.org/)
-[![CalVer](https://img.shields.io/badge/calver-YY.0D.MINOR-blue?style=for-the-badge)](https://calver.org/)
-[![Amigos da Poli](./docs/badge_adp.svg)](https://www.amigosdapoli.com.br/)
+<p align="center">
 
+<img src="https://img.shields.io/badge/ROS%20version-noetic-informational?style=for-the-badge" href="http://wiki.ros.org/noetic"/>
+<img src="https://img.shields.io/badge/Gazebo%20version-11-important?style=for-the-badge" href="http://gazebosim.org/"/>
+<img src="https://img.shields.io/badge/calver-YY.0D.MINOR-blue?style=for-the-badge" href="https://calver.org/"/>
+<img src="./docs/badge_adp.svg" href="https://www.amigosdapoli.com.br/"/>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=for-the-badge)](#-contributors)
+<img src="https://img.shields.io/badge/all_contributors-11-orange.svg?style=for-the-badge" href="#-contributors"/>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
+</p>
 
-Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando Gazebo
+---
 
-- [Simulação de VSS em ROS com Gazebo](#simulação-de-vss-em-ros-com-gazebo)
-  - [📷 Screenshots](#-screenshots)
-    - [Simulação de um robô](#simulação-de-um-robô)
-    - [Simulação do time](#simulação-do-time)
-    - [Simulação da partida](#simulação-da-partida)
-  - [🎈 Introdução](#-introdução)
-  - [📣 Tópicos ROS](#-tópicos-ros)
-    - [⬅ Entrada](#-entrada)
-      - [Controle por direção diferencial (padrão)](#controle-por-direção-diferencial-padrão)
-      - [Controle direto dos motores](#controle-direto-dos-motores)
-    - [➡ Saída](#-saída)
-  - [📏 Modelos utilizados](#-modelos-utilizados)
-    - [© Crie seu próprio modelo](#-crie-seu-próprio-modelo)
-  - [🔧 Parâmetros](#-parâmetros)
-    - [🚀 Roslaunch](#-roslaunch)
-  - [📷 Câmera virtual](#-câmera-virtual)
-  - [📁 Estrutura de pastas](#-estrutura-de-pastas)
-  - [➕ Dependências](#-dependências)
-    - [🐍 Python virtual environment](#-python-virtual-environment)
-  - [🎨 Cores no Gazebo](#-cores-no-gazebo)
-  - [📝 Contribuindo](#-contribuindo)
-  - [✨ Contribuidores](#-contribuidores)
+- [📷 Screenshots](#-screenshots)
+  - [Simulação de um robô](#simulação-de-um-robô)
+  - [Simulação do time](#simulação-do-time)
+  - [Simulação da partida](#simulação-da-partida)
+- [🎈 Introdução](#-introdução)
+- [📣 Tópicos ROS](#-tópicos-ros)
+  - [⬅ Entrada](#-entrada)
+    - [Controle por direção diferencial (padrão)](#controle-por-direção-diferencial-padrão)
+    - [Controle direto dos motores](#controle-direto-dos-motores)
+  - [➡ Saída](#-saída)
+- [📏 Modelos utilizados](#-modelos-utilizados)
+  - [© Crie seu próprio modelo](#-crie-seu-próprio-modelo)
+- [🔧 Parâmetros](#-parâmetros)
+  - [🚀 Roslaunch](#-roslaunch)
+- [📷 Câmera virtual](#-câmera-virtual)
+- [📁 Estrutura de pastas](#-estrutura-de-pastas)
+- [➕ Dependências](#-dependências)
+  - [🐍 Python virtual environment](#-python-virtual-environment)
+- [🎨 Cores no Gazebo](#-cores-no-gazebo)
+- [📝 Contribuindo](#-contribuindo)
+- [✨ Contribuidores](#-contribuidores)
 
 ## 📷 Screenshots
 
