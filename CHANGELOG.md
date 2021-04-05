@@ -28,7 +28,7 @@ Para a versão em PT-BR 🇧🇷 desse documento, veja [aqui](./CHANGELOG.pt-br.
 
 - Wheels torque direct control
 
-## [20.10.1] - 2020-10-05 - [Open Camera](https://github.com/ThundeRatz/travesim/releases/tag/v2.0)
+## [20.10.1] - 2020-10-05 - [Open Camera]
 
 ### Added
 
@@ -70,7 +70,7 @@ Para a versão em PT-BR 🇧🇷 desse documento, veja [aqui](./CHANGELOG.pt-br.
 - Ball physical properties
 - The simulation fails to start sometimes
 
-## [20.05.1] - 2020-05-04 - [Iron Cup 2020](https://github.com/ThundeRatz/travesim/releases/tag/v1.0)
+## [20.05.1] - 2020-05-04 - [Iron Cup 2020]
 
 ### Added
 
@@ -88,3 +88,11 @@ Para a versão em PT-BR 🇧🇷 desse documento, veja [aqui](./CHANGELOG.pt-br.
 
 - Ball physical properties
 - Motors behavior too ideal - far from reality
+
+[Open Camera]: https://github.com/ThundeRatz/vss_simulation/releases/tag/v20.10.1
+[Iron Cup 2020]: https://github.com/ThundeRatz/vss_simulation/releases/tag/v20.05.1
+[21.03.2]: https://github.com/ThundeRatz/vss_simulation/releases/tag/v21.03.2
+[21.03.1]: https://github.com/ThundeRatz/vss_simulation/releases/tag/v21.03.1
+[20.10.1]: https://github.com/ThundeRatz/vss_simulation/releases/tag/v20.10.1
+[20.05.2]: https://github.com/ThundeRatz/vss_simulation/releases/tag/v20.05.2
+[20.05.1]: https://github.com/ThundeRatz/vss_simulation/releases/tag/v20.05.1
