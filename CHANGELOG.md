@@ -11,6 +11,7 @@ Para a versão em PT-BR 🇧🇷 desse documento, veja [aqui](./CHANGELOG.pt-br.
 
 - Project name is now **TraveSim** instead of **vss_simulation**
 - Project uses now calendar versioning with the format YY.0D.MINOR
+- Screenshots are now in the end of the README
 
 ## [21.03.2] - 2021-03-26
 

@@ -9,6 +9,7 @@ e esse projeto segue a convenção [versionamento semântico](https://semver.org
 
 - Nome do projeto passa a ser **TraveSim** ao invés de **vss_simulation**
 - Projeto passa a utilizar o versionamento cronológico no formato YY.0D.MINOR
+- Screenshots estão agora no final do README
 
 ## [21.03.2] - 2021-03-26
 
