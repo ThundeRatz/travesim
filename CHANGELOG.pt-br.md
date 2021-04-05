@@ -26,7 +26,7 @@ e esse projeto segue a convenção [versionamento semântico](https://semver.org
 
 - Controle direto das rodas por torque
 
-## [20.10.1] - 2020-10-05 - [Open Camera](https://github.com/ThundeRatz/vss_simulation/releases/tag/v2.0)
+## [20.10.1] - 2020-10-05 - [Open Camera](https://github.com/ThundeRatz/travesim/releases/tag/v2.0)
 
 ### Adicionado
 
@@ -69,7 +69,7 @@ e esse projeto segue a convenção [versionamento semântico](https://semver.org
 - Propriedades físicas da bola
 - A simulação falha em iniciar ocasionalmente
 
-## [20.05.1] - 2020-05-04 - [Iron Cup 2020](https://github.com/ThundeRatz/vss_simulation/releases/tag/v1.0)
+## [20.05.1] - 2020-05-04 - [Iron Cup 2020](https://github.com/ThundeRatz/travesim/releases/tag/v1.0)
 
 ### Adicionado
 

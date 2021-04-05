@@ -17,7 +17,7 @@ A maior parte das contribuições é feita por meio de [GitHub Issues](https://g
 
 Para cada um desses itens, existe um [label específico](https://docs.github.com/en/enterprise/2.17/user/github/managing-your-work-on-github/applying-labels-to-issues-and-pull-requests). Nós recomendamos fortemente que todas as issues criadas contenham pelo menos um desses labels descritos a cima.
 
-Mas, antes de criar uma nova issue, é importante primeiro checar se já não existe uma com o mesmo assunto. Você pode filtrar por labels, por exemplo, [aqui](https://github.com/ThundeRatz/vss_simulation/labels/bug) serão mostradas apenas as issues ativas com o label `bug`.
+Mas, antes de criar uma nova issue, é importante primeiro checar se já não existe uma com o mesmo assunto. Você pode filtrar por labels, por exemplo, [aqui](https://github.com/ThundeRatz/travesim/labels/bug) serão mostradas apenas as issues ativas com o label `bug`.
 
 #### Identificando bugs 🐛
 - Use títulos claros

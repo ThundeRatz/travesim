@@ -12,7 +12,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://vss_simulation/meshes/base_link.STL" />
+        <mesh filename="package://travesim/meshes/base_link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
@@ -21,7 +21,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://vss_simulation/meshes/base_link.STL" />
+        <mesh filename="package://travesim/meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -34,7 +34,7 @@
     <visual>
       <origin xyz="0 0 60e-3" rpy="0 0 0" />
       <geometry>
-        <!-- <mesh filename="package://vss_simulation/meshes/chapeu_link.STL" /> -->
+        <!-- <mesh filename="package://travesim/meshes/chapeu_link.STL" /> -->
         <box size="80e-3 80e-3 2e-3"/>
       </geometry>
       <material name="">
@@ -44,7 +44,7 @@
     <collision>
       <origin xyz="0 0 60e-3" rpy="0 0 0" />
       <geometry>
-        <!-- <mesh filename="package://vss_simulation/meshes/chapeu_link.STL" /> -->
+        <!-- <mesh filename="package://travesim/meshes/chapeu_link.STL" /> -->
         <box size="80e-3 80e-3 2e-3"/>
       </geometry>
     </collision>
@@ -64,7 +64,7 @@
     <visual>
       <origin xyz="0 -38.5e-3 30e-3" rpy="0 0 0" />
       <geometry>
-        <!-- <mesh filename="package://vss_simulation/meshes/parede_dir_link.STL" /> -->
+        <!-- <mesh filename="package://travesim/meshes/parede_dir_link.STL" /> -->
         <box size="75e-3 2e-3 60e-3"/>
       </geometry>
       <material name="">
@@ -74,7 +74,7 @@
     <collision>
       <origin xyz="0 -38.5e-3 30e-3" rpy="0 0 0" />
       <geometry>
-        <!-- <mesh filename="package://vss_simulation/meshes/parede_dir_link.STL" /> -->
+        <!-- <mesh filename="package://travesim/meshes/parede_dir_link.STL" /> -->
         <box size="75e-3 2e-3 60e-3"/>
       </geometry>
     </collision>
@@ -94,7 +94,7 @@
     <visual>
       <origin xyz="0 38.5e-3 30e-3" rpy="0 0 0" />
       <geometry>
-        <!-- <mesh filename="package://vss_simulation/meshes/parede_esq_link.STL" /> -->
+        <!-- <mesh filename="package://travesim/meshes/parede_esq_link.STL" /> -->
         <box size="75e-3 2e-3 60e-3"/>
       </geometry>
       <material name="">
@@ -104,7 +104,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://vss_simulation/meshes/parede_esq_link.STL" />
+        <mesh filename="package://travesim/meshes/parede_esq_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -123,7 +123,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://vss_simulation/meshes/roda_dir_link.STL" />
+        <mesh filename="package://travesim/meshes/roda_dir_link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.79608 0.82353 0.93725 1" />
@@ -132,7 +132,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://vss_simulation/meshes/roda_dir_link.STL" />
+        <mesh filename="package://travesim/meshes/roda_dir_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -153,7 +153,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://vss_simulation/meshes/roda_esq_link.STL" />
+        <mesh filename="package://travesim/meshes/roda_esq_link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.79608 0.82353 0.93725 1" />
@@ -162,7 +162,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://vss_simulation/meshes/roda_esq_link.STL" />
+        <mesh filename="package://travesim/meshes/roda_esq_link.STL" />
       </geometry>
     </collision>
   </link>
