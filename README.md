@@ -1,4 +1,4 @@
-<h1 align="center"> ⚽ TraveSim 🥅 </h1>
+<h1 align="center">🥅 TraveSim</h1>
 <p align="center">IEEE Very Small Size Soccer simulation project with ROS and Gazebo</p>
 
 <p align="center">
