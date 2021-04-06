@@ -12,10 +12,9 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 </p>
 
----
-
 Para a versão em PT-BR 🇧🇷 desse documento, [veja aqui](./README.pt-br.md)
 
+- [📷 Screenshots](#-screenshots)
 - [🎈 Intro](#-intro)
 - [📣 ROS topics](#-ros-topics)
   - [⬅ Input](#-input)
@@ -33,10 +32,14 @@ Para a versão em PT-BR 🇧🇷 desse documento, [veja aqui](./README.pt-br.md)
 - [🎨 Gazebo colors](#-gazebo-colors)
 - [📝 Contributing](#-contributing)
 - [✨ Contributors](#-contributors)
-- [📷 Screenshots](#-screenshots)
-  - [One robot simulation](#one-robot-simulation)
-  - [Team simulation](#team-simulation)
-  - [Match simulation](#match-simulation)
+
+## 📷 Screenshots
+
+<p align="center">
+  <img height=200px src="./docs/screenshot_robot.png" />
+  <img height=200px src="./docs/screenshot_team.png" />
+  <img height=200px src="./docs/screenshot_match.png" />
+</p>
 
 ## 🎈 Intro
 
@@ -293,17 +296,3 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
-
-## 📷 Screenshots
-
-### One robot simulation
-
-![screenshot](./docs/screenshot_robot.png)
-
-### Team simulation
-
-![screenshot](./docs/screenshot_team.png)
-
-### Match simulation
-
-![screenshot](./docs/screenshot_match.png)
