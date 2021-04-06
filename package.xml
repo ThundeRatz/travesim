@@ -1,5 +1,5 @@
 <package format="2">
-  <name>vss_simulation</name>
+  <name>travesim</name>
   <version>2.0.0</version>
   <description>
     <p>Gazebo simulation package for VSS robots</p>

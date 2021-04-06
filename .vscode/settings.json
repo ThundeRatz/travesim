@@ -23,4 +23,5 @@
     "/opt/ros/noetic/lib/python3/dist-packages"
   ],
   "editor.formatOnSave": true,
+  "markdown.extension.toc.levels": "1..6"
 }
