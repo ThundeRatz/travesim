@@ -5,7 +5,7 @@
 
 <img src="https://img.shields.io/badge/ROS%20version-noetic-informational?style=for-the-badge" href="http://wiki.ros.org/noetic"/>
 <img src="https://img.shields.io/badge/Gazebo%20version-11-important?style=for-the-badge" href="http://gazebosim.org/"/>
-<img src="https://img.shields.io/badge/calver-YY.0D.MINOR-blue?style=for-the-badge" href="https://calver.org/"/>
+<img src="https://img.shields.io/badge/calver-YY.0M.MINOR-blue?style=for-the-badge" href="https://calver.org/"/>
 <img src="./docs/badge_adp.svg" href="https://www.amigosdapoli.com.br/"/>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 <img src="https://img.shields.io/badge/all_contributors-11-orange.svg?style=for-the-badge" href="#-contributors"/>
