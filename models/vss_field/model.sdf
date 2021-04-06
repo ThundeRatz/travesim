@@ -36,13 +36,10 @@ https://bitbucket.org/osrf/gazebo/src/gazebo11/models/ground_plane/model.sdf -->
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://vss_field/meshes/base_link_col.stl</uri>
+            <uri>model://vss_field/meshes/base_link.stl</uri>
           </mesh>
         </geometry>
         <surface>
-          <contact>
-            <collide_bitmask>0xffff</collide_bitmask>
-          </contact>
           <friction>
             <ode>
               <mu>0.6</mu>
@@ -56,16 +53,16 @@ https://bitbucket.org/osrf/gazebo/src/gazebo11/models/ground_plane/model.sdf -->
         </surface>
         <max_contacts>20</max_contacts>
       </collision>
-      <collision name='base_link_fixed_joint_lump__laterais_link_collision_1'>
+      <collision name='laterais_link_collision'>
         <pose frame=''>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://vss_field/meshes/laterais_link_col.stl</uri>
+            <uri>model://vss_field/meshes/laterais_link.stl</uri>
           </mesh>
         </geometry>
-
       </collision>
+
       <visual name='base_link_visual'>
         <pose frame=''>0 0 0 0 0 0</pose>
         <geometry>
@@ -76,10 +73,23 @@ https://bitbucket.org/osrf/gazebo/src/gazebo11/models/ground_plane/model.sdf -->
         </geometry>
         <material>
           <script>
-            <!-- <uri>model://vss_field/materials/scripts/</uri>
-            <uri>model://vss_field/materials/textures/</uri>
-            <name>vssField/Carpet</name> -->
-            <name>Gazebo/FlatBlack</name>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+
+      <visual name='marcas_campo_visual'>
+        <pose frame=''>0 0 0.0001 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://vss_field/meshes/marcas_campo.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/White</name>
             <uri>file://media/materials/scripts/gazebo.material</uri>
           </script>
         </material>
