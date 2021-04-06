@@ -1,11 +1,11 @@
 # Changelog
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+and this project adheres to [Calendar Versioning](https://calver.org/).
 
 Para a versão em PT-BR 🇧🇷 desse documento, veja [aqui](./CHANGELOG.pt-br.md)
 
-## [21.04.1] - 2021-04-05
+## [21.04.1]
 
 ### Changed
 
@@ -13,7 +13,7 @@ Para a versão em PT-BR 🇧🇷 desse documento, veja [aqui](./CHANGELOG.pt-br.
 - Project uses now calendar versioning with the format YY.0M.MINOR
 - Screenshots are now in the end of the README
 
-## [21.03.2] - 2021-03-26
+## [21.03.2]
 
 ### Changed
 
@@ -22,7 +22,7 @@ Para a versão em PT-BR 🇧🇷 desse documento, veja [aqui](./CHANGELOG.pt-br.
   - **/[yellow|blue]\_team/robot\_[0..2]/~~vss_robot~~\_diff\_drive\_controller/cmd\_vel** - **/[yellow|blue]\_team/robot\_[0..2]/diff\_drive\_controller/cmd\_vel**
   - **/[yellow|blue]\_team/robot\_[0..2]/~~vss_robot~~\_[left|right]_controller/command** - **/[yellow|blue]\_team/robot\_[0..2]/[left|right]_controller/command**
 
-## [21.03.1] - 2021-03-22
+## [21.03.1]
 
 ### Added
 
@@ -36,7 +36,7 @@ Para a versão em PT-BR 🇧🇷 desse documento, veja [aqui](./CHANGELOG.pt-br.
 
 - Wheels torque direct control
 
-## [20.10.1] - 2020-10-05 - [Open Camera]
+## [20.10.1] - Open Camera
 
 ### Added
 
@@ -59,7 +59,7 @@ Para a versão em PT-BR 🇧🇷 desse documento, veja [aqui](./CHANGELOG.pt-br.
 - Ball physical properties
 - The simulation fails to start sometimes
 
-## [20.05.2] - 2020-05-12
+## [20.05.2]
 
 ### Added
 
@@ -78,7 +78,7 @@ Para a versão em PT-BR 🇧🇷 desse documento, veja [aqui](./CHANGELOG.pt-br.
 - Ball physical properties
 - The simulation fails to start sometimes
 
-## [20.05.1] - 2020-05-04 - [Iron Cup 2020]
+## [20.05.1] - Iron Cup 2020
 
 ### Added
 
@@ -97,8 +97,6 @@ Para a versão em PT-BR 🇧🇷 desse documento, veja [aqui](./CHANGELOG.pt-br.
 - Ball physical properties
 - Motors behavior too ideal - far from reality
 
-[Open Camera]: https://github.com/ThundeRatz/travesim/releases/tag/v20.10.1
-[Iron Cup 2020]: https://github.com/ThundeRatz/travesim/releases/tag/v20.05.1
 [21.04.1]: https://github.com/ThundeRatz/travesim/releases/tag/v21.04.1
 [21.03.2]: https://github.com/ThundeRatz/travesim/releases/tag/v21.03.2
 [21.03.1]: https://github.com/ThundeRatz/travesim/releases/tag/v21.03.1
