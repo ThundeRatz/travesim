@@ -122,18 +122,20 @@
       <inertia ixx="2.9189E-06" ixy="-3.4908E-39" ixz="2.1559E-38" iyy="5.645E-06" iyz="4.9934E-39" izz="2.9189E-06" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin xyz="0 4e-3 0" rpy="1.5707963 0 0" />
       <geometry>
-        <mesh filename="package://travesim/meshes/roda_dir_link.STL" />
+        <!-- <mesh filename="package://travesim/meshes/roda_dir_link.STL" /> -->
+        <cylinder radius="25e-3" length="8e-3"/>
       </geometry>
       <material name="">
         <color rgba="0.79608 0.82353 0.93725 1" />
       </material>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin xyz="0 4e-3 0" rpy="1.5707963 0 0" />
       <geometry>
-        <mesh filename="package://travesim/meshes/roda_dir_link.STL" />
+        <!-- <mesh filename="package://travesim/meshes/roda_dir_link.STL" /> -->
+        <cylinder radius="25e-3" length="8e-3"/>
       </geometry>
     </collision>
   </link>
@@ -152,18 +154,20 @@
       <inertia ixx="2.9189E-06" ixy="-3.4908E-39" ixz="2.1559E-38" iyy="5.645E-06" iyz="-1.0274E-38" izz="2.9189E-06" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin xyz="0 -4e-3 0" rpy="1.5707963 0 0" />
       <geometry>
-        <mesh filename="package://travesim/meshes/roda_esq_link.STL" />
+        <!-- <mesh filename="package://travesim/meshes/roda_esq_link.STL" /> -->
+        <cylinder radius="25e-3" length="8e-3"/>
       </geometry>
       <material name="">
         <color rgba="0.79608 0.82353 0.93725 1" />
       </material>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin xyz="0 -4e-3 0" rpy="1.5707963 0 0" />
       <geometry>
-        <mesh filename="package://travesim/meshes/roda_esq_link.STL" />
+        <!-- <mesh filename="package://travesim/meshes/roda_esq_link.STL" /> -->
+        <cylinder radius="25e-3" length="8e-3"/>
       </geometry>
     </collision>
   </link>
