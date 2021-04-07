@@ -16,7 +16,7 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
   <arg name="model" default="$(find travesim)/urdf/generic_vss_robot.xacro"/>
   <arg name="twist_interface" default="true"/>
   <arg name="controller_config_file" default=""/>
-  <arg name="ros_control_config_file" default="$(find vss_simulation)/config/ros_control_config.yml"/>
+  <arg name="ros_control_config_file" default="$(find travesim)/config/ros_control_config.yml"/>
 
   <param name="robot_description" command="$(find xacro)/xacro $(arg model) robot_number:=$(arg robot_number) is_yellow:=$(arg is_yellow)" />
 

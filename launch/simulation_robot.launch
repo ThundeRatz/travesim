@@ -13,7 +13,7 @@
   <arg name="yaw" default="0" />
   <arg name="twist_interface" default="true"/>
   <arg name="controller_config_file" default=""/>
-  <arg name="ros_control_config_file" default="$(find vss_simulation)/config/ros_control_config.yml"/>
+  <arg name="ros_control_config_file" default="$(find travesim)/config/ros_control_config.yml"/>
 
   <!-- Control option -->
   <arg name="keyboard" default="false"/>
