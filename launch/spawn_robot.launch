@@ -4,21 +4,21 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
 
 <launch>
 
-  <arg name="robot_number" default="1" />
-  <arg name="team_number" default="0" />
-  <arg name="robot_name" default="$(eval 'robot'+str(team_number*3+robot_number))" />
+  <arg name="robot_number" default="0" />
+  <arg name="is_yellow" default="true" />
+  <arg name="robot_name" default="yellow_team/robot_0" />
   <arg name="x" default="0"/>
   <arg name="y" default="0"/>
   <arg name="z" default="0.03"/>
   <arg name="row" default="0"/>
   <arg name="pitch" default="0"/>
   <arg name="yaw" default="0"/>
-  <arg name="model" default="$(find vss_simulation)/urdf/generic_vss_robot.xacro"/>
+  <arg name="model" default="$(find travesim)/urdf/generic_vss_robot.xacro"/>
   <arg name="twist_interface" default="true"/>
   <arg name="controller_config_file" default=""/>
   <arg name="ros_control_config_file" default="$(find vss_simulation)/config/ros_control_config.yml"/>
 
-  <param name="robot_description" command="$(find xacro)/xacro $(arg model) robot_number:=$(arg robot_number) team_number:=$(arg team_number)" />
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model) robot_number:=$(arg robot_number) is_yellow:=$(arg is_yellow)" />
 
   <!-- push robot_description to factory and spawn robot in gazebo -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" args="-x $(arg x) -y $(arg y) -z $(arg z)
@@ -31,28 +31,28 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
   <!-- Load configs to control robot motors in diff drive mode -->
   <group if="$(arg twist_interface)">
     <group if="$(eval controller_config_file=='')">
-      <rosparam command="load" file="$(find vss_simulation)/config/motor_diff_drive.yml" />
+      <rosparam command="load" file="$(find travesim)/config/motor_diff_drive.yml" />
     </group>
 
     <group unless="$(eval controller_config_file=='')">
       <rosparam command="load" file="$(arg controller_config_file)" />
     </group>
 
-    <node name="vss_robot_controller" pkg="controller_manager" type="spawner" args="vss_robot_diff_drive_controller"/>
+    <node name="controller_manager" pkg="controller_manager" type="spawner" args="diff_drive_controller"/>
   </group>
 
   <!-- Load configs to control robot motors in direct drive mode -->
   <group unless="$(arg twist_interface)">
     <group if="$(eval controller_config_file=='')">
-      <rosparam command="load" file="$(find vss_simulation)/config/motor_direct_drive.yml" />
+      <rosparam command="load" file="$(find travesim)/config/motor_direct_drive.yml" />
     </group>
 
     <group unless="$(eval controller_config_file=='')">
       <rosparam command="load" file="$(arg controller_config_file)" />
     </group>
 
-    <node name="vss_robot_controller" pkg="controller_manager" type="spawner" args="vss_robot_left_controller
-      vss_robot_right_controller"/>
+    <node name="controller_manager" pkg="controller_manager" type="spawner" args="left_controller
+      right_controller"/>
   </group>
 
 </launch>

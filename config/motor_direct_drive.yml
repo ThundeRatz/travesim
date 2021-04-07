@@ -1,10 +1,10 @@
 # Ref:
 # https://answers.ros.org/question/326628/how-to-control-velocity-of-joints-in-gazebo-using-ros_controllers/
 
-vss_robot_left_controller:
+left_controller:
   type: velocity_controllers/JointVelocityController
   joint: roda_esq_joint
 
-vss_robot_right_controller:
+right_controller:
   type: velocity_controllers/JointVelocityController
   joint: roda_dir_joint

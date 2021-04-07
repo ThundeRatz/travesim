@@ -1,7 +1,7 @@
 <launch>
 
   <!-- Load robot model -->
-  <arg name="model" default="$(find vss_simulation)/urdf/generic_vss_robot.xacro"/>
+  <arg name="model" default="$(find travesim)/urdf/generic_vss_robot.xacro"/>
   <arg name="debug" default="false"/>
   <arg name="gui" default="true"/>
   <arg name="paused" default="true"/>
@@ -19,7 +19,7 @@
   <arg name="keyboard" default="false"/>
 
   <!-- Load gazebo simulation -->
-  <include file="$(find vss_simulation)/launch/gazebo.launch">
+  <include file="$(find travesim)/launch/gazebo.launch">
     <arg name="debug" value="$(arg debug)"/>
     <arg name="gui" value="$(arg gui)"/>
     <arg name="paused" value="$(arg paused)"/>
@@ -28,8 +28,8 @@
     <arg name="recording" value="$(arg recording)"/>
   </include>
 
-  <group ns="robot1">
-    <include file="$(find vss_simulation)/launch/spawn_robot.launch">
+  <group ns="yellow_team/robot_0">
+    <include file="$(find travesim)/launch/spawn_robot.launch">
       <arg name="model" value="$(arg model)" />
       <arg name="x" value="$(arg x)" />
       <arg name="y" value="$(arg y)" />
@@ -41,14 +41,14 @@
   </group>
 
   <group if="$(arg keyboard)">
-    <node name="keyboard_controller" pkg="vss_simulation" type="keyboard_node.py"/>
+    <node name="keyboard_controller" pkg="travesim" type="keyboard_node.py"/>
   </group>
 
   <group unless="$(arg keyboard)">
 
     <!-- Display controllers to user -->
     <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
-      <param name="default_topic" value="/robot1/vss_robot_diff_drive_controller/cmd_vel"/>
+      <param name="default_topic" value="/yellow_team/robot_0/diff_drive_controller/cmd_vel"/>
     </node>
 
   </group>

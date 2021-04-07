@@ -1,9 +1,26 @@
 # Changelog
 
 O formato é baseado no [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-e esse projeto segue a convenção [versionamento semântico](https://semver.org/spec/v2.0.0.html).
+e esse projeto segue a convenção [versionamento cronológico](https://calver.org/).
 
-## [2.1.0] - 2021-03-22
+## [21.04.1]
+
+### Modificado
+
+- Nome do projeto passa a ser **TraveSim** ao invés de **vss_simulation**
+- Projeto passa a utilizar o versionamento cronológico no formato YY.0M.MINOR
+- Screenshots estão agora no final do README
+
+## [21.03.2]
+
+### Modificado
+
+- Nomes dos robôs agora seguem a convenção /[yellow|blue]\_team/robot\_[0..2]. Essa mudança se aplica aos nomes dos modelos dos robôs e ao namespace dos tópicos
+- O tópico dos controladores mudou da forma
+  - **/[yellow|blue]\_team/robot\_[0..2]/~~vss_robot~~\_diff\_drive\_controller/cmd\_vel** - **/[yellow|blue]\_team/robot\_[0..2]/diff\_drive\_controller/cmd\_vel**
+  - **/[yellow|blue]\_team/robot\_[0..2]/~~vss_robot~~\_[left|right]_controller/command** - **/[yellow|blue]\_team/robot\_[0..2]/[left|right]_controller/command**
+
+## [21.03.1]
 
 ### Adicionado
 
@@ -17,7 +34,7 @@ e esse projeto segue a convenção [versionamento semântico](https://semver.org
 
 - Controle direto das rodas por torque
 
-## [2.0.0] - 2020-10-05 - [Open Camera](https://github.com/ThundeRatz/vss_simulation/releases/tag/v2.0)
+## [20.10.1] - Open Camera
 
 ### Adicionado
 
@@ -40,7 +57,7 @@ e esse projeto segue a convenção [versionamento semântico](https://semver.org
 - Propriedades físicas da bola
 - A simulação falha em iniciar ocasionalmente
 
-## [2.0.0-alpha] - 2020-05-12
+## [20.05.2]
 
 ### Adicionado
 
@@ -60,7 +77,7 @@ e esse projeto segue a convenção [versionamento semântico](https://semver.org
 - Propriedades físicas da bola
 - A simulação falha em iniciar ocasionalmente
 
-## [1.0.0] - 2020-05-04 - [Iron Cup 2020](https://github.com/ThundeRatz/vss_simulation/releases/tag/v1.0)
+## [20.05.1] - Iron Cup 2020
 
 ### Adicionado
 
@@ -78,3 +95,10 @@ e esse projeto segue a convenção [versionamento semântico](https://semver.org
 
 - Propriedades físicas da bola
 - Comportamento dos motores ideal demais - longe da realidade
+
+[21.04.1]: https://github.com/ThundeRatz/travesim/releases/tag/v21.04.1
+[21.03.2]: https://github.com/ThundeRatz/travesim/releases/tag/v21.03.2
+[21.03.1]: https://github.com/ThundeRatz/travesim/releases/tag/v21.03.1
+[20.10.1]: https://github.com/ThundeRatz/travesim/releases/tag/v20.10.1
+[20.05.2]: https://github.com/ThundeRatz/travesim/releases/tag/v20.05.2
+[20.05.1]: https://github.com/ThundeRatz/travesim/releases/tag/v20.05.1

@@ -2,7 +2,7 @@
   "ros.distro": "noetic",
   "doxdocgen.generic.dateFormat": "MM/YYYY",
   "doxdocgen.file.copyrightTag": [
-    "@copyright MIT License - Copyright (c) 2020 ThundeRatz"
+    "@copyright MIT License - Copyright (c) 2021 ThundeRatz"
   ],
   "C_Cpp.default.configurationProvider": "go2sh.cmake-integration",
   "files.associations": {
@@ -23,4 +23,5 @@
     "/opt/ros/noetic/lib/python3/dist-packages"
   ],
   "editor.formatOnSave": true,
+  "markdown.extension.toc.levels": "1..6"
 }

@@ -9,5 +9,5 @@
     <param name="fps" value="30" />
   </node>
 
-  <node pkg="rosbag" type="play" name="rosbag" required="true" args="$(find vss_simulation)/bagfiles/$(arg bagfile)" />
+  <node pkg="rosbag" type="play" name="rosbag" required="true" args="$(find travesim)/bagfiles/$(arg bagfile)" />
 </launch>
