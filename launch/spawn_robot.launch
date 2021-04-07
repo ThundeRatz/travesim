@@ -13,7 +13,7 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
   <arg name="row" default="0"/>
   <arg name="pitch" default="0"/>
   <arg name="yaw" default="0"/>
-  <arg name="model" default="$(find vss_simulation)/urdf/generic_vss_robot.xacro"/>
+  <arg name="model" default="$(find travesim)/urdf/generic_vss_robot.xacro"/>
   <arg name="twist_interface" default="true"/>
   <arg name="config_file" default=""/>
 
@@ -27,7 +27,7 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
   <group if="$(arg twist_interface)">
     <!-- Load configs to control robot motors -->
     <group if="$(eval config_file=='')">
-      <rosparam command="load" file="$(find vss_simulation)/config/motor_diff_drive.yml" />
+      <rosparam command="load" file="$(find travesim)/config/motor_diff_drive.yml" />
     </group>
 
     <group unless="$(eval config_file=='')">
@@ -41,7 +41,7 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
   <group unless="$(arg twist_interface)">
     <!-- Load configs to control robot motors -->
     <group if="$(eval config_file=='')">
-      <rosparam command="load" file="$(find vss_simulation)/config/motor_direct_drive.yml" />
+      <rosparam command="load" file="$(find travesim)/config/motor_direct_drive.yml" />
     </group>
 
     <group unless="$(eval config_file=='')">

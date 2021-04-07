@@ -11,8 +11,8 @@ https://github.com/ros/urdf_sim_tutorial -->
   <arg name="recording" default="false"/>
 
   <!-- Add our project workspace to Gazebo index to load custom models -->
-  <env name="GAZEBO_RESOURCE_PATH" value="$(find vss_simulation)"/>
-  <env name="GAZEBO_MODEL_PATH" value="$(find vss_simulation)/models"/>
+  <env name="GAZEBO_RESOURCE_PATH" value="$(find travesim)"/>
+  <env name="GAZEBO_MODEL_PATH" value="$(find travesim)/models"/>
 
   <!-- Load world model -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -20,13 +20,13 @@ https://github.com/ros/urdf_sim_tutorial -->
     <arg name="gui" value="$(arg gui)" />
     <arg name="paused" value="$(arg paused)"/>
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
-    <arg name="world_name" value="$(find vss_simulation)/worlds/$(arg world_name)"/>
+    <arg name="world_name" value="$(find travesim)/worlds/$(arg world_name)"/>
     <arg name="recording" value="$(arg recording)"/>
   </include>
 
   <!-- Load node to re-publish the gazebo message in the sintax of
     ThunderVolt project -->
-  <node name="vision_proxy" pkg="vss_simulation" type="vision_proxy.py"/>
+  <node name="vision_proxy" pkg="travesim" type="vision_proxy.py"/>
 
   <group ns="camera/image_raw">
     <rosparam param="disable_pub_plugins">

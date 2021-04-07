@@ -1,51 +1,44 @@
-# Simulação de VSS em ROS com Gazebo
+<h1 align="center">🥅 TraveSim</h1>
+<p align="center">Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando Gazebo</p>
 
-[![ROS version](https://img.shields.io/badge/ROS%20version-noetic-informational?style=for-the-badge)](http://wiki.ros.org/noetic)
-[![Gazebo version](https://img.shields.io/badge/Gazebo%20version-11-important?style=for-the-badge)](http://gazebosim.org/)
-[![Amigos da Poli](./docs/badge_adp.svg)](https://www.amigosdapoli.com.br/)
+<p align="center">
 
+<img src="https://img.shields.io/badge/ROS%20version-noetic-informational?style=for-the-badge" href="http://wiki.ros.org/noetic"/>
+<img src="https://img.shields.io/badge/Gazebo%20version-11-important?style=for-the-badge" href="http://gazebosim.org/"/>
+<img src="https://img.shields.io/badge/calver-YY.0M.MINOR-blue?style=for-the-badge" href="https://calver.org/"/>
+<img src="./docs/badge_adp.svg" href="https://www.amigosdapoli.com.br/"/>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=for-the-badge)](#-contributors)
+<img src="https://img.shields.io/badge/all_contributors-11-orange.svg?style=for-the-badge" href="#-contributors"/>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
+</p>
 
-Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando Gazebo
-
-- [Simulação de VSS em ROS com Gazebo](#simulação-de-vss-em-ros-com-gazebo)
-  - [📷 Screenshots](#-screenshots)
-    - [Simulação de um robô](#simulação-de-um-robô)
-    - [Simulação do time](#simulação-do-time)
-    - [Simulação da partida](#simulação-da-partida)
-  - [🎈 Introdução](#-introdução)
-  - [📣 Tópicos ROS](#-tópicos-ros)
-    - [⬅ Entrada](#-entrada)
-      - [Controle por direção diferencial (padrão)](#controle-por-direção-diferencial-padrão)
-      - [Controle direto dos motores](#controle-direto-dos-motores)
-    - [➡ Saída](#-saída)
-  - [📏 Modelos utilizados](#-modelos-utilizados)
-    - [© Crie seu próprio modelo](#-crie-seu-próprio-modelo)
-  - [🔧 Parâmetros](#-parâmetros)
-    - [🚀 Roslaunch](#-roslaunch)
-  - [📷 Câmera virtual](#-câmera-virtual)
-  - [📁 Estrutura de pastas](#-estrutura-de-pastas)
-  - [➕ Dependências](#-dependências)
-    - [🐍 Python virtual environment](#-python-virtual-environment)
-  - [🎨 Cores no Gazebo](#-cores-no-gazebo)
-  - [📝 Contribuindo](#-contribuindo)
-  - [✨ Contribuidores](#-contribuidores)
+- [📷 Screenshots](#-screenshots)
+- [🎈 Introdução](#-introdução)
+- [📣 Tópicos ROS](#-tópicos-ros)
+  - [⬅ Entrada](#-entrada)
+    - [Controle por direção diferencial (padrão)](#controle-por-direção-diferencial-padrão)
+    - [Controle direto dos motores](#controle-direto-dos-motores)
+  - [➡ Saída](#-saída)
+- [📏 Modelos utilizados](#-modelos-utilizados)
+  - [© Crie seu próprio modelo](#-crie-seu-próprio-modelo)
+- [🔧 Parâmetros](#-parâmetros)
+  - [🚀 Roslaunch](#-roslaunch)
+- [📷 Câmera virtual](#-câmera-virtual)
+- [📁 Estrutura de pastas](#-estrutura-de-pastas)
+- [➕ Dependências](#-dependências)
+  - [🐍 Python virtual environment](#-python-virtual-environment)
+- [🎨 Cores no Gazebo](#-cores-no-gazebo)
+- [📝 Contribuindo](#-contribuindo)
+- [✨ Contribuidores](#-contribuidores)
 
 ## 📷 Screenshots
 
-### Simulação de um robô
+<p align="center">
+  <img height=200px src="./docs/screenshot_robot.png" />
+  <img height=200px src="./docs/screenshot_team.png" />
+  <img height=200px src="./docs/screenshot_match.png" />
+</p>
 
-![screenshot](./docs/screenshot_robot.png)
-
-### Simulação do time
-
-![screenshot](./docs/screenshot_team.png)
-
-### Simulação da partida
-
-![screenshot](./docs/screenshot_match.png)
 
 ## 🎈 Introdução
 
@@ -54,19 +47,19 @@ Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando
 Para rodar a simulação com um robô controlável, digite:
 
 ```bash
-roslaunch vss_simulation simulation_robot.launch
+roslaunch travesim simulation_robot.launch
 ```
 
 Para rodar a simulação com o time completo, digite:
 
 ```bash
-roslaunch vss_simulation simulation_team.launch
+roslaunch travesim simulation_team.launch
 ```
 
 Para rodar a simulação de uma partida, digite:
 
 ```bash
-roslaunch vss_simulation simulation_match.launch
+roslaunch travesim simulation_match.launch
 ```
 
 ## 📣 Tópicos ROS
@@ -173,7 +166,7 @@ Para passar um parâmetro na execução da simulação, basta escrever o nome do
 Por exemplo, para mudar o parâmetro ```keyboard``` para ```true```:
 
 ```bash
-roslaunch vss_simulation simulation_team.launch keyboard:=true
+roslaunch travesim simulation_team.launch keyboard:=true
 ```
 
 ## 📷 Câmera virtual
@@ -218,7 +211,7 @@ sudo apt install ros-noetic-velocity-controllers ros-noetic-effort-controllers p
 Ou usando ```rosdep```
 
 ```bash
-rosdep install vss_simulation
+rosdep install travesim
 ```
 
 ### 🐍 Python virtual environment
@@ -277,19 +270,19 @@ Agradecimentos a essas pessoas incríveis ([emoji key](https://allcontributors.o
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/FelipeGdM"><img src="https://avatars3.githubusercontent.com/u/1054087?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Felipe Gomes de Melo</b></sub></a><br /><a href="https://github.com/thunderatz/vss_simulation/commits?author=FelipeGdM" title="Documentation">📖</a> <a href="https://github.com/thunderatz/vss_simulation/pulls?q=is%3Apr+reviewed-by%3AFelipeGdM" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/thunderatz/vss_simulation/commits?author=FelipeGdM" title="Code">💻</a> <a href="#translation-FelipeGdM" title="Translation">🌍</a></td>
-    <td align="center"><a href="https://github.com/LucasHaug"><img src="https://avatars3.githubusercontent.com/u/39196309?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lucas Haug</b></sub></a><br /><a href="https://github.com/thunderatz/vss_simulation/pulls?q=is%3Apr+reviewed-by%3ALucasHaug" title="Reviewed Pull Requests">👀</a></td>
-    <td align="center"><a href="https://github.com/Tocoquinho"><img src="https://avatars2.githubusercontent.com/u/37677881?v=4?s=100" width="100px;" alt=""/><br /><sub><b>tocoquinho</b></sub></a><br /><a href="#ideas-Tocoquinho" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/thunderatz/vss_simulation/commits?author=Tocoquinho" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://github.com/Berbardo"><img src="https://avatars0.githubusercontent.com/u/48636340?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Bernardo Coutinho</b></sub></a><br /><a href="https://github.com/thunderatz/vss_simulation/pulls?q=is%3Apr+reviewed-by%3ABerbardo" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/thunderatz/vss_simulation/commits?author=Berbardo" title="Code">💻</a> <a href="https://github.com/thunderatz/vss_simulation/commits?author=Berbardo" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://github.com/lucastrschneider"><img src="https://avatars0.githubusercontent.com/u/50970346?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lucas Schneider</b></sub></a><br /><a href="https://github.com/thunderatz/vss_simulation/pulls?q=is%3Apr+reviewed-by%3Alucastrschneider" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/thunderatz/vss_simulation/commits?author=lucastrschneider" title="Code">💻</a> <a href="#translation-lucastrschneider" title="Translation">🌍</a> <a href="https://github.com/thunderatz/vss_simulation/commits?author=lucastrschneider" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/FelipeGdM"><img src="https://avatars3.githubusercontent.com/u/1054087?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Felipe Gomes de Melo</b></sub></a><br /><a href="https://github.com/thunderatz/travesim/commits?author=FelipeGdM" title="Documentation">📖</a> <a href="https://github.com/thunderatz/travesim/pulls?q=is%3Apr+reviewed-by%3AFelipeGdM" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/thunderatz/travesim/commits?author=FelipeGdM" title="Code">💻</a> <a href="#translation-FelipeGdM" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://github.com/LucasHaug"><img src="https://avatars3.githubusercontent.com/u/39196309?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lucas Haug</b></sub></a><br /><a href="https://github.com/thunderatz/travesim/pulls?q=is%3Apr+reviewed-by%3ALucasHaug" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://github.com/Tocoquinho"><img src="https://avatars2.githubusercontent.com/u/37677881?v=4?s=100" width="100px;" alt=""/><br /><sub><b>tocoquinho</b></sub></a><br /><a href="#ideas-Tocoquinho" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/thunderatz/travesim/commits?author=Tocoquinho" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/Berbardo"><img src="https://avatars0.githubusercontent.com/u/48636340?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Bernardo Coutinho</b></sub></a><br /><a href="https://github.com/thunderatz/travesim/pulls?q=is%3Apr+reviewed-by%3ABerbardo" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/thunderatz/travesim/commits?author=Berbardo" title="Code">💻</a> <a href="https://github.com/thunderatz/travesim/commits?author=Berbardo" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/lucastrschneider"><img src="https://avatars0.githubusercontent.com/u/50970346?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lucas Schneider</b></sub></a><br /><a href="https://github.com/thunderatz/travesim/pulls?q=is%3Apr+reviewed-by%3Alucastrschneider" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/thunderatz/travesim/commits?author=lucastrschneider" title="Code">💻</a> <a href="#translation-lucastrschneider" title="Translation">🌍</a> <a href="https://github.com/thunderatz/travesim/commits?author=lucastrschneider" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/JuliaMdA"><img src="https://avatars1.githubusercontent.com/u/65100162?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Júlia Mello</b></sub></a><br /><a href="#design-JuliaMdA" title="Design">🎨</a> <a href="#data-JuliaMdA" title="Data">🔣</a></td>
     <td align="center"><a href="https://github.com/ThallesCarneiro"><img src="https://avatars1.githubusercontent.com/u/71659373?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ThallesCarneiro</b></sub></a><br /><a href="#design-ThallesCarneiro" title="Design">🎨</a> <a href="#data-ThallesCarneiro" title="Data">🔣</a></td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/TetsuoTakahashi"><img src="https://avatars2.githubusercontent.com/u/38441802?v=4?s=100" width="100px;" alt=""/><br /><sub><b>TetsuoTakahashi</b></sub></a><br /><a href="#ideas-TetsuoTakahashi" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="https://github.com/GabrielCosme"><img src="https://avatars0.githubusercontent.com/u/62270066?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Gabriel Cosme Barbosa</b></sub></a><br /><a href="https://github.com/thunderatz/vss_simulation/pulls?q=is%3Apr+reviewed-by%3AGabrielCosme" title="Reviewed Pull Requests">👀</a></td>
-    <td align="center"><a href="https://github.com/RicardoHonda"><img src="https://avatars1.githubusercontent.com/u/62343088?v=4?s=100" width="100px;" alt=""/><br /><sub><b>RicardoHonda</b></sub></a><br /><a href="https://github.com/thunderatz/vss_simulation/pulls?q=is%3Apr+reviewed-by%3ARicardoHonda" title="Reviewed Pull Requests">👀</a></td>
-    <td align="center"><a href="https://github.com/leticiakimoto"><img src="https://avatars0.githubusercontent.com/u/62733251?v=4?s=100" width="100px;" alt=""/><br /><sub><b>leticiakimoto</b></sub></a><br /><a href="https://github.com/thunderatz/vss_simulation/pulls?q=is%3Apr+reviewed-by%3Aleticiakimoto" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://github.com/GabrielCosme"><img src="https://avatars0.githubusercontent.com/u/62270066?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Gabriel Cosme Barbosa</b></sub></a><br /><a href="https://github.com/thunderatz/travesim/pulls?q=is%3Apr+reviewed-by%3AGabrielCosme" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://github.com/RicardoHonda"><img src="https://avatars1.githubusercontent.com/u/62343088?v=4?s=100" width="100px;" alt=""/><br /><sub><b>RicardoHonda</b></sub></a><br /><a href="https://github.com/thunderatz/travesim/pulls?q=is%3Apr+reviewed-by%3ARicardoHonda" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://github.com/leticiakimoto"><img src="https://avatars0.githubusercontent.com/u/62733251?v=4?s=100" width="100px;" alt=""/><br /><sub><b>leticiakimoto</b></sub></a><br /><a href="https://github.com/thunderatz/travesim/pulls?q=is%3Apr+reviewed-by%3Aleticiakimoto" title="Reviewed Pull Requests">👀</a></td>
   </tr>
 </table>
 
