@@ -19,7 +19,7 @@ Most contributions are made with [GitHub Issues](https://guides.github.com/featu
 
 For each of these, there is a specific [label](https://docs.github.com/en/enterprise/2.17/user/github/managing-your-work-on-github/applying-labels-to-issues-and-pull-requests). We strongly recommend that every issue created has at least one of the three labels described above.
 
-But before creating an issue, first check if there is already one with the same subject. You can search and filter by labels, for example, [here](https://github.com/ThundeRatz/vss_simulation/labels/bug) we only see the issues that are active and have the `bug` label.
+But before creating an issue, first check if there is already one with the same subject. You can search and filter by labels, for example, [here](https://github.com/ThundeRatz/travesim/labels/bug) we only see the issues that are active and have the `bug` label.
 
 #### Reporting Bugs 🐛
 - Use a clear title

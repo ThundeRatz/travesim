@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Set team configuration -->
+  <xacro:if value="${is_yellow}">
+
+    <gazebo reference="base_link">
+      <material>Gazebo/Black</material>
+    </gazebo>
+
+    <gazebo reference="roda_dir_link">
+      <material>Gazebo/Green</material>
+    </gazebo>
+
+    <gazebo reference="roda_esq_link">
+      <material>Gazebo/Green</material>
+    </gazebo>
+
+    <gazebo reference="parede_esq_link">
+      <material>TeamYellow/Sides</material>
+    </gazebo>
+
+    <gazebo reference="parede_dir_link">
+      <material>TeamYellow/Sides</material>
+    </gazebo>
+
+    <!-- Set robots colors -->
+    <gazebo reference="chapeu_link">
+      <xacro:if value="${robot_number == 0}">
+        <material>TeamYellow/Robot0/Hat</material>
+      </xacro:if>
+
+      <xacro:if value="${robot_number == 1}">
+        <material>TeamYellow/Robot1/Hat</material>
+      </xacro:if>
+
+      <xacro:if value="${robot_number == 2}">
+        <material>TeamYellow/Robot2/Hat</material>
+      </xacro:if>      <!-- /Set robots colors -->
+    </gazebo>
+  </xacro:if>  <!-- /Set team configuration -->
+
+  <!-- Set team configuration -->
+  <xacro:unless value="${is_yellow}">
+
+    <gazebo reference="base_link">
+      <material>Gazebo/Black</material>
+    </gazebo>
+
+    <gazebo reference="roda_dir_link">
+      <material>Gazebo/Red</material>
+    </gazebo>
+
+    <gazebo reference="roda_esq_link">
+      <material>Gazebo/Red</material>
+    </gazebo>
+
+    <gazebo reference="parede_esq_link">
+      <material>TeamBlue/Sides</material>
+    </gazebo>
+
+    <gazebo reference="parede_dir_link">
+      <material>TeamBlue/Sides</material>
+    </gazebo>
+
+    <!-- Set robots colors -->
+    <gazebo reference="chapeu_link">
+      <xacro:if value="${robot_number == 0}">
+        <material>TeamBlue/Robot0/Hat</material>
+      </xacro:if>
+
+      <xacro:if value="${robot_number == 1}">
+        <material>TeamBlue/Robot1/Hat</material>
+      </xacro:if>
+
+      <xacro:if value="${robot_number == 2}">
+        <material>TeamBlue/Robot2/Hat</material>
+      </xacro:if>      <!-- /Set robots colors -->
+    </gazebo>
+
+  </xacro:unless>  <!-- /Set team configuration -->
+
+</robot>

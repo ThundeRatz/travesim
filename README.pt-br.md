@@ -1,47 +1,44 @@
-[![forthebadge](https://forthebadge.com/images/badges/built-with-science.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/its-not-a-lie-if-you-believe-it.svg)](https://forthebadge.com)
+<h1 align="center">🥅 TraveSim</h1>
+<p align="center">Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando Gazebo</p>
+
+<p align="center">
+
+<img src="https://img.shields.io/badge/ROS%20version-noetic-informational?style=for-the-badge" href="http://wiki.ros.org/noetic"/>
+<img src="https://img.shields.io/badge/Gazebo%20version-11-important?style=for-the-badge" href="http://gazebosim.org/"/>
+<img src="https://img.shields.io/badge/calver-YY.0M.MINOR-blue?style=for-the-badge" href="https://calver.org/"/>
+<img src="./docs/badge_adp.svg" href="https://www.amigosdapoli.com.br/"/>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
+<img src="https://img.shields.io/badge/all_contributors-11-orange.svg?style=for-the-badge" href="#-contributors"/>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
+</p>
 
-# Simulação de VSS em ROS com Gazebo
-
-Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando Gazebo
-
-- [Simulação de VSS em ROS com Gazebo](#simulação-de-vss-em-ros-com-gazebo)
-  - [📷 Screenshots](#-screenshots)
-    - [Simulação de um robô](#simulação-de-um-robô)
-    - [Simulação do time](#simulação-do-time)
-    - [Simulação da partida](#simulação-da-partida)
-  - [🎈 Introdução](#-introdução)
-  - [📣 Tópicos ROS](#-tópicos-ros)
-    - [⬅ Entrada](#-entrada)
-    - [➡ Saída](#-saída)
-  - [📏 Modelos utilizados](#-modelos-utilizados)
-    - [© Crie seu próprio modelo](#-crie-seu-próprio-modelo)
-  - [🔧 Parâmetros](#-parâmetros)
-    - [🚀 Roslaunch](#-roslaunch)
-  - [📷 Câmera virtual](#-câmera-virtual)
-  - [📁 Estrutura de pastas](#-estrutura-de-pastas)
-  - [➕ Dependências](#-dependências)
-    - [🐍 Python virtual enviroment](#-python-virtual-enviroment)
-  - [🎨 Cores no Gazebo](#-cores-no-gazebo)
-  - [📝 Contribuindo](#-contribuindo)
-  - [✨ Contribuidores](#-contribuidores)
+- [📷 Screenshots](#-screenshots)
+- [🎈 Introdução](#-introdução)
+- [📣 Tópicos ROS](#-tópicos-ros)
+  - [⬅ Entrada](#-entrada)
+    - [Controle por direção diferencial (padrão)](#controle-por-direção-diferencial-padrão)
+    - [Controle direto dos motores](#controle-direto-dos-motores)
+  - [➡ Saída](#-saída)
+- [📏 Modelos utilizados](#-modelos-utilizados)
+  - [© Crie seu próprio modelo](#-crie-seu-próprio-modelo)
+- [🔧 Parâmetros](#-parâmetros)
+  - [🚀 Roslaunch](#-roslaunch)
+- [📷 Câmera virtual](#-câmera-virtual)
+- [📁 Estrutura de pastas](#-estrutura-de-pastas)
+- [➕ Dependências](#-dependências)
+  - [🐍 Python virtual environment](#-python-virtual-environment)
+- [🎨 Cores no Gazebo](#-cores-no-gazebo)
+- [📝 Contribuindo](#-contribuindo)
+- [✨ Contribuidores](#-contribuidores)
 
 ## 📷 Screenshots
 
-### Simulação de um robô
+<p align="center">
+  <img height=200px src="./docs/screenshot_robot.png" />
+  <img height=200px src="./docs/screenshot_team.png" />
+  <img height=200px src="./docs/screenshot_match.png" />
+</p>
 
-![screenshot](./docs/screenshot_robot.png)
-
-### Simulação do time
-
-![screenshot](./docs/screenshot_team.png)
-
-### Simulação da partida
-
-![screenshot](./docs/screenshot_match.png)
 
 ## 🎈 Introdução
 
@@ -50,52 +47,73 @@ Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando
 Para rodar a simulação com um robô controlável, digite:
 
 ```bash
-roslaunch vss_simulation simulation_robot.launch
+roslaunch travesim simulation_robot.launch
 ```
 
 Para rodar a simulação com o time completo, digite:
 
 ```bash
-roslaunch vss_simulation simulation_team.launch
+roslaunch travesim simulation_team.launch
 ```
 
 Para rodar a simulação de uma partida, digite:
 
 ```bash
-roslaunch vss_simulation simulation_match.launch
+roslaunch travesim simulation_match.launch
 ```
 
 ## 📣 Tópicos ROS
 
 ### ⬅ Entrada
 
-A simulação suporta controle por meio de comandos de **torque** (por meio da interface **effort_controller**) ou comandos de **velocidade angular** (por meio da interface **velocity_controller**) para os dois motores de cada um dos robôs. Ambas as insterfaces estão disponíveis na biblioteca [ros_control](http://wiki.ros.org/ros_control)
+A simulação pode ser usada com duas interfaces de entrada, **controle por direção diferencial** (padrão) ou **controle direto dos motores**. É importante notar que não é possível usar as duas interfaces para controlar robôs diferentes ao mesmo tempo.
 
-Para simular robôs sem controle da rotação em malha fechada, o controle por meio do **torque** é mais adequado, uma vez que o torque é aproximadamente proporcial à tensão aplicada nos terminais de um motor DC.
+#### Controle por direção diferencial (padrão)
 
-Caso contrário, a interface de controle por **velocidade angular** é a mais adequada.
+Por padrão, a simulação recebe comandos do tipo [geometry_msgs/Twist](http://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/Twist.html), representando a velocidade do robô em duas componentes: linear e angular.
 
-Em ambos os casos, os comandos são lidos nos tópicos do tipo [std_msgs/Float64](http://docs.ros.org/noetic/api/std_msgs/html/msg/Float64.html)
+```python
+# This expresses velocity in free space broken into its linear and angular parts.
+Vector3  linear
+Vector3  angular
+```
 
-- **/robot[1..3]/vss_robot_left_controller/command**
-- **/robot[1..3]/vss_robot_right_controller/command**
-- **/foe[1..3]/vss_robot_left_controller/command**
-- **/foe[1..3]/vss_robot_right_controller/command**
+Os tópicos ROS seguem a convenção de nomenclatura:
+
+- **/yellow_team/robot_[0..2]/diff_drive_controller/cmd_vel**
+- **/blue_team/robot_[0..2]/diff_drive_controller/cmd_vel**
+
+O controle do robô é feito pelo [diff_driver_controller](http://wiki.ros.org/diff_drive_controller). Os parâmetros de controle estão especificados no arquivo [./config/motor_diff_drive.yml](./config/motor_diff_drive.yml). O controlador representa o comportamento do sistema de controle embarcado no robô e envia comandos de torque para os motores de modo a seguir o set point recebido.
+
+Os parâmetros do controlador estão especificados no arquivo [./config/motor_diff_drive.yml](./config/motor_diff_drive.yml).
+
+#### Controle direto dos motores
+
+A simulação também aceita controle diretamente por meio de comandos de **velocidade angular** para ambos os motores do robô (por meio da interface [velocity_controller](http://wiki.ros.org/velocity_controllers) do pacote [ros_control](http://wiki.ros.org/ros_control)). Essa interface imita uma interface de controle mais acoplada às características do robô em relação ao controle de direção diferencial.
+
+Os comandos são lidos de tópicos do tipo [std_msgs/Float64](http://docs.ros.org/noetic/api/std_msgs/html/msg/Float64.html), representando a velocidade de cada motor em **rad/s**
+
+- **/yellow_team/robot_[0..2]/left_controller/command**
+- **/yellow_team/robot_[0..2]/right_controller/command**
+- **/blue_team/robot_[0..2]/left_controller/command**
+- **/blue_team/robot_[0..2]/right_controller/command**
+
+Para habilitar essa interface de controle, é necessário enviar o parâmetro `twist_interface` como false nos [parâmetros](#-parâmetros) do roslaunch
 
 ### ➡ Saída
 
 Por padrão, o Gazebo publica no tópico **/gazebo/model_states** do tipo [gazebo_msgs/ModelStates](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelStates.html), com uma lista de informações acerca de cada um dos modelos presentes na simulação.
 
-```c
+```python
 # broadcast all model states in world frame
 string[] name                 # model names
 geometry_msgs/Pose[] pose     # desired pose in world frame
 geometry_msgs/Twist[] twist   # desired twist in world frame
 ```
 
-Por comodidade, este pacote possui um script ([vision_proxy.py](./scripts/vision_proxy.py)) que se inscreve nesse tópico e republica a informação diferentes tópicos do tipo [gazebo_msgs/ModelState](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelState.html) para cada entidade (3 robôs, 3 adversários e 1 bola, 7 tópicos no total)
+Por comodidade, este pacote possui um script ([vision_proxy.py](./scripts/vision_proxy.py)) que se inscreve nesse tópico e republica a informação diferentes tópicos do tipo [gazebo_msgs/ModelState](http://docs.ros.org/melodic/api/gazebo_msgs/html/msg/ModelState.html) para cada entidade (3 robôs do time amarelo, 3 robôs do time azul e 1 bola, 7 tópicos no total)
 
-```c
+```python
 # Set Gazebo Model pose and twist
 string model_name           # model to set state (pose and twist)
 geometry_msgs/Pose pose     # desired pose in reference frame
@@ -106,11 +124,11 @@ string reference_frame      # set pose/twist relative to the frame of this entit
 
 Os tópicos republicados são
 
-- **/vision/robot[1...3]** - Tópicos para os robôs do nosso time
-- **/vision/foe[1...3]** - Tópicos para os robôs adversários
+- **/vision/yellow_team/robot_[0..2]** - Tópicos para os robôs do time amarelo
+- **/vision/blue_team/robot_[0..2]** - Tópicos para os robôs do time azul
 - **/vision/ball** - Tópico para a bola
 
-Todas as unidades estão no SI, distâncias estão em metros, ângulos estão em radianos, velocidade linear está em m/s e velocidade angular estã em rad/s
+Todas as unidades estão no SI, distâncias estão em metros, ângulos estão em radianos, velocidade linear está em m/s e velocidade angular está em rad/s
 
 ## 📏 Modelos utilizados
 
@@ -134,19 +152,21 @@ Para usar seu modelo customizado, altere o valor do parâmetro ```model``` ao in
 ### 🚀 Roslaunch
 
 - ```model``` - Caminho do modelo do robô simulado, padrão "./urdf/vss_robot.xacro"
+- - ```config_file``` - Caminho do arquivo de configuração dos controladores do robô simulado, padrão "./config/motor_diff_drive.yml" se `twist_interface` é "true", "./config/motor_direct_drive.yml" caso contrário
 - ```debug``` - Habilita mensagens de debug no terminal, padrão "false"
 - ```gui``` - Habilita janela GUI do Gazebo, padrão "true"
 - ```paused``` - Inicia a simulação com pause, padrão "true"
 - ```use_sim_time``` - Utiliza o tempo da simulação como referências das msgs, padrão "true"
 - ```recording``` - Habilita o log de estados do Gazebo, padrão "false"
 - ```keyboard``` - Habilita o node do controle pelo teclado/joystick, padrão "false"
+- ```twist_interface``` - Habilita a interface controle por meio de mensagens [geometry_msgs/Twist](http://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/Twist.html) se verdadeiro, utiliza a interface de controle com 2 mensagens std_msgs/Float64 caso contrário. Padrão "true". Veja a [documentação](#-entrada) para mais detalhes.
 
 Para passar um parâmetro na execução da simulação, basta escrever o nome do parâmetro separado do novo valor com ```:=```
 
 Por exemplo, para mudar o parâmetro ```keyboard``` para ```true```:
 
 ```bash
-roslaunch vss_simulation simulation_team.launch keyboard:=true
+roslaunch travesim simulation_team.launch keyboard:=true
 ```
 
 ## 📷 Câmera virtual
@@ -170,7 +190,6 @@ rosrun image_view image_view image:=/camera/image_raw
 - **models/** - [Modelos personalizados para Gazebo](http://gazebosim.org/tutorials?tut=build_model) utilizados na simulação, como o campo e a bola do VSS
 - **scripts/** - Rotinas python usadas no projeto
   - keyboard_node.py - Rotina para capturar a entrada do teclado ou de um joystick para controlar a simulação.
-  - velocity_proxy.py - Rotina para converter a entrada recebida pelo controlador em uma mensagem de velocidade para cada motor.
   - vision_proxy.py - Rotina para separar a informação de estado do Gazebo em tópicos diferentes para cada modelo (robôs e bola).
 - **urdf/** - Arquivos de descrição dos robôs no formato [.urdf](http://wiki.ros.org/urdf/XML) e [.xacro](http://wiki.ros.org/xacro). Os arquivos .urdf gerados com a extensão [SW2URDF](http://wiki.ros.org/sw_urdf_exporter) do SolidWorks
 - **worlds/** - Arquivos .world no formato [SDL](http://sdformat.org/)
@@ -192,10 +211,10 @@ sudo apt install ros-noetic-velocity-controllers ros-noetic-effort-controllers p
 Ou usando ```rosdep```
 
 ```bash
-rosdep install vss_simulation
+rosdep install travesim
 ```
 
-### 🐍 Python virtual enviroment
+### 🐍 Python virtual environment
 
 Você pode querer rodar o projeto dentro de um ambiente virtual de python ([python virtualenv](https://docs.python.org/3/tutorial/venv.html)), afinal, essa é uma boa prática listada no livro de bolso de desenvolvimento python
 
@@ -217,7 +236,7 @@ Para instalar as dependências, rode o comando
 pip install -r requirements.txt
 ```
 
-Algumas biblitecas externas podem estar faltando para [compilar](https://stackoverflow.com/questions/7652385/where-can-i-find-and-install-the-dependencies-for-pygame) o pacote ```pygame```. Você pode instalar tudo com o comando
+Algumas bibliotecas externas podem estar faltando para [compilar](https://stackoverflow.com/questions/7652385/where-can-i-find-and-install-the-dependencies-for-pygame) o pacote ```pygame```. Você pode instalar tudo com o comando
 
 ```sh
 sudo apt-get install
@@ -244,23 +263,26 @@ Toda a ajuda no desenvolvimento da robótica é bem-vinda, nós lhe encorajamos 
 
 ## ✨ Contribuidores
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Agradecimentos a essas pessoas incríveis ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/FelipeGdM"><img src="https://avatars3.githubusercontent.com/u/1054087?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Felipe Gomes de Melo</b></sub></a><br /><a href="https://github.com/thunderatz/vss_simulation/commits?author=FelipeGdM" title="Documentation">📖</a> <a href="https://github.com/thunderatz/vss_simulation/pulls?q=is%3Apr+reviewed-by%3AFelipeGdM" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/thunderatz/vss_simulation/commits?author=FelipeGdM" title="Code">💻</a> <a href="#translation-FelipeGdM" title="Translation">🌍</a></td>
-    <td align="center"><a href="https://github.com/LucasHaug"><img src="https://avatars3.githubusercontent.com/u/39196309?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lucas Haug</b></sub></a><br /><a href="https://github.com/thunderatz/vss_simulation/pulls?q=is%3Apr+reviewed-by%3ALucasHaug" title="Reviewed Pull Requests">👀</a></td>
-    <td align="center"><a href="https://github.com/Tocoquinho"><img src="https://avatars2.githubusercontent.com/u/37677881?v=4?s=100" width="100px;" alt=""/><br /><sub><b>tocoquinho</b></sub></a><br /><a href="#ideas-Tocoquinho" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/thunderatz/vss_simulation/commits?author=Tocoquinho" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://github.com/Berbardo"><img src="https://avatars0.githubusercontent.com/u/48636340?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Bernardo Coutinho</b></sub></a><br /><a href="https://github.com/thunderatz/vss_simulation/pulls?q=is%3Apr+reviewed-by%3ABerbardo" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/thunderatz/vss_simulation/commits?author=Berbardo" title="Code">💻</a> <a href="https://github.com/thunderatz/vss_simulation/commits?author=Berbardo" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://github.com/lucastrschneider"><img src="https://avatars0.githubusercontent.com/u/50970346?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lucas Schneider</b></sub></a><br /><a href="https://github.com/thunderatz/vss_simulation/pulls?q=is%3Apr+reviewed-by%3Alucastrschneider" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/thunderatz/vss_simulation/commits?author=lucastrschneider" title="Code">💻</a> <a href="#translation-lucastrschneider" title="Translation">🌍</a> <a href="https://github.com/thunderatz/vss_simulation/commits?author=lucastrschneider" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/FelipeGdM"><img src="https://avatars3.githubusercontent.com/u/1054087?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Felipe Gomes de Melo</b></sub></a><br /><a href="https://github.com/thunderatz/travesim/commits?author=FelipeGdM" title="Documentation">📖</a> <a href="https://github.com/thunderatz/travesim/pulls?q=is%3Apr+reviewed-by%3AFelipeGdM" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/thunderatz/travesim/commits?author=FelipeGdM" title="Code">💻</a> <a href="#translation-FelipeGdM" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://github.com/LucasHaug"><img src="https://avatars3.githubusercontent.com/u/39196309?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lucas Haug</b></sub></a><br /><a href="https://github.com/thunderatz/travesim/pulls?q=is%3Apr+reviewed-by%3ALucasHaug" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://github.com/Tocoquinho"><img src="https://avatars2.githubusercontent.com/u/37677881?v=4?s=100" width="100px;" alt=""/><br /><sub><b>tocoquinho</b></sub></a><br /><a href="#ideas-Tocoquinho" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/thunderatz/travesim/commits?author=Tocoquinho" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/Berbardo"><img src="https://avatars0.githubusercontent.com/u/48636340?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Bernardo Coutinho</b></sub></a><br /><a href="https://github.com/thunderatz/travesim/pulls?q=is%3Apr+reviewed-by%3ABerbardo" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/thunderatz/travesim/commits?author=Berbardo" title="Code">💻</a> <a href="https://github.com/thunderatz/travesim/commits?author=Berbardo" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/lucastrschneider"><img src="https://avatars0.githubusercontent.com/u/50970346?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lucas Schneider</b></sub></a><br /><a href="https://github.com/thunderatz/travesim/pulls?q=is%3Apr+reviewed-by%3Alucastrschneider" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/thunderatz/travesim/commits?author=lucastrschneider" title="Code">💻</a> <a href="#translation-lucastrschneider" title="Translation">🌍</a> <a href="https://github.com/thunderatz/travesim/commits?author=lucastrschneider" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/JuliaMdA"><img src="https://avatars1.githubusercontent.com/u/65100162?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Júlia Mello</b></sub></a><br /><a href="#design-JuliaMdA" title="Design">🎨</a> <a href="#data-JuliaMdA" title="Data">🔣</a></td>
     <td align="center"><a href="https://github.com/ThallesCarneiro"><img src="https://avatars1.githubusercontent.com/u/71659373?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ThallesCarneiro</b></sub></a><br /><a href="#design-ThallesCarneiro" title="Design">🎨</a> <a href="#data-ThallesCarneiro" title="Data">🔣</a></td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/TetsuoTakahashi"><img src="https://avatars2.githubusercontent.com/u/38441802?v=4?s=100" width="100px;" alt=""/><br /><sub><b>TetsuoTakahashi</b></sub></a><br /><a href="#ideas-TetsuoTakahashi" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/GabrielCosme"><img src="https://avatars0.githubusercontent.com/u/62270066?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Gabriel Cosme Barbosa</b></sub></a><br /><a href="https://github.com/thunderatz/travesim/pulls?q=is%3Apr+reviewed-by%3AGabrielCosme" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://github.com/RicardoHonda"><img src="https://avatars1.githubusercontent.com/u/62343088?v=4?s=100" width="100px;" alt=""/><br /><sub><b>RicardoHonda</b></sub></a><br /><a href="https://github.com/thunderatz/travesim/pulls?q=is%3Apr+reviewed-by%3ARicardoHonda" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://github.com/leticiakimoto"><img src="https://avatars0.githubusercontent.com/u/62733251?v=4?s=100" width="100px;" alt=""/><br /><sub><b>leticiakimoto</b></sub></a><br /><a href="https://github.com/thunderatz/travesim/pulls?q=is%3Apr+reviewed-by%3Aleticiakimoto" title="Reviewed Pull Requests">👀</a></td>
   </tr>
 </table>
 
@@ -269,4 +291,4 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+Esse projeto segue a especificação do [all-contributors](https://github.com/all-contributors/all-contributors). Contribuições de qualquer tipo são bem vindas!

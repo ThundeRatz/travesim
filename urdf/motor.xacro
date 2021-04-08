@@ -19,7 +19,7 @@
       </actuator>
 
       <joint name="roda_${side}_joint">
-        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
       </joint>
 
     </transmission>

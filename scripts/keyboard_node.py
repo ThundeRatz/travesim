@@ -16,7 +16,6 @@ import sys
 
 import rospy
 from geometry_msgs.msg import Twist
-from std_msgs.msg import Float64
 
 # Vamos acompanhar o estado dessas teclas
 KEYS = [pygame.K_w, pygame.K_a, pygame.K_s, pygame.K_d]
@@ -30,16 +29,13 @@ INVERT_Y_AXIS = True
 ROBOTS = 3
 
 # Namespace dos tópicos que iremos publicar
-DEFAULT_NAMESPACE = "/robot{}"
+DEFAULT_NAMESPACE = "/yellow_team/robot_{}"
 
 DEFAULT_DEBUG = False
 
 # A vel máxima do robô é 2 m/s
-LIN_VEL = 1  # m/s
-WHEEL_RADIUS = 0.030  # m
-
-ANG_VEL = LIN_VEL/WHEEL_RADIUS  # rad/s
-ANG_VEL = 0.1078  # Nm
+MAX_LIN_VEL = 1.0  # m/s
+MAX_ROT_VEL = 40  # rad/s
 
 # Os comandos vão de -126 até 126 de modo que os bytes 0xFE e 0xFF
 # nunca são utilizados
@@ -68,7 +64,7 @@ def drawConsole(win, font, console):
         ypos -= font.get_height()
 
 
-def main(namespace, debug=DEFAULT_DEBUG):
+def main(debug=DEFAULT_DEBUG):
 
     vel_pub = None
     vel_msg = None
@@ -78,16 +74,12 @@ def main(namespace, debug=DEFAULT_DEBUG):
     # Inicia configs do ROS
     rospy.init_node('vss_human_controller')
 
-    vel_pub_dir = []
-    vel_pub_esq = []
+    vel_pub = []
 
     for i in range(ROBOTS):
-        vel_pub_dir.append(rospy.Publisher(
-            getNamespace(i) + '/vss_robot_right_controller/command',
-            Float64, queue_size=2))
-        vel_pub_esq.append(rospy.Publisher(
-            getNamespace(i) + '/vss_robot_left_controller/command',
-            Float64, queue_size=2))
+        vel_pub.append(rospy.Publisher(
+            getNamespace(i) + '/diff_drive_controller/cmd_vel',
+            Twist, queue_size=2))
 
     rate = rospy.Rate(60)  # 60hz
 
@@ -95,7 +87,7 @@ def main(namespace, debug=DEFAULT_DEBUG):
 
     # Cria a janela
     win = pygame.display.set_mode((640, 480), pygame.RESIZABLE)
-    pygame.display.set_caption("nRFDongle Comunication Interface")
+    pygame.display.set_caption("Keyboard Comunication Interface")
 
     # Lista de frases a serem mostradas no console
     console = []
@@ -159,11 +151,11 @@ def main(namespace, debug=DEFAULT_DEBUG):
                 or e.type == pygame.JOYBUTTONUP \
                     or e.type == pygame.JOYHATMOTION:
 
-                    txt = "%s: %s" % (pygame.event.event_name(e.type), e.dict)
-                    print(txt)
-                    img = font.render(txt, 1, (50, 200, 50), (0, 0, 0))
-                    console.append(img)
-                    console = console[-13:]
+                txt = "%s: %s" % (pygame.event.event_name(e.type), e.dict)
+                print(txt)
+                img = font.render(txt, 1, (50, 200, 50), (0, 0, 0))
+                console.append(img)
+                console = console[-13:]
 
             # L1 pressionado
             if (e.type == pygame.JOYBUTTONDOWN and e.dict['button'] == 4) or (e.type == pygame.KEYDOWN and e.key == pygame.K_e):
@@ -191,24 +183,24 @@ def main(namespace, debug=DEFAULT_DEBUG):
                 console.append(img)
                 console = console[-13:]
 
-            vel_dir = Float64((axis[1] - axis[0])*ANG_VEL/2)
-            vel_esq = Float64((axis[1] + axis[0])*ANG_VEL/2)
+            vel_cmd_twist = Twist()
+            vel_cmd_twist.linear.x = axis[1]*MAX_LIN_VEL
+            vel_cmd_twist.angular.z = axis[0]*MAX_ROT_VEL
 
-            vel_pub_dir[current_robot].publish(vel_dir)
-            vel_pub_esq[current_robot].publish(vel_esq)
+            vel_pub[current_robot].publish(vel_cmd_twist)
 
         else:
-            vel_y = 0.0
-            if state[pygame.K_w]:
-                vel_y += 1.0
-            if state[pygame.K_s]:
-                vel_y -= 1.0
-
             vel_x = 0.0
-            if state[pygame.K_a]:
-                vel_x -= 1.0
-            if state[pygame.K_d]:
+            if state[pygame.K_w]:
                 vel_x += 1.0
+            if state[pygame.K_s]:
+                vel_x -= 1.0
+
+            vel_y = 0.0
+            if state[pygame.K_a]:
+                vel_y += 1.0
+            if state[pygame.K_d]:
+                vel_y -= 1.0
 
             txt = "X: {} Y: {}".format(int(vel_x*SCALE), int(vel_y*SCALE))
             if debug:
@@ -217,11 +209,11 @@ def main(namespace, debug=DEFAULT_DEBUG):
                 console.append(img)
                 console = console[-13:]
 
-            vel_dir = Float64((vel_y - vel_x)*ANG_VEL/2)
-            vel_esq = Float64((vel_y + vel_x)*ANG_VEL/2)
+            vel_cmd_twist = Twist()
+            vel_cmd_twist.linear.x = vel_x*MAX_LIN_VEL
+            vel_cmd_twist.angular.z = vel_y*MAX_ROT_VEL
 
-            vel_pub_dir[current_robot].publish(vel_dir)
-            vel_pub_esq[current_robot].publish(vel_esq)
+            vel_pub[current_robot].publish(vel_cmd_twist)
 
         rate.sleep()
 
@@ -242,4 +234,4 @@ if __name__ == "__main__":
 
     # args = parser.parse_args(myargv)
 
-    main(DEFAULT_NAMESPACE)
+    main()

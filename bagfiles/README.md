@@ -4,7 +4,7 @@ The generated bagfiles should be stored in this folder
 
 ## Instructions
 
-A helpfull tool in ROS development is the creation of bagfiles with help of [rosbag](http://wiki.ros.org/rosbag)
+A helpful tool in ROS development is the creation of bagfiles with help of [rosbag](http://wiki.ros.org/rosbag)
 
 To generate a bagfile from the active simulation, run the command
 

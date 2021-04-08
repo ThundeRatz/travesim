@@ -1,11 +1,13 @@
 {
-  "projectName": "vss_simulation",
+  "projectName": "travesim",
   "projectOwner": "thunderatz",
   "repoType": "github",
   "repoHost": "https://github.com",
   "files": [
-    "README.md"
+    "README.md",
+    "README.pt-br.md"
   ],
+  "badgeTemplate": "<img src=\"https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=for-the-badge\" href=\"#-contributors\"/>",
   "imageSize": 100,
   "commit": true,
   "commitConvention": "gitmoji",
@@ -91,6 +93,33 @@
       "profile": "https://github.com/TetsuoTakahashi",
       "contributions": [
         "ideas"
+      ]
+    },
+    {
+      "login": "GabrielCosme",
+      "name": "Gabriel Cosme Barbosa",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/62270066?v=4",
+      "profile": "https://github.com/GabrielCosme",
+      "contributions": [
+        "review"
+      ]
+    },
+    {
+      "login": "RicardoHonda",
+      "name": "RicardoHonda",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/62343088?v=4",
+      "profile": "https://github.com/RicardoHonda",
+      "contributions": [
+        "review"
+      ]
+    },
+    {
+      "login": "leticiakimoto",
+      "name": "leticiakimoto",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/62733251?v=4",
+      "profile": "https://github.com/leticiakimoto",
+      "contributions": [
+        "review"
       ]
     }
   ],

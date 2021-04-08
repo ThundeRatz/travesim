@@ -3,16 +3,20 @@
 <robot name="vss_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:arg name="robot_number" default="0" />
-  <xacro:arg name="team_number" default="0" />
+  <xacro:arg name="is_yellow" default="0" />
 
-  <!-- Import all Gazebo-customization elements, including Gazebo colors -->
-  <xacro:include filename="$(find vss_simulation)/urdf/generic_vss_robot.gazebo" />
+  <xacro:property name="robot_number" value="$(arg robot_number)" />
+  <xacro:property name="is_yellow" value="$(arg is_yellow)" />
+
+  <!-- Import all Gazebo-customization elements, except colors -->
+  <xacro:include filename="$(find travesim)/urdf/generic_vss_robot.gazebo" />
+  <xacro:include filename="$(find travesim)/urdf/generic_vss_robot.color" />
 
   <!-- Code exported from SolidWorks -->
-  <xacro:include filename="$(find vss_simulation)/urdf/generic_vss_robot.urdf" />
+  <xacro:include filename="$(find travesim)/urdf/generic_vss_robot.urdf" />
 
   <!-- Definition of motor -->
-  <xacro:include filename="$(find vss_simulation)/urdf/motor.xacro"/>
+  <xacro:include filename="$(find travesim)/urdf/motor.xacro"/>
 
   <xacro:motor side="esq" gear_rate="1"/>
   <xacro:motor side="dir" gear_rate="1"/>

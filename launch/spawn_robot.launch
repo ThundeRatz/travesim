@@ -4,40 +4,52 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
 
 <launch>
 
-  <arg name="robot_number" default="1" />
-  <arg name="team_number" default="0" />
-  <arg name="robot_name" default="$(eval 'robot'+str(team_number*3+robot_number))" />
+  <arg name="robot_number" default="0" />
+  <arg name="is_yellow" default="true" />
+  <arg name="robot_name" default="yellow_team/robot_0" />
   <arg name="x" default="0"/>
   <arg name="y" default="0"/>
   <arg name="z" default="0.03"/>
   <arg name="row" default="0"/>
   <arg name="pitch" default="0"/>
   <arg name="yaw" default="0"/>
-  <arg name="model" default="$(find vss_simulation)/urdf/generic_vss_robot.xacro"/>
+  <arg name="model" default="$(find travesim)/urdf/generic_vss_robot.xacro"/>
+  <arg name="twist_interface" default="true"/>
+  <arg name="config_file" default=""/>
 
-  <param name="robot_description"
-         command="$(find xacro)/xacro $(arg model)
-                    robot_number:=$(arg robot_number)
-                    team_number:=$(arg team_number)" />
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model) robot_number:=$(arg robot_number) is_yellow:=$(arg is_yellow)" />
 
   <!-- push robot_description to factory and spawn robot in gazebo -->
-  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
-        args="-x $(arg x) -y $(arg y) -z $(arg z)
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" args="-x $(arg x) -y $(arg y) -z $(arg z)
               -R $(arg row) -P $(arg pitch) -Y $(arg yaw)
-              -urdf -model $(arg robot_name) -param robot_description"
-        respawn="false" output="screen" />
+              -urdf -model $(arg robot_name) -param robot_description" respawn="false" output="screen" />
 
-  <!-- Load configs to publish the state of all joints -->
-  <rosparam command="load"
-            file="$(find vss_simulation)/config/joints.yaml" />
+  <group if="$(arg twist_interface)">
+    <!-- Load configs to control robot motors -->
+    <group if="$(eval config_file=='')">
+      <rosparam command="load" file="$(find travesim)/config/motor_diff_drive.yml" />
+    </group>
 
-  <!-- Load configs to control robot motors -->
-  <rosparam command="load"
-            file="$(find vss_simulation)/config/motor_effort.yaml" />
+    <group unless="$(eval config_file=='')">
+      <rosparam command="load" file="$(arg config_file)" />
+    </group>
 
-  <node name="vss_robot_controller" pkg="controller_manager" type="spawner"
-        args="vss_robot_left_controller
-              vss_robot_right_controller
-              vss_robot_joint_state_controller"/>
+    <node name="controller_manager" pkg="controller_manager" type="spawner" args="diff_drive_controller"/>
+  </group>
+
+
+  <group unless="$(arg twist_interface)">
+    <!-- Load configs to control robot motors -->
+    <group if="$(eval config_file=='')">
+      <rosparam command="load" file="$(find travesim)/config/motor_direct_drive.yml" />
+    </group>
+
+    <group unless="$(eval config_file=='')">
+      <rosparam command="load" file="$(arg config_file)" />
+    </group>
+
+    <node name="controller_manager" pkg="controller_manager" type="spawner" args="left_controller
+      right_controller"/>
+  </group>
 
 </launch>

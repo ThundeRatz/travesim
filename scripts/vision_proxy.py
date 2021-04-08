@@ -15,12 +15,12 @@
 
     Topics:
         - /vision/ball
-        - /vision/robot1
-        - /vision/robot2
-        - /vision/robot3
-        - /vision/foe1
-        - /vision/foe2
-        - /vision/foe3
+        - /vision/yellow_team/robot_0
+        - /vision/yellow_team/robot_1
+        - /vision/yellow_team/robot_2
+        - /vision/blue_team/robot_0
+        - /vision/blue_team/robot_1
+        - /vision/blue_team/robot_2
 """
 
 import rospy
@@ -31,12 +31,13 @@ from gazebo_msgs.msg import ModelStates, ModelState
 
 # We take out every "vss_" prefix from our models
 MODELS_NAMES = ["vss_ball",
-                "robot1",
-                "robot2",
-                "robot3",
-                "foe1",
-                "foe2",
-                "foe3"]
+                "yellow_team/robot_0",
+                "yellow_team/robot_1",
+                "yellow_team/robot_2",
+                "blue_team/robot_0",
+                "blue_team/robot_1",
+                "blue_team/robot_2",
+                ]
 
 pubs = {}
 
@@ -45,6 +46,7 @@ def clean_model_name(model):
     if model.split("_")[0] == "vss":
         model = "_".join(model.split("_")[1:])
     return model
+
 
 for model in MODELS_NAMES:
     pubs[model] = rospy.Publisher("/vision/" + clean_model_name(model),
@@ -89,6 +91,7 @@ def listener():
 
     # spin() simply keeps python from exiting until this node is stopped
     rospy.spin()
+
 
 if __name__ == '__main__':
     listener()
