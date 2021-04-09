@@ -20,13 +20,13 @@
 
     <!-- VSS Field -->
     <include>
-      <pose>0 0 0.020 0 0 0</pose>
+      <pose>0 0 0.01 0 0 0</pose>
       <uri>model://vss_field</uri>
     </include>
 
     <!-- VSS ball -->
     <include>
-      <pose>0 0 0.042 0 0 0</pose>
+      <pose>0 0 0.032 0 0 0</pose>
       <uri>model://vss_ball</uri>
     </include>
 
