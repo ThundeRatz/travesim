@@ -34,7 +34,6 @@
     <visual>
       <origin xyz="0 0 61e-3" rpy="0 0 0" />
       <geometry>
-        <!-- <mesh filename="package://travesim/meshes/chapeu_link.stl" /> -->
         <box size="75e-3 79e-3 2e-3"/>
       </geometry>
       <material name="">
@@ -57,7 +56,6 @@
     <visual>
       <origin xyz="0 -38.5e-3 30e-3" rpy="0 0 0" />
       <geometry>
-        <!-- <mesh filename="package://travesim/meshes/parede_dir_link.stl" /> -->
         <box size="75e-3 2e-3 60e-3"/>
       </geometry>
       <material name="">
@@ -80,7 +78,6 @@
     <visual>
       <origin xyz="0 38.5e-3 30e-3" rpy="0 0 0" />
       <geometry>
-        <!-- <mesh filename="package://travesim/meshes/parede_esq_link.stl" /> -->
         <box size="75e-3 2e-3 60e-3"/>
       </geometry>
       <material name="">
@@ -103,7 +100,6 @@
     <visual>
       <origin xyz="0 4e-3 0" rpy="1.5707963 0 0" />
       <geometry>
-        <!-- <mesh filename="package://travesim/meshes/roda_dir_link.stl" /> -->
         <cylinder radius="25e-3" length="8e-3"/>
       </geometry>
       <material name="">
@@ -113,7 +109,6 @@
     <collision>
       <origin xyz="0 4e-3 0" rpy="1.5707963 0 0" />
       <geometry>
-        <!-- <mesh filename="package://travesim/meshes/roda_dir_link.stl" /> -->
         <cylinder radius="25e-3" length="8e-3"/>
       </geometry>
     </collision>
@@ -135,7 +130,6 @@
     <visual>
       <origin xyz="0 -4e-3 0" rpy="1.5707963 0 0" />
       <geometry>
-        <!-- <mesh filename="package://travesim/meshes/roda_esq_link.stl" /> -->
         <cylinder radius="25e-3" length="8e-3"/>
       </geometry>
       <material name="">
@@ -145,7 +139,6 @@
     <collision>
       <origin xyz="0 -4e-3 0" rpy="1.5707963 0 0" />
       <geometry>
-        <!-- <mesh filename="package://travesim/meshes/roda_esq_link.stl" /> -->
         <cylinder radius="25e-3" length="8e-3"/>
       </geometry>
     </collision>
