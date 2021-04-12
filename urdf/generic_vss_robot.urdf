@@ -34,7 +34,7 @@
     <visual>
       <origin xyz="0 0 61e-3" rpy="0 0 0" />
       <geometry>
-        <box size="75e-3 79e-3 2e-3"/>
+        <box size="80e-3 80e-3 2e-3"/>
       </geometry>
       <material name="">
         <color rgba="1 1 1 1" />
