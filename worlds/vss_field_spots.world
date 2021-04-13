@@ -26,7 +26,7 @@
 
     <!-- VSS ball -->
     <include>
-      <pose>0 0 0.032 0 0 0</pose>
+      <pose>0 0 0.0315 0 0 0</pose>
       <uri>model://vss_ball</uri>
     </include>
 
