@@ -12,7 +12,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://travesim/meshes/base_link.STL" />
+        <mesh filename="package://travesim/meshes/base_link.stl" />
       </geometry>
       <material name="">
         <color rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
@@ -21,7 +21,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://travesim/meshes/base_link.STL" />
+        <mesh filename="package://travesim/meshes/base_link_col.stl" />
       </geometry>
     </collision>
   </link>
@@ -32,22 +32,14 @@
       <inertia ixx="6.2903E-06" ixy="2.3039E-22" ixz="-2.9084E-23" iyy="5.6698E-06" iyz="-3.7247E-24" izz="1.1952E-05" />
     </inertial>
     <visual>
-      <origin xyz="0 0 60e-3" rpy="0 0 0" />
+      <origin xyz="0 0 61e-3" rpy="0 0 0" />
       <geometry>
-        <!-- <mesh filename="package://travesim/meshes/chapeu_link.STL" /> -->
         <box size="80e-3 80e-3 2e-3"/>
       </geometry>
       <material name="">
         <color rgba="1 1 1 1" />
       </material>
     </visual>
-    <collision>
-      <origin xyz="0 0 60e-3" rpy="0 0 0" />
-      <geometry>
-        <!-- <mesh filename="package://travesim/meshes/chapeu_link.STL" /> -->
-        <box size="80e-3 80e-3 2e-3"/>
-      </geometry>
-    </collision>
   </link>
   <joint name="chapeu_joint" type="fixed">
     <origin xyz="0 0 0" rpy="0 0 0" />
@@ -64,20 +56,12 @@
     <visual>
       <origin xyz="0 -38.5e-3 30e-3" rpy="0 0 0" />
       <geometry>
-        <!-- <mesh filename="package://travesim/meshes/parede_dir_link.STL" /> -->
         <box size="75e-3 2e-3 60e-3"/>
       </geometry>
       <material name="">
         <color rgba="1 1 1 1" />
       </material>
     </visual>
-    <collision>
-      <origin xyz="0 -38.5e-3 30e-3" rpy="0 0 0" />
-      <geometry>
-        <!-- <mesh filename="package://travesim/meshes/parede_dir_link.STL" /> -->
-        <box size="75e-3 2e-3 60e-3"/>
-      </geometry>
-    </collision>
   </link>
   <joint name="parede_dir_joint" type="fixed">
     <origin xyz="0 0 0" rpy="0 0 0" />
@@ -94,19 +78,12 @@
     <visual>
       <origin xyz="0 38.5e-3 30e-3" rpy="0 0 0" />
       <geometry>
-        <!-- <mesh filename="package://travesim/meshes/parede_esq_link.STL" /> -->
         <box size="75e-3 2e-3 60e-3"/>
       </geometry>
       <material name="">
         <color rgba="1 1 1 1" />
       </material>
     </visual>
-    <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
-      <geometry>
-        <mesh filename="package://travesim/meshes/parede_esq_link.STL" />
-      </geometry>
-    </collision>
   </link>
   <joint name="parede_esq_joint" type="fixed">
     <origin xyz="0 0 0" rpy="0 0 0" />
@@ -121,18 +98,18 @@
       <inertia ixx="2.9189E-06" ixy="-3.4908E-39" ixz="2.1559E-38" iyy="5.645E-06" iyz="4.9934E-39" izz="2.9189E-06" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin xyz="0 4e-3 0" rpy="1.5707963 0 0" />
       <geometry>
-        <mesh filename="package://travesim/meshes/roda_dir_link.STL" />
+        <cylinder radius="25e-3" length="8e-3"/>
       </geometry>
       <material name="">
         <color rgba="0.79608 0.82353 0.93725 1" />
       </material>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin xyz="0 4e-3 0" rpy="1.5707963 0 0" />
       <geometry>
-        <mesh filename="package://travesim/meshes/roda_dir_link.STL" />
+        <cylinder radius="25e-3" length="8e-3"/>
       </geometry>
     </collision>
   </link>
@@ -151,18 +128,18 @@
       <inertia ixx="2.9189E-06" ixy="-3.4908E-39" ixz="2.1559E-38" iyy="5.645E-06" iyz="-1.0274E-38" izz="2.9189E-06" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin xyz="0 -4e-3 0" rpy="1.5707963 0 0" />
       <geometry>
-        <mesh filename="package://travesim/meshes/roda_esq_link.STL" />
+        <cylinder radius="25e-3" length="8e-3"/>
       </geometry>
       <material name="">
         <color rgba="0.79608 0.82353 0.93725 1" />
       </material>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin xyz="0 -4e-3 0" rpy="1.5707963 0 0" />
       <geometry>
-        <mesh filename="package://travesim/meshes/roda_esq_link.STL" />
+        <cylinder radius="25e-3" length="8e-3"/>
       </geometry>
     </collision>
   </link>
