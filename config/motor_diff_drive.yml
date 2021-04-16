@@ -5,13 +5,16 @@
 
 diff_drive_controller:
   type: "diff_drive_controller/DiffDriveController"
-  publish_rate: 60  # Hz
+  publish_rate: 60 # Hz
 
-  left_wheel: 'roda_esq_joint'
-  right_wheel: 'roda_dir_joint'
+  left_wheel: roda_esq_joint
+  right_wheel: roda_dir_joint
 
-  wheel_separation: 0.075 # meters
-  wheel_radius: 0.025     # meters
+  wheel_separation: 0.07 # meters
+  wheel_separation_multiplier: 0.88
+
+  wheel_radius: 0.025 # meters
+  wheel_radius_multiplier: 0.715
 
   # Odometry covariances for the encoder output of the robot. These values should
   # be tuned to your robot's sample odometry data, but these values are a good place
@@ -21,4 +24,3 @@ diff_drive_controller:
 
   # Top level frame (link) of the robot description
   base_frame_id: base_link
-

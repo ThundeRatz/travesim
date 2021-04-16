@@ -2,9 +2,9 @@ gazebo_ros_control:
   pid_gains:
     roda_esq_joint:
       p: 0.01
-      i: 0
+      i: 1
       d: 0
     roda_dir_joint:
       p: 0.01
-      i: 0
+      i: 1
       d: 0
