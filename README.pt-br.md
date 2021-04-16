@@ -152,7 +152,8 @@ Para usar seu modelo customizado, altere o valor do parâmetro ```model``` ao in
 ### 🚀 Roslaunch
 
 - ```model``` - Caminho do modelo do robô simulado, padrão "./urdf/vss_robot.xacro"
-- - ```config_file``` - Caminho do arquivo de configuração dos controladores do robô simulado, padrão "./config/motor_diff_drive.yml" se `twist_interface` é "true", "./config/motor_direct_drive.yml" caso contrário
+- - ```controller_config_file``` - Caminho do arquivo de configuração dos controladores do robô simulado, padrão "./config/motor_diff_drive.yml" se `twist_interface` é "true", "./config/motor_direct_drive.yml" caso contrário
+- ```ros_control_config_file``` - Caminho do arquivo de configuração do `gazebo_ros_control`, padrão "./config/ros_control_config.yml"
 - ```debug``` - Habilita mensagens de debug no terminal, padrão "false"
 - ```gui``` - Habilita janela GUI do Gazebo, padrão "true"
 - ```paused``` - Inicia a simulação com pause, padrão "true"

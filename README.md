@@ -155,7 +155,8 @@ To use your custom model, change the value of the ```model``` parameter when lau
 ### 🚀 Roslaunch
 
 - ```model``` - Path of simulated robot model, default "./urdf/vss_robot.xacro"
-- ```config_file``` - Path of simulated robot controllers config file, default "./config/motor_diff_drive.yml" if `twist_interface` is true, "./config/motor_direct_drive.yml" otherwise
+- ```controller_config_file``` - Path of simulated robot controllers config file, default "./config/motor_diff_drive.yml" if `twist_interface` is true, "./config/motor_direct_drive.yml" otherwise
+- ```ros_control_config_file``` - Path of `gazebo_ros_control` config file, default "./config/ros_control_config.yml"
 - ```debug``` - Enable debug messages in terminal, default "false"
 - ```gui``` - Enable Gazebo's GUI window, default "true"
 - ```paused``` - Init simulation paused, default "true"

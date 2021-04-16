@@ -4,15 +4,7 @@
 left_controller:
   type: velocity_controllers/JointVelocityController
   joint: roda_esq_joint
-  pid:
-    p: 100.0
-    i: 0.01
-    d: 10.0
 
 right_controller:
   type: velocity_controllers/JointVelocityController
   joint: roda_dir_joint
-  pid:
-    p: 100.0
-    i: 0.01
-    d: 10.0
