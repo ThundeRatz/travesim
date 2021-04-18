@@ -6,12 +6,10 @@
 
     Description:
         Simple python routine to watch the keyboard or a joystick
-    to send velocity commands to a Gazebo simulation
-        See https://github.com/ThundeRatz/VSSFirmware
+        to send velocity commands to a Gazebo simulation.
 """
 
 import pygame
-import argparse
 import sys
 
 import rospy
@@ -23,7 +21,7 @@ KEYS = [pygame.K_w, pygame.K_a, pygame.K_s, pygame.K_d]
 # Indice dos eixos x e y do joystick
 X_AXIS = 0
 Y_AXIS = 4
-INVERT_X_AXIS = False
+INVERT_X_AXIS = True
 INVERT_Y_AXIS = True
 
 ROBOTS = 3
@@ -35,7 +33,17 @@ DEFAULT_DEBUG = False
 
 # A vel máxima do robô é 2 m/s
 MAX_LIN_VEL = 1.0  # m/s
-MAX_ROT_VEL = 40  # rad/s
+
+# A vel máxima do robô é 40 rad/2
+MAX_ROT_VEL = 20  # rad/s
+
+# Define a rampa de aceleração quando usando o teclado
+# Valores em porcentagem da velocidade máxima
+KEYBOARD_LINEAR_STEP = 0.03
+KEYBOARD_LINEAR_MAX = 1.0
+
+KEYBOARD_ANGULAR_STEP = 0.03
+KEYBOARD_ANGULAR_MAX = 0.6
 
 # Os comandos vão de -126 até 126 de modo que os bytes 0xFE e 0xFF
 # nunca são utilizados
@@ -43,7 +51,7 @@ SCALE = 126
 
 
 def getNamespace(number):
-    return DEFAULT_NAMESPACE.format(number+1)
+    return DEFAULT_NAMESPACE.format(number)
 
 
 def drawConsole(win, font, console):
@@ -66,15 +74,12 @@ def drawConsole(win, font, console):
 
 def main(debug=DEFAULT_DEBUG):
 
-    vel_pub = None
-    vel_msg = None
+    vel_pub = []
     rate = None
     current_robot = 0
 
     # Inicia configs do ROS
     rospy.init_node('vss_human_controller')
-
-    vel_pub = []
 
     for i in range(ROBOTS):
         vel_pub.append(rospy.Publisher(
@@ -115,6 +120,9 @@ def main(debug=DEFAULT_DEBUG):
         img = font.render("No Joysticks to Initialize", 1,
                           (50, 200, 50), (0, 0, 0))
         console.append(img)
+
+    vel_lin = 0.0
+    vel_ang = 0.0
 
     running = True
     while running:
@@ -162,6 +170,7 @@ def main(debug=DEFAULT_DEBUG):
                 current_robot += 1
                 current_robot %= ROBOTS
 
+            # R1 pressionado
             if (e.type == pygame.JOYBUTTONDOWN and e.dict['button'] == 5) or (e.type == pygame.KEYDOWN and e.key == pygame.K_q):
                 current_robot -= 1
                 current_robot %= ROBOTS
@@ -176,12 +185,13 @@ def main(debug=DEFAULT_DEBUG):
         pygame.display.flip()
 
         if using_joystick:
-            txt = "X: {} Y: {}".format(int(axis[0]*SCALE), int(axis[1]*SCALE))
+            txt = "Linear: {} Angular: {}".format(int(axis[1]*SCALE), int(axis[0]*SCALE))
+            img = font.render(txt, 1, (50, 200, 50), (0, 0, 0))
+            console.append(img)
+            console = console[-13:]
+
             if debug:
                 print(txt)
-                img = font.render(txt, 1, (50, 200, 50), (0, 0, 0))
-                console.append(img)
-                console = console[-13:]
 
             vel_cmd_twist = Twist()
             vel_cmd_twist.linear.x = axis[1]*MAX_LIN_VEL
@@ -190,28 +200,35 @@ def main(debug=DEFAULT_DEBUG):
             vel_pub[current_robot].publish(vel_cmd_twist)
 
         else:
-            vel_x = 0.0
-            if state[pygame.K_w]:
-                vel_x += 1.0
-            if state[pygame.K_s]:
-                vel_x -= 1.0
+            if state[pygame.K_w] and not state[pygame.K_s]:
+                vel_lin += KEYBOARD_LINEAR_STEP
+                vel_lin = min(vel_lin, KEYBOARD_LINEAR_MAX)
+            elif state[pygame.K_s] and not state[pygame.K_w]:
+                vel_lin -= KEYBOARD_LINEAR_STEP
+                vel_lin = max(vel_lin, -KEYBOARD_LINEAR_MAX)
+            else:
+                vel_lin = 0.0
 
-            vel_y = 0.0
-            if state[pygame.K_a]:
-                vel_y += 1.0
-            if state[pygame.K_d]:
-                vel_y -= 1.0
+            if state[pygame.K_a] and not state[pygame.K_d]:
+                vel_ang += KEYBOARD_ANGULAR_STEP
+                vel_ang = min(vel_ang, KEYBOARD_ANGULAR_MAX)
+            elif state[pygame.K_d] and not state[pygame.K_a]:
+                vel_ang -= KEYBOARD_ANGULAR_STEP
+                vel_ang = max(vel_ang, -KEYBOARD_ANGULAR_MAX)
+            else:
+                vel_ang = 0.0
 
-            txt = "X: {} Y: {}".format(int(vel_x*SCALE), int(vel_y*SCALE))
+            txt = "Linear: {} Angular: {}".format(int(vel_lin*SCALE), int(vel_ang*SCALE))
+            img = font.render(txt, 1, (50, 200, 50), (0, 0, 0))
+            console.append(img)
+            console = console[-13:]
+
             if debug:
                 print(txt)
-                img = font.render(txt, 1, (50, 200, 50), (0, 0, 0))
-                console.append(img)
-                console = console[-13:]
 
             vel_cmd_twist = Twist()
-            vel_cmd_twist.linear.x = vel_x*MAX_LIN_VEL
-            vel_cmd_twist.angular.z = vel_y*MAX_ROT_VEL
+            vel_cmd_twist.linear.x = vel_lin*MAX_LIN_VEL
+            vel_cmd_twist.angular.z = vel_ang*MAX_ROT_VEL
 
             vel_pub[current_robot].publish(vel_cmd_twist)
 
@@ -224,14 +241,7 @@ if __name__ == "__main__":
     # Clean ROS parameters from command line
     myargv = rospy.myargv(argv=sys.argv)
 
-    # parser = argparse.ArgumentParser()
-    # parser.add_argument("-n", "--namespace", type=str,
-    #                     default=DEFAULT_NAMESPACE)
-    # parser.add_argument("-d", "--debug", action="store_true")
-
     print(myargv)
     rospy.loginfo(myargv)
-
-    # args = parser.parse_args(myargv)
 
     main()
