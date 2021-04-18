@@ -34,7 +34,7 @@ DEFAULT_DEBUG = False
 # A vel máxima do robô é 2 m/s
 MAX_LIN_VEL = 1.0  # m/s
 
-# A vel máxima do robô é 40 rad/2
+# A vel máxima do robô é 40 rad/s
 MAX_ROT_VEL = 20  # rad/s
 
 # Define a rampa de aceleração quando usando o teclado
@@ -185,7 +185,7 @@ def main(debug=DEFAULT_DEBUG):
         pygame.display.flip()
 
         if using_joystick:
-            txt = "Linear: {} Angular: {}".format(int(axis[1]*SCALE), int(axis[0]*SCALE))
+            txt = f"Linear: {int(axis[1]*SCALE)} Angular: {int(axis[0]*SCALE)}"
             img = font.render(txt, 1, (50, 200, 50), (0, 0, 0))
             console.append(img)
             console = console[-13:]
@@ -218,7 +218,7 @@ def main(debug=DEFAULT_DEBUG):
             else:
                 vel_ang = 0.0
 
-            txt = "Linear: {} Angular: {}".format(int(vel_lin*SCALE), int(vel_ang*SCALE))
+            txt = f"Linear: {int(vel_lin*SCALE)} Angular: {int(vel_ang*SCALE)}"
             img = font.render(txt, 1, (50, 200, 50), (0, 0, 0))
             console.append(img)
             console = console[-13:]
@@ -227,8 +227,8 @@ def main(debug=DEFAULT_DEBUG):
                 print(txt)
 
             vel_cmd_twist = Twist()
-            vel_cmd_twist.linear.x = vel_lin*MAX_LIN_VEL
-            vel_cmd_twist.angular.z = vel_ang*MAX_ROT_VEL
+            vel_cmd_twist.linear.x = vel_lin * MAX_LIN_VEL
+            vel_cmd_twist.angular.z = vel_ang * MAX_ROT_VEL
 
             vel_pub[current_robot].publish(vel_cmd_twist)
 
