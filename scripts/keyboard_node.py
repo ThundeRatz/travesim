@@ -27,7 +27,7 @@ INVERT_Y_AXIS = True
 ROBOTS = 3
 
 # Namespace dos tópicos que iremos publicar
-DEFAULT_NAMESPACE = "/yellow_team/robot_{}"
+DEFAULT_NAMESPACE = "/yellow_team/robot_"
 
 DEFAULT_DEBUG = False
 
@@ -51,7 +51,7 @@ SCALE = 126
 
 
 def getNamespace(number):
-    return DEFAULT_NAMESPACE.format(number)
+    return DEFAULT_NAMESPACE + f'{number}'
 
 
 def drawConsole(win, font, console):
