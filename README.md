@@ -176,7 +176,7 @@ roslaunch travesim simulation_team.launch keyboard:=true
 
 ## 📷 Virtual camera
 
-The simulation have a virtual camera that record images from the top of the field, in the same way as a real VSS match. To enable it, one should use the world file `vss_field_camera.world`
+The simulation has a virtual camera that record images from the top of the field, in the same way as a real VSS match. To enable it, one should use the world file `vss_field_camera.world`
 
 ```sh
 roslaunch travesim simulation_team.launch world_name:=vss_field_camera.world
