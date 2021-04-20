@@ -151,8 +151,9 @@ Para usar seu modelo customizado, altere o valor do parâmetro ```model``` ao in
 
 ### 🚀 Roslaunch
 
+- ```world_name``` - Nome o arquivo de mundo utilizado, padrão "vss_field.world"
 - ```model``` - Caminho do modelo do robô simulado, padrão "./urdf/vss_robot.xacro"
-- - ```controller_config_file``` - Caminho do arquivo de configuração dos controladores do robô simulado, padrão "./config/motor_diff_drive.yml" se `twist_interface` é "true", "./config/motor_direct_drive.yml" caso contrário
+- ```controller_config_file``` - Caminho do arquivo de configuração dos controladores do robô simulado, padrão "./config/motor_diff_drive.yml" se `twist_interface` é "true", "./config/motor_direct_drive.yml" caso contrário
 - ```ros_control_config_file``` - Caminho do arquivo de configuração do `gazebo_ros_control`, padrão "./config/ros_control_config.yml"
 - ```debug``` - Habilita mensagens de debug no terminal, padrão "false"
 - ```gui``` - Habilita janela GUI do Gazebo, padrão "true"
@@ -172,7 +173,11 @@ roslaunch travesim simulation_team.launch keyboard:=true
 
 ## 📷 Câmera virtual
 
-A simulação possui uma câmera virtual que captura imagens do topo do campo, de forma semelhante ao que acontece em uma partida de VSS real.
+A simulação possui uma câmera virtual que captura imagens do topo do campo, de forma semelhante ao que acontece em uma partida de VSS real. Para habilita-la, é necessário utilizar o arquivo de mundo `vss_field_camera.world`
+
+```sh
+roslaunch travesim simulation_team.launch world_name:=vss_field_camera.world
+```
 
 A câmera publica as imagens obtidas no tópico **/camera/image_raw**
 

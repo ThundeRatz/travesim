@@ -154,6 +154,7 @@ To use your custom model, change the value of the ```model``` parameter when lau
 
 ### 🚀 Roslaunch
 
+- ```world_name``` - Name of world file inside `./worlds` folder, default "vss_field.world"
 - ```model``` - Path of simulated robot model, default "./urdf/vss_robot.xacro"
 - ```controller_config_file``` - Path of simulated robot controllers config file, default "./config/motor_diff_drive.yml" if `twist_interface` is true, "./config/motor_direct_drive.yml" otherwise
 - ```ros_control_config_file``` - Path of `gazebo_ros_control` config file, default "./config/ros_control_config.yml"
@@ -175,7 +176,11 @@ roslaunch travesim simulation_team.launch keyboard:=true
 
 ## 📷 Virtual camera
 
-The simulation have a virtual camera that record images from the top of the field, in the same way as a real VSS match.
+The simulation has a virtual camera that record images from the top of the field, in the same way as a real VSS match. To enable it, one should use the world file `vss_field_camera.world`
+
+```sh
+roslaunch travesim simulation_team.launch world_name:=vss_field_camera.world
+```
 
 The images are published in the topic **/camera/image_raw**
 

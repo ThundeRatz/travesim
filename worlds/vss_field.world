@@ -30,11 +30,6 @@
       <uri>model://vss_ball</uri>
     </include>
 
-    <!-- VSS Camera -->
-    <include>
-      <uri>model://vss_camera</uri>
-    </include>
-
     <physics type='ode'>
       <real_time_factor>0.5</real_time_factor>
     </physics>
