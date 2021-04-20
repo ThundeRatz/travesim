@@ -1,10 +1,16 @@
 gazebo_ros_control:
   pid_gains:
     roda_esq_joint:
-      p: 0.01
+      p: 0.015
       i: 1
       d: 0
+      antiwindup: true
+      i_clamp_max: 0.1
+      i_clamp_min: -0.1
     roda_dir_joint:
-      p: 0.01
+      p: 0.015
       i: 1
       d: 0
+      antiwindup: true
+      i_clamp_max: 0.1
+      i_clamp_min: -0.1
