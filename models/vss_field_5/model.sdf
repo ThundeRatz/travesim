@@ -1,0 +1,96 @@
+<?xml version="1.0" ?>
+
+<!-- Physical parameters (contact properties) taken from
+https://bitbucket.org/osrf/gazebo/src/gazebo11/models/ground_plane/model.sdf -->
+
+<sdf version="1.5">
+  <model name='vss_field'>
+
+    <static>true</static>
+
+    <link name='base_link'>
+      <pose frame=''>0 0 0 0 0 0</pose>
+
+      <collision name='base_link_collision'>
+        <pose>0 0 -0.005 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.55 1.85 0.01</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.6</mu>
+              <mu2>0.6</mu2>
+            </ode>
+            <torsional>
+              <ode/>
+            </torsional>
+          </friction>
+          <bounce/>
+        </surface>
+        <max_contacts>20</max_contacts>
+      </collision>
+      <collision name='laterais_link_collision'>
+        <pose frame=''>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://vss_field_5/meshes/laterais_link.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name='base_link_visual'>
+        <pose frame=''>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://vss_field_5/meshes/base_link.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+
+      <visual name='marcas_campo_visual'>
+        <pose frame=''>0 0 0.0001 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://vss_field_5/meshes/marcas_campo.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/White</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+
+      <visual name='laterais_link_visual'>
+        <pose frame=''>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://vss_field_5/meshes/laterais_link.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/White</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+
+    </link>
+
+  </model>
+</sdf>
