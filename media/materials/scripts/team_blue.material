@@ -61,3 +61,33 @@ material TeamBlue/Robot2/Hat
     }
   }
 }
+
+material TeamBlue/Robot3/Hat
+{
+  receive_shadows off
+  technique
+  {
+    pass ambient
+    {
+      texture_unit
+      {
+      	texture blue_3.png
+      }
+    }
+  }
+}
+
+material TeamBlue/Robot4/Hat
+{
+  receive_shadows off
+  technique
+  {
+    pass ambient
+    {
+      texture_unit
+      {
+      	texture blue_4.png
+      }
+    }
+  }
+}
