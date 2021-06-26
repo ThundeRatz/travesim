@@ -34,12 +34,12 @@
 
   <!-- Spawn yellow team -->
   <node name="yellow_team_spawner" pkg="travesim" type="spawn_robots.py" output="screen">
-    <param name="robots_per_team"
-           value="3"
-           if="$(eval ((arg('world_name') == 'vss_field.world') or (arg('world_name') == 'vss_field_camera.world')))"/>
-    <param name="robots_per_team"
-           value="5"
-           unless="$(eval ((arg('world_name') == 'vss_field.world') or (arg('world_name') == 'vss_field_camera.world')))"/>
+    <param if="$(eval ((arg('world_name') == 'vss_field.world') or (arg('world_name') == 'vss_field_camera.world')))"
+           name="robots_per_team"
+           value="3"/>
+    <param unless="$(eval ((arg('world_name') == 'vss_field.world') or (arg('world_name') == 'vss_field_camera.world')))"
+           name="robots_per_team"
+           value="5"/>
     <param name="team_color" value="yellow" />
     <param name="model" value="$(arg model)" />
     <param name="twist_interface" value="$(arg twist_interface)"/>
