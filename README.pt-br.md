@@ -14,6 +14,7 @@
 
 - [📷 Screenshots](#-screenshots)
 - [🎈 Introdução](#-introdução)
+- [🌎 Mundos](#-mundos)
 - [📣 Tópicos ROS](#-tópicos-ros)
   - [⬅ Entrada](#-entrada)
     - [Controle por direção diferencial (padrão)](#controle-por-direção-diferencial-padrão)
@@ -37,6 +38,7 @@
   <img height=200px src="./docs/screenshot_robot.png" />
   <img height=200px src="./docs/screenshot_team.png" />
   <img height=200px src="./docs/screenshot_match.png" />
+  <img height=200px src="./docs/screenshot_match_5x5.png" />
 </p>
 
 
@@ -62,6 +64,22 @@ Para rodar a simulação de uma partida, digite:
 roslaunch travesim simulation_match.launch
 ```
 
+## 🌎 Mundos
+
+O TraveSim pode simular jogos com 3 ou 5 robôs por time. O número de robôs por time será inferido do mundo de simulação escolhido. Os mundos atualmente suportados são os seguintes:
+
+- `vss_field.world` - Mundo base para partidas de 3x3
+- `vss_field_camera.world` - Mundo para partidas de 3x3 com câmera e iluminação
+- `vss_field_5.world` - Mundo base para partidas de 5x5
+
+Assim, por exemplo, para executar a simulação com uma única equipe de 5 robôs, execute:
+
+```bash
+roslaunch travesim simulation_team.launch world_name:=vss_field_5.world
+```
+
+Para obter mais informações sobre os parâmetros do roslaunch, consulte a seção [🚀 Roslaunch](#-roslaunch).
+
 ## 📣 Tópicos ROS
 
 ### ⬅ Entrada
@@ -80,8 +98,8 @@ Vector3  angular
 
 Os tópicos ROS seguem a convenção de nomenclatura:
 
-- **/yellow_team/robot_[0..2]/diff_drive_controller/cmd_vel**
-- **/blue_team/robot_[0..2]/diff_drive_controller/cmd_vel**
+- **/yellow_team/robot_[0..2|0..4]/diff_drive_controller/cmd_vel**
+- **/blue_team/robot_[0..2|0..4]/diff_drive_controller/cmd_vel**
 
 O controle do robô é feito pelo [diff_driver_controller](http://wiki.ros.org/diff_drive_controller). Os parâmetros de controle estão especificados no arquivo [./config/motor_diff_drive.yml](./config/motor_diff_drive.yml). O controlador representa o comportamento do sistema de controle embarcado no robô e envia comandos de torque para os motores de modo a seguir o set point recebido.
 
@@ -93,10 +111,10 @@ A simulação também aceita controle diretamente por meio de comandos de **velo
 
 Os comandos são lidos de tópicos do tipo [std_msgs/Float64](http://docs.ros.org/noetic/api/std_msgs/html/msg/Float64.html), representando a velocidade de cada motor em **rad/s**
 
-- **/yellow_team/robot_[0..2]/left_controller/command**
-- **/yellow_team/robot_[0..2]/right_controller/command**
-- **/blue_team/robot_[0..2]/left_controller/command**
-- **/blue_team/robot_[0..2]/right_controller/command**
+- **/yellow_team/robot_[0..2|0..4]/left_controller/command**
+- **/yellow_team/robot_[0..2|0..4]/right_controller/command**
+- **/blue_team/robot_[0..2|0..4]/left_controller/command**
+- **/blue_team/robot_[0..2|0..4]/right_controller/command**
 
 Para habilitar essa interface de controle, é necessário enviar o parâmetro `twist_interface` como false nos [parâmetros](#-parâmetros) do roslaunch
 
@@ -124,8 +142,8 @@ string reference_frame      # set pose/twist relative to the frame of this entit
 
 Os tópicos republicados são
 
-- **/vision/yellow_team/robot_[0..2]** - Tópicos para os robôs do time amarelo
-- **/vision/blue_team/robot_[0..2]** - Tópicos para os robôs do time azul
+- **/vision/yellow_team/robot_[0..2|0..4]** - Tópicos para os robôs do time amarelo
+- **/vision/blue_team/robot_[0..2|0..4]** - Tópicos para os robôs do time azul
 - **/vision/ball** - Tópico para a bola
 
 Todas as unidades estão no SI, distâncias estão em metros, ângulos estão em radianos, velocidade linear está em m/s e velocidade angular está em rad/s
