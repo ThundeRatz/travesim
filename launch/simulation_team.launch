@@ -33,51 +33,45 @@
     inside the generic_vss_robot.gazebo file -->
 
   <!-- Spawn yellow robot #0 -->
-  <group ns="yellow_team/robot_0">
-    <param name="tf_prefix" value="yellow_team/robot_0_tf" />
-    <include file="$(find travesim)/launch/spawn_robot.launch">
-      <arg name="robot_number" value="0" />
-      <arg name="is_yellow" value="true" />
-      <arg name="robot_name" value="yellow_team/robot_0" />
-      <arg name="x" value="-0.2" />
-      <arg name="y" value="0" />
-      <arg name="model" value="$(arg model)" />
-      <arg name="twist_interface" value="$(arg twist_interface)"/>
-      <arg name="controller_config_file" value="$(arg controller_config_file)"/>
-      <arg name="ros_control_config_file" value="$(arg ros_control_config_file)"/>
-    </include>
-  </group>
+  <include file="$(find travesim)/launch/spawn_robot.launch">
+    <arg name="robot_number" value="0" />
+    <arg name="is_yellow" value="true" />
+    <arg name="robot_name" value="yellow_team/robot_0" />
+    <arg name="x" value="-0.2" />
+    <arg name="y" value="0" />
+    <arg name="model" value="$(arg model)" />
+    <arg name="twist_interface" value="$(arg twist_interface)"/>
+    <arg name="controller_config_file" value="$(arg controller_config_file)"/>
+    <arg name="ros_control_config_file" value="$(arg ros_control_config_file)"/>
+    <arg name="namespace" value="yellow_team/robot_0"/>
+  </include>
 
   <!-- Spawn yellow robot #1 -->
-  <group ns="yellow_team/robot_1">
-    <param name="tf_prefix" value="yellow_team/robot_1_tf" />
-    <include file="$(find travesim)/launch/spawn_robot.launch">
-      <arg name="robot_number" value="1" />
-      <arg name="is_yellow" value="true" />
-      <arg name="robot_name" value="yellow_team/robot_1" />
-      <arg name="x" value="-0.5" />
-      <arg name="y" value="0.3" />
-      <arg name="model" value="$(arg model)" />
-      <arg name="twist_interface" value="$(arg twist_interface)"/>
-      <arg name="controller_config_file" value="$(arg controller_config_file)"/>
-      <arg name="ros_control_config_file" value="$(arg ros_control_config_file)"/>
-    </include>
-  </group>
+  <include file="$(find travesim)/launch/spawn_robot.launch">
+    <arg name="robot_number" value="1" />
+    <arg name="is_yellow" value="true" />
+    <arg name="robot_name" value="yellow_team/robot_1" />
+    <arg name="x" value="-0.5" />
+    <arg name="y" value="0.3" />
+    <arg name="model" value="$(arg model)" />
+    <arg name="twist_interface" value="$(arg twist_interface)"/>
+    <arg name="controller_config_file" value="$(arg controller_config_file)"/>
+    <arg name="ros_control_config_file" value="$(arg ros_control_config_file)"/>
+    <arg name="namespace" value="yellow_team/robot_1"/>
+  </include>
 
   <!-- Spawn yellow robot #2 -->
-  <group ns="yellow_team/robot_2">
-    <param name="tf_prefix" value="yellow_team/robot_2_tf" />
-    <include file="$(find travesim)/launch/spawn_robot.launch">
-      <arg name="robot_number" value="2" />
-      <arg name="is_yellow" value="true" />
-      <arg name="robot_name" value="yellow_team/robot_2" />
-      <arg name="x" value="-0.5" />
-      <arg name="y" value="-0.3" />
-      <arg name="model" value="$(arg model)" />
-      <arg name="twist_interface" value="$(arg twist_interface)"/>
-      <arg name="controller_config_file" value="$(arg controller_config_file)"/>
-      <arg name="ros_control_config_file" value="$(arg ros_control_config_file)"/>
-    </include>
-  </group>
+  <include file="$(find travesim)/launch/spawn_robot.launch">
+    <arg name="robot_number" value="2" />
+    <arg name="is_yellow" value="true" />
+    <arg name="robot_name" value="yellow_team/robot_2" />
+    <arg name="x" value="-0.5" />
+    <arg name="y" value="-0.3" />
+    <arg name="model" value="$(arg model)" />
+    <arg name="twist_interface" value="$(arg twist_interface)"/>
+    <arg name="controller_config_file" value="$(arg controller_config_file)"/>
+    <arg name="ros_control_config_file" value="$(arg ros_control_config_file)"/>
+    <arg name="namespace" value="yellow_team/robot_2"/>
+  </include>
 
 </launch>

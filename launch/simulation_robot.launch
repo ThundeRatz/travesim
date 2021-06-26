@@ -28,17 +28,16 @@
     <arg name="recording" value="$(arg recording)"/>
   </include>
 
-  <group ns="yellow_team/robot_0">
-    <include file="$(find travesim)/launch/spawn_robot.launch">
-      <arg name="model" value="$(arg model)" />
-      <arg name="x" value="$(arg x)" />
-      <arg name="y" value="$(arg y)" />
-      <arg name="yaw" value="$(arg yaw)" />
-      <arg name="twist_interface" value="$(arg twist_interface)"/>
-      <arg name="controller_config_file" value="$(arg controller_config_file)"/>
-      <arg name="ros_control_config_file" value="$(arg ros_control_config_file)"/>
-    </include>
-  </group>
+  <include file="$(find travesim)/launch/spawn_robot.launch">
+    <arg name="model" value="$(arg model)" />
+    <arg name="x" value="$(arg x)" />
+    <arg name="y" value="$(arg y)" />
+    <arg name="yaw" value="$(arg yaw)" />
+    <arg name="twist_interface" value="$(arg twist_interface)"/>
+    <arg name="controller_config_file" value="$(arg controller_config_file)"/>
+    <arg name="ros_control_config_file" value="$(arg ros_control_config_file)"/>
+    <arg name="namespace" value="yellow_team/robot_0"/>
+  </include>
 
   <group if="$(arg keyboard)">
     <node name="keyboard_controller" pkg="travesim" type="keyboard_node.py"/>
