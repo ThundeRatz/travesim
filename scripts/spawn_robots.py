@@ -10,7 +10,11 @@
 """
 
 import math
+import time
+import pygame
+
 import rospy
+import rospkg
 import roslaunch
 
 PACKAGE_NAME = 'travesim'
@@ -82,9 +86,11 @@ if __name__ == '__main__':
     try:
         rospy.init_node('robots_spawner', anonymous=True)
 
+        # Config roslaunch
         uuid = roslaunch.rlutil.get_or_generate_uuid(None, False)
         roslaunch.configure_logging(uuid)
 
+        # Get launchfiles
         node_name = rospy.get_name()
 
         robots_per_team = rospy.get_param(f"{node_name}/robots_per_team")
@@ -92,9 +98,27 @@ if __name__ == '__main__':
 
         roslaunch_files = get_launchfiles(node_name, robots_per_team, team_color)
 
-        launch = roslaunch.parent.ROSLaunchParent(uuid, roslaunch_files)
-        launch.start()
+        # Config sound
+        rospack = rospkg.RosPack()
+        path = rospack.get_path('travesim')
 
-        launch.spin()
+        pygame.mixer.init()
+
+        # License: The sound effect is permitted for non-commercial use under
+        # license Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+        # http://www.orangefreesounds.com/
+        pop_effect = pygame.mixer.Sound(path + '/sounds/pop.wav')
+
+        pop_effect.set_volume(1.0)
+
+        for file in roslaunch_files:
+            launch = roslaunch.parent.ROSLaunchParent(uuid, [file])
+            launch.start()
+
+            time.sleep(0.3 * robots_per_team)
+            pop_effect.play()
+            time.sleep(pop_effect.get_length())
+
+        rospy.spin()
     except rospy.ROSInterruptException:
         pass
