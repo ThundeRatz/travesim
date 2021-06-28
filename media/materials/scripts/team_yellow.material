@@ -61,3 +61,33 @@ material TeamYellow/Robot2/Hat
     }
   }
 }
+
+material TeamYellow/Robot3/Hat
+{
+  receive_shadows off
+  technique
+  {
+    pass ambient
+    {
+      texture_unit
+      {
+      	texture yellow_3.png
+      }
+    }
+  }
+}
+
+material TeamYellow/Robot4/Hat
+{
+  receive_shadows off
+  technique
+  {
+    pass ambient
+    {
+      texture_unit
+      {
+      	texture yellow_4.png
+      }
+    }
+  }
+}

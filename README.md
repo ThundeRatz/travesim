@@ -16,6 +16,7 @@ Para a versão em PT-BR 🇧🇷 desse documento, [veja aqui](./README.pt-br.md)
 
 - [📷 Screenshots](#-screenshots)
 - [🎈 Intro](#-intro)
+- [🌎 Worlds](#-worlds)
 - [📣 ROS topics](#-ros-topics)
   - [⬅ Input](#-input)
     - [Differential drive control (default)](#differential-drive-control-default)
@@ -39,6 +40,7 @@ Para a versão em PT-BR 🇧🇷 desse documento, [veja aqui](./README.pt-br.md)
   <img height=200px src="./docs/screenshot_robot.png" />
   <img height=200px src="./docs/screenshot_team.png" />
   <img height=200px src="./docs/screenshot_match.png" />
+  <img height=200px src="./docs/screenshot_match_5x5.png" />
 </p>
 
 ## 🎈 Intro
@@ -63,6 +65,22 @@ To run the simulation of a match
 roslaunch travesim simulation_match.launch
 ```
 
+## 🌎 Worlds
+
+TraveSim can handle simulating games with 3 or 5 robots per team. The number of robots per team will be inferred from the chosen simulation world. The worlds currently supported are as follows:
+
+- `vss_field.world` - Base world for 3x3 matches
+- `vss_field_camera.world` - World for 3x3 matches with camera and spotlights
+- `vss_field_5.world` - Base world for 5x5 matches
+
+So, for example, to run the simulation with a single team of 5 robots, run:
+
+```bash
+roslaunch travesim simulation_team.launch world_name:=vss_field_5.world
+```
+
+For more information about roslaunch parameters, see the [🚀 Roslaunch](#-roslaunch) section.
+
 ## 📣 ROS topics
 
 ### ⬅ Input
@@ -81,8 +99,8 @@ Vector3  angular
 
 The ROS topics follow the naming convention:
 
-- **/yellow_team/robot_[0..2]/diff_drive_controller/cmd_vel**
-- **/blue_team/robot_[0..2]/diff_drive_controller/cmd_vel**
+- **/yellow_team/robot_[0..2|0..4]/diff_drive_controller/cmd_vel**
+- **/blue_team/robot_[0..2|0..4]/diff_drive_controller/cmd_vel**
 
 The control of the robot is performed by the [diff_driver_controller](http://wiki.ros.org/diff_drive_controller) from the library [ros_control](http://wiki.ros.org/ros_control). The controller represents the behavior of the embedded system of the robot and will send torque commands to the motors in order to follow the received set point.
 
@@ -94,10 +112,10 @@ The simulation also accepts control directly over **angular velocity** commands 
 
 The commands are read from topics of type [std_msgs/Float64](http://docs.ros.org/noetic/api/std_msgs/html/msg/Float64.html), representing each motor's speed in **rad/s**
 
-- **/yellow_team/robot_[0..2]/left_controller/command**
-- **/yellow_team/robot_[0..2]/right_controller/command**
-- **/blue_team/robot_[0..2]/left_controller/command**
-- **/blue_team/robot_[0..2]/right_controller/command**
+- **/yellow_team/robot_[0..2|0..4]/left_controller/command**
+- **/yellow_team/robot_[0..2|0..4]/right_controller/command**
+- **/blue_team/robot_[0..2|0..4]/left_controller/command**
+- **/blue_team/robot_[0..2|0..4]/right_controller/command**
 
 In order to enable this control interface, one should send the parameter `twist_interface` as false in roslaunch [parameters](#-parameters)
 
@@ -127,8 +145,8 @@ string reference_frame      # set pose/twist relative to the frame of this entit
 
 The republished topics are
 
-- **/vision/yellow_team/robot_[0..2]** - Yellow team robots's topics
-- **/vision/blue_team/robot_[0..2]** - Blue team robots's topics
+- **/vision/yellow_team/robot_[0..2|0..4]** - Yellow team robots's topics
+- **/vision/blue_team/robot_[0..2|0..4]** - Blue team robots's topics
 - **/vision/ball** - Ball's topic
 
 All units are [SI](https://en.wikipedia.org/wiki/International_System_of_Units), distances are measured in meters, angles in radians, linear velocity in m/s and angular velocity in rad/s.
@@ -281,7 +299,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://github.com/FelipeGdM"><img src="https://avatars3.githubusercontent.com/u/1054087?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Felipe Gomes de Melo</b></sub></a><br /><a href="https://github.com/thunderatz/travesim/commits?author=FelipeGdM" title="Documentation">📖</a> <a href="https://github.com/thunderatz/travesim/pulls?q=is%3Apr+reviewed-by%3AFelipeGdM" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/thunderatz/travesim/commits?author=FelipeGdM" title="Code">💻</a> <a href="#translation-FelipeGdM" title="Translation">🌍</a></td>
-    <td align="center"><a href="https://github.com/LucasHaug"><img src="https://avatars3.githubusercontent.com/u/39196309?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lucas Haug</b></sub></a><br /><a href="https://github.com/thunderatz/travesim/pulls?q=is%3Apr+reviewed-by%3ALucasHaug" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://github.com/LucasHaug"><img src="https://avatars3.githubusercontent.com/u/39196309?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lucas Haug</b></sub></a><br /><a href="https://github.com/thunderatz/travesim/pulls?q=is%3Apr+reviewed-by%3ALucasHaug" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/thunderatz/travesim/commits?author=LucasHaug" title="Code">💻</a> <a href="#translation-LucasHaug" title="Translation">🌍</a> <a href="https://github.com/thunderatz/travesim/commits?author=LucasHaug" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/Tocoquinho"><img src="https://avatars2.githubusercontent.com/u/37677881?v=4?s=100" width="100px;" alt=""/><br /><sub><b>tocoquinho</b></sub></a><br /><a href="#ideas-Tocoquinho" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/thunderatz/travesim/commits?author=Tocoquinho" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/Berbardo"><img src="https://avatars0.githubusercontent.com/u/48636340?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Bernardo Coutinho</b></sub></a><br /><a href="https://github.com/thunderatz/travesim/pulls?q=is%3Apr+reviewed-by%3ABerbardo" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/thunderatz/travesim/commits?author=Berbardo" title="Code">💻</a> <a href="https://github.com/thunderatz/travesim/commits?author=Berbardo" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/lucastrschneider"><img src="https://avatars0.githubusercontent.com/u/50970346?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lucas Schneider</b></sub></a><br /><a href="https://github.com/thunderatz/travesim/pulls?q=is%3Apr+reviewed-by%3Alucastrschneider" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/thunderatz/travesim/commits?author=lucastrschneider" title="Code">💻</a> <a href="#translation-lucastrschneider" title="Translation">🌍</a> <a href="https://github.com/thunderatz/travesim/commits?author=lucastrschneider" title="Documentation">📖</a></td>

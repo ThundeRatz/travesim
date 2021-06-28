@@ -3,7 +3,6 @@ https://answers.ros.org/question/41433/multiple-robots-simulation-and-navigation
 http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
 
 <launch>
-
   <arg name="robot_number" default="0" />
   <arg name="is_yellow" default="true" />
   <arg name="robot_name" default="yellow_team/robot_0" />
@@ -17,42 +16,46 @@ http://wiki.ros.org/simulator_gazebo/Tutorials/Gazebo_ROS_API-->
   <arg name="twist_interface" default="true"/>
   <arg name="controller_config_file" default=""/>
   <arg name="ros_control_config_file" default="$(find travesim)/config/ros_control_config.yml"/>
+  <arg name="namespace" default="yellow_team/robot_0"/>
 
-  <param name="robot_description" command="$(find xacro)/xacro $(arg model) robot_number:=$(arg robot_number) is_yellow:=$(arg is_yellow)" />
+  <group ns="$(arg namespace)">
+    <param name="tf_prefix" value="$(arg namespace)_tf" />
 
-  <!-- push robot_description to factory and spawn robot in gazebo -->
-  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" args="-x $(arg x) -y $(arg y) -z $(arg z)
-              -R $(arg row) -P $(arg pitch) -Y $(arg yaw)
-              -urdf -model $(arg robot_name) -param robot_description" respawn="false" output="screen" />
+    <param name="robot_description" command="$(find xacro)/xacro $(arg model) robot_number:=$(arg robot_number) is_yellow:=$(arg is_yellow)" />
 
-  <!-- Load ros control config file -->
-  <rosparam command="load" file="$(arg ros_control_config_file)" />
+    <!-- push robot_description to factory and spawn robot in gazebo -->
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" args="-x $(arg x) -y $(arg y) -z $(arg z)
+                -R $(arg row) -P $(arg pitch) -Y $(arg yaw)
+                -urdf -model $(arg robot_name) -param robot_description" respawn="false" output="screen" />
 
-  <!-- Load configs to control robot motors in diff drive mode -->
-  <group if="$(arg twist_interface)">
-    <group if="$(eval controller_config_file=='')">
-      <rosparam command="load" file="$(find travesim)/config/motor_diff_drive.yml" />
+    <!-- Load ros control config file -->
+    <rosparam command="load" file="$(arg ros_control_config_file)" />
+
+    <!-- Load configs to control robot motors in diff drive mode -->
+    <group if="$(arg twist_interface)">
+      <group if="$(eval controller_config_file=='')">
+        <rosparam command="load" file="$(find travesim)/config/motor_diff_drive.yml" />
+      </group>
+
+      <group unless="$(eval controller_config_file=='')">
+        <rosparam command="load" file="$(arg controller_config_file)" />
+      </group>
+
+      <node name="controller_manager" pkg="controller_manager" type="spawner" args="diff_drive_controller"/>
     </group>
 
-    <group unless="$(eval controller_config_file=='')">
-      <rosparam command="load" file="$(arg controller_config_file)" />
-    </group>
+    <!-- Load configs to control robot motors in direct drive mode -->
+    <group unless="$(arg twist_interface)">
+      <group if="$(eval controller_config_file=='')">
+        <rosparam command="load" file="$(find travesim)/config/motor_direct_drive.yml" />
+      </group>
 
-    <node name="controller_manager" pkg="controller_manager" type="spawner" args="diff_drive_controller"/>
+      <group unless="$(eval controller_config_file=='')">
+        <rosparam command="load" file="$(arg controller_config_file)" />
+      </group>
+
+      <node name="controller_manager" pkg="controller_manager" type="spawner" args="left_controller
+        right_controller"/>
+    </group>
   </group>
-
-  <!-- Load configs to control robot motors in direct drive mode -->
-  <group unless="$(arg twist_interface)">
-    <group if="$(eval controller_config_file=='')">
-      <rosparam command="load" file="$(find travesim)/config/motor_direct_drive.yml" />
-    </group>
-
-    <group unless="$(eval controller_config_file=='')">
-      <rosparam command="load" file="$(arg controller_config_file)" />
-    </group>
-
-    <node name="controller_manager" pkg="controller_manager" type="spawner" args="left_controller
-      right_controller"/>
-  </group>
-
 </launch>
