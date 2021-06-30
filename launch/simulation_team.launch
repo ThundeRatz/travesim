@@ -9,6 +9,7 @@
   <arg name="world_name" default="vss_field.world"/>
   <arg name="recording" default="false"/>
   <arg name="twist_interface" default="true"/>
+  <arg name="sound" default="true"/>
   <arg name="controller_config_file" default=""/>
   <arg name="ros_control_config_file" default="$(find travesim)/config/ros_control_config.yml"/>
 
@@ -43,6 +44,7 @@
     <param name="team_color" value="yellow" />
     <param name="model" value="$(arg model)" />
     <param name="twist_interface" value="$(arg twist_interface)"/>
+    <param name="sound" value="$(arg sound)"/>
     <param name="controller_config_file" value="$(arg controller_config_file)"/>
     <param name="ros_control_config_file" value="$(arg ros_control_config_file)"/>
   </node>
