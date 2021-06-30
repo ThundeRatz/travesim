@@ -101,7 +101,7 @@ if __name__ == '__main__':
         # Config sound
         should_play_sound = rospy.get_param(f"{node_name}/sound")
 
-        if should_play_sound == "true":
+        if should_play_sound:
             rospack = rospkg.RosPack()
             path = rospack.get_path('travesim')
 
@@ -118,7 +118,7 @@ if __name__ == '__main__':
             launch = roslaunch.parent.ROSLaunchParent(uuid, [file])
             launch.start()
 
-            if should_play_sound == "true":
+            if should_play_sound:
                 time.sleep(0.3 * robots_per_team)
                 pop_effect.play()
                 time.sleep(pop_effect.get_length())
