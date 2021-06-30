@@ -44,7 +44,7 @@
     <param name="team_color" value="yellow" />
     <param name="model" value="$(arg model)" />
     <param name="twist_interface" value="$(arg twist_interface)"/>
-    <param name="sound" value="$(arg sound)"/>
+    <param name="sound" value="$(eval arg('sound'))" type="bool"/>
     <param name="controller_config_file" value="$(arg controller_config_file)"/>
     <param name="ros_control_config_file" value="$(arg ros_control_config_file)"/>
   </node>
