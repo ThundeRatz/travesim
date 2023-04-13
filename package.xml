@@ -1,4 +1,4 @@
-<package format="2">
+<package format="3">
   <name>travesim</name>
   <version>2.0.0</version>
   <description>
@@ -10,29 +10,20 @@ for vss_robot robot</p>
   <maintainer email="felipe.gomes@thunderatz.org" />
   <license>MIT</license>
 
-  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>colcon</buildtool_depend>
 
-  <depend>roslaunch</depend>
-  <depend>robot_state_publisher</depend>
-  <depend>velocity_controllers</depend>
-  <depend>effort_controllers</depend>
-  <depend>rviz</depend>
-  <depend>joint_state_publisher</depend>
-  <depend>gazebo</depend>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>rosidl_default_generators</buildtool_depend>
 
-  <build_depend>geometry_msgs</build_depend>
-  <build_depend>rospy</build_depend>
+  <exec_depend>gazebo_ros_pkgs</exec_depend>
 
-  <build_export_depend>geometry_msgs</build_export_depend>
-  <build_export_depend>rospy</build_export_depend>
-
-  <exec_depend>image_view</exec_depend>
-  <exec_depend>rosbag</exec_depend>
-  <exec_depend>geometry_msgs</exec_depend>
-  <exec_depend>rospy</exec_depend>
-  <exec_depend>python3-pygame</exec_depend>
+  <depend>ament_index_cpp</depend>
+  <depend>geometry_msgs</depend>
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+  <depend>gz_msgs</depend>
 
   <export>
-    <architecture_independent />
+    <build_type>ament_cmake</build_type>
   </export>
 </package>
