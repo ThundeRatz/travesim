@@ -1,18 +1,11 @@
-import os
-
 from launch.actions import DeclareLaunchArgument, OpaqueFunction
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription, ExecuteProcess
+from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import ThisLaunchFileDir
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
-from launch.substitutions import PathJoinSubstitution, EnvironmentVariable
-from launch.actions import SetEnvironmentVariable
+from launch.substitutions import Command, PathJoinSubstitution
 from launch.substitutions import LaunchConfiguration
-
-
-from ament_index_python.packages import get_package_share_directory
 
 
 def launch_gz(context, *args, **kwargs):
@@ -42,21 +35,6 @@ def launch_gz(context, *args, **kwargs):
 
 
 def generate_launch_description():
-    pkg_travesim = get_package_share_directory("travesim")
-
-    print(
-        " ".join(
-            [
-                "-string",
-                "$(",
-                "tmp_file=$(mktemp);",
-                f"xacro {os.path.join(pkg_travesim, 'urdf', 'generic_vss_robot.xacro')} > $tmp_file;",
-                "gz sdf -p $tmp_file;",
-                "rm $tmp_file",
-                ")",
-            ]
-        )
-    )
     return LaunchDescription(
         [
             DeclareLaunchArgument(
@@ -72,18 +50,24 @@ def generate_launch_description():
             Node(
                 package="ros_gz_sim",
                 executable="create",
-                arguments=[
-                    "-string",
-                    "$(",
-                    "tmp_file=$(mktemp);",
-                    f"xacro {os.path.join(pkg_travesim, 'urdf', 'generic_vss_robot.xacro')} > $tmp_file;",
-                    "gz sdf -p $tmp_file;",
-                    "rm $tmp_file",
-                    ")",
+                parameters=[
+                    {
+                        "robot_description": Command(
+                            [
+                                "xacro ",
+                                PathJoinSubstitution(
+                                    [
+                                        FindPackageShare("travesim"),
+                                        "urdf",
+                                        "generic_vss_robot.xacro",
+                                    ]
+                                ),
+                            ]
+                        ),
+                    }
                 ],
+                arguments=["-param", "robot_description", "-x", "0.4"],
             ),
-            # gazebo_resource,
-            # gazebo_model,
             OpaqueFunction(function=launch_gz),
         ]
     )
