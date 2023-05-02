@@ -9,13 +9,13 @@
 <sdf version="1.5">
   <world name="default">
     <!-- A global light source -->
-    <include>
-      <uri>model://sun</uri>
-    </include>
+    <!-- <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Sun</uri>
+    </include> -->
 
     <!-- A ground plane -->
     <include>
-      <uri>model://ground_plane</uri>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Ground Plane</uri>
     </include>
 
     <!-- VSS Field -->
