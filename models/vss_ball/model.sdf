@@ -35,10 +35,9 @@ Proprieties according to IEEE 3x3 rules -->
           </sphere>
         </geometry>
         <material>
-          <script>
-            <name>Gazebo/Orange</name>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-          </script>
+          <ambient>1 .4 0 1</ambient>
+          <diffuse>1 .4 0 1</diffuse>
+          <specular>.1 .1 .1 1</specular>
         </material>
         <transparency>0</transparency>
         <cast_shadows>0</cast_shadows>
