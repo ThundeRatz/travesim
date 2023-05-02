@@ -1,6 +1,7 @@
-<?xml version="1.0" ?>
+<?xml version="1.0"?>
 
-<!-- Refs: http://gazebosim.org/tutorials?tut=camera_save http://gazebosim.org/tutorials?tut=ros_gzplugins#Camera
+<!-- Refs: http://gazebosim.org/tutorials?tut=camera_save
+http://gazebosim.org/tutorials?tut=ros_gzplugins#Camera
   http://wiki.ros.org/image_view -->
 
 <sdf version="1.5">
@@ -35,21 +36,11 @@
           </clip>
         </camera>
         <always_on>1</always_on>
-        <update_rate>30</update_rate>
-
-        <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-          <alwaysOn>true</alwaysOn>
-          <updateRate>30.0</updateRate>
-          <cameraName>field_camera</cameraName>
-          <imageTopicName>/camera/image_raw</imageTopicName>
-          <cameraInfoTopicName>/camera/camera_info</cameraInfoTopicName>
-          <frameName>camera_link</frameName>
-          <hackBaseline>0.07</hackBaseline>
-          <distortionK1>0.0</distortionK1>
-          <distortionK2>0.0</distortionK2>
-          <distortionK3>0.0</distortionK3>
-          <distortionT1>0.0</distortionT1>
-          <distortionT2>0.0</distortionT2>
+        <update_rate>60</update_rate>
+        <plugin
+          filename="libignition-gazebo-sensors-system.so"
+          name="ignition::gazebo::systems::Sensors">
+          <render_engine>ogre2</render_engine>
         </plugin>
       </sensor>
     </link>

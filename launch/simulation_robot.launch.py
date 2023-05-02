@@ -66,7 +66,7 @@ def generate_launch_description():
                         ),
                     }
                 ],
-                arguments=["-param", "robot_description", "-x", "0.4"],
+                arguments=["-param", "robot_description", "-x", "0.4", "-z", "0.012"],
             ),
             OpaqueFunction(function=launch_gz),
         ]
