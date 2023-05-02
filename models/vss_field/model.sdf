@@ -71,10 +71,9 @@ https://bitbucket.org/osrf/gazebo/src/gazebo11/models/ground_plane/model.sdf -->
           </mesh>
         </geometry>
         <material>
-          <script>
-            <name>Gazebo/Black</name>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-          </script>
+          <ambient>.05 .05 .05 1</ambient>
+          <diffuse>.05 .05 .05 1</diffuse>
+          <specular>.1 .1 .1 1</specular>
         </material>
       </visual>
 
@@ -87,10 +86,9 @@ https://bitbucket.org/osrf/gazebo/src/gazebo11/models/ground_plane/model.sdf -->
           </mesh>
         </geometry>
         <material>
-          <script>
-            <name>Gazebo/White</name>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-          </script>
+          <ambient>1 1 1 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+          <specular>.1 .1 .1 1</specular>
         </material>
       </visual>
 
@@ -103,10 +101,9 @@ https://bitbucket.org/osrf/gazebo/src/gazebo11/models/ground_plane/model.sdf -->
           </mesh>
         </geometry>
         <material>
-          <script>
-            <name>Gazebo/White</name>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-          </script>
+          <ambient>1 1 1 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+          <specular>.1 .1 .1 1</specular>
         </material>
       </visual>
 

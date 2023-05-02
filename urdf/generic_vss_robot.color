@@ -1,65 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <!-- Set team configuration -->
-  <xacro:if value="${is_yellow}">
+  <material name="base_link_color">
+    <color rgba=".05 .05 .05 1.0" />
+  </material>
 
-    <gazebo reference="base_link">
-      <material>Gazebo/Black</material>
-    </gazebo>
+  <material name="chapeu_link_color">
+    <color rgba=".05 .05 .05 1.0" />
+  </material>
 
-    <gazebo reference="roda_dir_link">
-      <material>Gazebo/Green</material>
-    </gazebo>
+  <material name="parede_color">
+    <color rgba=".2 .2 .8 1.0" />
+  </material>
 
-    <gazebo reference="roda_esq_link">
-      <material>Gazebo/Green</material>
-    </gazebo>
+  <material name="roda_color">
+    <color rgba="1.0 0.5 0.1 1.0" />
+  </material>
 
-    <gazebo reference="parede_esq_link">
-      <material>TeamYellow/Sides</material>
-    </gazebo>
+  <material name="team_blob_color">
+    <color rgba=".9 .9 0.0 1.0" />
+  </material>
 
-    <gazebo reference="parede_dir_link">
-      <material>TeamYellow/Sides</material>
-    </gazebo>
+  <material name="robot_blob_0_color">
+    <color rgba=".9 0.0 0.0 1.0" />
+  </material>
 
-    <!-- Set robots colors -->
-    <gazebo reference="chapeu_link">
-      <!-- /Set robots colors -->
-      <material>TeamYellow/Robot${robot_number}/Hat</material>
-    </gazebo>
-  </xacro:if>  <!-- /Set team configuration -->
-
-  <!-- Set team configuration -->
-  <xacro:unless value="${is_yellow}">
-
-    <gazebo reference="base_link">
-      <material>Gazebo/Black</material>
-    </gazebo>
-
-    <gazebo reference="roda_dir_link">
-      <material>Gazebo/Red</material>
-    </gazebo>
-
-    <gazebo reference="roda_esq_link">
-      <material>Gazebo/Red</material>
-    </gazebo>
-
-    <gazebo reference="parede_esq_link">
-      <material>TeamBlue/Sides</material>
-    </gazebo>
-
-    <gazebo reference="parede_dir_link">
-      <material>TeamBlue/Sides</material>
-    </gazebo>
-
-    <!-- Set robots colors -->
-    <gazebo reference="chapeu_link">
-      <!-- /Set robots colors -->
-      <material>TeamBlue/Robot${robot_number}/Hat</material>
-    </gazebo>
-
-  </xacro:unless>  <!-- /Set team configuration -->
-
+  <material name="robot_blob_1_color">
+    <color rgba=".0 0.9 0.0 1.0" />
+  </material>
 </robot>
