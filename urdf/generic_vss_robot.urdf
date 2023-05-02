@@ -14,9 +14,7 @@
       <geometry>
         <mesh filename="package://travesim/meshes/base_link.stl" />
       </geometry>
-      <material name="">
-        <color rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
-      </material>
+      <material name="base_link_color"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
@@ -32,17 +30,15 @@
       <inertia ixx="6.2903E-06" ixy="2.3039E-22" ixz="-2.9084E-23" iyy="5.6698E-06" iyz="-3.7247E-24" izz="1.1952E-05" />
     </inertial>
     <visual>
-      <origin xyz="0 0 61e-3" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
         <box size="80e-3 80e-3 2e-3"/>
       </geometry>
-      <material name="">
-        <color rgba="1 1 1 1" />
-      </material>
+      <material name="chapeu_link_color"/>
     </visual>
   </link>
   <joint name="chapeu_joint" type="fixed">
-    <origin xyz="0 0 0" rpy="0 0 0" />
+    <origin xyz="0 0 61e-3" rpy="0 0 0" />
     <parent link="base_link" />
     <child link="chapeu_link" />
     <axis xyz="0 0 0" />
@@ -58,9 +54,7 @@
       <geometry>
         <box size="75e-3 2e-3 60e-3"/>
       </geometry>
-      <material name="">
-        <color rgba="1 1 1 1" />
-      </material>
+      <material name="parede_color"/>
     </visual>
   </link>
   <joint name="parede_dir_joint" type="fixed">
@@ -80,9 +74,7 @@
       <geometry>
         <box size="75e-3 2e-3 60e-3"/>
       </geometry>
-      <material name="">
-        <color rgba="1 1 1 1" />
-      </material>
+      <material name="parede_color"/>
     </visual>
   </link>
   <joint name="parede_esq_joint" type="fixed">
@@ -102,9 +94,7 @@
       <geometry>
         <cylinder radius="25e-3" length="8e-3"/>
       </geometry>
-      <material name="">
-        <color rgba="0.79608 0.82353 0.93725 1" />
-      </material>
+      <material name="roda_color"/>
     </visual>
     <collision>
       <origin xyz="0 4e-3 0" rpy="1.5707963 0 0" />
@@ -132,9 +122,7 @@
       <geometry>
         <cylinder radius="25e-3" length="8e-3"/>
       </geometry>
-      <material name="">
-        <color rgba="0.79608 0.82353 0.93725 1" />
-      </material>
+      <material name="roda_color"/>
     </visual>
     <collision>
       <origin xyz="0 -4e-3 0" rpy="1.5707963 0 0" />
@@ -150,5 +138,68 @@
     <axis xyz="0 1 0" />
     <limit effort="73e-3" velocity="68" />
     <dynamics damping="0.0023" friction="0.01" />
+  </joint>
+
+  <link name="team_blob_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.01" />
+      <inertia ixx="6E-06" ixy="0" ixz="0" iyy="6E-06" iyz="0" izz="1E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="30e-3 65e-3 2e-3"/>
+      </geometry>
+      <material name="team_blob_color"/>
+    </visual>
+  </link>
+  <joint name="team_blob_joint" type="fixed">
+    <origin xyz="17.5e-3 0 2e-3" rpy="0 0 0" />
+    <parent link="chapeu_link" />
+    <child link="team_blob_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+  <link name="robot_blob_0_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.01" />
+      <inertia ixx="6E-06" ixy="0" ixz="0" iyy="6E-06" iyz="0" izz="1E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="30e-3 30e-3 2e-3"/>
+      </geometry>
+      <material name="robot_blob_0_color"/>
+    </visual>
+  </link>
+  <joint name="robot_blob_0_joint" type="fixed">
+    <origin xyz="-17.5e-3 17.5e-3 2e-3" rpy="0 0 0" />
+    <parent link="chapeu_link" />
+    <child link="robot_blob_0_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+  <link name="robot_blob_1_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.01" />
+      <inertia ixx="6E-06" ixy="0" ixz="0" iyy="6E-06" iyz="0" izz="1E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="30e-3 30e-3 2e-3"/>
+      </geometry>
+      <material name="robot_blob_1_color"/>
+    </visual>
+  </link>
+  <joint name="robot_blob_1_joint" type="fixed">
+    <origin xyz="-17.5e-3 -17.5e-3 2e-3" rpy="0 0 0" />
+    <parent link="chapeu_link" />
+    <child link="robot_blob_1_link" />
+    <axis xyz="0 0 0" />
   </joint>
 </robot>
