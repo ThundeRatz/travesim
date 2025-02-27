@@ -1,5 +1,5 @@
 {
-  "ros.distro": "noetic",
+  "ros.distro": "jazzy",
   "doxdocgen.generic.dateFormat": "MM/YYYY",
   "doxdocgen.file.copyrightTag": [
     "@copyright MIT License - Copyright (c) 2021 ThundeRatz"
@@ -17,10 +17,10 @@
   "python.linting.pycodestyleEnabled": true,
   "python.linting.enabled": true,
   "python.analysis.extraPaths": [
-    "/opt/ros/noetic/lib/python3/dist-packages"
+    "/opt/ros/jazzy/lib/python3/dist-packages"
   ],
   "python.autoComplete.extraPaths": [
-    "/opt/ros/noetic/lib/python3/dist-packages"
+    "/opt/ros/jazzy/lib/python3/dist-packages"
   ],
   "editor.formatOnSave": true,
   "markdown.extension.toc.levels": "1..6"
