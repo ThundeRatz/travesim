@@ -1,3 +1,5 @@
 #!/bin/sh
 
-export IGN_GAZEBO_RESOURCE_PATH="${IGN_GAZEBO_RESOURCE_PATH}:@CMAKE_INSTALL_PREFIX@/share:@CMAKE_INSTALL_PREFIX@/share/@PROJECT_NAME@/models:@CMAKE_INSTALL_PREFIX@/share/@PROJECT_NAME@/worlds:@CMAKE_INSTALL_PREFIX@/share/@PROJECT_NAME@/media:/usr/share/gazebo-11"
+# Ref: https://gazebosim.org/api/sim/8/resources.html
+
+export GZ_SIM_RESOURCE_PATH="${GZ_SIM_RESOURCE_PATH}:@CMAKE_INSTALL_PREFIX@/share:@CMAKE_INSTALL_PREFIX@/share/@PROJECT_NAME@/models:@CMAKE_INSTALL_PREFIX@/share/@PROJECT_NAME@/worlds:@CMAKE_INSTALL_PREFIX@/share/@PROJECT_NAME@/media:/usr/share/gazebo-13"
