@@ -7,7 +7,7 @@
 <!-- Isometric view version -->
 
 <sdf version="1.5">
-  <world name="default">
+  <world name="vss_field">
     <!-- A global light source -->
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Sun</uri>

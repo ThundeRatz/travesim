@@ -33,15 +33,37 @@ def launch_gz(context, *args, **kwargs):
                 [FindPackageShare("ros_gz_sim"), "launch", "gz_sim.launch.py"]
             )
         ),
-        launch_arguments={
-            "gz_args": args
-        }.items(),
+        launch_arguments={"gz_args": args}.items(),
     )
 
     return [gz_sim]
 
 
 def generate_launch_description():
+
+    robot_description = Command(
+        [
+            "xacro ",
+            PathJoinSubstitution(
+                [
+                    FindPackageShare("travesim"),
+                    "urdf",
+                    "generic_vss_robot.xacro",
+                ]
+            ),
+        ]
+    )
+
+    robot_controllers = "/home/felipe/Documents/Github/vss_ws/src/travesim/config/diff_drive_controller.yaml"
+
+    # PathJoinSubstitution(
+    #     [
+    #         FindPackageShare('travesim'),
+    #         'config',
+    #         'diff_drive_controller.yaml',
+    #     ]
+    # )
+
     return LaunchDescription(
         [
             DeclareLaunchArgument(
@@ -62,38 +84,33 @@ def generate_launch_description():
             Node(
                 package="ros_gz_sim",
                 executable="create",
-                parameters=[
-                    {
-                        "robot_description": Command(
-                            [
-                                "xacro ",
-                                PathJoinSubstitution(
-                                    [
-                                        FindPackageShare("travesim"),
-                                        "urdf",
-                                        "generic_vss_robot.xacro",
-                                    ]
-                                ),
-                            ]
-                        ),
-                    }
-                ],
-                arguments=["-param", "robot_description", "-x", "0.4", "-z", "0.012"],
+                arguments=["-topic", "robot_description", "-x", "0.4", "-z", "0.012"],
+            ),
+            Node(
+                package="robot_state_publisher",
+                executable="robot_state_publisher",
+                output="screen",
+                parameters=[{"robot_description": robot_description}],
             ),
             Node(
                 package="ros_gz_bridge",
                 executable="parameter_bridge",
-                arguments=[
-                    "/yellow_team/robot_0/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist",
-                    "/yellow_team/robot_0/odometry@nav_msgs/msg/Odometry@gz.msgs.Odometry",
-                ],
-                parameters=[
-                    {
-                        "qos_overrides./model/vehicle_blue.subscriber.reliability": "reliable",
-                        "qos_overrides./model/vehicle_green.subscriber.reliability": "reliable",
-                    }
-                ],
+                arguments=["/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock"],
                 output="screen",
+            ),
+            Node(
+                package="controller_manager",
+                executable="spawner",
+                arguments=["joint_state_broadcaster"],
+            ),
+            Node(
+                package="controller_manager",
+                executable="spawner",
+                arguments=[
+                    "diff_drive_base_controller",
+                    "--param-file",
+                    robot_controllers,
+                ],
             ),
             OpaqueFunction(function=launch_gz),
         ]
