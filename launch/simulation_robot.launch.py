@@ -11,6 +11,7 @@ from launch.substitutions import LaunchConfiguration
 def launch_gz(context, *args, **kwargs):
     verbose = LaunchConfiguration("verbose").perform(context)
     gz_args_extra = LaunchConfiguration("gz_args_extra").perform(context)
+    world = LaunchConfiguration("world").perform(context)
 
     gz_args = []
 
@@ -20,7 +21,11 @@ def launch_gz(context, *args, **kwargs):
     if gz_args_extra:
         gz_args.append(gz_args_extra)
 
-    print(" ".join(gz_args))
+    gz_args.append("")
+
+    args = f"-r {world} " + " ".join(gz_args)
+
+    print(args)
 
     gz_sim = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -28,7 +33,9 @@ def launch_gz(context, *args, **kwargs):
                 [FindPackageShare("ros_gz_sim"), "launch", "gz_sim.launch.py"]
             )
         ),
-        launch_arguments={"gz_args": " ".join(gz_args)}.items(),
+        launch_arguments={
+            "gz_args": args
+        }.items(),
     )
 
     return [gz_sim]
@@ -46,6 +53,11 @@ def generate_launch_description():
                 "gz_args_extra",
                 default_value="",
                 description="Enable verbose mode in Ignition Gazebo",
+            ),
+            DeclareLaunchArgument(
+                "world",
+                default_value="vss_field.world",
+                description="Gazebo Sim GUI config file",
             ),
             Node(
                 package="ros_gz_sim",
