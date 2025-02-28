@@ -68,6 +68,21 @@ def generate_launch_description():
                 ],
                 arguments=["-param", "robot_description", "-x", "0.4", "-z", "0.012"],
             ),
+            Node(
+                package="ros_gz_bridge",
+                executable="parameter_bridge",
+                arguments=[
+                    "/yellow_team/robot_0/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist",
+                    "/yellow_team/robot_0/odometry@nav_msgs/msg/Odometry@gz.msgs.Odometry",
+                ],
+                parameters=[
+                    {
+                        "qos_overrides./model/vehicle_blue.subscriber.reliability": "reliable",
+                        "qos_overrides./model/vehicle_green.subscriber.reliability": "reliable",
+                    }
+                ],
+                output="screen",
+            ),
             OpaqueFunction(function=launch_gz),
         ]
     )
