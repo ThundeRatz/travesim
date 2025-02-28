@@ -8,16 +8,16 @@
 
   <!-- Corpo -->
   <gazebo reference="base_link">
-    <mu1 value="0.1"/>
-    <mu2 value="0.1"/>
+    <mu1 value="0.1" />
+    <mu2 value="0.1" />
     <kp value="1000.0" />
     <kd value="10.0" />
   </gazebo>
 
   <!-- Chapeu -->
   <gazebo reference="chapeu_link">
-    <mu1 value="0.01"/>
-    <mu2 value="0.01"/>
+    <mu1 value="0.01" />
+    <mu2 value="0.01" />
     <kp value="1000.0" />
     <kd value="10.0" />
   </gazebo>
@@ -25,25 +25,34 @@
   <!-- Rodas -->
   <xacro:macro name="roda" params="side">
     <gazebo reference="roda_${side}_link">
-      <mu1 value="2.0"/>
-      <mu2 value="2.0"/>
+      <mu1 value="2.0" />
+      <mu2 value="2.0" />
       <kp value="1e12" />
       <kd value="1.0" />
     </gazebo>
   </xacro:macro>
 
-  <xacro:roda side="esq"/>
-  <xacro:roda side="dir"/>
+  <xacro:roda side="esq" />
+  <xacro:roda side="dir" />
+
+  <xacro:if value="${is_yellow}">
+    <xacro:property name="namespace" value="/yellow_team/robot_${robot_number}" />
+  </xacro:if>
+
+  <xacro:unless value="${is_yellow}">
+    <xacro:property name="namespace" value="/blue_team/robot_${robot_number}" />
+  </xacro:unless>
 
   <!-- Load gazebo plugin to control the robot -->
   <gazebo>
-    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <xacro:if value="${is_yellow}">
-        <robotNamespace>/yellow_team/robot_$(arg robot_number)</robotNamespace>
-      </xacro:if>
-      <xacro:unless value="${is_yellow}">
-        <robotNamespace>/blue_team/robot_$(arg robot_number)</robotNamespace>
-      </xacro:unless>
+    <plugin
+      filename="gz-sim-diff-drive-system"
+      name="gz::sim::systems::DiffDrive">
+      <left_joint>roda_esq_joint</left_joint>
+      <right_joint>roda_dir_joint</right_joint>
+      <odom_publish_frequency>1</odom_publish_frequency>
+      <topic>${namespace}/cmd_vel</topic>
+      <odom_topic>${namespace}/odometry</odom_topic>
     </plugin>
   </gazebo>
 </robot>

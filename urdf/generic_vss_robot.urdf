@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com)
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by
+Stephen Brawner (brawner@gmail.com)
      Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot name="generic_vss_robot">
@@ -7,14 +8,15 @@
     <inertial>
       <origin xyz="0 -6.93889390390723E-18 0.0300217633588078" rpy="0 0 0" />
       <mass value="0.113374359717356" />
-      <inertia ixx="7.53748708949032E-05" ixy="1.00192251695485E-21" ixz="-2.05369079266837E-21" iyy="7.94977991899896E-05" iyz="4.67673387095597E-21" izz="8.66719183047349E-05" />
+      <inertia ixx="7.53748708949032E-05" ixy="1.00192251695485E-21" ixz="-2.05369079266837E-21"
+        iyy="7.94977991899896E-05" iyz="4.67673387095597E-21" izz="8.66719183047349E-05" />
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
         <mesh filename="package://travesim/meshes/base_link.stl" />
       </geometry>
-      <material name="base_link_color"/>
+      <material name="base_link_color" />
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
@@ -27,14 +29,15 @@
     <inertial>
       <origin xyz="0 -1.3878E-17 0.061" rpy="0 0 0" />
       <mass value="0.012087" />
-      <inertia ixx="6.2903E-06" ixy="2.3039E-22" ixz="-2.9084E-23" iyy="5.6698E-06" iyz="-3.7247E-24" izz="1.1952E-05" />
+      <inertia ixx="6.2903E-06" ixy="2.3039E-22" ixz="-2.9084E-23" iyy="5.6698E-06"
+        iyz="-3.7247E-24" izz="1.1952E-05" />
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <box size="80e-3 80e-3 2e-3"/>
+        <box size="80e-3 80e-3 2e-3" />
       </geometry>
-      <material name="chapeu_link_color"/>
+      <material name="chapeu_link_color" />
     </visual>
   </link>
   <joint name="chapeu_joint" type="fixed">
@@ -52,9 +55,9 @@
     <visual>
       <origin xyz="0 -38.5e-3 30e-3" rpy="0 0 0" />
       <geometry>
-        <box size="75e-3 2e-3 60e-3"/>
+        <box size="75e-3 2e-3 60e-3" />
       </geometry>
-      <material name="parede_color"/>
+      <material name="parede_color" />
     </visual>
   </link>
   <joint name="parede_dir_joint" type="fixed">
@@ -67,14 +70,15 @@
     <inertial>
       <origin xyz="0 0.0385 0.03" rpy="0 0 0" />
       <mass value="0.00918" />
-      <inertia ixx="2.7571E-06" ixy="-8.7658E-24" ixz="-2.1599E-22" iyy="7.0571E-06" iyz="3.112E-24" izz="4.3062E-06" />
+      <inertia ixx="2.7571E-06" ixy="-8.7658E-24" ixz="-2.1599E-22" iyy="7.0571E-06" iyz="3.112E-24"
+        izz="4.3062E-06" />
     </inertial>
     <visual>
       <origin xyz="0 38.5e-3 30e-3" rpy="0 0 0" />
       <geometry>
-        <box size="75e-3 2e-3 60e-3"/>
+        <box size="75e-3 2e-3 60e-3" />
       </geometry>
-      <material name="parede_color"/>
+      <material name="parede_color" />
     </visual>
   </link>
   <joint name="parede_esq_joint" type="fixed">
@@ -87,19 +91,20 @@
     <inertial>
       <origin xyz="0 0.004 3.4694E-18" rpy="0 0 0" />
       <mass value="0.018064" />
-      <inertia ixx="2.9189E-06" ixy="-3.4908E-39" ixz="2.1559E-38" iyy="5.645E-06" iyz="4.9934E-39" izz="2.9189E-06" />
+      <inertia ixx="2.9189E-06" ixy="-3.4908E-39" ixz="2.1559E-38" iyy="5.645E-06" iyz="4.9934E-39"
+        izz="2.9189E-06" />
     </inertial>
     <visual>
       <origin xyz="0 4e-3 0" rpy="1.5707963 0 0" />
       <geometry>
-        <cylinder radius="25e-3" length="8e-3"/>
+        <cylinder radius="25e-3" length="8e-3" />
       </geometry>
-      <material name="roda_color"/>
+      <material name="roda_color" />
     </visual>
     <collision>
       <origin xyz="0 4e-3 0" rpy="1.5707963 0 0" />
       <geometry>
-        <cylinder radius="25e-3" length="8e-3"/>
+        <cylinder radius="25e-3" length="8e-3" />
       </geometry>
     </collision>
   </link>
@@ -115,19 +120,20 @@
     <inertial>
       <origin xyz="0 -0.004 0" rpy="0 0 0" />
       <mass value="0.018064" />
-      <inertia ixx="2.9189E-06" ixy="-3.4908E-39" ixz="2.1559E-38" iyy="5.645E-06" iyz="-1.0274E-38" izz="2.9189E-06" />
+      <inertia ixx="2.9189E-06" ixy="-3.4908E-39" ixz="2.1559E-38" iyy="5.645E-06" iyz="-1.0274E-38"
+        izz="2.9189E-06" />
     </inertial>
     <visual>
       <origin xyz="0 -4e-3 0" rpy="1.5707963 0 0" />
       <geometry>
-        <cylinder radius="25e-3" length="8e-3"/>
+        <cylinder radius="25e-3" length="8e-3" />
       </geometry>
-      <material name="roda_color"/>
+      <material name="roda_color" />
     </visual>
     <collision>
       <origin xyz="0 -4e-3 0" rpy="1.5707963 0 0" />
       <geometry>
-        <cylinder radius="25e-3" length="8e-3"/>
+        <cylinder radius="25e-3" length="8e-3" />
       </geometry>
     </collision>
   </link>
@@ -149,9 +155,9 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <box size="30e-3 65e-3 2e-3"/>
+        <box size="30e-3 65e-3 2e-3" />
       </geometry>
-      <material name="team_blob_color"/>
+      <material name="team_blob_color" />
     </visual>
   </link>
   <joint name="team_blob_joint" type="fixed">
@@ -170,9 +176,9 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <box size="30e-3 30e-3 2e-3"/>
+        <box size="30e-3 30e-3 2e-3" />
       </geometry>
-      <material name="robot_blob_0_color"/>
+      <material name="robot_blob_0_color" />
     </visual>
   </link>
   <joint name="robot_blob_0_joint" type="fixed">
@@ -191,9 +197,9 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <box size="30e-3 30e-3 2e-3"/>
+        <box size="30e-3 30e-3 2e-3" />
       </geometry>
-      <material name="robot_blob_1_color"/>
+      <material name="robot_blob_1_color" />
     </visual>
   </link>
   <joint name="robot_blob_1_joint" type="fixed">
