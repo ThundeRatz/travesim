@@ -1,3 +1,7 @@
+🚨 **This project has been archived! Check its newer version [here](https://github.com/futebol-mini/travesim)** 🚨
+
+---
+
 <h1 align="center">🥅 TraveSim</h1>
 <p align="center">IEEE Very Small Size Soccer simulation project with ROS and Gazebo</p>
 

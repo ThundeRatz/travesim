@@ -1,3 +1,7 @@
+🚨 **Esse projeto foi arquivado! Confira a nova versão [aqui](https://github.com/futebol-mini/travesim)** 🚨
+
+---
+
 <h1 align="center">🥅 TraveSim</h1>
 <p align="center">Projeto de simulação de um time IEEE VSS em um campo oficial em ROS utilizando Gazebo</p>
 
@@ -40,7 +44,6 @@
   <img height=200px src="./docs/screenshot_match.png" />
   <img height=200px src="./docs/screenshot_match_5x5.png" />
 </p>
-
 
 ## 🎈 Introdução
 
